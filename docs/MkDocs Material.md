@@ -228,7 +228,14 @@ extra_css:
 
 
 ### 8. 发布页面
-
+  在bash终端输入以下
+  注意在push前先调整vpn
+```shell
+git add .
+git commit -m "message"
+git push
+mkdocs gh-deploy
+```
 
 
 
