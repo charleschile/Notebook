@@ -1,0 +1,2142 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="乐驰的个人笔记">
+      
+      
+        <meta name="author" content="乐驰">
+      
+      
+        <link rel="canonical" href="https://charleschile.github.io/Notebook/Project/ant/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Frontend - Charles Le's Notebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="pink">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#frontend" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Charles Le&#39;s Notebook" class="md-header__button md-logo" aria-label="Charles Le's Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Charles Le's Notebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Frontend
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="pink"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://charleschile.github.io/Notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    charleschile/Notebook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Home/" class="md-tabs__link">
+        Home Page
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Course/CS50%20intoduction%20to%20computer%20science/" class="md-tabs__link">
+        Computer Science Course
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Problem/%E5%85%A5%E9%97%A81%E9%A1%BA%E5%BA%8F%E7%BB%93%E6%9E%84/" class="md-tabs__link">
+        Programming Problem
+      </a>
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        Software Development Project
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Article/%E5%91%A8%E4%BF%A1%E9%9D%99/" class="md-tabs__link">
+        Reprinted Article
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Tool/" class="md-tabs__link">
+        Tool
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Blog/%E5%85%B3%E4%BA%8Eweb%203.0%E7%9A%84%E4%BF%A1%E6%81%AF%E5%92%8C%E6%83%B3%E6%B3%95/" class="md-tabs__link">
+        Blog
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../About/me/" class="md-tabs__link">
+        About & Others
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Charles Le&#39;s Notebook" class="md-nav__button md-logo" aria-label="Charles Le's Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Charles Le's Notebook
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://charleschile.github.io/Notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    charleschile/Notebook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Home Page
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Home Page" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Home Page
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Home/" class="md-nav__link">
+        This is a notebook created by @Charles Le
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Computer Science Course
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Computer Science Course" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Computer Science Course
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          Harvard CS50's introduction to computer science
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Harvard CS50's introduction to computer science" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Harvard CS50's introduction to computer science
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Course/CS50%20intoduction%20to%20computer%20science/" class="md-nav__link">
+        CS50 notebook
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Programming Problem
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Programming Problem" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Programming Problem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          洛谷题单
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="洛谷题单" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          洛谷题单
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1_1" type="checkbox" id="__nav_3_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1_1">
+          入门1 顺序结构
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="入门1 顺序结构" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          入门1 顺序结构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Problem/%E5%85%A5%E9%97%A81%E9%A1%BA%E5%BA%8F%E7%BB%93%E6%9E%84/" class="md-nav__link">
+        入门1顺序结构
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Software Development Project
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software Development Project" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Software Development Project
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1">
+          支付宝前锋营
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="支付宝前锋营" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          支付宝前锋营
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Frontend
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Frontend
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    支付宝前端前锋营
+  </a>
+  
+    <nav class="md-nav" aria-label="支付宝前端前锋营">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#html-" class="md-nav__link">
+    HTML - 阿相
+  </a>
+  
+    <nav class="md-nav" aria-label="HTML - 阿相">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-csbs" class="md-nav__link">
+    1. CS/BS架构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 跨平台开发
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-nodejs" class="md-nav__link">
+    3. Node.js
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chrome-devtools" class="md-nav__link">
+    工具环境: chrome Devtools
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vscode" class="md-nav__link">
+    工具环境：VScode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#html" class="md-nav__link">
+    HTML初探
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    开发图书管理系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#css" class="md-nav__link">
+    CSS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Reprinted Article
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reprinted Article" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Reprinted Article
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Article/%E5%91%A8%E4%BF%A1%E9%9D%99/" class="md-nav__link">
+        讲讲信静的故事：从职高到MIT计算机博士录取
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Article/%E9%AC%B2%E8%9E%8D/" class="md-nav__link">
+        鬲融：从姚班到普林斯顿
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Article/OPTO%E5%A5%8B%E6%96%97%E5%8F%B2/" class="md-nav__link">
+        OPTO奋斗史：从中专到加州伯克利博士
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Tool
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tool" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Tool
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tool/" class="md-nav__link">
+        This is a notebook created by @Charles Le
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2">
+          MkDocs-Material
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="MkDocs-Material" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          MkDocs-Material
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tool/MkDocs%20Material/" class="md-nav__link">
+        从0开始部署一个Material for MkDocs 个人笔记
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tool/Online%20personal%20notebook%20plan/" class="md-nav__link">
+        Online personal notebook plan
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tool/MkDocs%E7%BE%8E%E5%8C%96/" class="md-nav__link">
+        Material for MkDocs 的美化
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Blog
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Blog" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Blog
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blog/%E5%85%B3%E4%BA%8Eweb%203.0%E7%9A%84%E4%BF%A1%E6%81%AF%E5%92%8C%E6%83%B3%E6%B3%95/" class="md-nav__link">
+        关于web 3.0的信息和想法
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          About & Others
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="About & Others" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          About & Others
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../About/me/" class="md-nav__link">
+        About Me
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    支付宝前端前锋营
+  </a>
+  
+    <nav class="md-nav" aria-label="支付宝前端前锋营">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#html-" class="md-nav__link">
+    HTML - 阿相
+  </a>
+  
+    <nav class="md-nav" aria-label="HTML - 阿相">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-csbs" class="md-nav__link">
+    1. CS/BS架构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 跨平台开发
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-nodejs" class="md-nav__link">
+    3. Node.js
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chrome-devtools" class="md-nav__link">
+    工具环境: chrome Devtools
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vscode" class="md-nav__link">
+    工具环境：VScode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#html" class="md-nav__link">
+    HTML初探
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    开发图书管理系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#css" class="md-nav__link">
+    CSS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="frontend">Frontend</h1>
+<h2 id="_1">支付宝前端前锋营</h2>
+<h3 id="html-">HTML - 阿相</h3>
+<h4 id="1-csbs">1. CS/BS架构</h4>
+<p>CS client server客户端开发：（网络游戏、聊天软件、视频软件）</p>
+<ol>
+<li>
+<p>研发成本高，不同客户端，不同语言</p>
+</li>
+<li>
+<p>客户端安装、升级成本高</p>
+</li>
+</ol>
+<p>BS browser server：直接的网页内容（社交网站、搜索引擎、个人博客）</p>
+<ol>
+<li>资源加载慢，依赖网速</li>
+<li>端侧渲染性能相对较弱</li>
+<li>解决研发成本高的问题</li>
+<li>不需要更新的问题，因为网页版都是直接拿取的</li>
+</ol>
+<p>狭义的前端：</p>
+<p>HTML：页面内容</p>
+<p>CSS：页面央视</p>
+<p>Javascript：页面逻辑</p>
+<h4 id="2">2. 跨平台开发</h4>
+<p>支付宝首页可以使用支付宝打开百度</p>
+<p>支付宝实际上是内嵌了一个浏览器</p>
+<p>听说手机上的APP重复装了十几个chrome内核</p>
+<p>有些软件会直接调用safari的内核</p>
+<p>app体积大的原因之一</p>
+<p>小程序也属于web技术</p>
+<p>支付宝的大部分功能都是通过浏览器加载的，就不用关心系统是IOS还是Android，节约了很大的成本</p>
+<p>制约：</p>
+<ol>
+<li>能调用的系统api比较少，比如调用拍照、读取文件--JS Bridge</li>
+<li>加载网络速度较慢--离线包技术</li>
+<li>依赖浏览器的UI渲染，性能受限于浏览器--同层渲染</li>
+</ol>
+<h4 id="3-nodejs">3. Node.js</h4>
+<p>让前端不仅局限于客户端</p>
+<p>服务器--网络--浏览器--网页内容</p>
+<p>浏览器：（C/C++）</p>
+<ol>
+<li>连接网络</li>
+<li>执行HTML/CSS绘制页面</li>
+<li>执行JS处理逻辑</li>
+<li>本地文件的读取</li>
+</ol>
+<p>前端（HTML/CSS/Javascript）</p>
+<ol>
+<li>处理UI交互逻辑</li>
+<li>调用服务端接口</li>
+<li>页面UI的绘制</li>
+</ol>
+<p>服务器：（java/c++）</p>
+<ol>
+<li>处理业务逻辑</li>
+<li>数据的天删改查</li>
+<li>本地文件的读写</li>
+<li>提供网络接口</li>
+</ol>
+<p>把浏览器跑在云端就是Node.js需要解决的问题</p>
+<p>让javascript不仅局限于客户端的开发 </p>
+<h4 id="_2">总结</h4>
+<p>狭义的前端：应用软件中的展示和用户交互开发技术</p>
+<p>广义的前端：跨平台的应用开发技术。有非正式的称呼“大前端”。</p>
+<h4 id="chrome-devtools">工具环境: chrome Devtools</h4>
+<p>可视化的页面看设计出来的网页长什么样</p>
+<p>排查故障</p>
+<p>command+option+i</p>
+<p>或者右键+检查</p>
+<p>windows f12</p>
+<p>主要用到元素、控制台和网络</p>
+<p>元素：</p>
+<p>HTML描述了网页的结构</p>
+<p>下面的CSS描述了长什么样</p>
+<p>CSS里面的盒模型：padding内边距、margin外边距、border边框</p>
+<p>直接在devtools调试即可</p>
+<p>控制台：</p>
+<p>90%要用到控制台</p>
+<p>console.log() 打印日志出来</p>
+<p><img alt="截屏2022-12-17 14.17.58" src="/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 14.17.58.png" /></p>
+<p>直接在console里面打就行：</p>
+<p>点clear console就能直接清空console</p>
+<pre><code class="language-javascript">function add(left, right) {return left + right;}
+
+
+add(1, 2)
+
+会返回3
+
+Math.random() //编写小脚本可以快速写成,0-1的随机数
+Math.random() * 10 //1-10的随机数
+</code></pre>
+<p>js是弱类型的语言，不要求声明变量类型</p>
+<p>网络：帮我们知道这个网站到底请求了些什么东西</p>
+<p>比如做爬虫也可以用这个功能</p>
+<p>标头：请求的header</p>
+<p>载荷：上传了哪些数据payload</p>
+<p>响应：新的html代码</p>
+<p>上面有过滤功能，里面的图片必然是最高清的图片</p>
+<h4 id="vscode">工具环境：VScode</h4>
+<p>尽量不要输入中文和空格</p>
+<p>新建html文件后，输入感叹号就能生成html的东西</p>
+<p>code spell checker插件</p>
+<p>live server右键html文件直接open with live server就行</p>
+<p>查看-视图-终端</p>
+<p>warp ---下一代终端</p>
+<pre><code class="language-shell">node -v
+npm -v
+node ./hello.js // 可以直接用node跑js代码
+</code></pre>
+<p>新建server</p>
+<pre><code class="language-javascript">const http = require('node:http');
+
+// Create a local server to receive data from
+const server = http.createServer((req, res) =&gt; {
+  res.writeHead(200, { 'Content-Type': 'application/json' });
+  res.end(JSON.stringify({
+    data: 'Hello World!'
+  }));
+});
+
+server.listen(8000);
+</code></pre>
+<p>node直接跑了浏览器，让js变成编写服务端的语言</p>
+<p>个人本地：127.0.0.1:</p>
+<p>npm可以帮我们下载别人的代码</p>
+<p>这个request功能必须要npm下载之后才能使用</p>
+<pre><code class="language-shell">npm install request
+</code></pre>
+<pre><code class="language-javascript">const http = require('http');
+const request = require('request')
+
+// Create a local server to receive data from
+const server = http.createServer((req, res) =&gt; {
+  request.get('https://baidu.com', {}, (err, rs, body) =&gt; {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end(body);
+  })
+
+});
+
+server.listen(8000);
+</code></pre>
+<h4 id="html">HTML初探</h4>
+<p>来自Tim Berners-Lee 英国计算机科学家，万维网之父</p>
+<p>科研人员查阅和共享材料太低效</p>
+<p>35岁发明了world wide web让人们可以自由分享知识和想法的技术解决方案</p>
+<p>HTML 超文本标记语言-如何存储和展示</p>
+<p>URI 统一资源定位符，网络中资源的唯一地址-如何找到</p>
+<p>HTTP 超文本传输协议-如何传输</p>
+<p>1990年，浏览器诞生，Tim在NeXT电脑</p>
+<p>1994年，网景公司成立，第一款商业浏览器Nestcape Navigator-浏览器商业化</p>
+<p>在2012年前并没有特别发展</p>
+<p>Html 2012年有html5</p>
+<p>node 2009年出现</p>
+<p>html5有更多语义化的标签、更便捷更强的多媒体能力，以及绘图、地理位置、数据缓存的能力</p>
+<p>›html是由元素组成</p>
+<p>元素由标签加内容组成的</p>
+<p>元素可以相互嵌套</p>
+<p>元素：</p>
+<pre><code class="language-html">&lt;br/&gt;  换行元素
+&lt;h1&gt;&lt;/h1&gt; 标题
+&lt;img src='xxxxx'/&gt; 图片元素
+&lt;p&gt;&lt;/p&gt; 表示段落
+&lt;a&gt;&lt;/a&gt;超链接 
+&lt;a href=&quot;https://taobao.com&quot;&gt;淘宝网&lt;/a&gt;
+
+&lt;span&gt;&lt;/span&gt; 一般用于对于部分段的内容进行组合
+&lt;div&gt;&lt;/div&gt;表示区块，一般用于聚合元素
+&lt;meta name=&quot;author&quot; content=&quot;乐驰&quot;&gt;
+
+有序列表
+&lt;ol&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+无序列表
+&lt;ul&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+说明列表
+&lt;dl&gt;
+  &lt;dt&gt;&lt;/dt&gt;
+  &lt;dd&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+导航栏
+&lt;nav&gt;
+  &lt;a href=&quot;&quot;&gt;&lt;/a&gt;
+&lt;/nav&gt;
+
+
+
+</code></pre>
+<p>H1-h6标题</p>
+<p>元素属性只能用在开始标签或单个标签，不能用于结束标签</p>
+<p>有一些是全局属性，可用于所有的html元素，比如id、class、style</p>
+<p>meta元素标签不需要闭合标签，仅设置在head元素中</p>
+<p>viewport移动开发有趣的地方</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;script src=&quot;hello.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;乐驰&lt;/h1&gt;
+    &lt;h2&gt;Charles Chi Le&lt;/h2&gt;
+    &lt;p&gt;专业：生物医学&lt;/p&gt;&gt;
+    &lt;a href=&quot;https://charleschile.com&quot;&gt;点击前往乐驰的个人blog&lt;/a&gt;
+    &lt;p&gt;&lt;/p&gt;
+    &lt;img src=&quot;WechatIMG313.jpeg&quot;, width=&quot;300&quot;&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>现在用表格元素越来越少了，因为性能不行</p>
+<p>语义化标签：</p>
+<p><img alt="截屏2022-12-17 16.32.31" src="/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 16.32.31.png" /></p>
+<p>表单元素：表单元素在网页中主要负责数据采集的功能</p>
+<p>比较复杂的一个元素</p>
+<p>input是最常见的表单元素</p>
+<pre><code class="language-html">&lt;form&gt;
+ First name:&lt;br&gt;
+&lt;input type=&quot;text&quot; name=&quot;firstname&quot; place&gt;
+&lt;br&gt;
+ Last name:&lt;br&gt;
+&lt;input type=&quot;text&quot; name=&quot;lastname&quot;&gt;
+&lt;/form&gt; 
+
+</code></pre>
+<p><img alt="截屏2022-12-17 16.42.04" src="/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 16.42.04.png" /></p>
+<p><img alt="截屏2022-12-17 16.43.30" src="/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 16.43.30.png" /></p>
+<p><img alt="截屏2022-12-17 16.44.38" src="/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 16.44.38.png" /></p>
+<p><img alt="截屏2022-12-17 16.44.52" src="/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 16.44.52.png" /></p>
+<h3 id="_3">开发图书管理系统</h3>
+<ol>
+<li>首页显示</li>
+<li>上传图片</li>
+</ol>
+<p>分而治之、模块拆分</p>
+<p>2个html</p>
+<p>首页三个大版块</p>
+<p>产品经理文档标注好</p>
+<p>公共部分就是代码可以复用的部分</p>
+<p>画廊做好左右滚动</p>
+<p>列表</p>
+<p>今天将html的部分写出来</p>
+<ul>
+<li>打开文档后执行npm install</li>
+<li>npm run 0-init</li>
+</ul>
+<p>Target = blank是重新开一个页面，然后跳转</p>
+<h3 id="css">CSS</h3>
+<p>cascade tyle sheets</p>
+<p>p：选择器</p>
+<p>color：属性</p>
+<p>red：</p>
+<pre><code class="language-css">p {
+  color: red;
+  width: 500px;
+  border: 1px splid black;
+}
+</code></pre>
+<p>CSS的历史</p>
+<p>比html晚好几年</p>
+<p>1994年提出最初的建议</p>
+<p>2001年微软发布IE6成为前端工程师的噩梦</p>
+<p>要兼容IE6</p>
+<p>2003年推出CSS禅意花园</p>
+<p>11年CSS3</p>
+<p>background: green;</p>
+<p>Opacity: 0.5; 透明度50%</p>
+<p>CSS</p>
+<p>对div不会生效</p>
+<p>hover下划线去掉的属性</p>
+<p>visited访问过的</p>
+<p>padding: 10px 15px 15px 5px;</p>
+<p>（上右下左）</p>
+<p>px像素 css中最基本的单位</p>
+<p>%基于父体大小百分比缩放</p>
+<pre><code class="language-css">img {
+  width: 10%;
+  height: 20vw
+}
+</code></pre>
+<p>浏览器的尺寸大小：视口</p>
+<p>原始尺寸：图片默认是有尺寸的</p>
+<p>如何改变img元素大小视口宽高的一半，随视口变化而变化</p>
+<pre><code class="language-css">img {
+  width: 50vw;
+  height: 50vh;
+}
+</code></pre>
+<pre><code class="language-css">p {
+  background: rgba(222, 222, 222, 0.5);
+}
+</code></pre>
+<p>还有RGBA颜色，最后一位表示透明度</p>
+<pre><code class="language-css">p {
+  font-family:
+}
+</code></pre>
+<p>文本的布局：text-align</p>
+<p>Vertical-align垂直对齐</p>
+<p>css文本：line-height行间距</p>
+<p>开发里面行高默认</p>
+<p>line-height: 1.5;</p>
+<h1 id="1677ff">1677ff蚂蚁的品牌色</h1>
+<p>快捷输入类型：
+Img.名字 + tab</p>
+<p>或者p.title + tab</p>
+<p>dotted\dashed\solid</p>
+<p>圆角：</p>
+<p>Border-radius</p>
+<pre><code class="language-css">.box {
+  border-radius: 30px;
+}
+</code></pre>
+<p>设置成50%就是一个圆形</p>
+<p>Background-size: contain保持横纵比</p>
+<p>Background-size: cover完全覆盖背景</p>
+<pre><code class="language-css">div {
+  background-repeat:no-repeat; //取消重复渲染
+
+}
+</code></pre>
+<p>注释的快捷键command+/</p>
+<pre><code>box-shadow
+</code></pre>
+<p>通配符*</p>
+<pre><code class="language-css">* {
+  border-size:
+}
+</code></pre>
+<p>Content-box</p>
+<p>和border-box</p>
+<p>260\200</p>
+<pre><code class="language-css">.content-box {
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    padding: 20px;
+    border: 10px solid #1677ff;
+    box-sizing: content-box;
+    background: gold;
+  }
+  .border-box {
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    padding: 20px;
+    border: 10px solid #1677ff;
+    box-sizing: border-box;
+    background: gold;
+  }
+</code></pre>
+<p>overflow控制溢出行为</p>
+<p>overflow-x 和-y 用来控制沿着x轴划动</p>
+<p>White-space: 换行</p>
+<p>相对定位：relative</p>
+<pre><code class="language-css">.box {
+  position: relative;
+  top: 20px;
+}
+</code></pre>
+<p>绝对定位：absolute</p>
+<p>从正常布局流中移出，变成单独的一个图层</p>
+<p>固定布局：fixed</p>
+<p>像磁贴一样，在屏幕上的位置不会变动</p>
+<p>Z-index：展示元素的顺序</p>
+<p>越小图层越在下面</p>
+<p>文字垂直+水平居中</p>
+<p>Line-height</p>
+<p>flex布局：justify-content</p>
+<p>定义了主轴上的对齐方式</p>
+<p>善于用搜索引擎：</p>
+<p>flex的速查https://www.webhek.com/apps/flex-cheatsheet</p>
+<p>transform</p>
+<p>向左垂直向上移动就是取负号即可</p>
+<p>Scale(10)放大10倍</p>
+<p>过渡：一个元素在不同状态之间切换的时候定义不同的过渡效果</p>
+<pre><code class="language-css">ant:hover {
+
+}
+</code></pre>
+<p>动画animation相较于脚本实现动画技术，比较简单、流畅、高性能</p>
+<pre><code class="language-html">&lt;!-- &lt;style&gt;
+    &lt;!-- 覆盖浏览器默认样式 --&gt;
+
+
+    .card-list {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .box-submit-img {
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+    }
+    .card {
+        display: inline-block;
+        width: 200px;
+        height:300px;
+        margin: 50px 8px;
+        padding: 8px;
+        border-radius: 8px;
+        box-shadow: 0 30px 30px 0 rgba(140, 153, 191, 0.20);
+    }
+    .box-img {
+        width: 200px;
+        height: 100px;
+        object-fit: cover;
+    }
+    .box-title {
+        margin: 12px auto;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .box-author {
+        margin: 6px auto;
+        font-size: 16px;
+    }
+    .box-desc {
+        margin: 6px auto;
+        font-size: 16px;
+    }
+&lt;/style&gt; --&gt;
+</code></pre>
+<h3 id="javascript">JavaScript</h3>
+<h4 id="javascript_1">什么是javascript</h4>
+<p>最早的界面不需要javascript，就是后端直接拉html表单，拼在一起就行</p>
+<p>现在javascript可以实现3D渲染</p>
+<p>java和javascript的关系</p>
+<p>雷锋和雷峰塔的关系</p>
+<p>演化路径挺特别的</p>
+<p>js可以通过html标签直接引入</p>
+<h4 id="javascript_2">javascript语言基础</h4>
+<p>图灵完备：可以计算所有可计算的问题</p>
+<p>javascript是图灵完备的</p>
+<p>sql、html就不是图灵完备的额</p>
+<p>C++和java肯定是图灵完备的</p>
+<p>js代码里面，变量的定义尽量不要使用var了：</p>
+<pre><code class="language-javascript">test = '1';
+if (test) {
+  var test = 2;
+}
+console.log(test); // 输出的是2
+</code></pre>
+<p>建议使用const和let</p>
+<p>js是弱类型的，都可以直接用let定义</p>
+<p>string 双引号或者单引号</p>
+<p>number</p>
+<p>boolean</p>
+<p>null</p>
+<p>undefined</p>
+<p>等于 == </p>
+<p>全等于 ===</p>
+<pre><code class="language-javascript">3 == 3; // true
+3 == '3'; // true
+3 === 3; // true
+3 === '3'; // false
+</code></pre>
+<p>尽量使用全等于</p>
+<pre><code>&lt;!-- &lt;li class=&quot;gallary-item&quot;&gt;
+                    &lt;img src=&quot;./data/pic/pic-1.png&quot; /&gt;
+                    &lt;p class=&quot;name&quot;&gt;落日&lt;/p&gt;
+                    &lt;p class=&quot;photographer&quot;&gt;by 蚂蚁&lt;/p&gt;
+                    &lt;p class=&quot;desc&quot;&gt;长河落日圆&lt;/p&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;gallary-item&quot;&gt;
+                    &lt;img src=&quot;./data/pic/pic-2.png&quot; /&gt;
+                    &lt;p class=&quot;name&quot;&gt;礁石&lt;/p&gt;
+                    &lt;p class=&quot;photographer&quot;&gt;by 蚂蚁&lt;/p&gt;
+                    &lt;p class=&quot;desc&quot;&gt;东临碣石，以观沧海&lt;/p&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;gallary-item&quot;&gt;
+                    &lt;img src=&quot;./data/pic/pic-3.png&quot; /&gt;
+                    &lt;p class=&quot;name&quot;&gt;波浪&lt;/p&gt;
+                    &lt;p class=&quot;photographer&quot;&gt;by 蚂蚁&lt;/p&gt;
+                    &lt;p class=&quot;desc&quot;&gt;木落雁嗷嗷，洞庭波浪高&lt;/p&gt;
+                &lt;/li&gt; --&gt;
+</code></pre>
+<p>拓展：typescript，兼容js语法</p>
+<h4 id="windowdom">window和dom</h4>
+<p>DOM，即为 Document Object Model，是用于控制文档的标准对象。DOM 和该页面载入的 html 文档是对应的。DOM 是万维网联盟（W3C）的标准，当前由 WHATWG 和 W3C 共同维护。</p>
+<h4 id="json">JSON和网络请求</h4>
+<p>JavaScript Object Notation (JSON)</p>
+<p>数据规范的格式</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;波浪&quot;,
+  &quot;photographer&quot;: &quot;蚂蚁&quot;,
+  &quot;desc&quot;: &quot;木落雁嗷嗷，洞庭波浪高&quot;,
+  &quot;picPath&quot;: &quot;data/pic/pic-3.png&quot;
+}
+</code></pre>
+<pre><code class="language-json">{   
+  &quot;numberType&quot;: 1,
+  &quot;stringType&quot;: &quot;string&quot;,
+  &quot;booleanType&quot;: false,
+  &quot;arrayType&quot;: [&quot;string&quot;,false,1],
+  &quot;objectType&quot;: {},
+  &quot;nullType&quot;: null
+}
+</code></pre>
+<p>请求是需要时间的</p>
+<p>浏览器是单线程的</p>
+<p>浏览器的设计中有异步这个概念</p>
+<p>线程不会阻塞</p>
+<h3 id="nodejs">Node.js</h3>
+<p>零启</p>
+<h4 id="nodejs_1">node.js概述</h4>
+<p>js是运行在浏览器当中的</p>
+<p>Node.js是javascript的一种运行环境</p>
+<p>是将v8引擎加工成可以在任何操作系统中运动的javascript的平台</p>
+<p>桌面应用：语雀、钉钉、vscode都是基于node开发的</p>
+<p>javascript有爬虫模块</p>
+<h4 id="nodejs_2">node.js基础</h4>
+<p>第一步：</p>
+<pre><code class="language-shell">npm -init -y
+node hello.js
+</code></pre>
+<p>1、使⽤ require(‘os’) 引⽤⼀个 Node.js 内置模块 os
+2、调⽤ os 模块的 platform() ⽅法获取操作系统平台类型</p>
+<pre><code class="language-js">const os = require('os'); // os是内置模块
+console.log(os.platform()); // darwin mac平台
+</code></pre>
+<p>同步和异步</p>
+<p>同步：按照代码顺序执行</p>
+<p>异步：不按照代码顺序执行，异步的执行效率更高</p>
+<p>js是单线程的，但是我们可以通过异步编程来同时执行多个任务</p>
+<p>文件IO、网络请求、dom渲染、canvas绘制、进程间通信</p>
+<p>实现方式：callback、promise、generator、async/await </p>
+<p>发布/订阅模型简介</p>
+<p>事件监听--&gt;事件对象&lt;--事件发布</p>
+<p>发送者将消息发送到指定地方</p>
+<p>消息将被通知给指定的接受者</p>
+<p>一个对象能监听的事件可以是多个的：单击、双击等等</p>
+<p>发布发布订阅的用法</p>
+<pre><code class="language-js">const EventEmiter = require('events');
+const eventEmiter = new EventEmiter; // 实例化
+
+eventEmiter.on('notice', (msg)=&gt;{
+    console.log('I have received a message: ', msg);
+})
+//setTime是一个异步队列
+setTimeout(() =&gt; {
+    eventEmiter.emit('notice', 'hello') // 这一行后执行
+}, 3000);  // 3秒钟，即使改成0，也会是后执行
+//单线程，任务队列{task1, task2}    异步队列{task1, task2}
+// 只有所有的同步任务队列执行完毕之后，才会执行异步队列
+
+console.log('hello');  // 这一行先执行，异步
+</code></pre>
+<p>异步文件读写</p>
+<pre><code class="language-js">const fs = require('fs'); // file system
+
+// 在node里面经常是err first的，就是第一个参数是err，然后有错误的话会第一时间就throw掉
+fs.readFile('a.txt', 'utf-8', (err, data) =&gt; {
+    if (err) throw err;
+    console.log(data); // 然后再执行这行代码  
+});
+
+console.log('reading file ...'); // 先执行这行代码
+
+</code></pre>
+<p>同步文件读写</p>
+<p>带sync就会执行同步文件读写，即只有执行完上一行代码才会继续执行下面一行代码</p>
+<pre><code class="language-js">const fs = require('fs');
+// 同步写入
+fs.writeFileSync('a.txt', 'Hello Node.js!', 'utf-8');
+// 同步读取
+const data = fs.readFileSync('a.txt','utf-8');
+
+console.log(data); // 先执行读取文件的操作
+
+console.log('reading file...'); // 最后执行打印日志
+</code></pre>
+<p>通常我们会使用异步来编程，防止后续堵塞</p>
+<p>读取文件地址</p>
+<pre><code class="language-js">const fs = require('fs');
+const path = require('path');
+
+console.log(__dirname); ///Users/lechi/Desktop/Frontend/demo, 打印文件所在的路径
+
+let filePath = path.join(__dirname, 'data', 'obj.json');
+console.log(filePath); 
+</code></pre>
+<p>读取json并写入json文件中</p>
+<pre><code class="language-js">const fs = require('fs');
+const path = require('path');
+
+const obj = [
+    {
+      &quot;name&quot;: &quot;波浪&quot;,
+      &quot;photographer&quot;: &quot;蚂蚁&quot;,
+      &quot;desc&quot;: &quot;木落雁嗷嗷，洞庭波浪高&quot;,
+      &quot;picPath&quot;: &quot;data/pic/pic-3.png&quot;
+    },
+    {
+      &quot;name&quot;: &quot;落日&quot;,
+      &quot;photographer&quot;: &quot;蚂蚁&quot;,
+      &quot;desc&quot;: &quot;长河落日圆&quot;,
+      &quot;picPath&quot;: &quot;data/pic/pic-1.png&quot;
+    },
+    {
+      &quot;name&quot;: &quot;礁石&quot;,
+      &quot;photographer&quot;: &quot;蚂蚁&quot;,
+      &quot;desc&quot;: &quot;东临碣石，以观沧海&quot;,
+      &quot;picPath&quot;: &quot;data/pic/pic-2.png&quot;
+    }
+  ]
+
+
+const filePath = path.join(__dirname, 'data', 'obj.json')
+
+fs.writeFile(filePath, JSON.stringify(obj,null,2), (err, data) =&gt;{
+    if (err) {
+        console.log('write fail');
+    }
+    else {
+        console.log('write success');
+    }
+});
+
+console.log(filePath);
+</code></pre>
+<p>自己写模块</p>
+<p>在add的js文件里：</p>
+<pre><code class="language-js">exports.add = (x,y) =&gt; {
+    return x + y;
+};
+</code></pre>
+<p>然后调用自己的模块</p>
+<pre><code class="language-js">const compute = require('./add')
+// 或者const{add} = require('/add')
+const sum = compute.add(1, 2)
+console.log(sum);
+</code></pre>
+<p>npm</p>
+<p>是包管理系统</p>
+<p>npm默认随着node一起安装</p>
+<p>npm提供命令行工具用于管理模块</p>
+<p>Json.stringfy</p>
+<p>json.parse</p>
+<h4 id="nodejs-web">node.js web服务</h4>
+<p>安装express，并且更新package.json中的依赖：</p>
+<pre><code class="language-shell">npm i express -S
+</code></pre>
+<p>http协议简介：（request、response）</p>
+<p>http是文本协议，一次http请求分为请求和相应2个阶段</p>
+<p>建立一个简单的express服务</p>
+<pre><code class="language-js">const express = require('express')
+const app = express()
+
+app.get('/', function (req, res) {
+  res.send('Hello World')
+})
+// 80端口是默认端口
+app.listen(80, ()=&gt;{
+    console.log('app is serving on port 80...');
+})
+</code></pre>
+<p>如何在编辑后自动重启服务？</p>
+<p>访问静态资源</p>
+<p>static指定目录即可</p>
+<p>既访问静态资源又新建接口</p>
+<pre><code class="language-js">const express = require('express')
+const app = express()
+
+
+app.use(express.static('web'))
+
+app.get('/hello', function (req,res) {
+    res.send('Hello Node')
+})
+
+
+app.listen(3000, ()=&gt;{
+    console.log('app is serving on port 3000...');
+})
+</code></pre>
+<h4 id="_4">图片管理系统</h4>
+<pre><code class="language-js">    const res = await fetch('/pic/list');
+    const pics = await res.json();
+    pics.forEach(appendPic);
+</code></pre>
+<p>Index.js:</p>
+<pre><code class="language-js">function $(selector) {
+    return document.querySelector(selector);
+  }
+
+  function appendPic(item) {
+    // const { name, desc } = item || {};
+
+    // 补充 html 的生成逻辑
+    const html = `&lt;li class=&quot;gallary-item&quot;&gt;
+    &lt;img src=&quot;${item.picPath}&quot; /&gt;
+    &lt;p class=&quot;name&quot;&gt;${item.name}&lt;/p&gt;
+    &lt;p class=&quot;photographer&quot;&gt;by ${item.photographer}&lt;/p&gt;
+    &lt;p class=&quot;desc&quot;&gt;${item.desc}&lt;/p&gt;
+  &lt;/li&gt;`;
+
+    $('#pics').innerHTML += html;
+  }
+
+  async function fetchPics() {
+    // 后续 pics 的内容通过请求后端获取
+    // const pics = [
+    //   {
+    //     name: '波浪',
+    //     photographer: '蚂蚁',
+    //     desc: '木落雁嗷嗷，洞庭波浪高',
+    //     picPath: 'data/pic/pic-3.png',
+    //   },
+    //   {
+    //     name: '落日',
+    //     photographer: '蚂蚁',
+    //     desc: '长河落日圆',
+    //     picPath: 'data/pic/pic-1.png',
+    //   },
+    //   {
+    //     name: '礁石',
+    //     photographer: '蚂蚁',
+    //     desc: '东临碣石，以观沧海',
+    //     picPath: 'data/pic/pic-2.png',
+    //   },
+    // ];
+
+    // let pics = [];
+
+    const res = await fetch('/web/data/data.json');
+    const pics = await res.json();
+    pics.forEach(appendPic);
+
+
+
+
+    // fetch('/web/data/data.json').then(function(res) {
+    //     return res.json();
+    // }).then((pics) =&gt;{
+    //     pics.forEach(appendPic);
+    // });
+
+    // 修改为循环，可以使用 for，也可以使用 forEach
+    // pics.forEach(appendPic);
+    // appendPic(pics[0]);
+    // appendPic(pics[1]);
+    // appendPic(pics[2]);
+  }
+
+  fetchPics();
+</code></pre>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../../Problem/%E5%85%A5%E9%97%A81%E9%A1%BA%E5%BA%8F%E7%BB%93%E6%9E%84/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 入门1顺序结构" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              入门1顺序结构
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../Article/%E5%91%A8%E4%BF%A1%E9%9D%99/" class="md-footer__link md-footer__link--next" aria-label="下一页: 讲讲信静的故事：从职高到MIT计算机博士录取" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              讲讲信静的故事：从职高到MIT计算机博士录取
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 乐驰
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    <a href="https://github.com/charleschile" target="_blank" rel="noopener" title="GitHub | charleschile" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>
