@@ -1,16 +1,37 @@
-site_name: My Docs
+# [Info]
+site_name: Charles Le's Notebook # 左上角的标题
+site_url: https://charleschile.github.io/Notebook
+site_author: 乐驰
+site_description: 乐驰的个人笔记
 
+# [Extra]
 extra_css:
   - stylesheets/extra.css
 
+# [UI]
+## [top]
 theme:
   name: material
+
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs # 使用Tab来进行分类
+    - navigation.top # 返回顶部的按钮 在上滑时出现
+    # - navigation.indexes # Tab会有一个index.md 而不是在打开Tab时打开第一篇文章
+    - search.suggest # 搜索输入一些字母时推荐补全整个单词
+    - search.highlight # 搜索出的文章关键词加入高亮
+  language: zh # 一些提示性的文字会变成中文
+  icon:
+    repo: fontawesome/brands/github
+
+
   palette:
     - media: "(prefers-color-scheme: light)"
-      scheme: default
+      scheme: default # 日间模式
       toggle:
         icon: material/weather-sunny
-        name: Switch to happy mode
+        name: Switch to dark mode
       accent: pink
 
     # Palette toggle for dark mode
@@ -21,3 +42,51 @@ theme:
         name: Switch to light mode
       primary: blue grey
       accent: pink
+
+# edit_uri: edit/main/docs # 编辑按钮跳转的链接
+
+## [top-right corner]
+repo_url: https://charleschile.github.io/Notebook # 右上角点击跳转的链接
+repo_name: charleschile/Notebook # 右上角的名字
+## [bottom-left corner]
+copyright: Copyright &copy; 2022 乐驰 # 左下角的版权声明
+## [bottom-right corner]
+
+extra:
+  social: # icons
+    - icon: fontawesome/brands/github
+      link: https://github.com/charleschile
+      name: GitHub | charleschile
+
+# [Navigation]
+nav:
+  - Home Page:
+    - Home/index.md
+  
+  - Computer Science Course:
+    - Harvard CS50's introduction to computer science:
+      - Course/CS50 intoduction to computer science.md
+  - Programming Problem:
+    - 洛谷题单:
+      - 入门1 顺序结构:
+        -  Problem/入门1顺序结构.md
+
+  - Software Development Project:
+    - 支付宝前锋营:
+      - Project/ant.md
+  - Reprinted Article:
+    - Article/周信静.md
+    - Article/鬲融.md
+    - Article/OPTO奋斗史.md
+  - Tool:
+    - Tool/index.md
+    - MkDocs-Material:
+      - Tool/MkDocs Material.md
+      - Tool/Online personal notebook plan.md
+      - Tool/MkDocs美化.md
+  
+  - Blog:
+    - Blog/关于web 3.0的信息和想法.md
+  - About & Others:
+    - About/me.md
+  
