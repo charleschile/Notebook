@@ -14,9 +14,9 @@ extra_css:
 ## [top]
 theme:
   name: material
-  font:
-    text: Source Sans Pro
-    code: Source Code Pro
+  # font:
+  #   text: Source Sans Pro
+  #   code: Source Code Pro
   features:
     - navigation.instant
     - navigation.tracking

@@ -19,7 +19,7 @@
     
     
       
-        <title>Charles Le's Notebook</title>
+        <title>欢迎！ - Charles Le's Notebook</title>
       
     
     
@@ -38,12 +38,16 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,700,700i%7CSource+Code+Pro:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Source Sans Pro";--md-code-font:"Source Code Pro"}</style>
       
     
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="stylesheets/basic.css">
+    
+      <link rel="stylesheet" href="stylesheets/admonition.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.css">
     
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -62,7 +66,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="pink">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="pink">
   
     
     
@@ -74,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#this-is-a-notebook-created-by-charles-le" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -107,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              This is a notebook created by @Charles Le
+              欢迎！
             
           </span>
         </div>
@@ -119,7 +123,7 @@
           
           
           
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
@@ -205,13 +209,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="Home/" class="md-tabs__link">
+      <a href="." class="md-tabs__link md-tabs__link--active">
         Home Page
       </a>
     </li>
@@ -408,20 +414,30 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
       
       
       
+        
+          
+            
+          
+        
       
-        <label class="md-nav__link" for="__nav_1">
-          Home Page
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index md-nav__link--active">
+          <a href=".">Home Page</a>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Home Page" data-md-level="1">
         <label class="md-nav__title" for="__nav_1">
@@ -430,18 +446,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="Home/" class="md-nav__link">
-        This is a notebook created by @Charles Le
-      </a>
-    </li>
-  
-
             
           
         </ul>
@@ -464,6 +468,10 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
       
       
+      
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2">
@@ -490,6 +498,10 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
       
       
+      
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2_1">
@@ -546,6 +558,10 @@
       
       
       
+        
+          
+        
+      
       
         <label class="md-nav__link" for="__nav_3">
           Programming Problem
@@ -572,6 +588,10 @@
       
       
       
+        
+          
+        
+      
       
         <label class="md-nav__link" for="__nav_3_1">
           洛谷题单
@@ -597,6 +617,10 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1_1" type="checkbox" id="__nav_3_1_1" >
       
       
+      
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_3_1_1">
@@ -660,6 +684,10 @@
       
       
       
+        
+          
+        
+      
       
         <label class="md-nav__link" for="__nav_4">
           Software Development Project
@@ -685,6 +713,10 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
       
       
+      
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4_1">
@@ -740,6 +772,14 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
       
+      
+        
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5">
@@ -817,11 +857,25 @@
       
       
       
+        
+          
+            
+          
+        
+          
+        
       
-        <label class="md-nav__link" for="__nav_6">
-          Tool
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="Tool/">Tool</a>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Tool" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
@@ -830,18 +884,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="Tool/" class="md-nav__link">
-        This is a notebook created by @Charles Le
-      </a>
-    </li>
-  
-
             
           
             
@@ -856,6 +898,14 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
       
       
+      
+        
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_6_2">
@@ -940,6 +990,12 @@
       
       
       
+        
+          
+        
+          
+        
+      
       
         <label class="md-nav__link" for="__nav_7">
           Blog
@@ -979,6 +1035,10 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2" type="checkbox" id="__nav_7_2" >
       
       
+      
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7_2">
@@ -1035,6 +1095,10 @@
       
       
       
+        
+          
+        
+      
       
         <label class="md-nav__link" for="__nav_8">
           About & Others
@@ -1081,41 +1145,14 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Content">
   
   
   
     
   
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#welcome-to-my-notebook" class="md-nav__link">
-    Welcome to my notebook!
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -1130,22 +1167,102 @@
                   
 
 
-<h1 id="this-is-a-notebook-created-by-charles-le">This is a notebook created by @Charles Le</h1>
-<h2 id="welcome-to-my-notebook">Welcome to my notebook!</h2>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
+<h1 id="_1">欢迎！<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p><center>
+内容还在迁移过程中，最近更新可能比较频繁。
+</center></p>
+<div class="admonition note">
+<p><br><br></p>
+<p><div align="center" style="font-size:32px;font-weight:bold">
+    <sub>『その時を待つよ』</sub>
+</div>
+<div align="center" style="font-size:12px">
+    我们登上高塔，看到的却只有黑夜。  ——安德烈·纪德《地粮》
+</div></p>
+</div>
+<p>​    <br><br><br></p>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li><a href="https://isshikihugh.github.io/homepageSrc/">个人主页</a></li>
 </ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre>
+<details class="summary"><summary><center>@Isshiki修</center></summary><p><center>
+    <strong>|</strong> 21 级 CS 本科生 <strong>|</strong> 22届 求是潮 产品研发中心技术中管 <strong>|</strong> xlab 软件组成员 <strong>|</strong>
+</center></p>
+<p><div align="center">
+<img src="https://github-readme-stats.vercel.app/api?username=isshikihugh&show_icons=true&count_private=true&hide_border=true&theme=tokyonight" align="center" />
+</div> </p>
+<p><center>
+    <strong>🥺 不抱希望地放一个打赏通道在这里 🥺</strong>
+</center>
+<figure markdown align="center">
+<img alt="" src="static/wechatPayQRCode.png" width="200px" />
+<figure></p>
+</details>
+<details class="info"><summary><center>这是哪里</center></summary><ul>
+<li>高中写博客的经历和大一在语雀写笔记的经历让我多次认识到，整理笔记对我来说是一个相对来说比较舒适的学习方式。但是由于某些原因，我放弃了使用语雀，而选择使用 <code>mkdocs</code> 搭建这样一个个人笔记本。<ul>
+<li>大一在语雀的笔记除了技术类的， 还有很多通识课程的笔记，但在这个笔记本，内容会更有倾向性。希望能通过这样一种形式，在这里打造出我自己的技术栈宫殿。</li>
+</ul>
+</li>
+</ul>
+</details>
+<details class="tip"><summary><center>一些遗迹</center></summary><ul>
+<li><a href="https://isshiki_hugh.gitee.io/blog/about/">高中时代的博客</a><ul>
+<li><a href="https://www.yuque.com/isshikixiu">大一时在语雀的主页</a></li>
+</ul>
+</li>
+</ul>
+</details>
+<h1 id="_2">ここは —— なんと!<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<p>A note book by @sakuratsuyu.</p>
+<p>偶尔写点东西，希望你喜欢。</p>
+<div class="arithmatex">\[
+\tt{Transfering\ content\ from\ other\ places\ these\ days\ } \cdots\ \&amp;\$@\%\&amp;\$@\%\&amp;\$@\%
+\]</div>
+<div class="admonition info">
+<p class="admonition-title">About me</p>
+<ul>
+<li>All ids I used: <strong>sakuratsuyu</strong>, <strong>桜つゆ</strong>, <strong>曦露</strong> and <strong>Mslease</strong>. Maybe you can find me somewhere else! <img alt="😝" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f61d.svg" title=":stuck_out_tongue_closed_eyes:" /><ul>
+<li>Sophomore as a ZJU CS Undergraduate.</li>
+<li>ZJUSCT Freshman. (摸大鱼)</li>
+<li>MADer. (MAD 在做了在做了.jpg)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div align="center" style="font-size:20px; font-weight:normal; margin:50px">Hope you can find anything useful and interesting here!</div>
+
+<div align="center" style="height:600x; margin:50px">
+    <figure>
+        <img src="kirakirame.png" alt="kirakirame" style="zoom:30%;"/>
+        <figcaption>✨キラキラ目✨</figcaption>
+    </figure>
+</div>
+
+<h1 id="oo-hi">o(〃'▽'〃)o Hi!<a class="headerlink" href="#oo-hi" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">site.info</p>
+<p>这里是鹤翔万里（TonyCrane）的个人笔记本哦！  </p>
+<p>网站组织结构大概是安全方向的在 <a href="sec/">Security</a> 部分，网络相关的在 <a href="web/">Web</a> 部分，打 CTF 学到用到的在 <a href="ctf/">CTF</a> 部分（部分比赛的 writeup 会放在 <a href="writeups/">Writeups</a> 部分），其它计算机相关的在 <a href="cs/">Computer Science</a> 部分，剩下的丢在 <a href="others">Others</a> 里面。</p>
+<p>如果发现了有内容错误可以通过文末评论告诉我吗qwq</p>
+<p>大概是随时更新，<del>随时咕咕咕</del></p>
+<details class="question"><summary>about(site.author)</summary><p>18 岁，事浙江大学信息安全专业大二学生，事哔哩哔哩 up 主 <a href="https://space.bilibili.com/171431343">@鹤翔万里</a>，事 AAA 战队 misc 手 @TonyCrane </p>
+<ul>
+<li>主页：https://tonycrane.cc/</li>
+<li>博客：https://blog.tonycrane.cc/</li>
+<li>GitHub：https://github.com/TonyCrane/</li>
+</ul>
+</details>
+<details class="info"><summary>site.statistics</summary><p>页面总数：{{pages}}<br />
+总字数：{{words}}<br />
+代码块行数：{{codes}}</p>
+</details>
+</div>
+<div class="highlight"><span class="filename">script.py</span><pre><span></span><code><span class="k">if</span> <span class="n">visitor</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;TonyCrane&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;看什么看，快去学习/做视频/写笔记/打CTF/</span><span class="si">{</span><span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;别摸了&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;希望这个小破站点能对你有所帮助ヽ(*´∀｀)八(´∀｀*)ノ</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">thanks_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">visitor</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</code></pre></div>
 
 
 
@@ -1166,6 +1283,27 @@ docs/
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+      
+        
+        <a href="Course/CS50%20intoduction%20to%20computer%20science/" class="md-footer__link md-footer__link--next" aria-label="下一页: CS50 notebook" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              CS50 notebook
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -1202,7 +1340,7 @@ docs/
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight"], "search": "assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight"], "search": "assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="assets/javascripts/bundle.5a2dcb6a.min.js"></script>
