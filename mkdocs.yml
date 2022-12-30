@@ -6,19 +6,23 @@ site_description: 乐驰的个人笔记
 
 # [Extra]
 extra_css:
-  - stylesheets/extra.css
+  - stylesheets/basic.css
+  - stylesheets/admonition.css
+  - https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.css
 
 # [UI]
 ## [top]
 theme:
   name: material
-
+  font:
+    text: Source Sans Pro
+    code: Source Code Pro
   features:
     - navigation.instant
     - navigation.tracking
     - navigation.tabs # 使用Tab来进行分类
     - navigation.top # 返回顶部的按钮 在上滑时出现
-    # - navigation.indexes # Tab会有一个index.md 而不是在打开Tab时打开第一篇文章
+    - navigation.indexes # Tab会有一个index.md 而不是在打开Tab时打开第一篇文章
     - search.suggest # 搜索输入一些字母时推荐补全整个单词
     - search.highlight # 搜索出的文章关键词加入高亮
   language: zh # 一些提示性的文字会变成中文
@@ -32,6 +36,7 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
+      primary: white
       accent: pink
 
     # Palette toggle for dark mode
@@ -61,8 +66,7 @@ extra:
 # [Navigation]
 nav:
   - Home Page:
-    - Home/index.md
-  
+    - index.md
   - Computer Science Course:
     - Harvard CS50's introduction to computer science:
       - Course/CS50 intoduction to computer science.md
@@ -70,6 +74,7 @@ nav:
     - 洛谷题单:
       - 入门1 顺序结构:
         -  Problem/入门1顺序结构.md
+
 
   - Software Development Project:
     - 支付宝前锋营:
@@ -92,4 +97,46 @@ nav:
 
   - About & Others:
     - About/me.md
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+      title: Content
+  - tables
+  - pymdownx.snippets:
+      auto_append:
+        - includes/abbr.md
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.critic:
+      mode: view
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji 
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      # linenums: true
+  - pymdownx.superfences:
+      custom_fences:
+          - name: mermaid
+            class: mermaid
+            format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.smartsymbols
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - meta
   
