@@ -9,7 +9,6 @@ comments: false
 偶爾寫點東西，希望你喜歡。
 
 
-
 !!! note "" 
     </br>
     <div align="center" style="font-size:24px;font-weight:bold">
@@ -33,7 +32,6 @@ comments: false
     - Interested in computer science, mathematics and software development
     - Always dreaming
     - GitHub: https://github.com/charleschile
-
 
 
 ```cpp title="main.cpp"

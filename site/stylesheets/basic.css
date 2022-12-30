@@ -38,11 +38,11 @@
 
 
 body {
-    font-family: 'Merriweather', 'Noto Serif SC', 'Source Code Pro';
+    font-family: 'Merriweather', 'Noto Serif SC', 'Noto Serif JP', 'Source Code Pro';
     font-weight: light;
     line-height: 1.5rem;
-    letter-spacing: 10;
-    margin: 10;
+    letter-spacing: 0;
+    margin: 0;
 }
 p {
     font-size: var(--text-font-size);
