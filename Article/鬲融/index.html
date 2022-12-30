@@ -38,12 +38,16 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,700,700i%7CSource+Code+Pro:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Source Sans Pro";--md-code-font:"Source Code Pro"}</style>
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/basic.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/admonition.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -62,7 +66,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="pink">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="pink">
   
     
     
@@ -119,7 +123,7 @@
           
           
           
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
@@ -211,7 +215,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../Home/" class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         Home Page
       </a>
     </li>
@@ -419,11 +423,19 @@
       
       
       
+        
+          
+            
+          
+        
       
-        <label class="md-nav__link" for="__nav_1">
-          Home Page
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../..">Home Page</a>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Home Page" data-md-level="1">
         <label class="md-nav__title" for="__nav_1">
@@ -432,18 +444,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Home/" class="md-nav__link">
-        This is a notebook created by @Charles Le
-      </a>
-    </li>
-  
-
             
           
         </ul>
@@ -466,6 +466,10 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
       
       
+      
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2">
@@ -492,6 +496,10 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
       
       
+      
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2_1">
@@ -548,6 +556,10 @@
       
       
       
+        
+          
+        
+      
       
         <label class="md-nav__link" for="__nav_3">
           Programming Problem
@@ -574,6 +586,10 @@
       
       
       
+        
+          
+        
+      
       
         <label class="md-nav__link" for="__nav_3_1">
           洛谷题单
@@ -599,6 +615,10 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1_1" type="checkbox" id="__nav_3_1_1" >
       
       
+      
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_3_1_1">
@@ -662,6 +682,10 @@
       
       
       
+        
+          
+        
+      
       
         <label class="md-nav__link" for="__nav_4">
           Software Development Project
@@ -687,6 +711,10 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
       
       
+      
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4_1">
@@ -745,6 +773,14 @@
       
       
       
+        
+          
+        
+          
+        
+          
+        
+      
       
         <label class="md-nav__link" for="__nav_5">
           Reprinted Article
@@ -798,7 +834,9 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Content">
   
   
   
@@ -807,7 +845,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Content
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -883,11 +921,25 @@
       
       
       
+        
+          
+            
+          
+        
+          
+        
       
-        <label class="md-nav__link" for="__nav_6">
-          Tool
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../Tool/">Tool</a>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Tool" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
@@ -896,18 +948,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Tool/" class="md-nav__link">
-        This is a notebook created by @Charles Le
-      </a>
-    </li>
-  
-
             
           
             
@@ -922,6 +962,14 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
       
       
+      
+        
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_6_2">
@@ -1006,6 +1054,12 @@
       
       
       
+        
+          
+        
+          
+        
+      
       
         <label class="md-nav__link" for="__nav_7">
           Blog
@@ -1045,6 +1099,10 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2" type="checkbox" id="__nav_7_2" >
       
       
+      
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7_2">
@@ -1101,6 +1159,10 @@
       
       
       
+        
+          
+        
+      
       
         <label class="md-nav__link" for="__nav_8">
           About & Others
@@ -1147,7 +1209,9 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Content">
   
   
   
@@ -1156,7 +1220,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Content
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -1203,7 +1267,7 @@
                   
 
 
-<h1 id="_1">鬲融：从姚班到普林斯顿</h1>
+<h1 id="_1">鬲融：从姚班到普林斯顿<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>当我们在谈论天才时，我们究竟在谈论什么？</p>
 <p>是他们先天就有的聪慧、原生家庭的影响，还是在求学受教中不断得以循循引导的环境？</p>
 <p>今天要介绍的人，正是基于这样的大背景。</p>
@@ -1346,7 +1410,7 @@
 <p>2008年，鬲融从清华大学本科毕业，随后赴普林斯顿大学读博、<a href="https://www.zhihu.com/search?q=微软研究院&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra={&quot;sourceType&quot;%3A&quot;article&quot;%2C&quot;sourceId&quot;%3A&quot;385463445&quot;}">微软研究院</a>新英格兰分部担任博士后，2015年进入杜克大学担任教职。从姚班开始立志做理论研究，到成为机器学习理论研究方向小有名气的青年学者，鬲融用了近 10 年。</p>
 <p>那么，鬲融离开清华后的成长历程是怎样的？今天，我们只谈鬲融与理论研究之间的故事。</p>
 <p>作者 | 陈彩娴</p>
-<h3 id="1"><strong>1.</strong> <strong>普林斯顿前半章</strong></h3>
+<h3 id="1"><strong>1.</strong> <strong>普林斯顿前半章</strong><a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>在清华计算机系 4 字班（2004级）中，最出名的当数信息学竞赛圈无人不知的楼天城“楼教主”，百度曾经最年轻的 T10 级员工，后来又率先创立了国内知名的自动驾驶公司小马智行（Pony.ai）。许多人最初知道鬲融，是借楼教主的名声，因为在楼教主的一段轶事里，鬲融曾作为一个“配角”的身份出现：当时，楼教主的高中信息学竞赛教练李建江一直认为楼教主是天才型学生，心中引以为豪，每次去北京出差，只要有时间就会顺路去清华看望这位得意门生。结果到了清华，与老师、同学交流，李教练发现，自己的学生在计算机系最多只能排到第二名，因为楼教主的同班同学鬲融常年排名全年级第一。他还举例：每次夜晚 9 点去清华的计算机系宿舍，鬲融肯定在，而<a href="https://www.zhihu.com/search?q=楼教主&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra={&quot;sourceType&quot;%3A&quot;article&quot;%2C&quot;sourceId&quot;%3A&quot;385463445&quot;}">楼教主</a>还在教室用功。他因此感叹，相比鬲融，楼教主是地道的勤奋型选手。在与<strong>AI科技评论</strong>的对话中，鬲融首次回应了这段传闻：“哈哈其实是因为当时我们宿舍有空调，所以就不用去教室学习，楼天城他们宿舍没有空调，他只能去教室学习。”</p>
 <p><img alt="img" src="https://pic4.zhimg.com/v2-798fcd960c8c85f4e4fd397a507a0a83_b.jpg" /></p>
 <p>图注：2007年，鬲融（中间）与楼天城（最左）、胡伟栋（最右）在日本参加ACM/ICPC，获得亚洲赛区冠军、全球第二名</p>
@@ -1361,7 +1425,7 @@
 <p>可能是对研究的课题不熟悉，也可能是思路不对，各种可能都有。我们当时想做的事情直到现在也还没有人做出来，所以也有可能是因为选择的题太难。</p>
 </blockquote>
 <p>三年下来，虽然他在ICALP、ISAAC等理论计算机的会议与期刊上发表了论文，但总体感觉还是困难比较多，所取得的成果也远远没有达到鬲融对自己的要求。回想当时的磕磕绊绊，鬲融分析，做研究无非就是两方面：一是找到合适的题目，二是把这个题目做出来。在选择近似算法时，他对第一步的认知只是在“世界上已有的难题”上，直到后来转向机器学习理论研究，才发现：原来学会自己定义问题，也是一项可贵的研究能力。</p>
-<h3 id="2"><strong>2. 科研转折点与引路人</strong></h3>
+<h3 id="2"><strong>2. 科研转折点与引路人</strong><a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>转折点发生在 2012 年。那一年，Hinton与他的学生Alex在ImageNet比赛中凭借AlexNet远超第二名10个百分点，勇夺冠军，深度学习崛起。鬲融的博士导师 Sanjeev Arora敏锐地察觉到机器学习（尤其是深度学习）在未来的发展潜力，开始关注机器学习。当时，鬲融正在近似算法的课题上挣扎，这正好给了他重新选择的契机。刚好他本科在微软亚研实习时也接触过机器学习，对这个方向也很感兴趣，于是就选择了转向研究机器学习理论。在这里不得不提的一点是，Sanjeev Arora 在鬲融读博期间对他产生了重要影响，不仅直接引导他走进了机器学习研究领域，也塑造了他做科研的方法与态度。Sanjeev Arora是普林斯顿大学计算机系的Charles C. Fitzmorris教授，以研究概率可检验证明（尤其是PCP定理）而闻名，1996年获得斯隆研究奖，2001年与2010年共两次获得哥德尔奖（理论计算机领域最高奖），2012年又获得西蒙斯研究奖与福尔克森奖（离散数学领域最高奖），是理论计算机研究领域有名的翘楚。</p>
 <p><img alt="img" src="https://pic2.zhimg.com/v2-b74c20c7d0549d14a7e173e127957c49_b.jpg" /></p>
 <p>图注：Sanjeev Arora鬲融是 Arora 门下的第一个中国留学生。在鬲融来到普林斯顿的前一年（2007年），Arora 与 Satyen Kale（现任谷歌研究科学家）刚刚用乘法权更新算法（Multiplicative Weight Update Method）的矩阵版本求解了 SDP，并对一些问题给出了更快的近似算法。MWU 的特点是理论复杂，但算法简洁。Arora 在近似算法上“大道至简”的追求，吸引了鬲融。截至目前，Arora 只带过 3 名中国学生，除了鬲融，其余 2 位是马腾宇与李远志，后来都成为了机器学习领域的佼佼者。马腾宇与李远志也是清华大学的校友，分别在2012年、2013年来到普林斯顿读博，是鬲融日后的重要研究合作者。马腾宇毕业后到斯坦福大学任教，2021年也凭借在非凸优化上的研究成果获得了斯隆研究奖，而李远志毕业后加入了卡内基梅隆大学机器学习系担任助理教授。在鬲融的眼里，Sanjeev Arora是一位各方面都让人佩服的学者：</p>
@@ -1371,7 +1435,7 @@
 <p>也是因为 Arora 的这项品质，他在2012年转向机器学习研究时，促使鬲融等人也注意到了机器学习，直接改变了鬲融的研究方向。2012年转向机器学习时，鬲融已是一名博“四”生，开始一个全新的方向需要极大的勇气。但他二话不说，重新调整了自己的方向。出乎意料的是，转变方向后，他的研究进展异常顺利，最后两年连续发表了 8 篇顶会论文，其中理论计算机顶会 FOCS 就有 2 篇、STOC 有 1 篇，远远超过了博士前三年的成果总和。与近似算法不同，机器学习是一个相对较新的领域，有许多新的问题。从鬲融的角度来看，这时他的研究问题变成了：如何把一个实际的机器学习问题放到理论的框架里讨论？在这个过程中，“自己定义问题”的重要性明显上升。拿鬲融转向机器学习研究后的第一个工作举例。当时，鬲融在微软研究院新英格兰分部实习，参与主题建模（Topic Modeling）的研究工作。主题建模被用于对数据（网页、新闻、图片等等）进行自动理解与分类，在理论研究上侧重于学习模型的参数。当时的方法大多依赖于奇异值分解（SVD），但SVD方法有两个限制：要么假设每篇文章只包含一个主题，要么只能恢复主题向量的范围，而非主题向量本身。针对 SVD 用于主题建模的局限性，鬲融与 Arora 等人提出了一个问题：“如果没有真正的矩阵 AW ，而是从每一列所代表的分布中得到一些样本（比如 100 个样本），怎么办？”他们假设并证明了 NMF（<a href="https://www.zhihu.com/search?q=非负矩阵分解&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra={&quot;sourceType&quot;%3A&quot;article&quot;%2C&quot;sourceId&quot;%3A&quot;385463445&quot;}">非负矩阵分解</a>）比 SVD 更适用于主题建模，并利用 NMF 获得了第一个没有上述两个限制的<a href="https://www.zhihu.com/search?q=多项式时间算法&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra={&quot;sourceType&quot;%3A&quot;article&quot;%2C&quot;sourceId&quot;%3A&quot;385463445&quot;}">多项式时间算法</a>，该算法可以泛化至包含主题与主题相关的模型，比如相关主题模型（Correlated Topic Model）与弹珠机分配模型（Pachinko Allocation Model）。最后，他们的工作（“Learning Topic Models - Going beyond SVD” ）发表在 FOCS 2012 上。这也是鬲融在 FOCS （<a href="https://www.zhihu.com/search?q=理论计算机方向&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra={&quot;sourceType&quot;%3A&quot;article&quot;%2C&quot;sourceId&quot;%3A&quot;385463445&quot;}">理论计算机方向</a>中稿难度最高的会议之一）上发表的第一篇论文。</p>
 <p><img alt="img" src="https://pic3.zhimg.com/v2-a839edd646f250a5d1459052132830f2_b.jpg" /></p>
 <p>地址：<a href="https://link.zhihu.com/?target=https%3A//arxiv.org/abs/1204.1956">https://arxiv.org/abs/1204.1956</a>之后，他又在主题建模的研究上陆续发表了几篇文章，包括被 ICML 2013 录取的工作“A Practical Algorithm for Topic Modeling with Provable Guarantees ”，在业内引起不小关注，积累了一点名声。在理论研究领域摸爬滚打多年后，鬲融发现：重要的问题并不一定是很多年前就有人提出来的，提出问题本身也是一个重要的研究方向；在做研究时，如果一个问题进展不顺，不一定是你的研究技术不对，也有可能是你提的问题本身就是错的。这也是鬲融在读博期间的主要收获：对研究形成了一个比较完整的认知，并学会了如何选择一个适合自己的题目。鬲融能够“守得云开见月明”的另一个重要因素是坚持。而这一品质，也主要是受到 Arora 的影响。鬲融回忆，在读PhD时，他在研究问题上卡住时，虽然会花时间去想，但经常会有一种感觉，就是“这个想法好像不行，做不下去”，便想放弃。在每周的组会上，他与 Arora 讨论卡住的点，说不知道该怎么做时，Arora 都会说：“这只是一点困难，你可以换一个思路，尝试别的解决方法。”“如果要放弃正在进行的方向，就要给出严谨的证明，让 Arora 相信这个方向确实做不了。但是，只要没有证明这个方向不行，他就不会放弃，会不停地想各种解决办法。”鬲融形容，“在这种精神下，后来我也确实解决了一些卡住的问题。”大约是受到 Arora 的鼓舞，鬲融渐渐懂得了坚持，面对难题时也会乐观许多，更倾向于觉得“这个课题是可以做的”而不是“这个想法好像不行”，即使题目暂时没有做出来，也不会轻易放弃，而是坚持到实在做不下去的时候。他感叹：“如果当时我一说某个思路有哪些困难、觉得做不下去，Arora 就说我们不做这个题了，那么现在的结果肯定会不一样。” </p>
-<h3 id="3-ioi"><strong>3. 大器晚成的 IOI 战神</strong></h3>
+<h3 id="3-ioi"><strong>3. 大器晚成的 IOI 战神</strong><a class="headerlink" href="#3-ioi" title="Permanent link">&para;</a></h3>
 <p>但是，尽管最后两年发表了一些论文，与竞赛、本科时的辉煌成绩相比，鬲融的博士生涯还是相对黯淡：没有大厂奖学金，没有最佳论文。换作旁人，博士期间能在理论计算机顶会 FOCS 与 STOC 上发表3篇工作，已经非常了不起，但对这位清华特奖获得者来说，总觉得还缺点什么。鬲融在2013年获得博士学位。当时，他刚刚在机器学习理论的酒席上喝到微醺，意犹未尽，“感觉还有很多事情想做”，于是就决定去之前实习的微软研究院新英格兰分部做博士后。也是在两年的博士后期间，鬲融开始了在非凸优化（Non-Convex Optimization）方向的研究，为之后获得斯隆研究奖打下了基础。在他还是一名实习生时，微软内部就有人在研究用张量分解（Tensor decompositions）做话题建模。他们的技术非常神奇，就是用两个矩阵乘一下，然后做一下对角化就能得出成果，光看论文本身完全不明白为什么这么做会有用。鬲融就很好奇：“为什么张量分解这么厉害？我不知道有什么理由，所以我就想去研究。”于是，他们尝试用张量分解来研究话题模型上的参数问题，发现张量分解不仅可以用于解释话题模型的参数问题，还可以解释与话题模型类似的机器学习模型的参数问题。他们的工作“Tensor decompositions for learning latent variable models”最后发表在了机器学习顶刊 JMLR上。</p>
 <p><img alt="img" src="https://pic1.zhimg.com/v2-b5871ea373c3c8e5b33799c08cffbab4_b.jpg" /></p>
 <p>地址：<a href="https://link.zhihu.com/?target=https%3A//arxiv.org/abs/1210.7559">https://arxiv.org/abs/1210.7559</a></p>
@@ -1389,7 +1453,7 @@
 <p><img alt="img" src="https://pic2.zhimg.com/v2-9a0d1845ad2faf214be98093e74ca2bd_b.jpg" /></p>
 <p>图注：2019年，鬲融回清华交叉信息研究院（即“姚班”）作学术报告</p>
 <p>在鬲融的成长路上，姚班的身影其实从未远离。他提到，之前在姚班所学习的知识、思路，一开始不知道有什么用，但后来都用上了，甚至后悔“当初怎么不多学点”。而曾经的同窗好友虽然选择了不同的人生方向，“但想到大家跟我一样都在努力，就觉得蛮开心的。”</p>
-<h3 id="4"><strong>4. 理论研究的意义</strong></h3>
+<h3 id="4"><strong>4. 理论研究的意义</strong><a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <p>“对我个人来说，如果我知道一个算法，但是我不知道它的工作原理，是一件不太高兴的事情，所以我自己主要就是因为好奇才选择做机器学习理论研究。”问及从事理论研究的意义，鬲融这样谈道。而从整个机器学习领域的发展来看，理论机器学习的研究主要有两个意义：</p>
 <blockquote>
 <p>一是如果知道<a href="https://www.zhihu.com/search?q=神经网络算法&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra={&quot;sourceType&quot;%3A&quot;article&quot;%2C&quot;sourceId&quot;%3A&quot;385463445&quot;}">神经网络算法</a>的工作原理，我们就有希望解决一些问题，比如让它变得更快，或者用更少的资源；二是可以解决人们关心的一些实际问题，比如计算机视觉中神经网络的弱关性问题，把一张图片错误识别为其他图片。</p>
@@ -1487,7 +1551,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
