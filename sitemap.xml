@@ -46,7 +46,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://charleschile.github.io/Notebook/Problem/%E5%85%A5%E9%97%A81%E9%A1%BA%E5%BA%8F%E7%BB%93%E6%9E%84/</loc>
+         <loc>https://charleschile.github.io/Notebook/Problem/</loc>
+         <lastmod>2022-12-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://charleschile.github.io/Notebook/Problem/acwing/%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE5/</loc>
+         <lastmod>2022-12-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://charleschile.github.io/Notebook/Problem/luogu/%E5%85%A5%E9%97%A81%E9%A1%BA%E5%BA%8F%E7%BB%93%E6%9E%84/</loc>
          <lastmod>2022-12-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
