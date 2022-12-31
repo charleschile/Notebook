@@ -81,8 +81,9 @@ nav:
       - Project/ant.md
   - Reprinted Article:
     - Article/周信静.md
-    - Article/鬲融.md
     - Article/OPTO奋斗史.md
+    - Article/关于学习的意义.md
+    - Article/鬲融.md
   - Tool:
     - Tool/index.md
     - MkDocs-Material:
