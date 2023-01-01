@@ -17,3 +17,13 @@
 
 - 洛谷算法入门题单
     - [入门1 顺序结构](Problem/../luogu/入门1顺序结构.md)
+
+- 字节跳动青训营笔试练习
+    - [Day1 后端练习题](bytedance/backendDay1.md)
+    - [Day2 后端练习题](bytedance/backendDay2.md)
+    - [Day3 后端练习题](bytedance/backendDay3.md)
+    - [Day4 后端练习题](bytedance/backendDay4.md)
+    - [Day5 后端练习题](bytedance/backendDay5.md)
+    - [Day6 后端练习题](bytedance/backendDay6.md)
+    - [Day7 后端练习题](bytedance/backendDay7.md)
+    - [Day8 后端练习题](bytedance/backendDay8.md)

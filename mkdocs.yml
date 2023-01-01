@@ -67,9 +67,13 @@ extra:
 nav:
   - Home Page:
     - index.md
+    - plan.md
   - Computer Science Course:
     - Harvard CS50's introduction to computer science:
       - Course/CS50 intoduction to computer science.md
+
+
+
   - Programming Problem:
     - Problem/index.md
     - 语法基础课:
@@ -79,6 +83,15 @@ nav:
     - 洛谷题单:
       - 入门1 顺序结构:
         -  Problem/luogu/入门1顺序结构.md
+    - 字节跳动青训营笔试训练题:
+      - Problem/bytedance/backendDay1.md
+      - Problem/bytedance/backendDay2.md
+      - Problem/bytedance/backendDay3.md
+      - Problem/bytedance/backendDay4.md
+      - Problem/bytedance/backendDay5.md
+      - Problem/bytedance/backendDay6.md
+      - Problem/bytedance/backendDay7.md
+      - Problem/bytedance/backendDay8.md
 
 
   - Software Development Project:
