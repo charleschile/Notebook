@@ -1,0 +1,1886 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="乐驰的个人笔记">
+      
+      
+        <meta name="author" content="乐驰">
+      
+      
+        <link rel="canonical" href="https://charleschile.github.io/Notebook/Problem/acwing/%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE6/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>第六讲 函数 - Charles Le's Notebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/basic.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/admonition.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="pink">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Charles Le&#39;s Notebook" class="md-header__button md-logo" aria-label="Charles Le's Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Charles Le's Notebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              第六讲 函数
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="pink"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://charleschile.github.io/Notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    charleschile/Notebook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        Home Page
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Course/CS50%20intoduction%20to%20computer%20science/" class="md-tabs__link">
+        Computer Science Course
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
+        Programming Problem
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Project/ant/" class="md-tabs__link">
+        Software Development Project
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Article/%E5%91%A8%E4%BF%A1%E9%9D%99/" class="md-tabs__link">
+        Reprinted Article
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Tool/" class="md-tabs__link">
+        Tool
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Blog/%E5%85%B3%E4%BA%8Eweb%203.0%E7%9A%84%E4%BF%A1%E6%81%AF%E5%92%8C%E6%83%B3%E6%B3%95/" class="md-tabs__link">
+        Blog
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../About/me/" class="md-tabs__link">
+        About & Others
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Charles Le&#39;s Notebook" class="md-nav__button md-logo" aria-label="Charles Le's Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Charles Le's Notebook
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://charleschile.github.io/Notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    charleschile/Notebook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../..">Home Page</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Home Page" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Home Page
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Computer Science Course
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Computer Science Course" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Computer Science Course
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          Harvard CS50's introduction to computer science
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Harvard CS50's introduction to computer science" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Harvard CS50's introduction to computer science
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Course/CS50%20intoduction%20to%20computer%20science/" class="md-nav__link">
+        CS50 notebook
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../">Programming Problem</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Programming Problem" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Programming Problem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          语法基础课
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="语法基础课" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          语法基础课
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE5/" class="md-nav__link">
+        第五讲 字符串
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          第六讲 函数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        第六讲 函数
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Content">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Content
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 函数
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 编写函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 调用函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3 形参和实参
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    1.4 函数的形参列表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    1.6 局部变量、全局变量与静态变量
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 参数传递
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 参数传递">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 传递参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 传引用参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 数组形参
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-return" class="md-nav__link">
+    3. 返回类型和return语句
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 返回类型和return语句">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 无返回值函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 有返回值的函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 函数递归
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE7/" class="md-nav__link">
+        第七讲 类、结构体、指针与引用
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          洛谷题单
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="洛谷题单" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          洛谷题单
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3_1" type="checkbox" id="__nav_3_3_1" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_3_1">
+          入门1 顺序结构
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="入门1 顺序结构" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          入门1 顺序结构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../luogu/%E5%85%A5%E9%97%A81%E9%A1%BA%E5%BA%8F%E7%BB%93%E6%9E%84/" class="md-nav__link">
+        入门1顺序结构
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Software Development Project
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software Development Project" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Software Development Project
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_1">
+          支付宝前锋营
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="支付宝前锋营" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          支付宝前锋营
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Project/ant/" class="md-nav__link">
+        Frontend
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Reprinted Article
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reprinted Article" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Reprinted Article
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Article/%E5%91%A8%E4%BF%A1%E9%9D%99/" class="md-nav__link">
+        讲讲信静的故事：从职高到MIT计算机博士录取
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Article/OPTO%E5%A5%8B%E6%96%97%E5%8F%B2/" class="md-nav__link">
+        OPTO奋斗史：从中专到加州伯克利博士
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Article/%E5%85%B3%E4%BA%8E%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%84%8F%E4%B9%89/" class="md-nav__link">
+        关于学习的意义
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Article/%E9%AC%B2%E8%9E%8D/" class="md-nav__link">
+        鬲融：从姚班到普林斯顿
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../Tool/">Tool</a>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tool" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Tool
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_2">
+          MkDocs-Material
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="MkDocs-Material" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          MkDocs-Material
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tool/MkDocs%20Material/" class="md-nav__link">
+        从0开始部署一个Material for MkDocs 个人笔记
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tool/Online%20personal%20notebook%20plan/" class="md-nav__link">
+        Online personal notebook plan
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tool/MkDocs%E7%BE%8E%E5%8C%96/" class="md-nav__link">
+        Material for MkDocs 的美化
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Blog
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Blog" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Blog
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Blog/%E5%85%B3%E4%BA%8Eweb%203.0%E7%9A%84%E4%BF%A1%E6%81%AF%E5%92%8C%E6%83%B3%E6%B3%95/" class="md-nav__link">
+        关于web 3.0的信息和想法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2" type="checkbox" id="__nav_7_2" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_7_2">
+          讲稿
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="讲稿" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          讲稿
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Blog/%E9%AB%98%E8%80%83%E4%BD%9C%E6%96%87/" class="md-nav__link">
+        高考作文
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          About & Others
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="About & Others" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          About & Others
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../About/me/" class="md-nav__link">
+        About Me
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Content">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Content
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 函数
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 编写函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 调用函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3 形参和实参
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    1.4 函数的形参列表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    1.6 局部变量、全局变量与静态变量
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 参数传递
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 参数传递">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 传递参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 传引用参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 数组形参
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-return" class="md-nav__link">
+    3. 返回类型和return语句
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 返回类型和return语句">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 无返回值函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 有返回值的函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 函数递归
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">第六讲 函数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>函数让代码变得更加简洁</p>
+</blockquote>
+<h2 id="1">1. 函数<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>一个典型的函数定义包括以下部分：返回类型、函数名字、由0个或多个形参组成的列表以及函数体。</p>
+<h3 id="11">1.1 编写函数<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>我们来编写一个求阶乘的程序。程序如下所示：</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstring&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
+
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
+<span class="c1">//函数声明</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">fact</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w">  </span><span class="c1">//形参</span>
+
+<span class="c1">//函数定义</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">fact</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="c1">// 实参</span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">ret</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fact</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>函数名字是fact，它作用于一个整型参数，返回一个整型值。return语句负责结束fact并返回ret的值。</p>
+<h3 id="12">1.2 调用函数<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fact</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;5! is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p>不写return会返回随机值</p>
+<h3 id="13">1.3 形参和实参<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<p>实参是形参的初始值。第一个实参初始化第一个形参，第二个实参初始化第二个形参，依次类推。形参和实参的类型和个数必须匹配。</p>
+<div class="highlight"><pre><span></span><code>fact(&quot;hello&quot;);      // 错误：实参类型不正确
+fact();             // 错误：实参数量不足
+fact(42, 10, 0);    // 错误：实参数量过多
+fact(3.14);         // 正确：该实参能转换成int类型，等价于fact(3);
+</code></pre></div>
+<p>形参也可以设置默认值，但所有默认值必须是最后几个。当传入的实参个数少于形参个数时，最后没有被传入值的形参会使用默认值。</p>
+<h3 id="14">1.4 函数的形参列表<a class="headerlink" href="#14" title="Permanent link">&para;</a></h3>
+<p>函数的形参列表可以为空，但是不能省略。</p>
+<div class="highlight"><pre><span></span><code><span class="n">oid</span><span class="w"> </span><span class="nf">f1</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="cm">/* …. */</span><span class="p">}</span><span class="w">            </span><span class="c1">// 隐式地定义空形参列表</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f2</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="cm">/* … */</span><span class="p">}</span><span class="w">         </span><span class="c1">// 显式地定义空形参列表</span>
+</code></pre></div>
+<p>形参列表中的形参通常用逗号隔开，其中每个形参都是含有一个声明符的声明。即使两个形参的类型一样，也必须把两个类型都写出来：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">f3</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">v1</span><span class="p">,</span><span class="w"> </span><span class="n">v2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="cm">/* … */</span><span class="p">}</span><span class="w">        </span><span class="c1">// 错误</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">f4</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">v1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">v2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="cm">/* … */</span><span class="p">}</span><span class="w">    </span><span class="c1">// 正确</span>
+</code></pre></div>
+<h3 id="16">1.6 局部变量、全局变量与静态变量<a class="headerlink" href="#16" title="Permanent link">&para;</a></h3>
+<p>局部变量只可以在函数内部使用，全局变量可以在所有函数内使用。当局部变量与全局变量重名时，会优先使用局部变量。</p>
+<p>静态变量：</p>
+<div class="highlight"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">cnt</span><span class="p">;</span><span class="w"> </span><span class="c1">//初始为0</span>
+</code></pre></div>
+<p>静态变量相当于函数内部开了一个只有该函数能用的全局变量</p>
+<p>静态变量开在堆里面，不用担心爆栈</p>
+<h2 id="2">2. 参数传递<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 传递参数<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>当初始化一个非引用类型的变量时，初始值被拷贝给变量。此时，对变量的改动不会影响初始值。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="22">2.2 传引用参数<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p>当函数的形参为引用类型时，对形参的修改会影响实参的值。使用引用的作用：避免拷贝、让函数返回额外信息。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="23">2.3 数组形参<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<p>在函数中对数组中的值的修改，会影响函数外面的数组。</p>
+<p>一维数组形参的写法：</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 尽管形式不同，但这三个print函数是等价的</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="cm">/* … */</span><span class="p">}</span><span class="w"> </span><span class="c1">// 数组是一种特殊的指针</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="cm">/* … */</span><span class="p">}</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">10</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="cm">/* … */</span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[])</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>多维数组形参的写法：</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 多维数组中，除了第一维之外，其余维度的大小必须指定</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">)[</span><span class="mi">10</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="cm">/* … */</span><span class="p">}</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[][</span><span class="mi">10</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="cm">/* … */</span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[][</span><span class="mi">10</span><span class="p">])</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="mi">10</span><span class="p">];</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h2 id="3-return">3. 返回类型和return语句<a class="headerlink" href="#3-return" title="Permanent link">&para;</a></h2>
+<p>return语句终止当前正在执行的函数并将控制权返回到调用该函数的地方。return语句有两种形式：</p>
+<div class="highlight"><pre><span></span><code><span class="k">return</span><span class="p">;</span><span class="w"> </span><span class="c1">// void,可以省略</span>
+<span class="k">return</span><span class="w"> </span><span class="n">expression</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<h3 id="31">3.1 无返回值函数<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p>没有返回值的return语句只能用在返回类型是void的函数中。返回void的函数不要求非得有return语句，因为在这类函数的最后一句后面会隐式地执行return。</p>
+<p>通常情况下，void函数如果想在它的中间位置提前退出，可以使用return语句。return的这种用法有点类似于我们用break语句退出循环。</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">v1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">v2</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 如果两个值相等，则不需要交换，直接退出</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">v1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">v2</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 如果程序执行到了这里，说明还需要继续完成某些功能</span>
+
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">v2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">v1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 此处无须显示的return语句</span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="32">3.2 有返回值的函数<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<p>只要函数的返回类型不是void，则该函数内的每条return语句必须返回一个值。return语句返回值的类型必须与函数的返回类型相同，或者能隐式地转换函数的返回类型。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h2 id="4">4. 函数递归<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>在一个函数内部，也可以调用函数本身。</p>
+<p>就是函数自己调用自己</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">fact</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">fact</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">fact</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>看到1.6函数1:54:19</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE5/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 第五讲 字符串" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              第五讲 字符串
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE7/" class="md-footer__link md-footer__link--next" aria-label="下一页: 第七讲 类、结构体、指针与引用" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              第七讲 类、结构体、指针与引用
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 乐驰
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    <a href="https://github.com/charleschile" target="_blank" rel="noopener" title="GitHub | charleschile" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>

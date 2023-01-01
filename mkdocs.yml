@@ -71,9 +71,14 @@ nav:
     - Harvard CS50's introduction to computer science:
       - Course/CS50 intoduction to computer science.md
   - Programming Problem:
+    - Problem/index.md
+    - 语法基础课:
+      - Problem/acwing/语法基础课5.md
+      - Problem/acwing/语法基础课6.md
+      - Problem/acwing/语法基础课7.md
     - 洛谷题单:
       - 入门1 顺序结构:
-        -  Problem/入门1顺序结构.md
+        -  Problem/luogu/入门1顺序结构.md
 
 
   - Software Development Project:
