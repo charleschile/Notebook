@@ -28,10 +28,11 @@ comments: false
 
 !!! info "About Me"
     - Biomedical Sciences (BMS) senior at `ZJU` & `UoE` 
-    - Coming Meng ECE student at `Duke` (maybe)
+    - Coming Master's Student in Electrical and Computer Engineering at `Duke` (maybe)
     - Interested in computer science, mathematics and software development
     - Always dreaming
     - GitHub: https://github.com/charleschile
+    - Contact: charles.chi.le@outlook.com
 
 
 ```cpp title="main.cpp"

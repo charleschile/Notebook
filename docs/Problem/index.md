@@ -14,6 +14,7 @@
     - [第五讲 字符串](Problem/../acwing/语法基础课5.md)
     - [第六讲 函数](Problem/../acwing/语法基础课6.md)
     - [第七讲 类、结构体、指针与引用](Problem/../acwing/语法基础课7.md)
+    - [第八讲 STL、位运算与库函数](Problem/../acwing/语法基础课8.md)
 
 - 洛谷算法入门题单
     - [入门1 顺序结构](Problem/../luogu/入门1顺序结构.md)
