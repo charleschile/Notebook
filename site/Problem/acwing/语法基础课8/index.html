@@ -1991,24 +1991,30 @@
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="c1">   // 头文件</span><span class="cp"></span>
 <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w">      </span><span class="c1">// 相当于一个长度动态变化的int数组</span>
 <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="mi">233</span><span class="p">];</span><span class="w"> </span><span class="c1">// 相当于第一维长233，第二位长度动态变化的int数组</span>
-<span class="k">struct</span><span class="w"> </span><span class="nc">rec</span><span class="p">{</span><span class="err">…</span><span class="p">};</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">rec</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 <span class="n">vector</span><span class="o">&lt;</span><span class="n">rec</span><span class="o">&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w">      </span><span class="c1">// 自定义的结构体类型也可以保存在vector中</span>
 </code></pre></div>
 <h3 id="12-sizeempty">1.2 size/empty<a class="headerlink" href="#12-sizeempty" title="Permanent link">&para;</a></h3>
 <p>size函数返回vector的实际长度（包含的元素个数），empty函数返回一个bool类型，表明vector是否为空。二者的时间复杂度都是 O(1)O(1)。
 所有的STL容器都支持这两个方法，含义也相同，之后我们就不再重复给出。</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"></span>
+<span class="n">a</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span><span class="w"> </span><span class="c1">// 如果是空就是true</span>
+</code></pre></div>
 <h3 id="13-clear">1.3 clear<a class="headerlink" href="#13-clear" title="Permanent link">&para;</a></h3>
 <p>clear函数把vector清空。</p>
 <h3 id="14">1.4 迭代器<a class="headerlink" href="#14" title="Permanent link">&para;</a></h3>
 <p>迭代器就像STL容器的“指针”，可以用星号*操作符解除引用。</p>
 <p>一个保存int的vector的迭代器声明方法为：</p>
-<div class="highlight"><pre><span></span><code><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="w"> </span><span class="n">it</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <p>vector的迭代器是“随机访问迭代器”，可以把vector的迭代器与一个整数相加减，其行为和指针的移动类似。可以把vector的两个迭代器相减，其结果也和指针相减类似，得到两个迭代器对应下标之间的距离。</p>
 <h3 id="15-beginend">1.5 begin/end<a class="headerlink" href="#15-beginend" title="Permanent link">&para;</a></h3>
 <p>begin函数返回指向vector中第一个元素的迭代器。例如a是一个非空的vector，则*a.begin()与a[0]的作用相同。</p>
 <p>所有的容器都可以视作一个“前闭后开”的结构，end函数返回vector的尾部，即第n 个元素再往后的“边界”。*a.end()与a[n]都是越界访问，其中n = a.size()。</p>
 <p>下面两份代码都遍历了vector<int> a，并输出它的所有元素。</p>
+<p>*a.begin()和a[1]一个意思</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
 
@@ -2021,6 +2027,10 @@ back函数返回vector的最后一个元素，等价于</em>--a.end()和a[a.size
 <h3 id="17-push_backpop_back">1.7 push_back()和pop_back()<a class="headerlink" href="#17-push_backpop_back" title="Permanent link">&para;</a></h3>
 <p>a.push_back(x)把元素x插入到vector a的尾部。
 b.pop_back()删除vector a的最后一个元素。</p>
+<blockquote>
+<p>vector的底层原理是倍增</p>
+<p>会均摊时间复杂度</p>
+</blockquote>
 <h2 id="2-include">2. #include <queue><a class="headerlink" href="#2-include" title="Permanent link">&para;</a></h2>
 <p>头文件queue主要包括循环队列queue和优先队列priority_queue两个容器。</p>
 <h3 id="21">2.1 声明<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
