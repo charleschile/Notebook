@@ -68,11 +68,22 @@ nav:
   - Home Page:
     - index.md
     - plan.md
+
+
+
   - Computer Science Course:
+    - Course/index.md
+
     - Harvard CS50's introduction to computer science:
-      - Course/CS50 intoduction to computer science.md
+      - Course/cs50/CS50 intoduction to computer science.md
 
+    - Berkeley CS61A Structure and Interpretation of Computer Programs:
+      - Course/cs61a/information.md
+      - Course/cs61a/week1.md
 
+    - Berkeley CS61B Data Structures and Algorithms:
+      - Course/cs61b/information.md
+      - Course/cs61b/week1.md
 
   - Programming Problem:
     - Problem/index.md
@@ -84,6 +95,9 @@ nav:
     - 洛谷题单:
       - 入门1 顺序结构:
         -  Problem/luogu/入门1顺序结构.md
+
+    - 算法基础课:
+      - Problem/acwing/算法基础课基础算法.md
     - 字节跳动青训营笔试训练题:
       - Problem/bytedance/backendDay1.md
       - Problem/bytedance/backendDay2.md
@@ -101,7 +115,7 @@ nav:
   - Reprinted Article:
     - Article/周信静.md
     - Article/OPTO奋斗史.md
-    - Article/关于学习的意义.md
+    
     - Article/鬲融.md
   - Tool:
     - Tool/index.md
@@ -111,8 +125,13 @@ nav:
       - Tool/MkDocs美化.md
   
   - Blog:
-    - Blog/关于web 3.0的信息和想法.md
+    
+    - 随笔集:
+      - Blog/informalEssay/2301-2302.md
+    - 杂想:
+      - Blog/关于web 3.0的信息和想法.md
     - 讲稿: 
+      - Article/关于学习的意义.md
       - Blog/高考作文.md
 
   - About & Others:

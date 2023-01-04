@@ -19,6 +19,9 @@
 - 洛谷算法入门题单
     - [入门1 顺序结构](Problem/../luogu/入门1顺序结构.md)
 
+- AcWing算法基础课
+    - [第一讲 基础算法](acwing/算法基础课基础算法.md)
+
 - 字节跳动青训营笔试练习
     - [Day1 后端练习题](bytedance/backendDay1.md)
     - [Day2 后端练习题](bytedance/backendDay2.md)

@@ -161,6 +161,50 @@ int main () {
 
 
 
+学过高精度加法之后，我们可以使用高精度加法的方法来进行36进制的加法
+
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+char getChar(int i) {
+    if (i >= 0 && i <= 9) return i + '0';
+    else return i - 10 + 'a';
+}
+
+int getInt(char ch) {
+    if (ch >= '0' && ch <= '9') return ch - '0';
+    else return ch - 'a' + 10;
+}
+
+vector<char> add (vector<char> &A, vector<char> &B) {
+    vector<char> C;
+    int carry = 0;
+    for (int i = 0; i < A.size() || i < B.size(); i++) {
+        if (i < A.size()) carry += getInt(A[i]);
+        if (i < B.size()) carry += getInt(B[i]);
+        C.push_back(getChar(carry % 36));
+        carry /= 36;
+    }
+    if (carry) C.push_back(getChar(carry));
+    return C;
+}
+
+int main () {
+    string a, b;
+    cin >> a >> b;
+    vector<char> A, B;
+    for (int i = a.size() - 1; i >= 0; i--) A.push_back(a[i]);
+    for (int i = b.size() - 1; i >= 0; i--) B.push_back(b[i]);
+    vector<char> C = add(A, B);
+    for (int i = C.size() - 1; i >= 0; i--) printf("%c", C[i]);
+    return 0;
+}
+```
+
+
+
 
 
 ## 题目 2
