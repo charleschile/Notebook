@@ -46,7 +46,37 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://charleschile.github.io/Notebook/Course/CS50%20intoduction%20to%20computer%20science/</loc>
+         <loc>https://charleschile.github.io/Notebook/Blog/informalEssay/2301-2302/</loc>
+         <lastmod>2023-01-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://charleschile.github.io/Notebook/Course/</loc>
+         <lastmod>2023-01-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://charleschile.github.io/Notebook/Course/cs50/CS50%20intoduction%20to%20computer%20science/</loc>
+         <lastmod>2023-01-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://charleschile.github.io/Notebook/Course/cs61a/information/</loc>
+         <lastmod>2023-01-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://charleschile.github.io/Notebook/Course/cs61a/week1/</loc>
+         <lastmod>2023-01-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://charleschile.github.io/Notebook/Course/cs61b/information/</loc>
+         <lastmod>2023-01-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://charleschile.github.io/Notebook/Course/cs61b/week1/</loc>
          <lastmod>2023-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
