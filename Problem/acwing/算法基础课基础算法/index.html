@@ -996,7 +996,7 @@
         
           <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
-    高精度减法
+    高精度减法（有很多细节）
   </a>
   
 </li>
@@ -1884,7 +1884,7 @@
         
           <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
-    高精度减法
+    高精度减法（有很多细节）
   </a>
   
 </li>
@@ -2218,7 +2218,7 @@
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<h3 id="_10">高精度减法<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<h3 id="_10">高精度减法（有很多细节）<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p>大整数的存储格式是一致的</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
@@ -2243,7 +2243,7 @@
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
 <span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">C</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">C</span><span class="p">.</span><span class="n">back</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">C</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">C</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">C</span><span class="p">.</span><span class="n">back</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">C</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span><span class="w"> </span><span class="err">（</span><span class="n">把前导0去掉</span><span class="err">）</span><span class="w"></span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">C</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
@@ -2269,6 +2269,9 @@
 <span class="w"> </span><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <h3 id="_11">高精度除法<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>注意这道题里面A很大，B很小</p>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
 <h3 id="_12">高精度乘法<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <h2 id="_13">前缀和与差分<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
 <h2 id="_14">双指针算法<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
