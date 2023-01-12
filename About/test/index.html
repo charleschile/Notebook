@@ -1784,6 +1784,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 测试音乐插入
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1854,6 +1861,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 测试音乐插入
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1878,13 +1892,41 @@
 <h2 id="this-is-a-test-web-page">This is a test web page<a class="headerlink" href="#this-is-a-test-web-page" title="Permanent link">&para;</a></h2>
 <h3 id="1-b">1. 测试b站视频嵌入<a class="headerlink" href="#1-b" title="Permanent link">&para;</a></h3>
 <iframe src="//player.bilibili.com/player.html?aid=14909587&bvid=BV1Hx411V7n9&cid=24297387&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="800" height="500"> </iframe>
-
+<p>代码块：</p>
+<div class="highlight"><pre><span></span><code>&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=14909587&amp;bvid=BV1Hx411V7n9&amp;cid=24297387&amp;page=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot; width=&quot;800&quot; height=&quot;500&quot;&gt; &lt;/iframe&gt;
+</code></pre></div>
 <h3 id="2">2. 测试图片插入<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p><img alt="北长尾山雀" src="../1.jpeg" />
-<img alt="/docs/pics/徽章.png" src="/docs/pics/徽章.png" />
-<img alt="/pics/徽章.png" src="/pics/徽章.png" />
-<img alt="docs/pics/徽章.png" src="docs/pics/徽章.png" />
-<img alt="pics/徽章.png" src="pics/徽章.png" /></p>
+<p><img alt="北长尾山雀" src="../1.jpeg" /></p>
+<p>正确代码块：</p>
+<div class="highlight"><pre><span></span><code>![<span class="nt">北长尾山雀</span>](<span class="na">1.jpeg</span>)
+</code></pre></div>
+<p>以下都是错误代码</p>
+<div class="highlight"><pre><span></span><code><span class="o">!</span><span class="p">[</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">pics</span><span class="o">/</span><span class="n">徽章</span><span class="p">.</span><span class="n">png</span><span class="p">](</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">pics</span><span class="o">/</span><span class="n">徽章</span><span class="p">.</span><span class="n">png</span><span class="p">)</span><span class="w"></span>
+<span class="o">!</span><span class="p">[</span><span class="o">/</span><span class="n">pics</span><span class="o">/</span><span class="n">徽章</span><span class="p">.</span><span class="n">png</span><span class="p">](</span><span class="o">/</span><span class="n">pics</span><span class="o">/</span><span class="n">徽章</span><span class="p">.</span><span class="n">png</span><span class="p">)</span><span class="w"></span>
+<span class="o">!</span><span class="p">[</span><span class="n">docs</span><span class="o">/</span><span class="n">pics</span><span class="o">/</span><span class="n">徽章</span><span class="p">.</span><span class="n">png</span><span class="p">](</span><span class="n">docs</span><span class="o">/</span><span class="n">pics</span><span class="o">/</span><span class="n">徽章</span><span class="p">.</span><span class="n">png</span><span class="p">)</span><span class="w"></span>
+<span class="o">!</span><span class="p">[</span><span class="n">pics</span><span class="o">/</span><span class="n">徽章</span><span class="p">.</span><span class="n">png</span><span class="p">](</span><span class="n">pics</span><span class="o">/</span><span class="n">徽章</span><span class="p">.</span><span class="n">png</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="3">3. 测试音乐插入<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="450" src="//music.163.com/outchain/player?type=0&id=5156824747&auto=0&height=430"></iframe>
+
+<p>代码块：</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;no&quot;</span> <span class="na">border</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">marginwidth</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">marginheight</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;330&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;450&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;//music.163.com/outchain/player?type=0&amp;id=5156824747&amp;auto=0&amp;height=430&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</code></pre></div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="100%" height="100" src="https://music.163.com/outchain/player?type=2&amp;id=38018486&amp;auto=0&amp;height=100"></iframe>
+
+<p>height为插入模块的高度</p>
+<p>auto为一时，为自动播放模式，为0时，为非自动播放模式</p>
+<p>代码块：</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;no&quot;</span> <span class="na">border</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">marginwidth</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">marginheight</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;100&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://music.163.com/outchain/player?type=2&amp;amp;id=38018486&amp;amp;auto=0&amp;amp;height=100&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>https://music.163.com/#/song?id=1808040375&amp;userid=1455818378</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="100%" height="100" src="https://music.163.com/outchain/player?type=2&amp;id=1808040375&amp;auto=0&amp;height=100"></iframe>
+
+<p>https://music.163.com/playlist?id=7799509690&amp;userid=1455818378</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="450" src="//music.163.com/outchain/player?type=0&id=7799509690&auto=0&height=430">Future bass</iframe>
+
+<p>type=0是播放列表</p>
+<p>type=2是单曲</p>
 
 
 
