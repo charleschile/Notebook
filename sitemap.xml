@@ -176,17 +176,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://charleschile.github.io/Notebook/Tool/MkDocs%20Material/</loc>
+         <loc>https://charleschile.github.io/Notebook/Tool/mac/remacbook/</loc>
          <lastmod>2023-01-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://charleschile.github.io/Notebook/Tool/MkDocs%E7%BE%8E%E5%8C%96/</loc>
+         <loc>https://charleschile.github.io/Notebook/Tool/mkdocs/MkDocs%20Material/</loc>
          <lastmod>2023-01-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://charleschile.github.io/Notebook/Tool/Online%20personal%20notebook%20plan/</loc>
+         <loc>https://charleschile.github.io/Notebook/Tool/mkdocs/MkDocs%E7%BE%8E%E5%8C%96/</loc>
+         <lastmod>2023-01-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://charleschile.github.io/Notebook/Tool/mkdocs/Online%20personal%20notebook%20plan/</loc>
          <lastmod>2023-01-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
