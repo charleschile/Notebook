@@ -112,6 +112,12 @@ nav:
   - Software Development Project:
     - 支付宝前锋营:
       - Project/ant.md
+    - 字节跳动青训营:
+      - Project/bytedance/第五届字节跳动青训营后端专场.md
+
+
+
+
   - Reprinted Article:
     - Article/周信静.md
     - Article/OPTO奋斗史.md
@@ -120,10 +126,14 @@ nav:
   - Tool:
     - Tool/index.md
     - MkDocs-Material:
-      - Tool/MkDocs Material.md
-      - Tool/Online personal notebook plan.md
-      - Tool/MkDocs美化.md
+      - Tool/mkdocs/MkDocs Material.md
+      - Tool/mkdocs/Online personal notebook plan.md
+      - Tool/mkdocs/MkDocs美化.md
+    - MacBook:
+      - Tool/mac/remacbook.md
   
+
+
   - Blog:
     
     - 随笔集:
