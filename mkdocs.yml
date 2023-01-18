@@ -85,6 +85,9 @@ nav:
       - Course/cs61b/information.md
       - Course/cs61b/week1.md
 
+    - C++ Primer:
+      - Course/cppPrimer/cppPrimer.md
+
   - Programming Problem:
     - Problem/index.md
     - 语法基础课:
