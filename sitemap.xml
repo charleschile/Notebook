@@ -61,6 +61,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://charleschile.github.io/Notebook/Course/cppPrimer/cppPrimer/</loc>
+         <lastmod>2023-01-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://charleschile.github.io/Notebook/Course/cs50/CS50%20intoduction%20to%20computer%20science/</loc>
          <lastmod>2023-01-18</lastmod>
          <changefreq>daily</changefreq>
