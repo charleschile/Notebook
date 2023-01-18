@@ -14,6 +14,10 @@
 
 
 
+Magnet(xiangxijie的视频里面出现)
+
+
+
 ### Xcode下载
 
 想下载homebrew就必须要下载Xcode..
@@ -260,3 +264,11 @@ pip3 install mkdocs-material -i https://pypi.tuna.tsinghua.edu.cn/simple
 ### 如何将命令行中的git提示语言改为英文
 
 https://blog.csdn.net/michael_wgy_/article/details/105858848
+
+
+
+### 认识mac文件并切配置vscode编写cpp
+
+参照yangxijie的教程
+
+Install c/c++ 和code runner
