@@ -84,6 +84,83 @@ int main () {
 
 
 
+### Week 1 星期二
+
+给定两个正整数 n 和 k，求从 11 到 n 这 n个正整数的十进制表示中 k 出现的次数。
+
+#### 输入格式
+
+共一行，包含两个整数 n和 k。
+
+#### 输出格式
+
+输出一个整数，表示答案。
+
+#### 数据范围
+
+1≤n≤106,
+1≤k≤9
+
+#### 输入样例：
+
+```
+12 1
+```
+
+#### 输出样例：
+
+```
+5
+```
+
+#### 样例解释
+
+从 11 到 1212 这些整数中包含 11 的数字有 1,10,11,121,10,11,12，一共出现了 55 次 11。
+
+```cpp
+// 这个题目的数据范围很小，只有1000000
+// C++如果时间限制是一秒钟的话，运算量可以做到一个亿，所以这道题直接暴力枚举即可
+#include <iostream>
+#include <cstring>
+using namespace std;
+int res;
+
+int main () {
+    int n, k;
+    
+    cin >> n >> k;
+    for (int i = 1; i < n + 1; i++)
+        for (auto c: to_string(i))
+            if (c - '0' == k)
+                res++;
+    cout << res << endl;
+    return 0;
+}
+```
+
+改进之后手动算每一位
+
+```cpp
+// 这个题目的数据范围很小，只有1000000
+// C++如果时间限制是一秒钟的话，运算量可以做到一个亿，所以这道题直接暴力枚举即可
+// to_string 相对较慢，可以通过手动写来加快运行速度
+#include <iostream>
+#include <cstring>
+using namespace std;
+int res;
+
+int main () {
+    int n, k;
+    
+    cin >> n >> k;
+    for (int i = 1; i < n + 1; i++)
+        for (int j = i; j; j /= 10)
+            if (j % 10 == k)
+                res++;
+    cout << res << endl;
+    return 0;
+}
+```
 
 
 
@@ -91,6 +168,10 @@ int main () {
 
 
 
+### Week 1 星期三
+
+```cpp
+```
 
 
 
