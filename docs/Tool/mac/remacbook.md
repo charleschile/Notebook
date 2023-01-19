@@ -271,4 +271,21 @@ https://blog.csdn.net/michael_wgy_/article/details/105858848
 
 参照yangxijie的教程
 
-Install c/c++ 和code runner
+Install c/c++ 和code runner插件
+
+`vscode-icons-mac`：调整文件管理器那里的图标
+
+`Bracket Pair Colorizer`：将白色的括号变为匹配的彩色
+
+
+
+
+
+
+
+
+
+
+
+
+
