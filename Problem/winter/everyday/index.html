@@ -1407,6 +1407,54 @@
     Week 1 星期三
   </a>
   
+    <nav class="md-nav" aria-label="Week 1 星期三">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    输入格式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    输出格式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    数据范围
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    输入样例：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    输出样例：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    样例解释
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2277,6 +2325,54 @@
     Week 1 星期三
   </a>
   
+    <nav class="md-nav" aria-label="Week 1 星期三">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    输入格式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    输出格式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    数据范围
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    输入样例：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    输出样例：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    样例解释
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2407,6 +2503,50 @@ GHGHG
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="week-1_2">Week 1 星期三<a class="headerlink" href="#week-1_2" title="Permanent link">&para;</a></h3>
+<p>有 N堆石子，每堆的石子数量分别为 a1,a2,…,aN1</p>
+<p>你可以对石子堆进行合并操作，将两个相邻的石子堆合并为一个石子堆，例如，如果 a=[1,2,3,4,5]，合并第 2,3堆石子，则石子堆集合变为 a=[1,5,4,5]。</p>
+<p>我们希望通过尽可能少的操作，使得石子堆集合中的每堆石子的数量都相同。</p>
+<p>请你输出所需的最少操作次数。</p>
+<p>本题一定有解，因为可以将所有石子堆合并为一堆。</p>
+<h4 id="_13">输入格式<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<p>第一行包含整数 T，表示共有 T 组测试数据。</p>
+<p>每组数据第一行包含整数 N。</p>
+<p>第二行包含 N个整数 a1,a2,…,aN</p>
+<h4 id="_14">输出格式<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<p>每组数据输出一行结果。</p>
+<h4 id="_15">数据范围<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<p>1≤T≤10,
+1≤N≤105
+0≤ai≤106
+∑i=1nai≤106
+每个输入所有 N之和不超过 105105。</p>
+<h4 id="_16">输入样例：<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>3
+6
+1 2 3 1 1 1
+3
+2 2 3
+5
+0 0 0 0 0
+</code></pre></div>
+<h4 id="_17">输出样例：<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>3
+2
+0
+</code></pre></div>
+<h4 id="_18">样例解释<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
+<p>第一组数据，只需要用 33 个操作来完成：</p>
+<div class="highlight"><pre><span></span><code>   1 2 3 1 1 1
+-&gt; 3 3 1 1 1
+-&gt; 3 3 2 1
+-&gt; 3 3 3
+</code></pre></div>
+<p>第二组数据，只需要用 22 个操作来完成：</p>
+<div class="highlight"><pre><span></span><code>   2 2 3
+-&gt; 2 5
+-&gt; 7
+</code></pre></div>
+<p>第三组数据，我们什么都不需要做。</p>
 <div class="highlight"><pre><span></span><code>
 </code></pre></div>
 
