@@ -1,18 +1,13 @@
-# This is a notebook created by @Charles Le
-## Welcome to my notebook!
+# Tool
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+!!! abstract 
+    这里是计算机相关的一些工具使用的说明
+    
 
-## Commands
+    正在不断总结更新笔记中...
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
 
-## Project layout
+## Table of Contents
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+- MIT The Missing Semester of Your CS education
+    - [MIT notes](Tool/../MIT/missing_semester.md)

@@ -129,7 +129,11 @@ nav:
     - Article/OPTO奋斗史.md
     
     - Article/鬲融.md
+
+
+
   - Tool:
+    
     - Tool/index.md
     - MkDocs-Material:
       - Tool/mkdocs/MkDocs Material.md
@@ -137,6 +141,8 @@ nav:
       - Tool/mkdocs/MkDocs美化.md
     - MacBook:
       - Tool/mac/remacbook.md
+    - MIT Missing Semester:
+      - Tool/MIT/missing_semester.md
   
 
 
