@@ -1739,9 +1739,62 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          MIT The Missing Semester of Your CS Education
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         MIT The Missing Semester of Your CS Education
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Content">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Content
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#information" class="md-nav__link">
+    information
+  </a>
+  
+    <nav class="md-nav" aria-label="information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#course-overview-shell" class="md-nav__link">
+    Course overview + Shell
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shell-tools-and-scripting" class="md-nav__link">
+    Shell Tools and Scripting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2067,6 +2120,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Content
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#information" class="md-nav__link">
+    information
+  </a>
+  
+    <nav class="md-nav" aria-label="information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#course-overview-shell" class="md-nav__link">
+    Course overview + Shell
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shell-tools-and-scripting" class="md-nav__link">
+    Shell Tools and Scripting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2082,6 +2170,151 @@
 
 
 <h1 id="mit-the-missing-semester-of-your-cs-education">MIT The Missing Semester of Your CS Education<a class="headerlink" href="#mit-the-missing-semester-of-your-cs-education" title="Permanent link">&para;</a></h1>
+<h2 id="information">information<a class="headerlink" href="#information" title="Permanent link">&para;</a></h2>
+<ul>
+<li>重点熟悉 <code>Git</code> <code>GitHub</code> <code>make</code> <code>gdb</code>/<code>lldb</code> <code>VS Code</code> <code>Markdown</code></li>
+</ul>
+<h3 id="course-overview-shell">Course overview + Shell<a class="headerlink" href="#course-overview-shell" title="Permanent link">&para;</a></h3>
+<p>Shell: 它允许你执行程序，输入并获取某种半结构化的输出。</p>
+<p>Bourne Again SHell, 简称 “bash” </p>
+<ol>
+<li><code>date</code></li>
+</ol>
+<p>它打印出了当前的日期和时间</p>
+<p>2023年 2月18日 星期六 10时37分36秒 CST</p>
+<ol>
+<li><code>echo hello</code></li>
+</ol>
+<p><code>echo</code> 程序将<code>hello</code>参数打印出来</p>
+<p>注意参数里面不应该有空格，如果您希望传递的参数中包含空格（例如一个名为 My Photos 的文件夹），您要么用使用单引号，双引号将其包裹起来，要么使用转义符号 <code>\</code> 进行处理（<code>My\ Photos</code>）。</p>
+<p>比如<code>echo Hello\ World</code></p>
+<div class="highlight"><pre><span></span><code>➜<span class="w">  </span>try<span class="w"> </span>mkdir<span class="w"> </span>My<span class="w"> </span>Photos
+➜<span class="w">  </span>try<span class="w"> </span>ls
+My<span class="w">     </span>Photos
+➜<span class="w">  </span>try<span class="w"> </span>mkdir<span class="w"> </span>My<span class="se">\ </span>Photos
+➜<span class="w">  </span>try<span class="w"> </span>ls
+My<span class="w">        </span>My<span class="w"> </span>Photos<span class="w"> </span>Photos
+</code></pre></div>
+<ol>
+<li>Shell 指令搜索的路径</li>
+</ol>
+<div class="highlight"><pre><span></span><code>➜<span class="w">  </span>~<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$PATH</span>
+/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Library/Apple/usr/bin
+➜<span class="w">  </span>~<span class="w"> </span>which<span class="w"> </span><span class="nb">echo</span>
+echo:<span class="w"> </span>shell<span class="w"> </span>built-in<span class="w"> </span><span class="nb">command</span>
+➜<span class="w">  </span>~<span class="w"> </span>/bin/echo<span class="w"> </span><span class="nv">$PATH</span>
+/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Library/Apple/usr/bin
+</code></pre></div>
+<ol>
+<li>在shell中导航</li>
+</ol>
+<p>shell 中的路径是一组被分割的目录，在 Linux 和 macOS 上使用 <code>/</code> 分割，而在Windows上是 <code>\</code>。</p>
+<p>路径 <code>/</code> 代表的是系统的根目录，如果某个路径以 <code>/</code> 开头，那么它是一个 <em>绝对路径</em>，其他的都是 <em>相对路径</em> 。如果某个路径以 <code>/</code> 开头，那么它是一个 <em>绝对路径</em>，其他的都是 <em>相对路径</em> 。</p>
+<div class="highlight"><pre><span></span><code>➜<span class="w">  </span>~<span class="w"> </span><span class="nb">pwd</span>
+/Users/charleschile
+➜<span class="w">  </span>~<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/home
+➜<span class="w">  </span>/home<span class="w"> </span><span class="nb">pwd</span>
+/home
+➜<span class="w">  </span>/home<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
+➜<span class="w">  </span>/<span class="w"> </span><span class="nb">pwd</span>
+/
+➜<span class="w">  </span>/<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>./home
+➜<span class="w">  </span>/home<span class="w"> </span><span class="nb">pwd</span>
+/home
+➜<span class="w">  </span>/home<span class="w"> </span><span class="nb">cd</span>
+➜<span class="w">  </span>~
+</code></pre></div>
+<ol>
+<li>查看指定目录下包含哪些文件，我们使用 <code>ls</code> 命令</li>
+</ol>
+<div class="highlight"><pre><span></span><code>➜<span class="w">  </span>Desktop<span class="w"> </span>ls
+Codes<span class="w">                                     </span>Personal<span class="w"> </span>File<span class="w">                             </span>草稿.docx<span class="w">                                 </span>截屏2023-02-16<span class="w"> </span><span class="m">17</span>.39.05.png<span class="w">               </span>关键词：.md
+ICA.docx<span class="w">                                  </span>blockchain.md<span class="w">                             </span>草稿2.docx<span class="w">                                </span>截屏2023-02-17<span class="w"> </span><span class="m">08</span>.44.15.png
+Male<span class="w"> </span>infertility<span class="w"> </span>as<span class="w"> </span>a<span class="w"> </span>window<span class="w"> </span>to<span class="w"> </span>health.md<span class="w"> </span>毕设<span class="w">                                      </span>截屏2023-02-15<span class="w"> </span><span class="m">11</span>.48.28.png<span class="w">               </span>交易记录.md
+➜<span class="w">  </span>Desktop<span class="w"> </span>ls<span class="w"> </span>-l
+total<span class="w"> </span><span class="m">1248</span>
+drwxr-xr-x@<span class="w">  </span><span class="m">6</span><span class="w"> </span>charleschile<span class="w">  </span>staff<span class="w">     </span><span class="m">192</span><span class="w">  </span><span class="m">1</span><span class="w"> </span><span class="m">18</span><span class="w"> </span><span class="m">11</span>:36<span class="w"> </span>Codes
+-rw-r--r--@<span class="w">  </span><span class="m">1</span><span class="w"> </span>charleschile<span class="w">  </span>staff<span class="w">  </span><span class="m">260007</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="m">18</span>:56<span class="w"> </span>ICA.docx
+-rw-r--r--@<span class="w">  </span><span class="m">1</span><span class="w"> </span>charleschile<span class="w">  </span>staff<span class="w">    </span><span class="m">2292</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">01</span>:13<span class="w"> </span>Male<span class="w"> </span>infertility<span class="w"> </span>as<span class="w"> </span>a<span class="w"> </span>window<span class="w"> </span>to<span class="w"> </span>health.md
+drwxrwxrwx<span class="w">  </span><span class="m">13</span><span class="w"> </span>charleschile<span class="w">  </span>staff<span class="w">     </span><span class="m">416</span><span class="w">  </span><span class="m">1</span><span class="w"> </span><span class="m">13</span><span class="w"> </span><span class="m">12</span>:43<span class="w"> </span>Personal<span class="w"> </span>File
+-rw-r--r--@<span class="w">  </span><span class="m">1</span><span class="w"> </span>charleschile<span class="w">  </span>staff<span class="w">   </span><span class="m">13623</span><span class="w">  </span><span class="m">2</span><span class="w">  </span><span class="m">7</span><span class="w"> </span><span class="m">11</span>:35<span class="w"> </span>blockchain.md
+drwxrwxrwx@<span class="w"> </span><span class="m">15</span><span class="w"> </span>charleschile<span class="w">  </span>staff<span class="w">     </span><span class="m">480</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">08</span>:44<span class="w"> </span>毕设
+-rw-r--r--@<span class="w">  </span><span class="m">1</span><span class="w"> </span>charleschile<span class="w">  </span>staff<span class="w">   </span><span class="m">15101</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="m">15</span>:08<span class="w"> </span>草稿.docx
+-rw-r--r--@<span class="w">  </span><span class="m">1</span><span class="w"> </span>charleschile<span class="w">  </span>staff<span class="w">   </span><span class="m">13410</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">04</span>:51<span class="w"> </span>草稿2.docx
+-rw-r--r--@<span class="w">  </span><span class="m">1</span><span class="w"> </span>charleschile<span class="w">  </span>staff<span class="w">   </span><span class="m">22919</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">11</span>:48<span class="w"> </span>截屏2023-02-15<span class="w"> </span><span class="m">11</span>.48.28.png
+-rw-r--r--@<span class="w">  </span><span class="m">1</span><span class="w"> </span>charleschile<span class="w">  </span>staff<span class="w">  </span><span class="m">105133</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="m">17</span>:39<span class="w"> </span>截屏2023-02-16<span class="w"> </span><span class="m">17</span>.39.05.png
+-rw-r--r--@<span class="w">  </span><span class="m">1</span><span class="w"> </span>charleschile<span class="w">  </span>staff<span class="w">  </span><span class="m">183011</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">08</span>:44<span class="w"> </span>截屏2023-02-17<span class="w"> </span><span class="m">08</span>.44.15.png
+-rw-r--r--@<span class="w">  </span><span class="m">1</span><span class="w"> </span>charleschile<span class="w">  </span>staff<span class="w">    </span><span class="m">1018</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">12</span>:26<span class="w"> </span>交易记录.md
+-rw-r--r--@<span class="w">  </span><span class="m">1</span><span class="w"> </span>charleschile<span class="w">  </span>staff<span class="w">     </span><span class="m">828</span><span class="w">  </span><span class="m">1</span><span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">23</span>:10<span class="w"> </span>关键词：.md
+</code></pre></div>
+<p><code>ls -l</code>这个参数可以更加详细地列出目录下文件或文件夹的信息。首先，本行第一个字符 <code>d</code> 表示 <code>missing</code> 是一个目录。然后接下来的九个字符，每三个字符构成一组。 （<code>rwx</code>）. 它们分别代表了文件所有者（<code>missing</code>），用户组（<code>users</code>） 以及其他所有人具有的权限。其中 <code>-</code> 表示该用户不具备相应的权限。从上面的信息来看，只有文件所有者可以修改（<code>w</code>），<code>missing</code> 文件夹 （例如，添加或删除文件夹中的文件）。为了进入某个文件夹，用户需要具备该文件夹以及其父文件夹的“搜索”权限（以“可执行”：<code>x</code>）权限表示。为了列出它的包含的内容，用户必须对该文件夹具备读权限（<code>r</code>）。对于文件来说，权限的意义也是类似的。注意，<code>/bin</code> 目录下的程序在最后一组，即表示所有人的用户组中，均包含 <code>x</code> 权限，也就是说任何人都可以执行这些程序。</p>
+<p>比如<code>drwxr-xr-x</code>代表这是一个文件夹，<code>rwx</code>代表文件夹的所有者能够读、写、搜索这个文件夹里的内容，<code>r-x</code>代表用户组只能读和搜索，下一个<code>r-x</code>代表其他所有人也只能读和搜索</p>
+<ol>
+<li>文件的移动和重命名</li>
+</ol>
+<p>实际上将文件在同一个目录下移动就相当于更改了文件名：</p>
+<div class="highlight"><pre><span></span><code>mv<span class="w"> </span>test.md<span class="w"> </span>try.md
+//实际上将test.md<span class="w"> </span>改名成了try.md
+</code></pre></div>
+<p>文件移动文件夹并且改名：</p>
+<div class="highlight"><pre><span></span><code>➜<span class="w">  </span>try<span class="w"> </span>mv<span class="w"> </span>try.md<span class="w"> </span>../test/test.md
+</code></pre></div>
+<ol>
+<li>拷贝文件</li>
+</ol>
+<div class="highlight"><pre><span></span><code>➜<span class="w">  </span><span class="nb">test</span><span class="w"> </span>cp<span class="w"> </span>test.md<span class="w"> </span>try.md
+</code></pre></div>
+<ol>
+<li>新建文件夹</li>
+</ol>
+<div class="highlight"><pre><span></span><code>➜<span class="w">  </span><span class="nb">test</span><span class="w"> </span>mkdir<span class="w"> </span>test1
+</code></pre></div>
+<ol>
+<li>展示程序的用户手册</li>
+</ol>
+<div class="highlight"><pre><span></span><code>man<span class="w"> </span>ls
+</code></pre></div>
+<ol>
+<li>使用<code>&gt;</code>和<code>&lt;</code>在程序之间创建连接
+   <div class="highlight"><pre><span></span><code>➜<span class="w">  </span><span class="nb">test</span><span class="w"> </span>cat<span class="w"> </span>test.md
+test%
+➜<span class="w">  </span><span class="nb">test</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>hello<span class="w"> </span>&gt;<span class="w"> </span>test.md
+➜<span class="w">  </span><span class="nb">test</span><span class="w"> </span>cat<span class="w"> </span>test.md
+hello
+
+
+
+➜<span class="w">  </span><span class="nb">test</span><span class="w"> </span>cat<span class="w"> </span>&lt;<span class="w"> </span>test.md
+hello
+➜<span class="w">  </span><span class="nb">test</span><span class="w"> </span>cat<span class="w"> </span>&lt;<span class="w"> </span>test.md<span class="w"> </span>&gt;<span class="w"> </span>test2.md
+➜<span class="w">  </span><span class="nb">test</span><span class="w"> </span>cat<span class="w"> </span>test2.md
+hello
+</code></pre></div></li>
+</ol>
+<p>使用<code>|</code>将一个程序的输出和另外一个程序的输入连接起来</p>
+<p><code>tail -n1</code>是取出最后一行的内容</p>
+<div class="highlight"><pre><span></span><code>➜<span class="w">  </span>~<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>/
+total<span class="w"> </span><span class="m">9</span>
+drwxrwxr-x<span class="w">  </span><span class="m">35</span><span class="w"> </span>root<span class="w">  </span>admin<span class="w">  </span><span class="m">1120</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="m">13</span>:53<span class="w"> </span>Applications
+drwxr-xr-x<span class="w">  </span><span class="m">67</span><span class="w"> </span>root<span class="w">  </span>wheel<span class="w">  </span><span class="m">2144</span><span class="w">  </span><span class="m">1</span><span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">08</span>:34<span class="w"> </span>Library
+drwxr-xr-x@<span class="w">  </span><span class="m">9</span><span class="w"> </span>root<span class="w">  </span>wheel<span class="w">   </span><span class="m">288</span><span class="w"> </span><span class="m">12</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">16</span>:43<span class="w"> </span>System
+drwxr-xr-x<span class="w">   </span><span class="m">5</span><span class="w"> </span>root<span class="w">  </span>admin<span class="w">   </span><span class="m">160</span><span class="w"> </span><span class="m">12</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">16</span>:43<span class="w"> </span>Users
+drwxr-xr-x<span class="w">   </span><span class="m">3</span><span class="w"> </span>root<span class="w">  </span>wheel<span class="w">    </span><span class="m">96</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">18</span><span class="w"> </span><span class="m">09</span>:46<span class="w"> </span>Volumes
+drwxr-xr-x@<span class="w"> </span><span class="m">38</span><span class="w"> </span>root<span class="w">  </span>wheel<span class="w">  </span><span class="m">1216</span><span class="w"> </span><span class="m">12</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">16</span>:43<span class="w"> </span>bin
+drwxr-xr-x<span class="w">   </span><span class="m">2</span><span class="w"> </span>root<span class="w">  </span>wheel<span class="w">    </span><span class="m">64</span><span class="w"> </span><span class="m">12</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">16</span>:43<span class="w"> </span>cores
+dr-xr-xr-x<span class="w">   </span><span class="m">3</span><span class="w"> </span>root<span class="w">  </span>wheel<span class="w">  </span><span class="m">4430</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">18</span><span class="w"> </span><span class="m">09</span>:46<span class="w"> </span>dev
+lrwxr-xr-x@<span class="w">  </span><span class="m">1</span><span class="w"> </span>root<span class="w">  </span>wheel<span class="w">    </span><span class="m">11</span><span class="w"> </span><span class="m">12</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">16</span>:43<span class="w"> </span>etc<span class="w"> </span>-&gt;<span class="w"> </span>private/etc
+lrwxr-xr-x<span class="w">   </span><span class="m">1</span><span class="w"> </span>root<span class="w">  </span>wheel<span class="w">    </span><span class="m">25</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">18</span><span class="w"> </span><span class="m">09</span>:46<span class="w"> </span>home<span class="w"> </span>-&gt;<span class="w"> </span>/System/Volumes/Data/home
+drwxr-xr-x<span class="w">   </span><span class="m">2</span><span class="w"> </span>root<span class="w">  </span>wheel<span class="w">    </span><span class="m">64</span><span class="w"> </span><span class="m">12</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">16</span>:43<span class="w"> </span>opt
+drwxr-xr-x<span class="w">   </span><span class="m">6</span><span class="w"> </span>root<span class="w">  </span>wheel<span class="w">   </span><span class="m">192</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">18</span><span class="w"> </span><span class="m">09</span>:46<span class="w"> </span>private
+drwxr-xr-x@<span class="w"> </span><span class="m">65</span><span class="w"> </span>root<span class="w">  </span>wheel<span class="w">  </span><span class="m">2080</span><span class="w"> </span><span class="m">12</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">16</span>:43<span class="w"> </span>sbin
+lrwxr-xr-x@<span class="w">  </span><span class="m">1</span><span class="w"> </span>root<span class="w">  </span>wheel<span class="w">    </span><span class="m">11</span><span class="w"> </span><span class="m">12</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">16</span>:43<span class="w"> </span>tmp<span class="w"> </span>-&gt;<span class="w"> </span>private/tmp
+drwxr-xr-x@<span class="w"> </span><span class="m">11</span><span class="w"> </span>root<span class="w">  </span>wheel<span class="w">   </span><span class="m">352</span><span class="w"> </span><span class="m">12</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">16</span>:43<span class="w"> </span>usr
+lrwxr-xr-x@<span class="w">  </span><span class="m">1</span><span class="w"> </span>root<span class="w">  </span>wheel<span class="w">    </span><span class="m">11</span><span class="w"> </span><span class="m">12</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">16</span>:43<span class="w"> </span>var<span class="w"> </span>-&gt;<span class="w"> </span>private/var
+➜<span class="w">  </span>~<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>/<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-n1
+lrwxr-xr-x@<span class="w">  </span><span class="m">1</span><span class="w"> </span>root<span class="w">  </span>wheel<span class="w">    </span><span class="m">11</span><span class="w"> </span><span class="m">12</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">16</span>:43<span class="w"> </span>var<span class="w"> </span>-&gt;<span class="w"> </span>private/var
+</code></pre></div>
+<h3 id="shell-tools-and-scripting">Shell Tools and Scripting<a class="headerlink" href="#shell-tools-and-scripting" title="Permanent link">&para;</a></h3>
 
 
 
