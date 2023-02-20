@@ -91,6 +91,10 @@ nav:
     - 北京大学程序设计与算法:
       - Course/peking/程序设计与算法.md
       - Course/peking/计算导论与C语言基础.md
+    
+    - Duke Introductory C Programming:
+      - Course/dukeC/intro.md
+      - Course/dukeC/programmingFundamentals.md
 
   - Programming Problem:
     - Problem/index.md
