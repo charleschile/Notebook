@@ -88,6 +88,9 @@ nav:
     - C++ Primer:
       - Course/cppPrimer/cppPrimer.md
 
+    - 北京大学程序设计与算法:
+      - Course/peking/计算导论与C语言基础.md
+
   - Programming Problem:
     - Problem/index.md
     - 语法基础课:
