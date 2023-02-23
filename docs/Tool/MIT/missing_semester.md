@@ -2,6 +2,8 @@
 
 ## information
 
+课程地址：https://missing-semester-cn.github.io/
+
 - 重点熟悉 `Git` `GitHub` `make` `gdb`/`lldb` `VS Code` `Markdown`
 
 

@@ -54,7 +54,7 @@ theme:
 repo_url: https://charleschile.github.io/Notebook # 右上角点击跳转的链接
 repo_name: charleschile/Notebook # 右上角的名字
 ## [bottom-left corner]
-copyright: Copyright &copy; 2022 乐驰 # 左下角的版权声明
+copyright: Copyright &copy; 2023 乐驰 # 左下角的版权声明
 ## [bottom-right corner]
 
 extra:
@@ -151,6 +151,9 @@ nav:
       - Tool/mac/remacbook.md
     - MIT Missing Semester:
       - Tool/MIT/missing_semester.md
+    - Systematic review and Meta-analysis:
+      - Tool/systematicReview/notes.md
+      - Tool/systematicReview/jhu.md
   
 
 
