@@ -6,3 +6,7 @@
 
 关于r语言的meta分析，google搜索meta analysis r tutorial
 
+
+
+下载了一本meta-analysis with R
+
