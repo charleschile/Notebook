@@ -149,12 +149,19 @@ nav:
       - Tool/mkdocs/MkDocs美化.md
     - MacBook:
       - Tool/mac/remacbook.md
+      - Tool/mac/troubleshooting.md
     - MIT Missing Semester:
       - Tool/MIT/missing_semester.md
     - Systematic review and Meta-analysis:
       - Tool/systematicReview/notes.md
       - Tool/systematicReview/jhu.md
       - Tool/systematicReview/bilibilil.md
+    - git:
+      - Tool/git/git.md
+    - Vim:
+      - Tool/vim/vim.md
+    - Resume:
+      - Tool/resume/resume.md
   
 
 
