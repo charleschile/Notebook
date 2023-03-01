@@ -2072,6 +2072,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#githubssh-key" class="md-nav__link">
+    配置github的ssh key
+  </a>
+  
+    <nav class="md-nav" aria-label="配置github的ssh key">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    配置github的用户设置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-key" class="md-nav__link">
+    生成自己的ssh-key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#githubssh-key_1" class="md-nav__link">
+    配置github的ssh key
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2517,6 +2551,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#githubssh-key" class="md-nav__link">
+    配置github的ssh key
+  </a>
+  
+    <nav class="md-nav" aria-label="配置github的ssh key">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    配置github的用户设置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-key" class="md-nav__link">
+    生成自己的ssh-key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#githubssh-key_1" class="md-nav__link">
+    配置github的ssh key
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2535,6 +2603,44 @@
 
 <h1 id="git">git 使用<a class="headerlink" href="#git" title="Permanent link">&para;</a></h1>
 <h3 id="git_1">一、git是什么<a class="headerlink" href="#git_1" title="Permanent link">&para;</a></h3>
+<h3 id="githubssh-key">配置github的ssh key<a class="headerlink" href="#githubssh-key" title="Permanent link">&para;</a></h3>
+<h4 id="github">配置github的用户设置<a class="headerlink" href="#github" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>➜<span class="w">  </span>~<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span>charleschile
+➜<span class="w">  </span>~<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span>charles.chi.le@outlook.com
+</code></pre></div>
+<h4 id="ssh-key">生成自己的ssh-key<a class="headerlink" href="#ssh-key" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>➜<span class="w">  </span>~<span class="w"> </span>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-b<span class="w"> </span><span class="m">4096</span><span class="w"> </span>-C<span class="w"> </span>charles.chi.le@outlook.com
+</code></pre></div>
+<p>注意输入好上面这条命令后，一直按回车，什么都不用输入</p>
+<div class="highlight"><pre><span></span><code>Generating<span class="w"> </span>public/private<span class="w"> </span>rsa<span class="w"> </span>key<span class="w"> </span>pair.
+Enter<span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>which<span class="w"> </span>to<span class="w"> </span>save<span class="w"> </span>the<span class="w"> </span>key<span class="w"> </span><span class="o">(</span>/Users/charleschile/.ssh/id_rsa<span class="o">)</span>:
+Enter<span class="w"> </span>passphrase<span class="w"> </span><span class="o">(</span>empty<span class="w"> </span><span class="k">for</span><span class="w"> </span>no<span class="w"> </span>passphrase<span class="o">)</span>:
+Enter<span class="w"> </span>same<span class="w"> </span>passphrase<span class="w"> </span>again:
+
+Your<span class="w"> </span>identification<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>saved<span class="w"> </span><span class="k">in</span><span class="w"> </span>/Users/charleschile/.ssh/id_rsa
+Your<span class="w"> </span>public<span class="w"> </span>key<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>saved<span class="w"> </span><span class="k">in</span><span class="w"> </span>/Users/charleschile/.ssh/id_rsa.pub
+The<span class="w"> </span>key<span class="w"> </span>fingerprint<span class="w"> </span>is:
+SHA256:MFuYaD/EEt+oNtc9nU+ssySqrMohTghqDg53F1uXVIs<span class="w"> </span>charles.chi.le@outlook.com
+The<span class="w"> </span>key<span class="err">&#39;</span>s<span class="w"> </span>randomart<span class="w"> </span>image<span class="w"> </span>is:
++---<span class="o">[</span>RSA<span class="w"> </span><span class="m">4096</span><span class="o">]</span>----+
+<span class="p">|</span><span class="w">    </span>.<span class="w">       </span>.<span class="w">    </span><span class="p">|</span>
+<span class="p">|</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="o">=</span><span class="w">   </span>o<span class="w"> </span>.<span class="w">   </span><span class="p">|</span>
+<span class="p">|</span><span class="w">    </span>+<span class="w"> </span>X<span class="w"> </span>o<span class="w"> </span>E<span class="w"> </span>.<span class="w">    </span><span class="p">|</span>
+<span class="p">|</span><span class="w">   </span>.<span class="w"> </span><span class="o">=</span><span class="w"> </span>*<span class="w"> </span>o<span class="w"> </span>o<span class="w"> </span>o<span class="w">   </span><span class="p">|</span>
+<span class="p">|</span>.<span class="w">   </span>+<span class="w"> </span>*<span class="w"> </span><span class="nv">S</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>o<span class="w"> </span>o<span class="w">  </span><span class="p">|</span>
+<span class="p">|</span>+<span class="w">  </span>.<span class="w"> </span><span class="nv">o</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>+<span class="w">   </span><span class="p">|</span>
+<span class="p">|</span>*oo<span class="w"> </span>.<span class="w"> </span>o<span class="w">   </span>.<span class="w"> </span>+<span class="w"> </span>.<span class="w">  </span><span class="p">|</span>
+<span class="p">|</span>O+<span class="w"> </span>o<span class="w"> </span>o<span class="w">   </span>.<span class="w"> </span>o<span class="w"> </span>o<span class="w">   </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>+o...o..<span class="w">   </span>.<span class="w">    </span><span class="p">|</span>
++----<span class="o">[</span>SHA256<span class="o">]</span>-----+
+</code></pre></div>
+<p>拷贝~/.ssh/id_rsa.pub的输入到剪切板（即拷贝公钥内容）</p>
+<div class="highlight"><pre><span></span><code>➜<span class="w">  </span>~<span class="w"> </span>cat<span class="w"> </span>/Users/charleschile/.ssh/id_rsa.pub
+</code></pre></div>
+<p>拷贝即可</p>
+<h4 id="githubssh-key_1">配置github的ssh key<a class="headerlink" href="#githubssh-key_1" title="Permanent link">&para;</a></h4>
+<p>打开https://github.com/settings/keys</p>
+<p>New 一个ssh key</p>
 
 
 
