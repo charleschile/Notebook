@@ -74,6 +74,10 @@ git config --global --add safe.directory /usr/local/Homebrew/Library/Taps/homebr
 brew install --cask iterm2
 ```
 
+#### 配置iTerm2
+参考网站https://zhuanlan.zhihu.com/p/550022490
+参考配置主题
+
 
 
 

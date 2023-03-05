@@ -28,4 +28,9 @@ displayplacer "id:6161706C-6950-6164-0000-053900000000 res:1112x834 hz:60 color_
 
 
 
+现在三台显示器的参数：
+
+```bash
+displayplacer "id:FB5C2A5F-8168-BD9A-131D-7B9A493CA81C res:1920x1080 hz:144 color_depth:8 scaling:off origin:(0,0) degree:0" "id:748363EE-ED26-C6C5-82A3-0EE425DFD994 res:1680x1050 color_depth:4 scaling:on origin:(1920,0) degree:0" "id:6161706C-6950-6164-0000-053900000000 res:1112x834 hz:60 color_depth:4 scaling:on origin:(3600,789) degree:0"
+```
 
