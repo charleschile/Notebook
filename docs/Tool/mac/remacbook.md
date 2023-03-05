@@ -24,6 +24,8 @@ Magnet(xiangxijie的视频里面出现)
 
 直接从app store下载xcode即可，应该是要很久的
 
+
+
 ```bash
 sudo xcode-select --install
 ```
