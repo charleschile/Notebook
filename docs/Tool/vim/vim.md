@@ -1,5 +1,10 @@
 ### Neovim
 
+
+### 参考教程
+https://www.bilibili.com/video/BV1Td4y1578E/?spm_id_from=333.1007.top_right_bar_window_history.content.click&vd_source=eef58fdde5150dcee73d678306f9cd48
+
+
 ### 下载neovim
 
 ```bash
