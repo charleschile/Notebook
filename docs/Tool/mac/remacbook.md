@@ -79,8 +79,14 @@ brew install --cask iterm2
 #### 配置iTerm2
 参考网站https://zhuanlan.zhihu.com/p/550022490
 参考配置主题
-
-
+##### 或者可以直接参考nerd-font的官方仓库
+https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts
+```bash
+brew tap homebrew/cask-fonts
+brew install font-hack-nerd-font
+```
+#### 更换字体
+参考网站:https://zhuanlan.zhihu.com/p/361282459
 
 
 
