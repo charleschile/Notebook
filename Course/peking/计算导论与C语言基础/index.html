@@ -1067,6 +1067,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    程序运行的基本原理
+  </a>
+  
+    <nav class="md-nav" aria-label="程序运行的基本原理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    CPU指令的执行过程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    程序的执行
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2964,6 +2991,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    程序运行的基本原理
+  </a>
+  
+    <nav class="md-nav" aria-label="程序运行的基本原理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    CPU指令的执行过程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    程序的执行
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3155,8 +3209,33 @@
 <p>高速缓存（cache）：通常在CPU内部，用做数据缓存区</p>
 <p>内存：存放CPU中的运算数据</p>
 <h4 id="_21">存储器的原理<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h4>
-<p>为什么存得住数字？</p>
 <p>静态RAM的六管基本存储单元</p>
+<p>高电位和低电位互相保持促进，就能更好地存储数字</p>
+<p>地址解析器由行地址译码器和列地址译码器，同时在行和列导通可以读出数字</p>
+<p>RAM (random access memory)</p>
+<p>快速可擦除存储器-u盘</p>
+<p>DDR double data rate SDRAM 双数据输出同步动态存储器</p>
+<p>地址与数据单元</p>
+<p>32位的存储器，最大的寻址空间是2的32次方，也就是4个G </p>
+<h4 id="_22">程序运行的基本原理<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h4>
+<p>冯诺依曼式计算机执行存储好的程序</p>
+<p>指令集是用来计算和控制计算机系统的一套指令的集合</p>
+<p>主要有两种：Intel X86指令集和 ARM指令集</p>
+<p>指令码 + 操作数 = 指令</p>
+<h5 id="cpu">CPU指令的执行过程<a class="headerlink" href="#cpu" title="Permanent link">&para;</a></h5>
+<ol>
+<li>PC 程序计数器 中包含程序的地址，会将程序的地址发给地址寄存器</li>
+<li>AR 地址寄存器 会去相应的地址中将指令取出来放入指令寄存器</li>
+<li>OP | ADDR 指令寄存器IR ，将指令交给指令译码器，看看指令要完成什么</li>
+<li>指令寄存器发现命令中包含地址，又要返回地址寄存器中到相应的存储器地址，并将取出的数字存入缓冲寄存器DR中</li>
+<li>ID 指令译码器</li>
+<li>然后由OC操作控制器和TG时序产生器发送一个命令给ALU 算数逻辑单元</li>
+<li>由ALU完成运算，并将结果放入AC累加器当中</li>
+</ol>
+<h5 id="_23">程序的执行<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h5>
+<p>编译，将程序先编译成汇编代码
+再将汇编代码汇编成机器码
+让机器码由CPU运行</p>
 
 
 
