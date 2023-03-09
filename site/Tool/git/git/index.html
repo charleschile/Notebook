@@ -2073,6 +2073,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#githubhttp" class="md-nav__link">
+    配置github的http端口
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#githubssh-key" class="md-nav__link">
     配置github的ssh key
   </a>
@@ -2286,6 +2293,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7_1" tabindex="0" aria-expanded="false">
@@ -2308,6 +2317,20 @@
     <li class="md-nav__item">
       <a href="../../../Blog/informalEssay/2301-2302/" class="md-nav__link">
         随笔记 | 2301-2302
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Blog/informalEssay/2303-2304/" class="md-nav__link">
+        随笔记｜ 2303-2304
       </a>
     </li>
   
@@ -2552,6 +2575,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#githubhttp" class="md-nav__link">
+    配置github的http端口
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#githubssh-key" class="md-nav__link">
     配置github的ssh key
   </a>
@@ -2603,6 +2633,19 @@
 
 <h1 id="git">git 使用<a class="headerlink" href="#git" title="Permanent link">&para;</a></h1>
 <h3 id="git_1">一、git是什么<a class="headerlink" href="#git_1" title="Permanent link">&para;</a></h3>
+<h3 id="githubhttp">配置github的http端口<a class="headerlink" href="#githubhttp" title="Permanent link">&para;</a></h3>
+<p>在vpn的配置<code>yaml</code>文件中，可以找到<code>mixed-port:7890</code></p>
+<p>所以需要在终端设置git的http端口:
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>http.proxy<span class="w"> </span><span class="s1">&#39;127.0.0.1:7890&#39;</span>
+
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>https.proxy<span class="w"> </span><span class="s1">&#39;127.0.0.1:7890&#39;</span>
+</code></pre></div></p>
+<p>在取消全局代理之后</p>
+<p>需要将代理端口关闭:
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>--unset<span class="w"> </span>http.proxy
+
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>--unset<span class="w"> </span>https.proxy
+</code></pre></div></p>
 <h3 id="githubssh-key">配置github的ssh key<a class="headerlink" href="#githubssh-key" title="Permanent link">&para;</a></h3>
 <h4 id="github">配置github的用户设置<a class="headerlink" href="#github" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>➜<span class="w">  </span>~<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span>charleschile

@@ -2,9 +2,26 @@
 
 ### 一、git是什么
 
+### 配置github的http端口
+在vpn的配置`yaml`文件中，可以找到`mixed-port:7890`
 
+所以需要在终端设置git的http端口:
+```bash
 
+git config --global http.proxy '127.0.0.1:7890'
 
+git config --global https.proxy '127.0.0.1:7890'
+
+```
+
+在取消全局代理之后
+
+需要将代理端口关闭:
+```bash
+git config --global --unset http.proxy
+
+git config --global --unset https.proxy
+```
 
 ### 配置github的ssh key
 

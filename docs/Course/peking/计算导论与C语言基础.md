@@ -459,7 +459,281 @@ Moore‘s LAW
 
 #### 存储器的原理
 
-为什么存得住数字？
-
 静态RAM的六管基本存储单元
+
+高电位和低电位互相保持促进，就能更好地存储数字
+
+地址解析器由行地址译码器和列地址译码器，同时在行和列导通可以读出数字
+
+
+
+RAM (random access memory)
+
+快速可擦除存储器-u盘
+
+
+
+DDR double data rate SDRAM 双数据输出同步动态存储器
+
+地址与数据单元
+
+32位的存储器，最大的寻址空间是2的32次方，也就是4个G 
+
+
+#### 程序运行的基本原理
+
+冯诺依曼式计算机执行存储好的程序
+
+指令集是用来计算和控制计算机系统的一套指令的集合
+
+主要有两种：Intel X86指令集和 ARM指令集
+
+
+
+指令码 + 操作数 = 指令
+
+
+##### CPU指令的执行过程
+1. PC 程序计数器 中包含程序的地址，会将程序的地址发给地址寄存器
+2. AR 地址寄存器 会去相应的地址中将指令取出来放入指令寄存器
+3. OP | ADDR 指令寄存器IR ，将指令交给指令译码器，看看指令要完成什么
+4. 指令寄存器发现命令中包含地址，又要返回地址寄存器中到相应的存储器地址，并将取出的数字存入缓冲寄存器DR中
+4. ID 指令译码器
+5. 然后由OC操作控制器和TG时序产生器发送一个命令给ALU 算数逻辑单元
+6. 由ALU完成运算，并将结果放入AC累加器当中
+
+
+##### 程序的执行
+
+编译，将程序先编译成汇编代码
+再将汇编代码汇编成机器码
+让机器码由CPU运行
+
+
+
+## Module 4 感性认识计算机程序
+
+### 使用IDE进行调试
+
+1. log法，即在需要调试的地方进行输出值print
+2. 断点法，在可以的地方打上断点
+
+step over是跳到下一句
+
+Step into 是如果这一行由调用函数的话，就会进入那个函数
+
+step out就是跳出函数
+
+
+
+#### 程序设计语言的学习
+knowledge和skill
+
+存储程序式计算机
+
+
+编程语言的单词
+
+编程语言里的数和计算符号
+
+编程语言中的句式
+
+
+
+
+
+#### 编程作业
+
+##### 编程题1 冒泡算法
+
+```cpp
+/*
+ * 根据自己的理解写冒泡排序算法，数组大小在1000以内
+ * 第一行是n，表示数组的大小，接着n行是数组的n个元素
+ * 按照从小到大进行排列
+ */
+
+#include <iostream>
+
+using namespace std;
+
+int main () {
+    int n, a[1000];
+    cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+
+    // 冒泡算法核心：从小到大，发现相邻的数有不符合规则的就互相交换
+    // 每一遍会将一个最大的数字转移到标号最大处
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (a[j] > a[j + 1]) {
+                int temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
+            }
+        }
+    }
+
+    for (int i = 0; i < n; i++) {
+        cout << a[i] << endl;
+    }
+
+    return 0;
+}
+```
+
+##### 编程题2 奇偶排序
+
+```cpp
+/*
+* 奇偶排序
+* 输入十个整数，将十个整数按升序排列输出，并且奇数在前，偶数在后。
+*/ 
+
+#include <iostream>
+
+using namespace std;
+
+int main () {
+  int a[10];
+  // 首先是输入10个整数
+  for (int i = 0; i < 10; i++) {
+    cin >> a[i];
+  }
+
+  // 第二步是使用双指针法将奇数和偶数分别放在前后两侧
+  // 注意：只要出现一个不符合排序的数字，那么必然有个数字和它进行对应，进行双指针交换
+  int l = 0, r = 9;
+  while (l < r) {
+    bool leftIsOdd = a[l] % 2 == 1;
+    bool rightIsEven = a[r] % 2 == 0;
+    if (leftIsOdd) {
+      l++;
+    } else if (rightIsEven) {
+      r--;
+    } else if (!leftIsOdd && !rightIsEven) {
+      int temp = a[l];
+      a[l] = a[r];
+      a[r] = temp;
+    }
+  }
+
+  // 对奇数部分进行冒泡
+  int start = 0, end = l;
+  for (int i = start; i < end -1; i++) {
+    for (int j = start + 1; j < end + start - i; j++ ) {
+      if (a[j - 1] > a[j]) {
+        int temp = a[j];
+        a[j] = a[j - 1];
+        a[j - 1] = temp;
+      }
+    }
+  }
+  // 对偶数部分进行冒泡
+  start = l, end = 10;
+  for (int i = start; i < end - 1; i++) {
+    for (int j = start + 1; j < end + start - i; j++ ) {
+      if (a[j - 1] > a[j]) {
+        int temp = a[j];
+        a[j] = a[j - 1];
+        a[j - 1] = temp;
+      }
+    }
+  }
+
+  for (int i = 0; i < 10; i++) {
+    cout << a[i] << " ";
+  }
+
+  cout << endl;
+
+  return 0;
+}
+
+```
+
+
+
+
+
+
+
+```cpp
+    #include <iostream>
+    using namespace std;
+    
+    int main() {
+      int a[10];
+      for (int i = 0; i < 10; i++) {
+        cin >> a[i];
+      }  
+      // 冒泡，不断比较相邻的两个数，如果顺序错了，那么就交换
+      for (int i = 0; i < 9; i++) {
+        for (int j = 1; j < 10 - i; j++) {      
+      // 与刚才的冒泡排序不同，我们不只是通过较数字的大小决定顺序
+      // 如果左边的为偶数，右边的为奇数，那么顺序也需要颠倒
+      bool leftIsEven = a[j - 1] % 2 == 0;
+      bool rightIsEven = a[j] % 2 == 0;
+      if ((leftIsEven && !rightIsEven) ||
+          (leftIsEven == rightIsEven && a[j - 1] > a[j])) {        
+        int temp = a[j];        
+        a[j] = a[j - 1];
+        a[j - 1] = temp;
+      }
+    }
+  }  
+  for (int i = 0; i < 10; i++) {
+    cout << a[i] << ' ';
+  }  
+  return 0;
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
