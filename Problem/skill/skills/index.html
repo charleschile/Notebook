@@ -2659,6 +2659,22 @@
 
 <h1 id="_1">一些小技巧<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <h3 id="c">C++ 中各种取整<a class="headerlink" href="#c" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// 引入头文件</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span>
+<span class="cp">#incldue &lt;math.h&gt;</span>
+<span class="n">floor</span><span class="p">()</span><span class="w"> </span><span class="c1">// 不大于自变量的最大整数</span>
+<span class="n">ceil</span><span class="p">()</span><span class="w"> </span><span class="c1">// 不小于自变量的最大整数</span>
+<span class="n">round</span><span class="p">()</span><span class="w"> </span><span class="c1">// 四舍五入</span>
+<span class="n">fix</span><span class="p">()</span><span class="w"> </span><span class="c1">// 向0取整</span>
+</code></pre></div>
+<p>向上取整技巧：</p>
+<p>``` cpp
+// 注意C++里面/是向下取整，即9/4=2</p>
+<h1 id="include">include <cmath><a class="headerlink" href="#include" title="Permanent link">&para;</a></h1>
+<p>ceil((double) 9 / 4) // 输出3</p>
+<p>//或者使用（被除数 + 除数 - 1）/除数 = 向上取整
+int res = (9 + 4 - 1) / 4 // 输出3
+```</p>
 
 
 
