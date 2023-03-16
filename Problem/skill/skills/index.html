@@ -1031,6 +1031,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#tips" class="md-nav__link">
+    tips
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#c" class="md-nav__link">
     C++ 中各种取整
   </a>
@@ -2635,6 +2642,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#tips" class="md-nav__link">
+    tips
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#c" class="md-nav__link">
     C++ 中各种取整
   </a>
@@ -2658,6 +2672,10 @@
 
 
 <h1 id="_1">一些小技巧<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h3 id="tips">tips<a class="headerlink" href="#tips" title="Permanent link">&para;</a></h3>
+<ol>
+<li>输出一个整数的各位，直接<code>char str[n]</code>，然后输出即可，当成int处理反而麻烦</li>
+</ol>
 <h3 id="c">C++ 中各种取整<a class="headerlink" href="#c" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1">// 引入头文件</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span>
@@ -2674,7 +2692,29 @@
 <p>ceil((double) 9 / 4) // 输出3</p>
 <p>//或者使用（被除数 + 除数 - 1）/除数 = 向上取整
 int res = (9 + 4 - 1) / 4 // 输出3
-```</p>
+<div class="highlight"><pre><span></span><code>### 简单的双指针来将数组中的奇偶进行左右分类
+
+```c++
+// 双指针法将所有数进行奇偶排序，奇数在左边，偶数在右边
+    int l = 0, r = 5;
+    while (l &lt; r) {
+        bool leftIsOdd = num[l] % 2 == 1;
+        bool rightIsEven = num[r] % 2 == 0;
+        if (leftIsOdd) {
+            l++;
+        } else if (rightIsEven) {
+            r--;
+        } else if (!leftIsOdd &amp; !rightIsEven) {
+            int tmp = num[l];
+            num[l] = num[r];
+            num[r] = tmp;
+        }
+    }
+</code></pre></div></p>
+<h3 id="c_1">C++中绝对值<a class="headerlink" href="#c_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="c1"> 中 abs() 对整数进行绝对值</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span><span class="c1"> 中fabs() 对浮点型进行绝对值</span>
+</code></pre></div>
 
 
 
