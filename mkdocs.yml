@@ -98,6 +98,11 @@ nav:
 
   - Programming Problem:
     - Problem/index.md
+    - 一些技巧:
+      - Problem/skill/skills.md
+
+    - 代码随想录:
+      - Problem/programmercarl/algorithm.md
     - 语法基础课:
       - Problem/acwing/语法基础课5.md
       - Problem/acwing/语法基础课6.md

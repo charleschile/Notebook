@@ -615,7 +615,7 @@ int main () {
       l++;
     } else if (rightIsEven) {
       r--;
-    } else if (!leftIsOdd && !rightIsEven) {
+    } else if (!leftIsOdd && !rig htIsEven) {
       int temp = a[l];
       a[l] = a[r];
       a[r] = temp;
@@ -661,37 +661,6 @@ int main () {
 
 
 
-
-```cpp
-    #include <iostream>
-    using namespace std;
-    
-    int main() {
-      int a[10];
-      for (int i = 0; i < 10; i++) {
-        cin >> a[i];
-      }  
-      // 冒泡，不断比较相邻的两个数，如果顺序错了，那么就交换
-      for (int i = 0; i < 9; i++) {
-        for (int j = 1; j < 10 - i; j++) {      
-      // 与刚才的冒泡排序不同，我们不只是通过较数字的大小决定顺序
-      // 如果左边的为偶数，右边的为奇数，那么顺序也需要颠倒
-      bool leftIsEven = a[j - 1] % 2 == 0;
-      bool rightIsEven = a[j] % 2 == 0;
-      if ((leftIsEven && !rightIsEven) ||
-          (leftIsEven == rightIsEven && a[j - 1] > a[j])) {        
-        int temp = a[j];        
-        a[j] = a[j - 1];
-        a[j - 1] = temp;
-      }
-    }
-  }  
-  for (int i = 0; i < 10; i++) {
-    cout << a[i] << ' ';
-  }  
-  return 0;
-}
-```
 
 
 
@@ -774,6 +743,245 @@ short不常于int即可
 1979 贝尔实验室 C with classes 即c++，扩展了面向对象部分
 
 
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main () {
+    // 输入培养皿数量、编号以及细菌繁殖率；
+    int n;
+    int id[100];
+    double rate[100];
+
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int initial, final;
+        cin >> id[i] >> initial >> final;
+        rate[i] = (double) final / initial;
+    }
+    // 将所有的输入按照从大到小排列
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n - i -1; j++) {
+            if (rate[j + 1] > rate[j]) {
+                int tmpId = id[j];
+                id[j] = id[j + 1];
+                id[j + 1] = tmpId;
+                double tmpRate = rate[j];
+                rate[j] = rate[j + 1];
+                rate[j + 1] = tmpRate;
+            }
+        }
+    }
+    // 计算相邻之间的差值，相差最大的一组就是两组细菌的分界线
+    double maxDiff = 0;
+    int maxDiffIndex = 0;
+    for (int i = 0; i < n - 1; i++) {
+        double diff = rate[i] - rate[i + 1];
+        if (diff > maxDiff) {
+            maxDiff = diff;
+            maxDiffIndex = i;
+        }
+    }
+    cout << maxDiffIndex + 1 << endl;
+    for (int i = maxDiffIndex; i >= 0; i--) {
+        cout << id[i] << endl;
+    }
+    cout << n - maxDiffIndex - 1 << endl;
+    for (int i = n - 1; i >= maxDiffIndex + 1; i--) {
+        cout << id[i] << endl;
+    }
+    return 0;
+}
+```
+
+
+
+### Programming Assignment: 理性认识C程序 导论 编程题
+
+
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main () {
+    int n, grade[100];
+    cin >> n;
+    for (int i = 0; i < n; i++) cin >> grade[i];
+    for (int i = 0; i < n; i++) {
+        for (int j = 1; j < n - i; j++) {
+            if (grade[j - 1] < grade[j]) {
+                int tmp = grade[j];
+                grade[j] = grade[j - 1];
+                grade[j - 1] = tmp;
+            }
+        }
+    }
+    cout << grade[0] << endl;
+    return 0;
+}
+```
+
+
+
+##### 编程题＃3：最高的分数
+
+```cpp
+    #include <iostream>
+    using namespace std;
+    
+    int main() {
+      int a[10];
+      for (int i = 0; i < 10; i++) {
+        cin >> a[i];
+      }  
+      // 冒泡，不断比较相邻的两个数，如果顺序错了，那么就交换
+      for (int i = 0; i < 9; i++) {
+        for (int j = 1; j < 10 - i; j++) {      
+      // 与刚才的冒泡排序不同，我们不只是通过较数字的大小决定顺序
+      // 如果左边的为偶数，右边的为奇数，那么顺序也需要颠倒
+      bool leftIsEven = a[j - 1] % 2 == 0;
+      bool rightIsEven = a[j] % 2 == 0;
+      if ((leftIsEven && !rightIsEven) ||
+          (leftIsEven == rightIsEven && a[j - 1] > a[j])) {        
+        int temp = a[j];        
+        a[j] = a[j - 1];
+        a[j - 1] = temp;
+      }
+    }
+  }  
+  for (int i = 0; i < 10; i++) {
+    cout << a[i] << ' ';
+  }  
+  return 0;
+}
+```
+
+##### 编程题＃4：最大奇数与最小偶数之差的绝对值
+
+### 描述
+
+输入6个正整数，且这6个正整数中至少存在一个奇数和一个偶数。 
+
+设这6个正整数中最大的奇数为a，最小的偶数为b，求出|a-b|的值
+
+### 
+
+### 输入
+
+输入为一行，6个正整数,且6个正整数都小于100
+
+输入保证这6个数中至少存在一个奇数和一个偶数
+
+### 
+
+### 输出
+
+输出为一行，输出最大的奇数与最小的偶数之差的绝对值
+
+
+
+做法一：（太复杂）
+
+```c++
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main () {
+    int num[6];
+    for (int i = 0; i < 6; i++) {
+        cin >> num[i];
+    }
+
+
+
+    // 双指针法将所有数进行奇偶排序，奇数在左边，偶数在右边
+    int l = 0, r = 5;
+    while (l < r) {
+        bool leftIsOdd = num[l] % 2 == 1;
+        bool rightIsEven = num[r] % 2 == 0;
+        if (leftIsOdd) {
+            l++;
+        } else if (rightIsEven) {
+            r--;
+        } else if (!leftIsOdd & !rightIsEven) {
+            int tmp = num[l];
+            num[l] = num[r];
+            num[r] = tmp;
+        }
+    }
+    // 对奇数和偶数部分分别进行排序
+
+    for (int i = 0; i < l; i++) {
+        for (int j = 0; j < l - i -1; j++) {
+            if (num[j] < num[j + 1]) {
+                int tmp = num[j];
+                num[j] = num[j + 1];
+                num[j + 1] = tmp;
+            }
+        }
+    }
+    for (int i = l; i < 6; i++) {
+        for (int j = l; j < 5 + l - i; j++) {
+            if (num[j] < num[j + 1]) {
+                int tmp = num[j];
+                num[j] = num[j + 1];
+                num[j + 1] = tmp;
+            }
+        }
+    }
+
+
+    // 计算并且输出最大的奇数和最小偶数的差值
+    cout << abs(num[0] - num[5]) << endl;
+    return 0;
+}
+```
+
+做法二：（注意题意）
+
+```c++
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main () {
+    int maxOdd = 0, minEven = 100;
+    for (int i = 0; i < 6; i++) {
+        int a;
+        scanf("%d", &a);
+        if (a % 2 == 1) {
+            if (a > maxOdd) maxOdd = a;
+        } else {
+            if (a < minEven) minEven = a;
+        }
+    }
+    cout << abs(maxOdd - minEven) << endl;
+    return 0;
+}
+```
+
+
+
+##### 编程题＃5：分离整数的各个数位
+
+
+
+```c++
+#include <iostream>
+using namespace std;
+
+int main () {
+    char str[4];
+    cin >> str;
+    for (int i = 0; i < 3; i++) cout << str[i] << endl;
+    return 0;
+}
+```
 
 
 

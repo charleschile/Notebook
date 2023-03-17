@@ -293,6 +293,8 @@ Aspermia, Asthenozoospermia, Azoospermia, Oligospermia, Sertoli Cell-Only Syndro
 
 
 
+
+
 ##### 关键词androgens （https://www.ncbi.nlm.nih.gov/mesh/68000728）
 
 https://www.ncbi.nlm.nih.gov/mesh/82000728 （[Pharmacological Action]）
@@ -326,10 +328,12 @@ Zeranol (MeSH Term)
 
 
 
+##### 关键词sperm count
 
 
 
+((male infertility) OR (sperm count)) AND ((androgen) OR (estrogen))
 
 
 
-next
+(("Infertility, Male"[Mesh]) OR ("Sperm Count"[Mesh])) AND (("Androgens"[Mesh]) OR ("Androgens" [Pharmacological Action]) OR ("Estrogens"[Mesh]) OR ("Estrogens" [Pharmacological Action]))
