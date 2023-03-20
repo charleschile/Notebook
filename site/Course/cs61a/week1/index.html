@@ -2828,6 +2828,15 @@ It is something that took me a long time in life to understand not to compare. A
 <p>诗人的笔再使它们有如实的形象，</p>
 <p>空虚的无物也会有了居处和名字</p>
 </blockquote>
+<p><em>Structure and Interpretation of Computer Programs</em> (SICP)</p>
+<p>Python excels as an instructional language</p>
+<p><em>prompt</em>, &gt;&gt;&gt;</p>
+<p>press <Control>-P (previous) and <Control>-N (next). <Control>-D exits a session</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+<span class="n">shakespeare</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="s2">&quot;http://composingprograms.com/shakespeare.txt&quot;</span><span class="p">)</span>
+<span class="n">words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">shakespeare</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> 
+<span class="p">{</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span> <span class="ow">and</span> <span class="n">w</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">words</span><span class="p">}</span>
+</code></pre></div>
 <h3 id="lab00">lab00<a class="headerlink" href="#lab00" title="Permanent link">&para;</a></h3>
 <p>使用exit()或者control+d退出到命令行界面</p>
 <p>shell中文件名带有空格的处理办法：</p>
@@ -2893,6 +2902,7 @@ python3<span class="w"> </span>ok<span class="w"> </span>--submit<span class="w"
 <li>Means of combination -- by which compound elements are built from simpler ones</li>
 <li>Means of abstraction -- by which compound elements can be named and manipulated as units</li>
 </ul>
+<p>In programming, we deal with functions and data</p>
 <p><code>max(7.5, 9.5)</code> operator(operand, operand)</p>
 <p>we say that the function max is called with arguments 7.5 and 9.5, returns a value of 9.5\</p>
 <p><code>pow()</code>raises its first argument to the power of its argument</p>

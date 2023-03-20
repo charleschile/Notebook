@@ -85,6 +85,25 @@ Lab 1h
 >
 > 空虚的无物也会有了居处和名字
 
+*Structure and Interpretation of Computer Programs* (SICP)
+
+Python excels as an instructional language
+
+*prompt*, >>>
+
+press <Control>-P (previous) and <Control>-N (next). <Control>-D exits a session
+
+```python
+from urllib.request import urlopen
+shakespeare = urlopen("http://composingprograms.com/shakespeare.txt")
+words = set(shakespeare.read().decode().split()) 
+{w for w in words if len(w) == 6 and w[::-1] in words}
+```
+
+
+
+
+
 
 
 
@@ -197,6 +216,8 @@ every powerful language has 3 mechanisms:
 - Primitive expressions and statements -- represent the simplest building blocks that the language provides
 - Means of combination -- by which compound elements are built from simpler ones
 - Means of abstraction -- by which compound elements can be named and manipulated as units
+
+In programming, we deal with functions and data
 
 `max(7.5, 9.5)` operator(operand, operand)
 
