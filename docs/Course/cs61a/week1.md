@@ -33,7 +33,7 @@ https://github.com/311zzb/cs61a_fall2020
 
 ## Week 1
 
-### Lecture 1
+### Lecture 1-Wed Welcome
 
 An introduction to computer science!
 
@@ -235,6 +235,131 @@ The possibility of binding names to values and later retrieving those values by 
 
 
 
+
+
+
+
+### Lecture 1-Fri Functions
+
+ notation
+
+all expressions can use functions call notation
+
+raise 6 to 3rd power:
+
+```python
+6 ** 3
+
+from operator import add, mul
+```
+
+
+
+Add(2,3)
+
+Operator: add
+
+Operand subexpressions: 2, 3
+
+
+
+从最里面到最外面，分别evaluate，这个过程叫做evaluation procedure
+
+##### names, assignment, and user-defined functions
+
+```
+from math import pi, sin
+
+```
+
+
+
+Primitive expressions: 2, add, 'hello'
+
+call expression: max(2, 3,) 由operator和oprand组成
+
+
+
+##### Environment diagrams
+
+Visualize the interpreter's process
+
+code on the left,  and fames on the right
+
+
+
+execution rule of assignment statements:
+
+1. Evaluate all expressions to the right of = from left to right
+2. Bind all names to the left of = to the resulting values in the current frame
+
+Current frame这意味着：
+
+```python
+a = 1
+b = 2
+b, a = a + b, b // b = 3, a = 2
+//而如下会导致:
+b = a + b
+a = b // a = 3
+```
+
+##### defining functions
+
+The assignment is a simple means of abstraction: binds names to values
+
+The function definition is a more powerful means of abstraction: binds names to expressions
+
+Indent 缩进
+
+```python
+def <name> (<formal parameters>): // function signature
+  return <return expression> // function body
+```
+
+
+
+an environment is a sequence of frames
+
+ ```python
+ >>> def square(square):
+ ...     return mul(square, square)
+ ...
+ >>> square(4)
+ 16
+ ```
+
+注意先在local frame里面找，然后再到global frame中去找
+
+
+
+
+
+### Hw01 variables & functions, control
+
+To check if `b` evenly divides `a`, you can use the expression `a % b == 0`, which can be read as, "the remainder of dividing `a` by `b` is 0."
+
+
+
+##### non-pure functions
+
+Print() is non-pure function that can generate side effects
+
+```python
+>>> print(print(1), print(2))
+1
+2
+None None
+```
+
+Be careful with `print`! The fact that it returns `None` means that it *should not* be the expression in an assignment statement.
+
+pure functions are essential for writing *concurrent* programs
+
+## Week 2
+
+
+
 ### Lecture 2
 
 operand subexpression
@@ -247,45 +372,303 @@ operand subexpression
 
 
 
+### Chapter 1.4
+
+domain 输入值的变化范围
+
+range 输出值的值域
+
+
+
+the qualities of good functions all reinforce the idea that functions are abstractions
+
+定义函数以及它的doctoring：
+
+```python
+>>> def pressure(v, t, n):
+        """Compute the pressure in pascals of an ideal gas.
+
+        Applies the ideal gas law: http://en.wikipedia.org/wiki/Ideal_gas_law
+
+        v -- volume of gas, in cubic meters
+        t -- absolute temperature in degrees kelvin
+        n -- particles of gas
+        """
+        k = 1.38e-23  # Boltzmann's constant
+        return n * k * t / v
+      
+  >>> help(pressure)
+```
 
 
 
 
 
+可以直接在定义函数的时候设定n的默认值(indicate its default value)： 
+
+```python
+def pressure(v, t, n=6.022e23):
+```
+
+如果使用默认值的话，在输入的时候可以只输入两个变量：
+
+```python
+>>> pressure(1, 273.15)
+2269.974834
+```
 
 
 
 
 
+### Chpater 1.5 Control
+
+Rather than being evaluated, statements are *executed*. 
+
+we have seen three kinds of statements already: assignment, `def`, and `return` **statements**
+
+
+
+A statement is executed by the interpreter to perform an action
+
+![截屏2023-03-27 16.03.42](/Users/charleschile/Library/Application Support/typora-user-images/截屏2023-03-27 16.03.42.png)
+
+
+
+conditional statements execute the suite annd skip the remaining 
+
+
+
+##### Boolean contexts
+
+False values in Python: False, 0, '', None
+
+True values in Python: anything else(True)
+
+
+
+##### statement 和expression的区别
+
+statements are instructions that perform some action, while expressions are units of code that evaluate to a value.
+
+A statement is a line of code that performs some action, such as assigning a value to a variable, calling a function, or looping over a sequence. Statements are typically terminated by a newline character, although semicolons can be used to separate multiple statements on a single line.
+
+For example, the following are examples of statements in Python:
+
+```python
+x = 5             # assign a value to x
+print("hello")    # call the print function
+while x > 0:      # loop while x is greater than 0
+    x -= 1
+```
+
+
+
+On the other hand, an expression is a combination of values, variables, and operators that evaluates to a single value. Expressions can be used as part of a larger statement, or they can be used on their own to return a value.
+
+For example, the following are examples of expressions in Python:
+
+```python
+3 + 4             # evaluates to 7
+x + 2             # evaluates to the value of x plus 2
+len("hello")      # evaluates to 5 (the length of the string)
+
+```
+
+##### short-circuting
+
+In Python, short-circuiting is a behavior exhibited by logical operators (i.e. "and" and "or") where the second operand is not evaluated if the result of the expression can be determined by evaluating the first operand alone.
+
+例如，在表达式"a and b"中，如果"a"的值为False，那么不管"b"的值是多少，整个表达式都将为False。因此，不需要求“b”，Python将“短路”表达式的求值，节省时间和计算资源。
+
+类似地，在表达式"a or b"中，如果"a"的值为True，那么不管"b"的值是多少，整个表达式都将为True。同样，不需要计算“b”，Python会缩短计算过程。
+
+
+
+```python
+1	def fib(n):
+2	    """Compute the nth Fibonacci number, for n >= 2."""
+3	    pred, curr = 0, 1   # Fibonacci numbers 1 and 2
+4	    k = 2               # Which Fib number is curr?
+5	    while k < n:
+6	        pred, curr = curr, pred + curr
+7	        k = k + 1
+8	    return curr
+9	
+10	result = fib(8)
+```
+
+#### 1.5.6 tesing
+
+##### assertions
+
+```python
+assert fib(8) == 13, 'The 8th Fibonacci number should be 13'
+```
+
+When writing Python in files, rather than directly into the interpreter, tests are typically written in the same file or a neighboring file with the suffix `_test.py`.
+
+##### doctests
+
+Python provides a convenient method for placing simple tests directly in the docstring of a function. The first line of a docstring should contain a one-line description of the function, followed by a blank line. A detailed description of arguments and behavior may follow. In addition, the docstring may include a sample interactive session that calls the function:
+
+```python
+def sum_naturals(n):
+        """Return the sum of the first n natural numbers.
+
+        >>> sum_naturals(10)
+        55
+        >>> sum_naturals(100)
+        5050
+        """
+        total, k = 0, 1
+        while k <= n:
+            total, k = total + k, k + 1
+        return total
+```
+
+
+
+`testmod()` is used to run tests in a module, while `run_docstring_examples()` is used to test a specific function or method.
+
+Testmod()
+
+```python
+>>> from doctest import testmod
+>>> testmod()
+```
+
+Run_docstring_examples
+
+```python
+>>> from doctest import run_docstring_examples
+>>> run_docstring_examples(sum_naturals, globals(), True)
+```
+
+When writing Python in files, all doctests in a file can be run by starting Python with the doctest command line option:
+
+这个命令不需要上面两个功能，可以在有doctests的情况下，直接用命令行使用，有错的话会报错，如果没有错就不会返回任何东西
+
+```python
+python3 -m doctest <python_source_file>
+```
+
+
+
+### lab01
+
+这个是死循环：(python里面只有0是false)
+
+```python
+positive = 28
+while positive: # If this loops forever, just type Infinite Loop
+    print("positive?")
+    positive -= 3
+```
+
+Python 的循环只有碰到0（相当于False）才会停下来
+
+
+
+```python
+>>> True and 13
+>>> 13
+
+>>> False or 0
+>>> 0
+
+>>> not 10
+>>> False
+-- OK! --
+
+>>> not None
+>>> True
+```
+
+python 里面使用and时，如果第一个数是错的，那么会直接返回第一个数；如果第一个数是对的，那么会返回第二个数；第二个数只有在第一个数是对的情况下才会被判断
+
+> 理解：and是逻辑运算，如果第一个是错的，那么这个表达式就是错的，即返回第一个值；如果第一个数字是对的，那么这个表达式的值取决于第二个值：比如，第二个值如果是错误的，那么就返回错误（即第二个值）如果是正确的，也是返回第二个正确的值
+
+而使用or的时候，如果第一个数是对的，那么直接返回第一个数；如果第一个数是错的，那么直接返回第二个数
+
+OR是这要有一个数true就是true
+
+
+
+In Python, the `and` and `or` operators are used to evaluate logical expressions.
+
+The `and` operator returns the first operand if it evaluates to False, and the second operand otherwise. The second operand is only evaluated if the first operand is True. So, when we evaluate the expression `True and 13`, the first operand `True` is not False, so Python returns the second operand `13`.
+
+The `or` operator returns the first operand if it evaluates to True, and the second operand otherwise. The second operand is only evaluated if the first operand is False. So, when we evaluate the expression `False or 0`, the first operand `False` is not True, so Python returns the second operand `0`.
+
+
+
+`-v`is for verbose
+
+```python
+python3 -m doctest file.py -v
+```
+
+
+
+> cs 61a 里面print('DEBUG: result is', result)，以DEBUG开头的输出都会被ok autograder忽略
 
 
 
 
 
+#### Debugging
 
+##### running doctests
 
+在statement里面写好doctests，然后可以assertion, Testmod(), Run_docstring_examples(), 或者命令行（可以去掉-v）:
 
+```python
+python3 -m doctest file.py -v
+```
 
+##### 使用print打点
 
+```python
+print('DEBUG: result is', result)
+```
 
+###### 使用flag作为long-term debugging的工具
 
+```python
+debug = True
 
+def foo(n):
+i = 0
+while i < n:
+    i += func(i)
+    if debug:
+        print('DEBUG: i is', i)
+```
 
+##### interative debugging (use of an interactive REPL)
 
+```
+python -i file.py
+```
 
+然后直接在命令行中输入类似:
 
+```python
+print(foo(2))
+```
 
+会直接返回foo(2)的值
 
+##### assert
 
+下面的语句用来直接确认输入的是整数：
 
-
-
-
-
-
-
-
-
+```python
+def double(x):
+    assert isinstance(x, int), "The input to double(x) must be an integer"
+    return 2 * x
+```
 
 
 
