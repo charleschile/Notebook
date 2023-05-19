@@ -9,6 +9,9 @@
 
 
 ## Table of Contents
+- Duke Introductory C Programming
+    - [Course information](Course/../dukeC/1_information.md)
+    - [Module 1 Programming Fundamentals](Course/../dukeC/2.md)
 
 - Harvard CS50's introduction to computer science
     - [cs50 notes](Course/../cs50/CS50%20intoduction%20to%20computer%20science.md)
