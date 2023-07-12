@@ -14,6 +14,9 @@ project的难度和代码量还是比前面两个大的，如果小白上来第�
 
 参考的笔记：https://blog.csdn.net/fourier_transformer/category_9856976.html
 
+参考的自学记录（知乎）：https://zhuanlan.zhihu.com/p/434144861
+
+https://zhuanlan.zhihu.com/p/432135426
 
 
 > 61b和普林斯顿的algorithms异曲同工，俩课可以一起上
