@@ -167,6 +167,8 @@ nav:
       - Tool/git/git.md
     - Vim:
       - Tool/vim/vim.md
+    - sublime text:
+      - Tool/sublime/sublime.md
     - Resume:
       - Tool/resume/resume.md
   
