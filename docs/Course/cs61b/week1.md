@@ -35,9 +35,111 @@ Java可以`System.out.println(5 + " ");`也可以`String h = 5 + "horse";`
 
 As an analogy, programming in Python can be a bit like [Dan Osman free-soloing Lover's Leap](https://www.youtube.com/watch?v=NCByLWtM7y4). It can be very fast, but dangerous. Java, by contrast is more like using ropes, helmets, etc. as in [this video](https://www.youtube.com/watch?v=tr6UIfPEuI0).
 
+#### comment
+
+In a Javadoc comment, the block comment starts with an extra asterisk, e.g. `/**`, and the comment often (but not always) contains descriptive tags. 
+
+#### 定义array
+
+```java
+public class HelloNumbers {
+    public static void main(String[] args){
+        int[] numbers = new int[]{1, 3, 5, 7};
+        System.out.println(numbers[3]);
+        System.out.println(numbers.length);
+    }
+}
+```
+
+#### continue和break
+
+解释是`continue`可以直接跳过现在所在的这个循环，进入到下一个i的自增循环
+
+The `continue` statement skips the current iteration of the loop, effectively jumping straight to the increment condition.
+
+而`break`是直接终止包含这个`break`的最内层的循环
+
+By contrast, the `break` keyword completely terminates the innermost loop when it is called. 
+
+```java
+public class HelloNumbers {
+    public static void main (String[] args) {
+        String[] a = {"cat", "horse", "dog", "elephant"};
+        for (int i = 0; i < a.length; i += 1) {
+            if (a[i].contains("horse")) {
+                continue;
+            }
+            for (int j = 0; j < 3; j += 1) {
+                System.out.println(a[i]);
+            }
+        }
+    }
+}
+```
+
+​	输出是：
+
+```bash
+cat
+cat
+cat
+dog
+dog
+dog
+elephant
+elephant
+elephant
+```
+
+而将`continue`改成`break`之后，那么会输出：
+
+ ```bash
+ cat
+ cat
+ cat
+ ```
 
 
 
+另外一个`break`的例子：
+
+```java
+public class HelloNumbers {
+    public static void main(String[] args) {
+        String[] a = {"cat", "dog", "laser horse", "ketchup", "horse", "horbse"};
+
+        for (int i = 0; i < a.length; i += 1) {
+            for (int j = 0; j < 3; j += 1) {
+                System.out.println(a[i]);
+                if (a[i].contains("horse")) {
+                    break;
+                }
+            }
+        }
+    }
+}
+```
+
+输出：
+
+```bash
+cat
+cat
+cat
+dog
+dog
+dog
+laser horse
+ketchup
+ketchup
+ketchup
+horse
+horbse
+horbse
+horbse
+```
+
+在这个例子里面，`horse`和`laser horse`都只输出了一次，然后内层的循环就直接被终止了
 
 
 
@@ -53,6 +155,31 @@ public class HelloNumbers {
             x = x + 1;
             sum = sum + x;
         }
+    }
+}
+```
+
+
+
+### Homeword exercise 2
+
+```java
+public class HelloNumbers {
+    public static int max (int[] array) {
+        int x = 0;
+        int m = array[0];
+        int length = array.length;
+        while (x < length) {
+            if (array[x]> m ) {
+                m = array[x];
+            }
+            x = x + 1;
+        }
+        return m;
+    }
+    public static void main (String[] args) {
+        int[] numbers = new int[]{9, 2, 15, 2, 22, 10, 6};
+        System.out.println(max(numbers));
     }
 }
 ```
