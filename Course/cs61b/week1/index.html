@@ -25,7 +25,7 @@
     
     
       
-        <title>Week1 - Charles Le's Notebook</title>
+        <title>CS61B week1 - Charles Le's Notebook</title>
       
     
     
@@ -82,6 +82,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#cs61b-week1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -111,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Week1
+              CS61B week1
             
           </span>
         </div>
@@ -767,10 +772,45 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          CS61B week1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Week1
+        CS61B week1
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Content">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Content
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    Exercise
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2661,6 +2701,23 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Content
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    Exercise
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2675,9 +2732,39 @@
                   
 
 
-  <h1>Week1</h1>
-
-
+<h1 id="cs61b-week1">CS61B week1<a class="headerlink" href="#cs61b-week1" title="Permanent link">&para;</a></h1>
+<p>学习的顺序：Reading（精华的课程内容）-&gt; Guide （课程内容的总结）-&gt; Slides + Video -&gt; Lab -&gt; HW -&gt; project</p>
+<p>entry code: 93PK75</p>
+<p>lab1 setup就是教了一下怎么配置自己的电脑，用来跑java</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>.<span class="w"> </span>回到现在这个文件夹，相当于什么都没做
+<span class="nb">cd</span><span class="w"> </span>..<span class="w"> </span>回到parent文件夹
+ls<span class="w"> </span>-l<span class="w"> </span>会把读写状态都给显示出来
+mkdir<span class="w"> </span>新建文件夹
+cp<span class="w"> </span>复制一个文件
+mv<span class="w"> </span>移动一个文件
+open<span class="w"> </span>.<span class="w"> </span>是打开file<span class="w"> </span>explorer在现在的文件夹
+rm<span class="w"> </span>-r
+</code></pre></div>
+<p>println包含了一个新的行</p>
+<p>Java有static typing, a key feature of Java compiler is that it performs a static type check.</p>
+<p>出现类型错误的话，compiler会拒绝运行</p>
+<p>python是dynamically typed language</p>
+<p>Java可以<code>System.out.println(5 + " ");</code>也可以<code>String h = 5 + "horse";</code></p>
+<p>但是python不可以<code>print(5 + "horse")</code>，因为python doesn't know what the statement is supposed to be, a number or a string?</p>
+<p>As an analogy, programming in Python can be a bit like <a href="https://www.youtube.com/watch?v=NCByLWtM7y4">Dan Osman free-soloing Lover's Leap</a>. It can be very fast, but dangerous. Java, by contrast is more like using ropes, helmets, etc. as in <a href="https://www.youtube.com/watch?v=tr6UIfPEuI0">this video</a>.</p>
+<h3 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HelloNumbers</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sum</span><span class="p">);</span>
+<span class="w">            </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">            </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 
 
 
