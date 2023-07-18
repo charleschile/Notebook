@@ -143,6 +143,52 @@ horbse
 
 
 
+### 增强for循环(enhanced for loop)
+
+```java
+public class EnhancedForBreakDemo {
+    public static void main(String[] args) {
+        String[] a = {"cat", "dog", "laser horse", "ketchup", "horse", "horbse"};
+
+        for (String s : a) {
+            for (int j = 0; j < 3; j += 1) {
+                System.out.println(s);
+                if (s.contains("horse")) {
+                    break;
+                }                
+            }
+        }
+    }
+}
+```
+
+输出是
+
+```bash
+cat
+cat
+cat
+dog
+dog
+dog
+laser horse
+ketchup
+ketchup
+ketchup
+horse
+horbse
+horbse
+horbse
+```
+
+
+
+
+
+
+
+
+
 ### Exercise
 
 ```java
@@ -161,10 +207,10 @@ public class HelloNumbers {
 
 
 
-### Homeword exercise 2
+### Homework exercise 2
 
 ```java
-public class HelloNumbers {
+public class Max {
     public static int max (int[] array) {
         int x = 0;
         int m = array[0];
@@ -185,4 +231,90 @@ public class HelloNumbers {
 ```
 
 
+
+### Homework exercise 4
+
+```java
+public class WindowPosSum {
+	public static void windowPosSum(int[] a, int n) {
+		/**
+		 * replace each element a[i] with the sum of a[i] through a[i + n]
+		 */
+		// copy the a array to a new array b
+		int[] b = new int[a.length];
+		for (int i = 0; i < a.length; i += 1) {
+			b[i] = a[i];
+		}
+		// 遍历每个元素
+		for (int i = 0; i < a.length; i += 1) {
+			if (a[i] <= 0) {
+				continue;
+			}
+			else {
+				if ((i + n) < a.length) {
+					int temp = 0;
+					for (int j = i; j <= i + n; j += 1) {
+						temp += b[j];
+					}
+					a[i] = temp;
+				}
+				else {
+					int temp = 0;
+					for (int j = i; j < a.length; j += 1) {
+						temp += b[j];
+					}
+					a[i] = temp;
+				}
+			}
+		}
+	}
+	public static void main(String[] args) {
+		int[] a = {1, 2, -3, 4, 5, 4};
+		int n = 3;
+		windowPosSum(a, n);
+		System.out.println(java.util.Arrays.toString(a));
+	}
+
+}
+```
+
+### 使用break:
+
+```java
+public class WindowPosSum {
+	public static void windowPosSum(int[] a, int n) {
+		/**
+		 * replace each element a[i] with the sum of a[i] through a[i + n]
+		 */
+		// copy the a array to a new array b
+		int[] b = new int[a.length];
+		for (int i = 0; i < a.length; i += 1) {
+			b[i] = a[i];
+		}
+		// 遍历每个元素
+		for (int i = 0; i < a.length; i += 1) {
+			if (a[i] <= 0) {
+				continue;
+			}
+			else {
+				int temp = 0;
+				for (int j = i; j <= i + n; j++) {
+					if (j >= a.length) {
+						break;
+					}
+					temp += b[j];
+				}
+				a[i] = temp;
+			}
+		}
+	}
+	public static void main(String[] args) {
+		int[] a = {1, 2, -3, 4, 5, 4};
+		int n = 3;
+		windowPosSum(a, n);
+		System.out.println(java.util.Arrays.toString(a));
+	}
+
+}
+```
 
