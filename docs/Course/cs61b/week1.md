@@ -1,5 +1,7 @@
 # CS61B week1
 
+# Lecture 1
+
 学习的顺序：Reading（精华的课程内容）-> Guide （课程内容的总结）-> Slides + Video -> Lab -> HW -> project
 
 entry code: 93PK75
@@ -182,6 +184,157 @@ horbse
 ```
 
 
+
+
+
+# Lecture 2
+
+调用其他类的类被称为被调用类的“client”
+
+A class that uses another class is sometimes called a "client" of that class, i.e. `DogLauncher` is a client of `Dog`.
+
+```java
+public class Dog {
+    // 没有static的变量，被称为instance variables或者non-static variables，必须要提前在class里面declared!
+    public int weightInPounds;
+    // 没有static的方法，被称为instance method或者non-static method
+    public void makeNoise() {
+        if (weightInPounds < 10) {
+            System.out.println("yipyipyip!");
+        } else if (weightInPounds < 30) {
+            System.out.println("bark. bark.");
+        } else {
+            System.out.println("woof!");
+        }
+    }    
+}
+
+```
+
+
+
+```java
+public class DogLauncher {
+    public static void main(String[] args) {
+        Dog d;
+        // An Object in Java is an instance of any class.
+        d = new Dog();
+        // Members of a class are accessed using dot notation.
+        d.weightInPounds = 20;
+        d.makeNoise();
+    }
+}
+```
+
+
+
+
+
+
+
+### key features
+
+- An `Object` in Java is an instance of any class.
+- The `Dog` class has its own variables, also known as *instance variables* or *non-static variables*. These must be declared inside the class, unlike languages like Python or Matlab, where new variables can be added at runtime.
+- The method that we created in the `Dog` class did not have the `static` keyword. We call such methods *instance methods* or *non-static methods*.
+- To call the `makeNoise` method, we had to first *instantiate* a `Dog` using the `new` keyword, and then make a specific `Dog` bark. In other words, we called `d.makeNoise()` instead of `Dog.makeNoise()`.
+- Once an object has been instantiated, it can be *assigned* to a *declared* variable of the appropriate type, e.g. `d = new Dog();`
+- Variables and methods of a class are also called *members* of a class.
+- Members of a class are accessed using *dot notation*.
+
+
+
+构造函数其实就是用来创建对象的函数，又叫构造器。构造函数是一个类创建对象的根本途径，如果一个类没有构造器，则它无法创建实例（对象）。如果你没有给一个类显式地创建一个构造器，则系统会自动为其创建一个默认的构造器。如果你显式地为一个类创建了构造器，则系统不会再为其提供默认构造器。
+
+无参构造函数（默认构造函数）：
+
+```java
+public 类名称(){
+	……
+}
+```
+
+带参构造函数：
+
+```java
+public 类名称(参数1，参数2) {
+}
+```
+
+为了实现在面向对象的语言里创建对象`Dog d = new Dog(20)`：
+
+```java
+public class DogLauncher {
+    public static void main(String[] args) {
+        Dog d = new Dog(20);
+        d.makeNoise();
+    }
+}
+```
+
+我们需要往被调用的class里面加入一个构造器constructor:
+
+```java
+public class Dog {
+    public int weightInPounds;
+		
+  	// constructor
+  	// The constructor with signature public Dog(int w) will be invoked anytime that we try to create a Dog using the new keyword and a single integer parameter.
+    public Dog(int w) {
+        weightInPounds = w;
+    }
+
+    public void makeNoise() {
+        if (weightInPounds < 10) {
+            System.out.println("yipyipyip!");
+        } else if (weightInPounds < 30) {
+            System.out.println("bark. bark.");
+        } else {
+            System.out.println("woof!");
+        }    
+    }
+}
+```
+
+
+
+we can create arrays of instantiated objects in java
+
+```java
+public class DogArrayDemo {
+    public static void main(String[] args) {
+        /* Create an array of two dogs. */
+        Dog[] dogs = new Dog[2];
+        dogs[0] = new Dog(8);
+        dogs[1] = new Dog(20);
+
+        /* Yipping will result, since dogs[0] has weight 8. */
+        dogs[0].makeNoise();
+    }
+}
+```
+
+
+
+
+
+Java allows us to define two types of methods:
+
+- Class methods, a.k.a. static methods.
+- Instance methods, a.k.a. non-static methods.
+
+Instance methods are actions that can be taken only by a specific instance of a class. Static methods are actions that are taken by the class itself. Both are useful in different circumstances. As an example of a static method, the `Math` class provides a `sqrt` method. Because it is static, we can call it as follows:
+
+```java
+x = Math.sqrt(100);
+```
+
+If `sqrt` had been an instance method, we would have instead the awkward syntax below. Luckily `sqrt` is a static method so we don't have to do this in real programs.
+
+```java
+Math m = new Math();
+x = m.sqrt(100);
+```
 
 
 
