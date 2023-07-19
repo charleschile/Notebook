@@ -775,91 +775,9 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          CS61B week1
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         CS61B week1
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="Content">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Content
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#comment" class="md-nav__link">
-    comment
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#array" class="md-nav__link">
-    定义array
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#continuebreak" class="md-nav__link">
-    continue和break
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#forenhanced-for-loop" class="md-nav__link">
-    增强for循环(enhanced for loop)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exercise" class="md-nav__link">
-    Exercise
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#homework-exercise-2" class="md-nav__link">
-    Homework exercise 2
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#homework-exercise-4" class="md-nav__link">
-    Homework exercise 4
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#break" class="md-nav__link">
-    使用break:
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -2807,70 +2725,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Content
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#comment" class="md-nav__link">
-    comment
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#array" class="md-nav__link">
-    定义array
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#continuebreak" class="md-nav__link">
-    continue和break
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#forenhanced-for-loop" class="md-nav__link">
-    增强for循环(enhanced for loop)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exercise" class="md-nav__link">
-    Exercise
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#homework-exercise-2" class="md-nav__link">
-    Homework exercise 2
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#homework-exercise-4" class="md-nav__link">
-    Homework exercise 4
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#break" class="md-nav__link">
-    使用break:
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2885,6 +2739,7 @@
 
 
 <h1 id="cs61b-week1">CS61B week1<a class="headerlink" href="#cs61b-week1" title="Permanent link">&para;</a></h1>
+<h1 id="lecture-1">Lecture 1<a class="headerlink" href="#lecture-1" title="Permanent link">&para;</a></h1>
 <p>学习的顺序：Reading（精华的课程内容）-&gt; Guide （课程内容的总结）-&gt; Slides + Video -&gt; Lab -&gt; HW -&gt; project</p>
 <p>entry code: 93PK75</p>
 <p>lab1 setup就是教了一下怎么配置自己的电脑，用来跑java</p>
@@ -3014,6 +2869,109 @@ horse
 horbse
 horbse
 horbse
+</code></pre></div>
+<h1 id="lecture-2">Lecture 2<a class="headerlink" href="#lecture-2" title="Permanent link">&para;</a></h1>
+<p>调用其他类的类被称为被调用类的“client”</p>
+<p>A class that uses another class is sometimes called a "client" of that class, i.e. <code>DogLauncher</code> is a client of <code>Dog</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Dog</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 没有static的变量，被称为instance variables或者non-static variables，必须要提前在class里面declared!</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">weightInPounds</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// 没有static的方法，被称为instance method或者non-static method</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">makeNoise</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">weightInPounds</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;yipyipyip!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">weightInPounds</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">30</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;bark. bark.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;woof!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="w">    </span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DogLauncher</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Dog</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
+<span class="w">        </span><span class="c1">// An Object in Java is an instance of any class.</span>
+<span class="w">        </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">();</span>
+<span class="w">        </span><span class="c1">// Members of a class are accessed using dot notation.</span>
+<span class="w">        </span><span class="n">d</span><span class="p">.</span><span class="na">weightInPounds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+<span class="w">        </span><span class="n">d</span><span class="p">.</span><span class="na">makeNoise</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="key-features">key features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h3>
+<ul>
+<li>An <code>Object</code> in Java is an instance of any class.</li>
+<li>The <code>Dog</code> class has its own variables, also known as <em>instance variables</em> or <em>non-static variables</em>. These must be declared inside the class, unlike languages like Python or Matlab, where new variables can be added at runtime.</li>
+<li>The method that we created in the <code>Dog</code> class did not have the <code>static</code> keyword. We call such methods <em>instance methods</em> or <em>non-static methods</em>.</li>
+<li>To call the <code>makeNoise</code> method, we had to first <em>instantiate</em> a <code>Dog</code> using the <code>new</code> keyword, and then make a specific <code>Dog</code> bark. In other words, we called <code>d.makeNoise()</code> instead of <code>Dog.makeNoise()</code>.</li>
+<li>Once an object has been instantiated, it can be <em>assigned</em> to a <em>declared</em> variable of the appropriate type, e.g. <code>d = new Dog();</code></li>
+<li>Variables and methods of a class are also called <em>members</em> of a class.</li>
+<li>Members of a class are accessed using <em>dot notation</em>.</li>
+</ul>
+<p>构造函数其实就是用来创建对象的函数，又叫构造器。构造函数是一个类创建对象的根本途径，如果一个类没有构造器，则它无法创建实例（对象）。如果你没有给一个类显式地创建一个构造器，则系统会自动为其创建一个默认的构造器。如果你显式地为一个类创建了构造器，则系统不会再为其提供默认构造器。</p>
+<p>无参构造函数（默认构造函数）：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">类名称</span><span class="p">(){</span>
+<span class="w">    </span><span class="err">……</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>带参构造函数：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">类名称</span><span class="p">(</span><span class="n">参数1</span><span class="err">，</span><span class="n">参数2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>为了实现在面向对象的语言里创建对象<code>Dog d = new Dog(20)</code>：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DogLauncher</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Dog</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="w">        </span><span class="n">d</span><span class="p">.</span><span class="na">makeNoise</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>我们需要往被调用的class里面加入一个构造器constructor:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Dog</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">weightInPounds</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// constructor</span>
+<span class="w">    </span><span class="c1">// The constructor with signature public Dog(int w) will be invoked anytime that we try to create a Dog using the new keyword and a single integer parameter.</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Dog</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">weightInPounds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">w</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">makeNoise</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">weightInPounds</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;yipyipyip!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">weightInPounds</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">30</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;bark. bark.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;woof!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w">    </span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>we can create arrays of instantiated objects in java</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DogArrayDemo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/* Create an array of two dogs. */</span>
+<span class="w">        </span><span class="n">Dog</span><span class="o">[]</span><span class="w"> </span><span class="n">dogs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">dogs</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span>
+<span class="w">        </span><span class="n">dogs</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+
+<span class="w">        </span><span class="cm">/* Yipping will result, since dogs[0] has weight 8. */</span>
+<span class="w">        </span><span class="n">dogs</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">makeNoise</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Java allows us to define two types of methods:</p>
+<ul>
+<li>Class methods, a.k.a. static methods.</li>
+<li>Instance methods, a.k.a. non-static methods.</li>
+</ul>
+<p>Instance methods are actions that can be taken only by a specific instance of a class. Static methods are actions that are taken by the class itself. Both are useful in different circumstances. As an example of a static method, the <code>Math</code> class provides a <code>sqrt</code> method. Because it is static, we can call it as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">sqrt</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+</code></pre></div>
+<p>If <code>sqrt</code> had been an instance method, we would have instead the awkward syntax below. Luckily <code>sqrt</code> is a static method so we don't have to do this in real programs.</p>
+<div class="highlight"><pre><span></span><code><span class="n">Math</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Math</span><span class="p">();</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="na">sqrt</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
 </code></pre></div>
 <h3 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HelloNumbers</span><span class="w"> </span><span class="p">{</span>
