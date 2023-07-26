@@ -111,6 +111,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://charleschile.github.io/Notebook/Course/cs61b/lab1/</loc>
+         <lastmod>2023-07-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://charleschile.github.io/Notebook/Course/cs61b/project0/</loc>
+         <lastmod>2023-07-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://charleschile.github.io/Notebook/Course/cs61b/week1/</loc>
          <lastmod>2023-07-26</lastmod>
          <changefreq>daily</changefreq>

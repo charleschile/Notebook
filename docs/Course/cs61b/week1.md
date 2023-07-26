@@ -324,7 +324,7 @@ public class DogLauncher {
 
 
 
-
+### static vs. non static method (instance method)
 
 Java allows us to define two types of methods:
 
@@ -344,13 +344,112 @@ Math m = new Math();
 x = m.sqrt(100);
 ```
 
+```java
+public class DogLauncher {
+	public static void main(String[] args) {
+		Dog d = new Dog(51);
+		d.makeNoise();
+		// create an array to hold two Dog objects
+		Dog[] dogs = new Dog[2];
+		// create each actual Dog
+		dogs[0] = new Dog(5);
+		dogs[1] = new Dog(20);
+		dogs[0].makeNoise();
+		dogs[1].makeNoise();
+		double x = Math.round(36);
+		System.out.println(x);
+		Dog d1 = new Dog(5);
+		Dog d2 = new Dog(40);
+		// 我们在这里使用Dog.maxDog，这种方法调用的Dog class，而直接调用Dog类中的方法是static方法，所以maxDog定义的时候必须是public static Dog maxDog
+		// Dog bigger = Dog.maxDog(d1, d2);
+
+		// 这里我们使用的是实例化之后的d1.maxDog，所以是non-static的
+		Dog bigger = d1.maxDog(d2);
+		bigger.makeNoise();
+
+		//这种是非常不好的，bad style，因为static的变量最好是通过Dog.bionome来进行调用
+		System.out.println(d.bionome);
+		// 这种就比较好
+		System.out.println(Dog.bionome);
+	}
+}
+```
+
+``` java
+public class Dog {
+
+	// instance variable
+	public int weightInPounds;
+	public static String bionome = "canis familiaris";
+	/** one integer constructor for dogs. */
+	public Dog(int w) {
+		weightInPounds = w;
+	}
+	// non-static method a.k.a Instance Method
+	public void makeNoise() {
+		if (weightInPounds < 10) {
+			System.out.println("yip!");
+		} else if (weightInPounds < 30) {
+			System.out.println("bark.");
+		} else {
+			System.out.println("wooof!");
+		}
+	}
+	// in this case, we are invoking the method using the class name.
+	public static Dog maxDog(Dog d1, Dog d2) {
+		if (d1.weightInPounds > d2.weightInPounds) {
+			return d1;
+		} 
+		return d2;
+	}
+	public Dog maxDog(Dog d2) {
+		if (this.weightInPounds > d2.weightInPounds) {
+			return this;
+		}
+		return d2;
+	}
+}
+
+```
+
+
+
+- a variable or method defined in a class is also called a member of that class
+- static members are accessed using class name, e.g. Dog.bionome
+- Non-static members cannot be invoked using class name
+- static methods must access instance variables via a specific instance, e.g. d1.
 
 
 
 
 
+### public static void main (String[] args)
 
-### Exercise
+- `public`: So far, all of our methods start with this keyword.
+- `static`: It is a static method, not associated with any particular instance.
+- `void`: It has no return type.
+- `main`: This is the name of the method.
+- `String[] args`: This is a parameter that is passed to the main method.
+
+#### args[]的使用-summing command line arguments
+
+```java
+public class DemoSum {
+	public static void main (String[] args) {
+		int sum = 0;
+		int i = 0;
+		while (i < args.length) {
+			sum = sum + Integer.parseInt(args[i]);
+			i += 1;
+		}
+		System.out.println(sum);
+	}
+}
+```
+
+
+
+# Exercise
 
 ```java
 public class HelloNumbers {
@@ -477,5 +576,17 @@ public class WindowPosSum {
 	}
 
 }
+```
+
+### Exercise 1.2.1
+
+```java
+public static Dog maxDog(Dog d1, Dog d2) {
+    if (weightInPounds > d2.weightInPounds) {
+        return this;
+    }
+    return d2;
+}
+
 ```
 

@@ -88,6 +88,8 @@ nav:
     - Berkeley CS61B Data Structures and Algorithms:
       - Course/cs61b/information.md
       - Course/cs61b/week1.md
+      - Course/cs61b/project0.md
+      - Course/cs61b/lab1.md
 
     - C++ Primer:
       - Course/cppPrimer/cppPrimer.md
