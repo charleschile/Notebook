@@ -793,9 +793,77 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Project 0
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Project 0
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Content">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Content
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-2048" class="md-nav__link">
+    1. 2048的得分原理：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 程序设计思路
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 题目的解读
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 问题点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 前三个都相当简单，掠过
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-tilt" class="md-nav__link">
+    6. tilt
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2773,6 +2841,56 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Content
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-2048" class="md-nav__link">
+    1. 2048的得分原理：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 程序设计思路
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 题目的解读
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 问题点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 前三个都相当简单，掠过
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-tilt" class="md-nav__link">
+    6. tilt
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2787,9 +2905,37 @@
 
 
 <h1 id="project-0">Project 0<a class="headerlink" href="#project-0" title="Permanent link">&para;</a></h1>
-<p>得分原理：</p>
+<p>assignment中直接说明了：<code>tilt</code> will take you 3 to 10 hours to complete</p>
+<p>row: 排，行</p>
+<p>Column: 纵列</p>
+<h3 id="1-2048">1. 2048的得分原理：<a class="headerlink" href="#1-2048" title="Permanent link">&para;</a></h3>
 <p>Each time two tiles merge to form a larger tile, the player earns a number of points on the new tile.</p>
 <p>The “Max Score” is the maximum score the user has achieved in that game session. It isn’t updated until the game is over, so that is why it remains 0 throughout the animated GIF example.</p>
+<h3 id="2">2. 程序设计思路<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>Model-View-Controller Pattern (MVC), and Observe Pattern.</p>
+<p>The MVC pattern divides our problem into three parts:</p>
+<ul>
+<li>The <strong>model</strong> represents the subject matter being represented and acted upon – in this case incorporating the state of a board game and the rules by which it may be modified. Our model resides in the <code>Model</code>, <code>Side</code>, <code>Board</code>, and <code>Tile</code> classes. The instance variables of <code>Model</code> fully determine what the state of the game is. Note: You’ll only be modifying the <code>Model</code> class.</li>
+<li>A <strong>view</strong> of the model, which displays the game state to the user. Our view resides in the <code>GUI</code> and <code>BoardWidget</code> classes.</li>
+<li>A <strong>controller</strong> for the game, which translates user actions into operations on the model. Our controller resides mainly in the <code>Game</code> class, although it also uses the GUI class to read keystrokes.</li>
+</ul>
+<h3 id="3">3. 题目的解读<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>tile就是每个方格，使用<code>tile.value()</code>来获取tile的数字</p>
+<p>side代表的是方向，可以使用<code>Side s = Side.NORTH</code>(这里不需要使用new)</p>
+<p>可以直接使用<code>public static void printSide(Side.NORTH)</code></p>
+<p>This class represents the board of tiles itself. It has three methods that you’ll use: <code>setViewingPerspective</code>, <code>tile</code>, <code>move</code>. Optionally, for experimentation, you can use <code>getRandomNonNullTile</code>.</p>
+<h3 id="4">4. 问题点<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>guiding里面说要使用java 15但是截图里面用的是14.0.2，我用的全部都是15（动图里面用的15），没有问题</p>
+<h3 id="5">5. 前三个都相当简单，掠过<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<h3 id="6-tilt">6. tilt<a class="headerlink" href="#6-tilt" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Computer science is essentially about one thing: Managing complexity. Writing the <code>tilt</code> method is a rich experience that will give you a chance to try just that. </p>
+</blockquote>
+<p>side的一长串解释看上去有点难以理解：解决这个问题背后的想法是，通过使用下面的col()和row()方法从重定向转换到标准坐标，可以安排使用完全相同的代码来计算向任何特定方向倾斜棋盘的结果。</p>
+<blockquote>
+<p>还是看不懂</p>
+</blockquote>
+<p>Tile t = board.tile(1, 2); board.move(1, 3, t); t = board.tile(1, 0); board.move(1, 2, t);</p>
 
 
 
