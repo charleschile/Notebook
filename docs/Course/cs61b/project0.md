@@ -1,11 +1,7 @@
-# lab 1
+# Project 0
 
-### 1. git pull
+得分原理：
 
-不是很顺利，直接将zip包下载下来解压缩了
+Each time two tiles merge to form a larger tile, the player earns a number of points on the new tile.
 
-/Users/charleschile/Library/Java/JavaVirtualMachines/corretto-17.0.7/Contents/Home
-
-
-
-JAVA_HOME="/Users/charleschile/Library/Java/JavaVirtualMachines/corretto-17.0.7/Contents/Home"
+The “Max Score” is the maximum score the user has achieved in that game session. It isn’t updated until the game is over, so that is why it remains 0 throughout the animated GIF example.
