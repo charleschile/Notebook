@@ -170,3 +170,6 @@ Important: Make sure to use `board.setViewingPerpsective` to set the perspective
 
 
 
+### Autograder Score640.0 / 640.0
+
+不难，但是写了一座屎山：）
