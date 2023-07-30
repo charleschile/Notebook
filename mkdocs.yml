@@ -191,6 +191,9 @@ nav:
       - Blog/travel/乌镇.md
       - Blog/travel/南通.md
 
+  - Travel:
+    - Travel/UK/London.md
+
   - About & Others:
     - About/me.md
     - About/test.md
