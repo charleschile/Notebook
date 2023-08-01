@@ -10,7 +10,7 @@
 </style>
 ***Charles Chi Le*** (乐驰)</br>
 Graduated @ ZJU & UoE majoring in ***Biomedical Sciences***</br>
-Coming Master's student @ Duke majoring in ***ECE*** (specialized in ***software development***)
+Currently Master's student @ Duke majoring in ***Electrical and Computer Engineering*** (specialized in ***software development***)
 
 
 
@@ -21,4 +21,4 @@ Coming Master's student @ Duke majoring in ***ECE*** (specialized in ***software
 </div>
 My girlfriend ***Rujie Qi*** (戚汝洁)</br>
 Graduated @ ZJU & UoE majoring in ***Biomedical Sciences***</br>
-Coming PhD student @ NUS majoring in ***Medicine***
+Currently PhD student @ NUS majoring in ***Medicine***
