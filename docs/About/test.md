@@ -77,3 +77,14 @@ type=0是播放列表
 
 type=2是单曲
 
+
+  <body>
+    <div class="left">
+    	<figure>
+        <img src="/Notebook/About/me001.jpg" style="zoom:18%"/>
+    </figure>
+    </div>
+    <div class="right">
+    	<p>hello! here is Chi Le</p>
+    </div>
+  </body>

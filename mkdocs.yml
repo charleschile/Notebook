@@ -67,6 +67,7 @@ extra:
 nav:
   - Home Page:
     - index.md
+    - index1.md
     - plan.md
 
 
