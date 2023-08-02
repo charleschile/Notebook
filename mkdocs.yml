@@ -1,6 +1,6 @@
 # [Info]
 site_name: Charles Le's Notebook # 左上角的标题
-site_url: https://charleschile.github.io/Notebook
+site_url: https://charleschile.github.io/
 site_author: 乐驰
 site_description: 乐驰的个人笔记
 
@@ -51,7 +51,7 @@ theme:
 # edit_uri: edit/main/docs # 编辑按钮跳转的链接
 
 ## [top-right corner]
-repo_url: https://charleschile.github.io/Notebook # 右上角点击跳转的链接
+repo_url: https://charleschile.github.io/ # 右上角点击跳转的链接
 repo_name: charleschile/Notebook # 右上角的名字
 ## [bottom-left corner]
 copyright: Copyright &copy; 2023 乐驰 # 左下角的版权声明
@@ -60,7 +60,7 @@ copyright: Copyright &copy; 2023 乐驰 # 左下角的版权声明
 extra:
   social: # icons
     - icon: fontawesome/brands/github
-      link: https://github.com/charleschile
+      link: https://github.com/charleschile/
       name: GitHub | charleschile
 
 # [Navigation]
