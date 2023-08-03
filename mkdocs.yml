@@ -1,6 +1,6 @@
 # [Info]
 site_name: Charles Le's Notebook # 左上角的标题
-site_url: https://charleschile.github.io/
+site_url: https://charleschile.github.io/Notebook #这个是home page的位置，比如https://charleschile.github.io/Notebook，serve的话就会运行在http://127.0.0.1:8000/Notebook/
 site_author: 乐驰
 site_description: 乐驰的个人笔记
 
