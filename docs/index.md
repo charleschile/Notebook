@@ -1,57 +1,57 @@
 # About Me
-## Test!!!!!
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <title>about me</title>
     <style>
       .left {
-      	border-radius: 25px;
+      	border-radius: 10%;
         float: left;
-        width: 130px;
+        width: 180px;
         height: 300px;
-        background-color: blue;
+        background-color: white;
       }
       .right {
-        background-color: orange;
-        margin-left: 170px;
+        background-color: white;
+        margin-left: 230px;
+        width: 780px;
         height: 300px;
       }
       .photo {
         float: left;
-        border-radius: 25px;
-        width: 160px;
+        border-radius: 20%;
+        width: 180px;
         height: 300px;
         background-color: white;
       }
+      p.small {
+        line-height: 200%;
+      }
     </style>
   </head>
-<div class="photo">
-    <figure>
-        <img src="/Notebook/About/me001.jpg" style="border-radius: 150px; zoom: 18%"/>
-    </figure>
-</div>
-
-
-</style>
-***Charles Chi Le*** (乐驰)</br>
-Graduated @ ZJU & UoE majoring in ***Biomedical Sciences***</br>
-Currently Master's student @ Duke majoring in ***Electrical and Computer Engineering*** (specialized in ***software development***)
-
 
 
 
 
   <body>
     <div class="left">
-    	<figure>
-        <img src="/Notebook/About/me001.jpg" style="zoom:18%"/>
+    	<figure> 
+        <img src="About/me001.jpg" class="photo">
     </figure>
     </div>
     <div class="right">
+      <p><font size="5"><b>Charles Chi Le </b> (乐驰 in simplified Chinese)</font></p>
     	<p>
-Charles Chi Le (乐驰)
-Graduated @ ZJU & UoE majoring in Biomedical Sciences
-Currently Master's student @ Duke majoring in Electrical and Computer Engineering (specialized in software development)</p>
+        Hi there! I am currently a Master's Student in <a href="https://ece.duke.edu/masters/degrees/meng">Electrical and Computer Engineering</a> with a concentration in software development at <a href="https://duke.edu/">Duke University </a>. I graduated from Zhejiang University (ZJU) and the University of Edinburgh (UoE) in June 2022. I received dual bachelor's degrees in Biomedical Sciences from both ZJU and UoE. 
+      </p>
+      <p>
+        I am also an enthusiastic self-learner and interested in various fields of computer science. Here are my [course notes] for all the courses that I have taken where I share my self-learning experiences and resources. 
+      </p>
+      <p>
+        For future career interests, I am particularly interested in software engineering and AI for science, especially Biology.
+      </p>
+      <p>
+        Contact: CV / Github / email
+      </p>
     </div>
   </body>
