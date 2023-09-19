@@ -1,10 +1,5 @@
 # About Me
 
-<div>
-    <figure>
-        <img src="/Notebook/About/me001.jpg" style="zoom:38%"/>
-    </figure>
-</div>
 
 
 </style>
@@ -14,11 +9,3 @@ Currently Master's student @ Duke majoring in ***Electrical and Computer Enginee
 
 
 
-<div>
-    <figure>
-        <img src="/Notebook/About/me002.jpg" style="zoom:12%"/>
-    </figure>
-</div>
-My girlfriend ***Rujie Qi*** (戚汝洁)</br>
-Graduated @ ZJU & UoE majoring in ***Biomedical Sciences***</br>
-Currently PhD student @ NUS majoring in ***Medicine***

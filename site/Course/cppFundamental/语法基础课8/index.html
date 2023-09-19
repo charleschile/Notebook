@@ -12,28 +12,28 @@
         <meta name="author" content="乐驰">
       
       
-        <link rel="canonical" href="https://charleschile.github.io/Notebook/index1/">
+        <link rel="canonical" href="https://charleschile.github.io/Notebook/Course/cppFundamental/%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE8/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE7/">
       
       
-        <link rel="next" href="../plan/">
+        <link rel="next" href="../../dukeC/1_information/">
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.3.1">
     
     
       
-        <title>o(〃'▽'〃)o Welcome! - Charles Le's Notebook</title>
+        <title>第八讲 STL、位运算和常用库函数 - Charles Le's Notebook</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.046329b4.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.046329b4.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.85d0ee34.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.85d0ee34.min.css">
       
       
 
@@ -52,13 +52,13 @@
       
     
     
-      <link rel="stylesheet" href="../stylesheets/basic.css">
+      <link rel="stylesheet" href="../../../stylesheets/basic.css">
     
-      <link rel="stylesheet" href="../stylesheets/admonition.css">
+      <link rel="stylesheet" href="../../../stylesheets/admonition.css">
     
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#oo-welcome" class="md-skip">
+        <a href="#stl" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href=".." title="Charles Le&#39;s Notebook" class="md-header__button md-logo" aria-label="Charles Le's Notebook" data-md-component="logo">
+    <a href="../../.." title="Charles Le&#39;s Notebook" class="md-header__button md-logo" aria-label="Charles Le's Notebook" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              o(〃'▽'〃)o Welcome!
+              第八讲 STL、位运算和常用库函数
             
           </span>
         </div>
@@ -225,13 +225,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href=".." class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
           
   
     
@@ -247,11 +245,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../Course/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
           
   
     
@@ -271,7 +271,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../Problem/" class="md-tabs__link">
+        <a href="../../../Problem/" class="md-tabs__link">
           
   
     
@@ -297,7 +297,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../Project/ant/" class="md-tabs__link">
+        <a href="../../../Project/ant/" class="md-tabs__link">
           
   
     
@@ -320,7 +320,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../Tool/" class="md-tabs__link">
+        <a href="../../../Tool/" class="md-tabs__link">
           
   
     
@@ -346,7 +346,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../Blog/Article/OPTO%E5%A5%8B%E6%96%97%E5%8F%B2/" class="md-tabs__link">
+        <a href="../../../Blog/Article/OPTO%E5%A5%8B%E6%96%97%E5%8F%B2/" class="md-tabs__link">
           
   
     
@@ -369,7 +369,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../Travel/" class="md-tabs__link">
+        <a href="../../../Travel/" class="md-tabs__link">
           
   
     
@@ -389,7 +389,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../About/me/" class="md-tabs__link">
+        <a href="../../../About/me/" class="md-tabs__link">
           
   
     
@@ -424,7 +424,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Charles Le&#39;s Notebook" class="md-nav__button md-logo" aria-label="Charles Le's Notebook" data-md-component="logo">
+    <a href="../../.." title="Charles Le&#39;s Notebook" class="md-nav__button md-logo" aria-label="Charles Le's Notebook" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -451,6 +451,59 @@
       
   
   
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Home Page
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home Page
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -459,6 +512,16 @@
       
         
           
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
         
       
         
@@ -473,34 +536,140 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href=".." class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
-    Home Page
+    EECS Course
   </span>
   
 
             </a>
             
-              <label class="md-nav__link " for="__nav_1">
+              <label class="md-nav__link " for="__nav_2">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Home Page
+            EECS Course
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    C++ Fundamental
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            C++ Fundamental
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第五讲 字符串
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第六讲 函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第七讲 类、结构体、指针与引用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -518,36 +687,282 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    第八讲 STL、位运算和常用库函数
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    o(〃'▽'〃)o Welcome!
+    第八讲 STL、位运算和常用库函数
   </span>
   
 
       </a>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../plan/" class="md-nav__link">
         
-  
-  <span class="md-ellipsis">
-    Update Plan & Log
-  </span>
+
   
 
-      </a>
+<nav class="md-nav md-nav--secondary" aria-label="Content">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Content
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-include" class="md-nav__link">
+    1. #include 
+  </a>
+  
+    <nav class="md-nav" aria-label="1. #include">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 声明
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-sizeempty" class="md-nav__link">
+    1.2 size/empty
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-clear" class="md-nav__link">
+    1.3 clear
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    1.4 迭代器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-beginend" class="md-nav__link">
+    1.5 begin/end
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-frontback" class="md-nav__link">
+    1.6 front/back
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-push_backpop_back" class="md-nav__link">
+    1.7 push_back()和pop_back()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-include" class="md-nav__link">
+    2. #include 
+  </a>
+  
+    <nav class="md-nav" aria-label="2. #include">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 声明
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-queue" class="md-nav__link">
+    2.2 循环队列queue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-priority_queue" class="md-nav__link">
+    2.3 优先队列priority_queue
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-include" class="md-nav__link">
+    3. #include 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-include" class="md-nav__link">
+    4. #include 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-include" class="md-nav__link">
+    5. #include 
+  </a>
+  
+    <nav class="md-nav" aria-label="5. #include">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    5.1 声明
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-sizeemptyclear" class="md-nav__link">
+    5.2 size/empty/clear
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    5.3 迭代器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-beginend" class="md-nav__link">
+    5.4 begin/end
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-insert" class="md-nav__link">
+    5.5 insert
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-find" class="md-nav__link">
+    5.6 find
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#57-lower_boundupper_bound" class="md-nav__link">
+    5.7 lower_bound/upper_bound
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#58-erase" class="md-nav__link">
+    5.8 erase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#59-count" class="md-nav__link">
+    5.9 count
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-include" class="md-nav__link">
+    6. #include 
+  </a>
+  
+    <nav class="md-nav" aria-label="6. #include">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    6.1 声明
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-sizeemptyclearbeginend" class="md-nav__link">
+    6.2 size/empty/clear/begin/end
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-inserterase" class="md-nav__link">
+    6.3 insert/erase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-find" class="md-nav__link">
+    6.4 find
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65" class="md-nav__link">
+    6.5 []操作符
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -559,67 +974,6 @@
     </li>
   
 
-    
-      
-      
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../Course/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    EECS Course
-  </span>
-  
-
-            </a>
-            
-              <label class="md-nav__link " for="__nav_2">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-            EECS Course
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
               
             
               
@@ -642,9 +996,9 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
         
-          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -655,8 +1009,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             Duke Introductory C Programming
           </label>
@@ -668,7 +1022,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Course/dukeC/1_information/" class="md-nav__link">
+      <a href="../../dukeC/1_information/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -688,7 +1042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Course/dukeC/2/" class="md-nav__link">
+      <a href="../../dukeC/2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -728,9 +1082,9 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
         
-          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -741,8 +1095,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
             <span class="md-nav__icon md-icon"></span>
             Harvard CS50's introduction to computer science
           </label>
@@ -754,7 +1108,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Course/cs50/CS50%20intoduction%20to%20computer%20science/" class="md-nav__link">
+      <a href="../../cs50/CS50%20intoduction%20to%20computer%20science/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -796,9 +1150,9 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
         
-          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -809,8 +1163,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_4">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
             <span class="md-nav__icon md-icon"></span>
             Berkeley CS61A Structure and Interpretation of Computer Programs
           </label>
@@ -822,7 +1176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Course/cs61a/information/" class="md-nav__link">
+      <a href="../../cs61a/information/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -842,7 +1196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Course/cs61a/week1/" class="md-nav__link">
+      <a href="../../cs61a/week1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -888,9 +1242,9 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
         
-          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -901,8 +1255,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
             <span class="md-nav__icon md-icon"></span>
             Berkeley CS61B Data Structures and Algorithms
           </label>
@@ -914,7 +1268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Course/cs61b/information/" class="md-nav__link">
+      <a href="../../cs61b/information/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -934,7 +1288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Course/cs61b/week1/" class="md-nav__link">
+      <a href="../../cs61b/week1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -954,7 +1308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Course/cs61b/project0/" class="md-nav__link">
+      <a href="../../cs61b/project0/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -974,7 +1328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Course/cs61b/lab1/" class="md-nav__link">
+      <a href="../../cs61b/lab1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1014,9 +1368,9 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
         
-          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1027,8 +1381,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
             <span class="md-nav__icon md-icon"></span>
             C++ Primer
           </label>
@@ -1040,7 +1394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Course/cppPrimer/cppPrimer/" class="md-nav__link">
+      <a href="../../cppPrimer/cppPrimer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1082,9 +1436,9 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
         
-          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1095,8 +1449,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_7">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
             <span class="md-nav__icon md-icon"></span>
             北京大学程序设计与算法
           </label>
@@ -1108,7 +1462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Course/peking/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8E%E7%AE%97%E6%B3%95/" class="md-nav__link">
+      <a href="../../peking/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8E%E7%AE%97%E6%B3%95/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1128,7 +1482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Course/peking/%E8%AE%A1%E7%AE%97%E5%AF%BC%E8%AE%BA%E4%B8%8EC%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+      <a href="../../peking/%E8%AE%A1%E7%AE%97%E5%AF%BC%E8%AE%BA%E4%B8%8EC%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1181,8 +1535,6 @@
       
         
       
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -1196,7 +1548,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Problem/" class="md-nav__link ">
+            <a href="../../../Problem/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1265,7 +1617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Problem/skill/skills/" class="md-nav__link">
+      <a href="../../../Problem/skill/skills/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1331,7 +1683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Problem/programmercarl/algorithm/" class="md-nav__link">
+      <a href="../../../Problem/programmercarl/algorithm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1363,12 +1715,6 @@
       
         
       
-        
-      
-        
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -1383,7 +1729,7 @@
             
   
   <span class="md-ellipsis">
-    语法基础课
+    洛谷题单
   </span>
   
 
@@ -1392,132 +1738,6 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_4">
-            <span class="md-nav__icon md-icon"></span>
-            语法基础课
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Problem/acwing/%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE5/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    第五讲 字符串
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Problem/acwing/%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE6/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    第六讲 函数
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Problem/acwing/%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE7/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    第七讲 类、结构体、指针与引用
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Problem/acwing/%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE8/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    第八讲 STL、位运算和常用库函数
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    
-    
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
-        
-          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    洛谷题单
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_5">
             <span class="md-nav__icon md-icon"></span>
             洛谷题单
           </label>
@@ -1541,9 +1761,9 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_1" >
         
-          <label class="md-nav__link" for="__nav_3_5_1" id="__nav_3_5_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_4_1" id="__nav_3_4_1_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1554,8 +1774,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_5_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_5_1">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_1">
             <span class="md-nav__icon md-icon"></span>
             入门1 顺序结构
           </label>
@@ -1567,7 +1787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Problem/luogu/%E5%85%A5%E9%97%A81%E9%A1%BA%E5%BA%8F%E7%BB%93%E6%9E%84/" class="md-nav__link">
+      <a href="../../../Problem/luogu/%E5%85%A5%E9%97%A81%E9%A1%BA%E5%BA%8F%E7%BB%93%E6%9E%84/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1615,9 +1835,9 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
         
-          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1628,8 +1848,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
             <span class="md-nav__icon md-icon"></span>
             算法基础课
           </label>
@@ -1641,7 +1861,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Problem/acwing/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" class="md-nav__link">
+      <a href="../../../Problem/acwing/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1695,9 +1915,9 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
         
-          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1708,8 +1928,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_7">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
             <span class="md-nav__icon md-icon"></span>
             字节跳动青训营笔试训练题
           </label>
@@ -1721,7 +1941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Problem/bytedance/backendDay1/" class="md-nav__link">
+      <a href="../../../Problem/bytedance/backendDay1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1741,7 +1961,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Problem/bytedance/backendDay2/" class="md-nav__link">
+      <a href="../../../Problem/bytedance/backendDay2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1761,7 +1981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Problem/bytedance/backendDay3/" class="md-nav__link">
+      <a href="../../../Problem/bytedance/backendDay3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1781,7 +2001,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Problem/bytedance/backendDay4/" class="md-nav__link">
+      <a href="../../../Problem/bytedance/backendDay4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1801,7 +2021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Problem/bytedance/backendDay5/" class="md-nav__link">
+      <a href="../../../Problem/bytedance/backendDay5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1821,7 +2041,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Problem/bytedance/backendDay6/" class="md-nav__link">
+      <a href="../../../Problem/bytedance/backendDay6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1841,7 +2061,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Problem/bytedance/backendDay7/" class="md-nav__link">
+      <a href="../../../Problem/bytedance/backendDay7/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1861,7 +2081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Problem/bytedance/backendDay8/" class="md-nav__link">
+      <a href="../../../Problem/bytedance/backendDay8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1901,9 +2121,9 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
         
-          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1914,8 +2134,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_8">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
             <span class="md-nav__icon md-icon"></span>
             acwing寒假每日一题
           </label>
@@ -1927,7 +2147,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Problem/winter/everyday/" class="md-nav__link">
+      <a href="../../../Problem/winter/everyday/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1963,8 +2183,6 @@
   
     
     
-      
-        
       
         
       
@@ -2040,77 +2258,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../Project/ant/" class="md-nav__link">
+      <a href="../../../Project/ant/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Frontend
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    
-    
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
-        
-          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    字节跳动青训营
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_2">
-            <span class="md-nav__icon md-icon"></span>
-            字节跳动青训营
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Project/bytedance/%E7%AC%AC%E4%BA%94%E5%B1%8A%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8%E9%9D%92%E8%AE%AD%E8%90%A5%E5%90%8E%E7%AB%AF%E4%B8%93%E5%9C%BA/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    第五届字节跳动青训营后端专场笔记
   </span>
   
 
@@ -2176,7 +2328,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Tool/" class="md-nav__link ">
+            <a href="../../../Tool/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2249,7 +2401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Tool/mkdocs/MkDocs%20Material/" class="md-nav__link">
+      <a href="../../../Tool/mkdocs/MkDocs%20Material/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2269,7 +2421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Tool/mkdocs/Online%20personal%20notebook%20plan/" class="md-nav__link">
+      <a href="../../../Tool/mkdocs/Online%20personal%20notebook%20plan/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2289,7 +2441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Tool/mkdocs/MkDocs%E7%BE%8E%E5%8C%96/" class="md-nav__link">
+      <a href="../../../Tool/mkdocs/MkDocs%E7%BE%8E%E5%8C%96/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2357,7 +2509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Tool/mac/remacbook/" class="md-nav__link">
+      <a href="../../../Tool/mac/remacbook/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2377,7 +2529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Tool/mac/troubleshooting/" class="md-nav__link">
+      <a href="../../../Tool/mac/troubleshooting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2443,7 +2595,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Tool/MIT/missing_semester/" class="md-nav__link">
+      <a href="../../../Tool/MIT/missing_semester/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2513,7 +2665,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Tool/systematicReview/notes/" class="md-nav__link">
+      <a href="../../../Tool/systematicReview/notes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2533,7 +2685,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Tool/systematicReview/jhu/" class="md-nav__link">
+      <a href="../../../Tool/systematicReview/jhu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2553,7 +2705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Tool/systematicReview/bilibilil/" class="md-nav__link">
+      <a href="../../../Tool/systematicReview/bilibilil/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2619,7 +2771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Tool/git/git/" class="md-nav__link">
+      <a href="../../../Tool/git/git/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2685,7 +2837,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Tool/vim/vim/" class="md-nav__link">
+      <a href="../../../Tool/vim/vim/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2751,7 +2903,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Tool/sublime/sublime/" class="md-nav__link">
+      <a href="../../../Tool/sublime/sublime/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2817,7 +2969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Tool/resume/resume/" class="md-nav__link">
+      <a href="../../../Tool/resume/resume/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2938,7 +3090,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Blog/Article/OPTO%E5%A5%8B%E6%96%97%E5%8F%B2/" class="md-nav__link">
+      <a href="../../../Blog/Article/OPTO%E5%A5%8B%E6%96%97%E5%8F%B2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2958,7 +3110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Blog/Article/%E5%91%A8%E4%BF%A1%E9%9D%99/" class="md-nav__link">
+      <a href="../../../Blog/Article/%E5%91%A8%E4%BF%A1%E9%9D%99/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2978,7 +3130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Blog/Article/%E9%AC%B2%E8%9E%8D/" class="md-nav__link">
+      <a href="../../../Blog/Article/%E9%AC%B2%E8%9E%8D/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3046,7 +3198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Blog/informalEssay/2301-2302/" class="md-nav__link">
+      <a href="../../../Blog/informalEssay/2301-2302/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3066,7 +3218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Blog/informalEssay/2303-2304/" class="md-nav__link">
+      <a href="../../../Blog/informalEssay/2303-2304/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3134,7 +3286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Blog/%E6%B5%99%E6%B1%9F%E5%A4%A7%E5%AD%A6%E6%A0%A1%E5%8F%B2%E4%B9%8B%E6%88%91%E8%80%83/" class="md-nav__link">
+      <a href="../../../Blog/%E6%B5%99%E6%B1%9F%E5%A4%A7%E5%AD%A6%E6%A0%A1%E5%8F%B2%E4%B9%8B%E6%88%91%E8%80%83/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3154,7 +3306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Blog/%E5%85%B3%E4%BA%8Eweb%203.0%E7%9A%84%E4%BF%A1%E6%81%AF%E5%92%8C%E6%83%B3%E6%B3%95/" class="md-nav__link">
+      <a href="../../../Blog/%E5%85%B3%E4%BA%8Eweb%203.0%E7%9A%84%E4%BF%A1%E6%81%AF%E5%92%8C%E6%83%B3%E6%B3%95/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3224,7 +3376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Blog/travel/%E5%8C%97%E4%BA%AC/" class="md-nav__link">
+      <a href="../../../Blog/travel/%E5%8C%97%E4%BA%AC/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3244,7 +3396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Blog/travel/%E4%B9%8C%E9%95%87/" class="md-nav__link">
+      <a href="../../../Blog/travel/%E4%B9%8C%E9%95%87/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3264,7 +3416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Blog/travel/%E5%8D%97%E9%80%9A/" class="md-nav__link">
+      <a href="../../../Blog/travel/%E5%8D%97%E9%80%9A/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3324,7 +3476,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Travel/" class="md-nav__link ">
+            <a href="../../../Travel/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3355,7 +3507,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Travel/UK/London/London/" class="md-nav__link">
+      <a href="../../../Travel/UK/London/London/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3375,7 +3527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Travel/UK/Edinburgh/ed/" class="md-nav__link">
+      <a href="../../../Travel/UK/Edinburgh/ed/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3395,7 +3547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Travel/UK/WhiteCliff/wc/" class="md-nav__link">
+      <a href="../../../Travel/UK/WhiteCliff/wc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3462,7 +3614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../About/me/" class="md-nav__link">
+      <a href="../../../About/me/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3482,7 +3634,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../About/test/" class="md-nav__link">
+      <a href="../../../About/test/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3525,6 +3677,248 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Content
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-include" class="md-nav__link">
+    1. #include 
+  </a>
+  
+    <nav class="md-nav" aria-label="1. #include">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 声明
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-sizeempty" class="md-nav__link">
+    1.2 size/empty
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-clear" class="md-nav__link">
+    1.3 clear
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    1.4 迭代器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-beginend" class="md-nav__link">
+    1.5 begin/end
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-frontback" class="md-nav__link">
+    1.6 front/back
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-push_backpop_back" class="md-nav__link">
+    1.7 push_back()和pop_back()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-include" class="md-nav__link">
+    2. #include 
+  </a>
+  
+    <nav class="md-nav" aria-label="2. #include">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 声明
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-queue" class="md-nav__link">
+    2.2 循环队列queue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-priority_queue" class="md-nav__link">
+    2.3 优先队列priority_queue
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-include" class="md-nav__link">
+    3. #include 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-include" class="md-nav__link">
+    4. #include 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-include" class="md-nav__link">
+    5. #include 
+  </a>
+  
+    <nav class="md-nav" aria-label="5. #include">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    5.1 声明
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-sizeemptyclear" class="md-nav__link">
+    5.2 size/empty/clear
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    5.3 迭代器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-beginend" class="md-nav__link">
+    5.4 begin/end
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-insert" class="md-nav__link">
+    5.5 insert
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-find" class="md-nav__link">
+    5.6 find
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#57-lower_boundupper_bound" class="md-nav__link">
+    5.7 lower_bound/upper_bound
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#58-erase" class="md-nav__link">
+    5.8 erase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#59-count" class="md-nav__link">
+    5.9 count
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-include" class="md-nav__link">
+    6. #include 
+  </a>
+  
+    <nav class="md-nav" aria-label="6. #include">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    6.1 声明
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-sizeemptyclearbeginend" class="md-nav__link">
+    6.2 size/empty/clear/begin/end
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-inserterase" class="md-nav__link">
+    6.3 insert/erase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-find" class="md-nav__link">
+    6.4 find
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65" class="md-nav__link">
+    6.5 []操作符
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3538,52 +3932,174 @@
                   
 
 
-<h1 id="oo-welcome">o(〃'▽'〃)o Welcome!<a class="headerlink" href="#oo-welcome" title="Permanent link">&para;</a></h1>
-<p><strong><em>A Notebook Created by @ Charlschile (樂馳).</em></strong> </p>
-<p>偶爾寫點東西，希望你喜歡。</p>
-<div class="admonition note">
-<p></br>
-<div align="center" style="font-size:24px;font-weight:bold">
-    The Other Side of Paradise
-</div>
-<div align="center" style="font-size:18px">
-    "這是我們人類最古老的笑話，不管往哪兒走，都是往前走"
-</div>
-</br>
-</br></p>
-</div>
-<p></br></p>
-<div class="admonition summary">
-<p class="admonition-title">Site Information</p>
-<ul>
-<li>This is a static notebook website based on <code>MkDocs-Material</code> and <code>GitHub Pages</code>.</li>
-<li>All my notebooks in Computer Science field and other interesting things will be shared here. </li>
-</ul>
-</div>
-<div class="admonition info">
-<p class="admonition-title">About Me</p>
-<ul>
-<li>Biomedical Sciences (BMS) senior at <code>ZJU</code> &amp; <code>UoE</code> </li>
-<li>Coming Master's Student in Electrical and Computer Engineering at <code>Duke</code> (maybe)</li>
-<li>Interested in computer science, mathematics and software development</li>
-<li>Always dreaming</li>
-<li>GitHub: https://github.com/charleschile</li>
-<li>Contact: charles.chi.le@outlook.com</li>
-</ul>
-</div>
-<div class="highlight"><span class="filename">main.cpp</span><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">visitorName</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Charleschile&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;睡覺 or 做重要的事 or 做喜歡的事</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="k">else</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Welcome!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<h1 id="stl">第八讲 STL、位运算和常用库函数<a class="headerlink" href="#stl" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>STL是提高C++编写效率的一个利器。</p>
+</blockquote>
+<h2 id="1-include">1. #include <vector><a class="headerlink" href="#1-include" title="Permanent link">&para;</a></h2>
+<p>vector是变长数组，支持随机访问，不支持在任意位置 O(1)O(1) 插入。为了保证效率，元素的增删一般应该在末尾进行。</p>
+<h3 id="11">1.1 声明<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="c1">   // 头文件</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w">      </span><span class="c1">// 相当于一个长度动态变化的int数组</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="mi">233</span><span class="p">];</span><span class="w"> </span><span class="c1">// 相当于第一维长233，第二位长度动态变化的int数组</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">rec</span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="n">rec</span><span class="o">&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w">      </span><span class="c1">// 自定义的结构体类型也可以保存在vector中</span>
 </code></pre></div>
-<div align="center" style="font-size:20px; font-weight:normal; margin:50px">Hope you can find anything useful and interesting here!</div>
+<h3 id="12-sizeempty">1.2 size/empty<a class="headerlink" href="#12-sizeempty" title="Permanent link">&para;</a></h3>
+<p>size函数返回vector的实际长度（包含的元素个数），empty函数返回一个bool类型，表明vector是否为空。二者的时间复杂度都是 O(1)O(1)。
+所有的STL容器都支持这两个方法，含义也相同，之后我们就不再重复给出。</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="p">.</span><span class="n">size</span><span class="p">()</span>
+<span class="n">a</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span><span class="w"> </span><span class="c1">// 如果是空就是true</span>
+</code></pre></div>
+<h3 id="13-clear">1.3 clear<a class="headerlink" href="#13-clear" title="Permanent link">&para;</a></h3>
+<p>clear函数把vector清空。</p>
+<h3 id="14">1.4 迭代器<a class="headerlink" href="#14" title="Permanent link">&para;</a></h3>
+<p>迭代器就像STL容器的“指针”，可以用星号*操作符解除引用。</p>
+<p>一个保存int的vector的迭代器声明方法为：</p>
+<div class="highlight"><pre><span></span><code><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+</code></pre></div>
+<p>vector的迭代器是“随机访问迭代器”，可以把vector的迭代器与一个整数相加减，其行为和指针的移动类似。可以把vector的两个迭代器相减，其结果也和指针相减类似，得到两个迭代器对应下标之间的距离。</p>
+<h3 id="15-beginend">1.5 begin/end<a class="headerlink" href="#15-beginend" title="Permanent link">&para;</a></h3>
+<p>begin函数返回指向vector中第一个元素的迭代器。例如a是一个非空的vector，则*a.begin()与a[0]的作用相同。</p>
+<p>所有的容器都可以视作一个“前闭后开”的结构，end函数返回vector的尾部，即第n 个元素再往后的“边界”。*a.end()与a[n]都是越界访问，其中n = a.size()。</p>
+<p>下面两份代码都遍历了vector<int> a，并输出它的所有元素。</p>
+<p>*a.begin()和a[1]一个意思</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
 
-<div align="center" style="height:600x; margin:50px">
-    <figure>
-        <img src="avatar.jpg" alt="avatar" style="zoom:30%;"/>
-    </figure>
-</div>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">();</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">it</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="16-frontback">1.6 front/back<a class="headerlink" href="#16-frontback" title="Permanent link">&para;</a></h3>
+<p>front函数返回vector的第一个元素，等价于<em>a.begin()和a[0]。
+back函数返回vector的最后一个元素，等价于</em>--a.end()和a[a.size() – 1]。</p>
+<h3 id="17-push_backpop_back">1.7 push_back()和pop_back()<a class="headerlink" href="#17-push_backpop_back" title="Permanent link">&para;</a></h3>
+<p>a.push_back(x)把元素x插入到vector a的尾部。
+b.pop_back()删除vector a的最后一个元素。</p>
+<blockquote>
+<p>vector的底层原理是倍增</p>
+<p>会均摊时间复杂度</p>
+</blockquote>
+<h2 id="2-include">2. #include <queue><a class="headerlink" href="#2-include" title="Permanent link">&para;</a></h2>
+<p>头文件queue主要包括循环队列queue和优先队列priority_queue两个容器。</p>
+<p>队列性质，先进先出</p>
+<h3 id="21">2.1 声明<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">rec</span><span class="p">{</span><span class="err">…</span><span class="p">};</span><span class="w"> </span><span class="n">queue</span><span class="o">&lt;</span><span class="n">rec</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">;</span><span class="w">                        </span><span class="c1">//结构体rec中必须定义小于号</span>
+<span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">;</span><span class="w">                              </span><span class="c1">// 大根堆</span>
+<span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">greater</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">;</span><span class="w">   </span><span class="c1">// 小根堆</span>
+<span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="n">q</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;queue&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">;</span><span class="w"> </span><span class="c1">// 队列</span>
+<span class="w">    </span><span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">// 大根堆</span>
+<span class="w">    </span><span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">greater</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="c1">// 小根堆</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Rec</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Rec</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">a</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">    </span><span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">Rec</span><span class="o">&gt;</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
+<span class="w">    </span><span class="n">d</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">});</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="22-queue">2.2 循环队列queue<a class="headerlink" href="#22-queue" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">push</span><span class="w">    </span><span class="c1">// 从队尾插入</span>
+<span class="n">pop</span><span class="w">     </span><span class="c1">// 从队头弹出</span>
+<span class="n">front</span><span class="w">   </span><span class="c1">// 返回队头元素</span>
+<span class="n">back</span><span class="w">    </span><span class="c1">// 返回队尾元素</span>
+</code></pre></div>
+<h3 id="23-priority_queue">2.3 优先队列priority_queue<a class="headerlink" href="#23-priority_queue" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">push</span><span class="w">    </span><span class="c1">// 把元素插入堆</span>
+<span class="n">pop</span><span class="w">     </span><span class="c1">// 删除堆顶元素</span>
+<span class="n">top</span><span class="w">     </span><span class="c1">// 查询堆顶元素（最大值）</span>
+</code></pre></div>
+<p>queue是没有clear函数的</p>
+<h2 id="3-include">3. #include <stack><a class="headerlink" href="#3-include" title="Permanent link">&para;</a></h2>
+<p>头文件stack包含栈。声明和前面的容器类似。</p>
+<div class="highlight"><pre><span></span><code><span class="n">push</span><span class="w">    </span><span class="c1">// 向栈顶插入</span>
+<span class="n">pop</span><span class="w">     </span><span class="c1">// 弹出栈顶元素</span>
+</code></pre></div>
+<h2 id="4-include">4. #include <deque><a class="headerlink" href="#4-include" title="Permanent link">&para;</a></h2>
+<p>双端队列在两边都先进后出</p>
+<p>双端队列deque是一个支持在两端高效插入或删除元素的连续线性存储空间。它就像是vector和queue的结合。与vector相比，deque在头部增删元素仅需要 O(1)O(1) 的时间；与queue相比，deque像数组一样支持随机访问。</p>
+<div class="highlight"><pre><span></span><code><span class="p">[]</span><span class="w">              </span><span class="c1">// 随机访问</span>
+<span class="n">begin</span><span class="o">/</span><span class="n">end</span><span class="w">       </span><span class="c1">// 返回deque的头/尾迭代器</span>
+<span class="n">front</span><span class="o">/</span><span class="n">back</span><span class="w">      </span><span class="c1">// 队头/队尾元素</span>
+<span class="n">push_back</span><span class="w">       </span><span class="c1">// 从队尾入队</span>
+<span class="n">push_front</span><span class="w">      </span><span class="c1">// 从队头入队</span>
+<span class="n">pop_back</span><span class="w">        </span><span class="c1">// 从队尾出队</span>
+<span class="n">pop_front</span><span class="w">       </span><span class="c1">// 从队头出队</span>
+<span class="n">clear</span><span class="w">           </span><span class="c1">// 清空队列</span>
+</code></pre></div>
+<h2 id="5-include">5. #include <set><a class="headerlink" href="#5-include" title="Permanent link">&para;</a></h2>
+<p>头文件set主要包括set和multiset两个容器，分别是“有序集合”和“有序多重集合”，即前者的元素不能重复，而后者可以包含若干个相等的元素。set和multiset的内部实现是一棵红黑树，它们支持的函数基本相同。</p>
+<p>set动态维护一个有序的集合</p>
+<h3 id="51">5.1 声明<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">rec</span><span class="p">{</span><span class="err">…</span><span class="p">};</span><span class="w"> </span><span class="n">set</span><span class="o">&lt;</span><span class="n">rec</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w">  </span><span class="c1">// 结构体rec中必须定义小于号</span>
+<span class="n">multiset</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="52-sizeemptyclear">5.2 size/empty/clear<a class="headerlink" href="#52-sizeemptyclear" title="Permanent link">&para;</a></h3>
+<p>与vector类似</p>
+<h3 id="53">5.3 迭代器<a class="headerlink" href="#53" title="Permanent link">&para;</a></h3>
+<p>set和multiset的迭代器称为“双向访问迭代器”，不支持“随机访问”，支持星号*解除引用，仅支持++和--两个与算术相关的操作。</p>
+<p>设it是一个迭代器，例如set<int>::iterator it;</p>
+<p>若把it ++，则it会指向“下一个”元素。这里的“下一个”元素是指在元素从小到大排序的结果中，排在it下一名的元素。同理，若把it --，则it将会指向排在“上一个”的元素。</p>
+<h3 id="54-beginend">5.4 begin/end<a class="headerlink" href="#54-beginend" title="Permanent link">&para;</a></h3>
+<p>返回集合的首、尾迭代器，时间复杂度均为 O(1)O(1)。</p>
+<p>s.begin()是指向集合中最小元素的迭代器。</p>
+<p>s.end()是指向集合中最大元素的下一个位置的迭代器。换言之，就像vector一样，是一个“前闭后开”的形式。因此-- s.end()是指向集合中最大元素的迭代器。</p>
+<h3 id="55-insert">5.5 insert<a class="headerlink" href="#55-insert" title="Permanent link">&para;</a></h3>
+<p>s.insert(x)把一个元素x插入到集合s中，时间复杂度为 O(logn)O(logn)。</p>
+<p>在set中，若元素已存在，则不会重复插入该元素，对集合的状态无影响。</p>
+<h3 id="56-find">5.6 find<a class="headerlink" href="#56-find" title="Permanent link">&para;</a></h3>
+<p>s.find(x)在集合s中查找等于x的元素，并返回指向该元素的迭代器。若不存在，则返回s.end()。时间复杂度为 O(logn)O(logn)。</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">())</span><span class="w"> </span><span class="c1">// 用来判断是否存在这个数x</span>
+</code></pre></div>
+<h3 id="57-lower_boundupper_bound">5.7 lower_bound/upper_bound<a class="headerlink" href="#57-lower_boundupper_bound" title="Permanent link">&para;</a></h3>
+<p>这两个函数的用法与find类似，但查找的条件略有不同，时间复杂度为 O(logn)O(logn)。</p>
+<p>s.lower_bound(x)查找大于等于x的元素中最小的一个，并返回指向该元素的迭代器。</p>
+<p>s.upper_bound(x)查找大于x的元素中最小的一个，并返回指向该元素的迭代器。</p>
+<p>注意上面并不是相反，而是一个大于等于，一个大于</p>
+<h3 id="58-erase">5.8 erase<a class="headerlink" href="#58-erase" title="Permanent link">&para;</a></h3>
+<p>设it是一个迭代器，s.erase(it)从s中删除迭代器it指向的元素，时间复杂度为 O(logn)O(logn)。</p>
+<p>设x是一个元素，s.erase(x)从s中删除所有等于x的元素，时间复杂度为 O(k+logn)O(k+logn)，其中 kk 是被删除的元素个数。</p>
+<h3 id="59-count">5.9 count<a class="headerlink" href="#59-count" title="Permanent link">&para;</a></h3>
+<p>s.count(x)返回集合s中等于x的元素个数，时间复杂度为 O(k+logn)O(k+logn)，其中 kk 为元素x的个数。</p>
+<h2 id="6-include">6. #include <map><a class="headerlink" href="#6-include" title="Permanent link">&para;</a></h2>
+<p>map容器是一个键值对key-value的映射，其内部实现是一棵以key为关键码的红黑树。Map的key和value可以是任意类型，其中key必须定义小于号运算符。</p>
+<p>map<int, int> a;</p>
+<p>a[1] = 2;</p>
+<p>a[1000000] = 3;</p>
+<p>cout &lt;&lt; a[1000000];</p>
+<h3 id="61">6.1 声明<a class="headerlink" href="#61" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">map</span><span class="o">&lt;</span><span class="n">key_type</span><span class="p">,</span><span class="w"> </span><span class="n">value_type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+
+<span class="c1">//例如：</span>
+<span class="n">map</span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vis</span><span class="p">;</span>
+<span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">hash</span><span class="p">;</span>
+<span class="n">map</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">test</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="62-sizeemptyclearbeginend">6.2 size/empty/clear/begin/end<a class="headerlink" href="#62-sizeemptyclearbeginend" title="Permanent link">&para;</a></h3>
+<p>均与set类似。</p>
+<h3 id="63-inserterase">6.3 insert/erase<a class="headerlink" href="#63-inserterase" title="Permanent link">&para;</a></h3>
+<p>与set类似，但其参数均是pair<key_type, value_type>。</p>
+<h3 id="64-find">6.4 find<a class="headerlink" href="#64-find" title="Permanent link">&para;</a></h3>
+<p>h.find(x)在变量名为h的map中查找key为x的二元组。</p>
+<h3 id="65">6.5 []操作符<a class="headerlink" href="#65" title="Permanent link">&para;</a></h3>
+<p>h[key]返回key映射的value的引用，时间复杂度为 O(logn)O(logn)。</p>
+<p>[]操作符是map最吸引人的地方。我们可以很方便地通过h[key]来得到key对应的value，还可以对h[key]进行赋值操作，改变key对应的value。</p>
+<p>看到1.7习题及练习1.8STL 的1:40</p>
 
 
 
@@ -3643,10 +4159,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
       
     
   </body>

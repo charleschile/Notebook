@@ -67,13 +67,16 @@ extra:
 nav:
   - Home Page:
     - index.md
-    - index1.md
-    - plan.md
-
-
 
   - EECS Course:
     - Course/index.md
+    - C++ Fundamental:
+      - Course/cppFundamental/语法基础课5.md
+      - Course/cppFundamental/语法基础课6.md
+      - Course/cppFundamental/语法基础课7.md
+      - Course/cppFundamental/语法基础课8.md
+
+
 
     - Duke Introductory C Programming:
       - Course/dukeC/1_information.md
@@ -108,11 +111,7 @@ nav:
 
     - 代码随想录:
       - Problem/programmercarl/algorithm.md
-    - 语法基础课:
-      - Problem/acwing/语法基础课5.md
-      - Problem/acwing/语法基础课6.md
-      - Problem/acwing/语法基础课7.md
-      - Problem/acwing/语法基础课8.md
+
     - 洛谷题单:
       - 入门1 顺序结构:
         -  Problem/luogu/入门1顺序结构.md
@@ -136,8 +135,7 @@ nav:
   - Software Development Project:
     - 支付宝前锋营:
       - Project/ant.md
-    - 字节跳动青训营:
-      - Project/bytedance/第五届字节跳动青训营后端专场.md
+
 
 
 
