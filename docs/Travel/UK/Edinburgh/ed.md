@@ -1,5 +1,0 @@
-# Edinbrugh (爱丁堡)
-![ed001](ed001.JPG)
-![ed002](ed002.JPG)
-![ed003](ed003.JPG)
-![ed004](ed004.JPG)
