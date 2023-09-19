@@ -119,6 +119,7 @@ nav:
 
     - 算法基础课:
       - Problem/acwing/算法基础课基础算法.md
+      - Problem/acwing/算法基础课数据结构.md
     - 字节跳动青训营笔试训练题:
       - Problem/bytedance/backendDay1.md
       - Problem/bytedance/backendDay2.md
