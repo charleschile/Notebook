@@ -71,6 +71,7 @@ nav:
   - EECS Course:
     - Course/index.md
     - C++ Fundamental:
+      - Course/cppFundamental/语法基础课1.md
       - Course/cppFundamental/语法基础课5.md
       - Course/cppFundamental/语法基础课6.md
       - Course/cppFundamental/语法基础课7.md
