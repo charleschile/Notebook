@@ -49,7 +49,7 @@
         For future career interests, I am particularly interested in software engineering and AI for science, especially Biology.
       </p>
       <p>
-        Contact: <a href="230919cv.pdf">CV</a> / Github / email
+        Contact: <a href="230919cv.pdf">CV</a> / <a href="https://github.com/charleschile">Github</a> / <a href="charles.chi.le@outlook.com">email</a>
       </p>
     </div>
   </body>
