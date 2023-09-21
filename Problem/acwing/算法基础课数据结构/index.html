@@ -1629,41 +1629,48 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    单链表
+    链表与邻接表
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    双链表
+    单链表
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    栈
+    双链表
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    队列
+    栈
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    单调栈
+    队列
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
+    单调栈
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
     单调队列
   </a>
   
@@ -1684,28 +1691,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     并查集
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     堆
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     一般哈希
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     字符串哈希
   </a>
   
@@ -2967,41 +2974,48 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    单链表
+    链表与邻接表
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    双链表
+    单链表
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    栈
+    双链表
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    队列
+    栈
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    单调栈
+    队列
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
+    单调栈
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
     单调队列
   </a>
   
@@ -3022,28 +3036,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     并查集
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     堆
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     一般哈希
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     字符串哈希
   </a>
   
@@ -3072,31 +3086,67 @@
 
 
 <h1 id="_1">第二讲 数据结构<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">单链表<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>如何用数组来模拟这些数据结构，而不用结构体，主要是效率问题</p>
+<div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">nest</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="c1">// 在面试题里多，但是在笔试题里面比较少</span>
+<span class="k">new</span><span class="w"> </span><span class="n">Node</span><span class="p">();</span><span class="w"> </span><span class="c1">// 非常慢，new几百万个节点就能直接超时了</span>
+</code></pre></div>
+<h2 id="_2">链表与邻接表<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>什么是链表，每个点存两个值，一个是自己的值，一个指向下一个节点</p>
+<p>两种链表：单链表、双链表</p>
+<p>单链表中用的最多的是邻接表，邻接表其实是n个链表，最主要的应用：存储图和树</p>
+<p>双链表的作用是优化某些问题</p>
+<p>每个点都会存一个值和一个next指针</p>
+<p>用数组来模拟需要先定义 e[N], ne[N]</p>
+<p>用下标关联起来</p>
+<p>空节点用-1表示</p>
+<p>0号点的指针是e[0] = val, ne[0] = 1</p>
+<h2 id="_3">单链表<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>单链表模板：</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// head存储链表头，e[]存储节点的值，ne[]存储节点的next指针，idx表示当前用到了哪个节点</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// head存储链表头（头节点的下标），e[]存储节点的值，ne[]存储节点的next指针，idx表示当前用到了哪个节点（存储当前已经用到了什么地址）</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">ne</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">idx</span><span class="p">;</span>
 
 <span class="c1">// 初始化</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
-<span class="w">    </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="c1">// 指向队尾</span>
+<span class="w">    </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// 每个点都没有被分配</span>
 <span class="p">}</span>
 
-<span class="c1">// 在链表头插入一个数a</span>
+<span class="c1">// 在链表头插入一个数a </span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">)</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="n">e</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">;</span>
+<span class="w">    </span><span class="n">e</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="w">    </span><span class="n">ne</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
+<span class="w">    </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">idx</span><span class="p">;</span>
+<span class="w">    </span><span class="n">idx</span><span class="o">++</span><span class="p">;</span>
 <span class="p">}</span>
-
+<span class="c1">// 将一个点插到下标是k的点的后面</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">e</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="w">    </span><span class="n">ne</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ne</span><span class="p">[</span><span class="n">k</span><span class="p">];</span><span class="w"> </span><span class="c1">// 指向k节点的下一个位置</span>
+<span class="w">    </span><span class="n">ne</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">idx</span><span class="p">;</span>
+<span class="w">    </span><span class="n">idx</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
 <span class="c1">// 将头结点删除，需要保证头结点存在</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">remove</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ne</span><span class="p">[</span><span class="n">head</span><span class="p">];</span>
 <span class="p">}</span>
+
+<span class="c1">// 将下标是k的点的后面的点删掉</span>
+<span class="c1">// 只需要将指针指向下下个点即可，其他不用变</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">ne</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ne</span><span class="p">[</span><span class="n">ne</span><span class="p">[</span><span class="n">k</span><span class="p">]];</span>
+<span class="p">}</span>
 </code></pre></div>
-<h2 id="_3">双链表<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>数组的好处就是快，比动态链表快很多，C++用new巨慢，算法题的时候会超时</p>
+<p>数组模拟链表被叫做静态链表</p>
+<p>单链表只能知道下一个节点的东西，不能知道前一个节点，要知道的话只能从head开始遍历</p>
+<h2 id="_4">双链表<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>双链表模板：</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// e[]表示节点的值，l[]表示节点的左指针，r[]表示节点的右指针，idx表示当前用到了哪个节点</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">e</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">l</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">r</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">idx</span><span class="p">;</span>
@@ -3124,7 +3174,7 @@
 <span class="w">    </span><span class="n">r</span><span class="p">[</span><span class="n">l</span><span class="p">[</span><span class="n">a</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">[</span><span class="n">a</span><span class="p">];</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="_4">栈<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_5">栈<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>栈模板题：</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// tt表示栈顶</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">stk</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">tt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -3144,7 +3194,7 @@
 
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="_5">队列<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_6">队列<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <ol>
 <li>普通队列：</li>
 </ol>
@@ -3189,7 +3239,7 @@
 
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="_6">单调栈<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_7">单调栈<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>单调栈模板题：
 <div class="highlight"><pre><span></span><code><span class="n">常见模型</span><span class="err">：</span><span class="n">找出每个数左边离它最近的比它大</span><span class="o">/</span><span class="n">小的数</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">tt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -3199,7 +3249,7 @@
 <span class="w">    </span><span class="n">stk</span><span class="p">[</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">tt</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></p>
-<h2 id="_7">单调队列<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h2 id="_8">单调队列<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p>单调队列模板：</p>
 <div class="highlight"><pre><span></span><code><span class="n">常见模型</span><span class="err">：</span><span class="n">找出滑动窗口中的最大值</span><span class="o">/</span><span class="n">最小值</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">hh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">tt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
@@ -3266,7 +3316,7 @@
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cnt</span><span class="p">[</span><span class="n">p</span><span class="p">];</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="_8">并查集<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h2 id="_9">并查集<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <p>并查集模板：</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="n">朴素并查集</span><span class="err">：</span>
 
@@ -3338,7 +3388,7 @@
 <span class="w">    </span><span class="n">p</span><span class="p">[</span><span class="n">find</span><span class="p">(</span><span class="n">a</span><span class="p">)]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
 <span class="w">    </span><span class="n">d</span><span class="p">[</span><span class="n">find</span><span class="p">(</span><span class="n">a</span><span class="p">)]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">distance</span><span class="p">;</span><span class="w"> </span><span class="c1">// 根据具体问题，初始化find(a)的偏移量</span>
 </code></pre></div>
-<h2 id="_9">堆<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h2 id="_10">堆<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
 <p>堆的模板：</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// h[N]存储堆中的值, h[1]是堆顶，x的左儿子是2x, 右儿子是2x + 1</span>
 <span class="c1">// ph[k]存储第k个插入的点在堆中的位置</span>
@@ -3377,7 +3427,7 @@
 <span class="c1">// O(n)建堆</span>
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">down</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="_10">一般哈希<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h2 id="_11">一般哈希<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
 <p>一般哈希模板：</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">拉链法</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">h</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">e</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">ne</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">idx</span><span class="p">;</span>
@@ -3417,7 +3467,7 @@
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 </code></pre></div>
-<h2 id="_11">字符串哈希<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<h2 id="_12">字符串哈希<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
 <p>字符串哈希：</p>
 <div class="highlight"><pre><span></span><code><span class="n">核心思想</span><span class="err">：</span><span class="n">将字符串看成P进制数</span><span class="err">，</span><span class="n">P的经验值是131或13331</span><span class="err">，</span><span class="n">取这两个值的冲突概率低</span>
 <span class="n">小技巧</span><span class="err">：</span><span class="n">取模的数用2</span><span class="o">^</span><span class="mi">64</span><span class="err">，</span><span class="n">这样直接用unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">long存储</span><span class="err">，</span><span class="n">溢出的结果就是取模的结果</span>
