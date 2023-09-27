@@ -70,6 +70,8 @@ nav:
 
   - EECS Course:
     - Course/index.md
+    - Stanford CS144:
+      - Course\cs144\information.md
     - C++ Fundamental:
       - Course/cppFundamental/语法基础课1.md
       - Course/cppFundamental/语法基础课5.md
