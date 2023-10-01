@@ -109,6 +109,12 @@ nav:
 
   - Programming Problem:
     - Problem/index.md
+    - 算法基础课:
+      - Problem/acwing/算法基础课基础算法.md
+      - Problem/acwing/算法基础课数据结构.md  
+    
+    - LeetCode 从头刷:
+      - Problem/lc/LeetCode.md
     - 一些技巧:
       - Problem/skill/skills.md
 
@@ -118,10 +124,6 @@ nav:
     - 洛谷题单:
       - 入门1 顺序结构:
         -  Problem/luogu/入门1顺序结构.md
-
-    - 算法基础课:
-      - Problem/acwing/算法基础课基础算法.md
-      - Problem/acwing/算法基础课数据结构.md
 
 
 

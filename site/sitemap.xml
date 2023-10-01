@@ -131,6 +131,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://charleschile.github.io/Notebook/Problem/lc/LeetCode/</loc>
+         <lastmod>2023-10-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://charleschile.github.io/Notebook/Problem/luogu/%E5%85%A5%E9%97%A81%E9%A1%BA%E5%BA%8F%E7%BB%93%E6%9E%84/</loc>
          <lastmod>2023-10-01</lastmod>
          <changefreq>daily</changefreq>
