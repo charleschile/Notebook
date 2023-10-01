@@ -1606,6 +1606,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#835-trie" class="md-nav__link">
+    835. Trie字符串统计
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1620,8 +1627,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#835-trie" class="md-nav__link">
-    835. Trie字符串统计
+  <a href="#836" class="md-nav__link">
+    836.合并集合
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#837" class="md-nav__link">
+    837. 连通块中点的数量
   </a>
   
 </li>
@@ -3087,6 +3101,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#835-trie" class="md-nav__link">
+    835. Trie字符串统计
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3101,8 +3122,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#835-trie" class="md-nav__link">
-    835. Trie字符串统计
+  <a href="#836" class="md-nav__link">
+    836.合并集合
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#837" class="md-nav__link">
+    837. 连通块中点的数量
   </a>
   
 </li>
@@ -3706,7 +3734,70 @@ idx可以理解为计划生育的管理局的给上户口的，生一个孩子�
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cnt</span><span class="p">[</span><span class="n">p</span><span class="p">];</span>
 <span class="p">}</span>
 </code></pre></div>
+<h3 id="835-trie">835. Trie字符串统计<a class="headerlink" href="#835-trie" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100010</span><span class="p">;</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+
+<span class="c1">// 对于每个节点最多只会向外连26条边</span>
+<span class="c1">// cnt存储的是以当前这个点结尾的个数有多少个</span>
+<span class="c1">// idx当前用到哪个下标</span>
+<span class="c1">//下标是0， 既是根节点，又是空节点</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">son</span><span class="p">[</span><span class="n">N</span><span class="p">][</span><span class="mi">26</span><span class="p">],</span><span class="w"> </span><span class="n">cnt</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">idx</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">son</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">u</span><span class="p">])</span><span class="w"> </span><span class="n">son</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">++</span><span class="n">idx</span><span class="p">;</span>
+<span class="w">        </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">son</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">u</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">cnt</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">query</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">son</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">u</span><span class="p">])</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">son</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">u</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cnt</span><span class="p">[</span><span class="n">p</span><span class="p">];</span>
+<span class="p">}</span>
+
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">char</span><span class="w"> </span><span class="n">op</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">op</span><span class="p">,</span><span class="w"> </span><span class="n">str</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">op</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;I&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">insert</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">query</span><span class="p">(</span><span class="n">str</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <h2 id="_12">并查集<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>常用算法</p>
+<p>代码很短，但是思路精巧，面试非常喜欢出</p>
+<p>并查集作用：（近乎O(1)）</p>
+<ol>
+<li>快速将两个集合合并</li>
+<li>快速询问两个元素是否在一个集合当中</li>
+</ol>
+<p>暴力操作非常耗时</p>
+<p>基本思想和原理：用树的形式来维护所有的集合，每个集合用一棵树来表示</p>
+<p>每个集合的编号就是根节点的编号，树根的编号就是整个集合的编号</p>
+<p>对每个点都存储它的父节点是谁，p[x]来表示x的父节点</p>
+<p>问题1：如何判断树根：if(p[x] == x) 除了根节点之外都不想等</p>
+<p>问题2： 如何求x的集合编号：while(p[x] != x) x = p[x]; 这一步时间复杂读还挺高的，需要优化</p>
+<p>问题3：如何合并两个集合：将其中一个的根节点变成另外一个集合根节点的父亲即可。p[x]是x的集合编号，p[y]是y的集合编号，p[x] = y即可</p>
+<p>并查集的优化（并查集路径压缩算法）：当找到祖宗节点的时候，将所有的路径点都直接指向祖宗节点，优化之后差不多是O(1)的时间复杂度</p>
+<p>并查集经常需要维护额外信息</p>
 <p>并查集模板：</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="n">朴素并查集</span><span class="err">：</span>
 
@@ -3715,7 +3806,7 @@ idx可以理解为计划生育的管理局的给上户口的，生一个孩子�
 <span class="w">    </span><span class="c1">// 返回x的祖宗节点</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">find</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">x</span><span class="p">]);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">x</span><span class="p">]);</span><span class="w"> </span><span class="c1">// 递归在回溯的时候会使路径上所有的点都指向祖宗节点，从而实现路径压缩算法</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
 <span class="w">    </span><span class="p">}</span>
 
@@ -3778,49 +3869,87 @@ idx可以理解为计划生育的管理局的给上户口的，生一个孩子�
 <span class="w">    </span><span class="n">p</span><span class="p">[</span><span class="n">find</span><span class="p">(</span><span class="n">a</span><span class="p">)]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
 <span class="w">    </span><span class="n">d</span><span class="p">[</span><span class="n">find</span><span class="p">(</span><span class="n">a</span><span class="p">)]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">distance</span><span class="p">;</span><span class="w"> </span><span class="c1">// 根据具体问题，初始化find(a)的偏移量</span>
 </code></pre></div>
-<h3 id="835-trie">835. Trie字符串统计<a class="headerlink" href="#835-trie" title="Permanent link">&para;</a></h3>
+<h3 id="836">836.合并集合<a class="headerlink" href="#836" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-
 <span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100010</span><span class="p">;</span>
-<span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
 
-<span class="c1">// 对于每个节点最多只会向外连26条边</span>
-<span class="c1">// cnt存储的是以当前这个点结尾的个数有多少个</span>
-<span class="c1">// idx当前用到哪个下标</span>
-<span class="c1">//下标是0， 既是根节点，又是空节点</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">son</span><span class="p">[</span><span class="n">N</span><span class="p">][</span><span class="mi">26</span><span class="p">],</span><span class="w"> </span><span class="n">cnt</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">idx</span><span class="p">;</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">;</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">son</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">u</span><span class="p">])</span><span class="w"> </span><span class="n">son</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">++</span><span class="n">idx</span><span class="p">;</span>
-<span class="w">        </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">son</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">u</span><span class="p">];</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">cnt</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">++</span><span class="p">;</span>
+<span class="c1">//并查集中最核心的操作</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">find</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 返回x所在集合的编号（祖宗节点） + 加上路径压缩算法</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">x</span><span class="p">]);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
 <span class="p">}</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">query</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">;</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">son</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">u</span><span class="p">])</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">        </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">son</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">u</span><span class="p">];</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cnt</span><span class="p">[</span><span class="n">p</span><span class="p">];</span>
-<span class="p">}</span>
-
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
-<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
-<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 因为每个数都是一个集合，所以先初始化</span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">m</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kt">char</span><span class="w"> </span><span class="n">op</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
-<span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">op</span><span class="p">,</span><span class="w"> </span><span class="n">str</span><span class="p">);</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">op</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;I&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">insert</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
-<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">query</span><span class="p">(</span><span class="n">str</span><span class="p">));</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s%d%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">op</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">op</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;M&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">find</span><span class="p">(</span><span class="n">a</span><span class="p">)]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">find</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">b</span><span class="p">))</span><span class="w"> </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;Yes&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;No&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>在图中</p>
+<p>能从a走到b又能从b走到a，那他们就在一个连通块里面的</p>
+<h3 id="837">837. 连通块中点的数量<a class="headerlink" href="#837" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100010</span><span class="p">;</span>
+<span class="c1">//只保证根节点的size有意义</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">Size</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
+
+<span class="c1">//并查集中最核心的操作</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">find</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 返回x所在集合的编号（祖宗节点） + 加上路径压缩算法</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">x</span><span class="p">]);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 因为每个数都是一个集合，所以先初始化</span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">m</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Size</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">char</span><span class="w"> </span><span class="n">op</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">op</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">op</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;C&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
+
+<span class="w">            </span><span class="c1">// 特判一下ab是否在同一个集合中，如果是的话就不用加了</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">find</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">b</span><span class="p">))</span><span class="w"> </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">            </span><span class="c1">// 只需要维护根节点的size</span>
+<span class="w">            </span><span class="n">Size</span><span class="p">[</span><span class="n">find</span><span class="p">(</span><span class="n">b</span><span class="p">)]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">Size</span><span class="p">[</span><span class="n">find</span><span class="p">(</span><span class="n">a</span><span class="p">)];</span>
+<span class="w">            </span><span class="n">p</span><span class="p">[</span><span class="n">find</span><span class="p">(</span><span class="n">a</span><span class="p">)]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">op</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;1&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">find</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">b</span><span class="p">))</span><span class="w"> </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;Yes&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;No&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Size</span><span class="p">[</span><span class="n">find</span><span class="p">(</span><span class="n">a</span><span class="p">)]);</span>
+<span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
