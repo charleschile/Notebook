@@ -122,18 +122,7 @@ nav:
     - 算法基础课:
       - Problem/acwing/算法基础课基础算法.md
       - Problem/acwing/算法基础课数据结构.md
-    - 字节跳动青训营笔试训练题:
-      - Problem/bytedance/backendDay1.md
-      - Problem/bytedance/backendDay2.md
-      - Problem/bytedance/backendDay3.md
-      - Problem/bytedance/backendDay4.md
-      - Problem/bytedance/backendDay5.md
-      - Problem/bytedance/backendDay6.md
-      - Problem/bytedance/backendDay7.md
-      - Problem/bytedance/backendDay8.md
-    
-    - acwing寒假每日一题:
-      - Problem/winter/everyday.md
+
 
 
   - Software Development Project:
