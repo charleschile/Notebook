@@ -1589,31 +1589,64 @@
     Trie树/字典树
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Trie树/字典树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
-    并查集
+    存储
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    查找
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
+    并查集
+  </a>
+  
+    <nav class="md-nav" aria-label="并查集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#835-trie" class="md-nav__link">
+    835. Trie字符串统计
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
     堆
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     一般哈希
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     字符串哈希
   </a>
   
@@ -1691,7 +1724,7 @@
         
   
   <span class="md-ellipsis">
-    LeetCode 从头刷
+    LeetCode
   </span>
   
 
@@ -3037,31 +3070,64 @@
     Trie树/字典树
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Trie树/字典树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
-    并查集
+    存储
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    查找
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
+    并查集
+  </a>
+  
+    <nav class="md-nav" aria-label="并查集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#835-trie" class="md-nav__link">
+    835. Trie字符串统计
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
     堆
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     一般哈希
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     字符串哈希
   </a>
   
@@ -3580,6 +3646,34 @@
 </code></pre></div>
 <h2 id="trie">Trie树/字典树<a class="headerlink" href="#trie" title="Permanent link">&para;</a></h2>
 <p>非常简单的数据结构</p>
+<p>用来高效地快速存储和查找字符串集合的数据结构</p>
+<p>支持两个操作</p>
+<p>长得是一个字典地形式，字母地类型一般不是很多</p>
+<p>如何高效地存储这些字符串</p>
+<h3 id="_10">存储<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>有个根节点，root</p>
+<p>从前往后遍历每个字符，每到一个字符如果没有这个节点就创建它</p>
+<p>给每串字符地末尾节点打个标记，用来检索这个单词</p>
+<h3 id="_11">查找<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>沿着各个节点依次查找，如果不存在路径那么就是不存在的， 如果没有标记那么也是不存在这个字符串的</p>
+<div class="highlight"><pre><span></span><code>son<span class="o">[</span>N<span class="o">][</span><span class="m">26</span><span class="o">]</span>一维是结点总数，而结点和结点之间的关系（谁是谁儿子）存在第二个维度，比如<span class="o">[</span><span class="m">0</span><span class="o">][</span><span class="m">1</span><span class="o">]=</span><span class="m">2</span>,<span class="w"> </span><span class="o">[</span><span class="m">0</span><span class="o">]</span>表示根节点，<span class="o">[</span><span class="m">1</span><span class="o">]</span>表示它有一个儿子‘b’,这个儿子的下标是2；接着如果有一个<span class="o">[</span><span class="m">2</span><span class="o">][</span><span class="m">2</span><span class="o">]=</span><span class="m">8</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>说明根节点的儿子‘b’也有一个儿子‘c’，这个孙子的下标就是8；这样传递下去，就是一个字符串。随便给一个结点<span class="o">][</span>x<span class="o">][</span>y<span class="o">]</span>,<span class="w"> </span>并不能看出它在第几层，只能知道，它的儿子是谁。
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>关于理解int<span class="w"> </span>son<span class="o">[</span>N<span class="o">][</span><span class="m">26</span><span class="o">]</span><span class="w"> </span>这个二维数组的心得
+
+Tire树本质上一个多叉树，最多可以分多少叉呢？因为此题存的都是小写字母，所以是26叉；
+
+这里就解释了son这个二维数组的第二维的含义，就是他最多有26个孩子，那么他是谁呢，他当然是结点了，那结点之间怎么区分，或者这些孩子的爸爸叫啥，爸爸们用下标来区别，所以第一维就是爸爸们的id，son<span class="o">[</span><span class="m">0</span><span class="o">][</span><span class="m">1</span><span class="o">]</span>含义就是0号爸爸有个儿子b<span class="w"> </span>，那son<span class="o">[</span><span class="m">0</span><span class="o">][</span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>，就是0号爸爸有个儿子b，儿子的id是2；<span class="w"> </span>这些id就是由idx<span class="sb">`</span><span class="w"> </span>来赋值的；
+
+idx可以理解为计划生育的管理局的给上户口的，生一个孩子，给孩子上身份证，证件上ID<span class="w"> </span>为++idx<span class="w"> </span>，而孩子叫啥，其实就是26个小写字母中的其中一个了；
+
+对于每个结点而言，可以知道他有没有这个孩子，有的话叫啥，在哪里；
+
+对于查询，从根节点一路查下来，就可以找到某个字符串在不在；
+
+对于插入字符串，也是一路下来，看有没有这个儿子，没有了给你生个儿子，有了继续给下面找，所以只插入该字符串中原来不存在的字符即可；<span class="w"> </span>也就是利用了公共前缀来降低查询时间的开销以达到提高效率的目的<span class="p">;</span>
+
+“Trie这个名字取自“retrieval”，检索，因为Trie可以只用一个前缀便可以在一部字典中找到想要的单词。”
+</code></pre></div>
 <p>Trie模板：</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">son</span><span class="p">[</span><span class="n">N</span><span class="p">][</span><span class="mi">26</span><span class="p">],</span><span class="w"> </span><span class="n">cnt</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">idx</span><span class="p">;</span>
 <span class="c1">// 0号点既是根节点，又是空节点</span>
@@ -3612,7 +3706,7 @@
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cnt</span><span class="p">[</span><span class="n">p</span><span class="p">];</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="_10">并查集<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h2 id="_12">并查集<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
 <p>并查集模板：</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="n">朴素并查集</span><span class="err">：</span>
 
@@ -3684,7 +3778,54 @@
 <span class="w">    </span><span class="n">p</span><span class="p">[</span><span class="n">find</span><span class="p">(</span><span class="n">a</span><span class="p">)]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
 <span class="w">    </span><span class="n">d</span><span class="p">[</span><span class="n">find</span><span class="p">(</span><span class="n">a</span><span class="p">)]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">distance</span><span class="p">;</span><span class="w"> </span><span class="c1">// 根据具体问题，初始化find(a)的偏移量</span>
 </code></pre></div>
-<h2 id="_11">堆<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<h3 id="835-trie">835. Trie字符串统计<a class="headerlink" href="#835-trie" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100010</span><span class="p">;</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+
+<span class="c1">// 对于每个节点最多只会向外连26条边</span>
+<span class="c1">// cnt存储的是以当前这个点结尾的个数有多少个</span>
+<span class="c1">// idx当前用到哪个下标</span>
+<span class="c1">//下标是0， 既是根节点，又是空节点</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">son</span><span class="p">[</span><span class="n">N</span><span class="p">][</span><span class="mi">26</span><span class="p">],</span><span class="w"> </span><span class="n">cnt</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">idx</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">son</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">u</span><span class="p">])</span><span class="w"> </span><span class="n">son</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">++</span><span class="n">idx</span><span class="p">;</span>
+<span class="w">        </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">son</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">u</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">cnt</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">query</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">son</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">u</span><span class="p">])</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">son</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">u</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cnt</span><span class="p">[</span><span class="n">p</span><span class="p">];</span>
+<span class="p">}</span>
+
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">char</span><span class="w"> </span><span class="n">op</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">op</span><span class="p">,</span><span class="w"> </span><span class="n">str</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">op</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;I&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">insert</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">query</span><span class="p">(</span><span class="n">str</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="_13">堆<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
 <p>堆的模板：</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// h[N]存储堆中的值, h[1]是堆顶，x的左儿子是2x, 右儿子是2x + 1</span>
 <span class="c1">// ph[k]存储第k个插入的点在堆中的位置</span>
@@ -3723,7 +3864,7 @@
 <span class="c1">// O(n)建堆</span>
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">down</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="_12">一般哈希<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<h2 id="_14">一般哈希<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
 <p>一般哈希模板：</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">拉链法</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">h</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">e</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">ne</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">idx</span><span class="p">;</span>
@@ -3763,7 +3904,7 @@
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 </code></pre></div>
-<h2 id="_13">字符串哈希<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<h2 id="_15">字符串哈希<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
 <p>字符串哈希：</p>
 <div class="highlight"><pre><span></span><code><span class="n">核心思想</span><span class="err">：</span><span class="n">将字符串看成P进制数</span><span class="err">，</span><span class="n">P的经验值是131或13331</span><span class="err">，</span><span class="n">取这两个值的冲突概率低</span>
 <span class="n">小技巧</span><span class="err">：</span><span class="n">取模的数用2</span><span class="o">^</span><span class="mi">64</span><span class="err">，</span><span class="n">这样直接用unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">long存储</span><span class="err">，</span><span class="n">溢出的结果就是取模的结果</span>
