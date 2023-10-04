@@ -1537,15 +1537,42 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    英语
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#week-1-102-108" class="md-nav__link">
-    week 1 10.2 - 10.8
+  <a href="#101" class="md-nav__link">
+    10.1
   </a>
+  
+    <nav class="md-nav" aria-label="10.1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-two-sum" class="md-nav__link">
+    1. Two Sum
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-add-two-numbers" class="md-nav__link">
+    2. Add Two Numbers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2776,15 +2803,42 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    英语
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#week-1-102-108" class="md-nav__link">
-    week 1 10.2 - 10.8
+  <a href="#101" class="md-nav__link">
+    10.1
   </a>
+  
+    <nav class="md-nav" aria-label="10.1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-two-sum" class="md-nav__link">
+    1. Two Sum
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-add-two-numbers" class="md-nav__link">
+    2. Add Two Numbers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2814,8 +2868,33 @@
 <h3 id="_2">写代码<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>一般写的时间和调试时间一样长</p>
 <p>这个调试bug的能力很重要</p>
-<h2 id="week-1-102-108">week 1 10.2 - 10.8<a class="headerlink" href="#week-1-102-108" title="Permanent link">&para;</a></h2>
-<p>leetcode第4题和10题</p>
+<h3 id="_3">英语<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>还是需要锻炼一下自己英语看题和英语说思路的能力的</p>
+<h2 id="101">10.1<a class="headerlink" href="#101" title="Permanent link">&para;</a></h2>
+<h3 id="1-two-sum"><a href="https://leetcode.cn/problems/two-sum/">1. Two Sum</a><a class="headerlink" href="#1-two-sum" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">twoSum</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">hash</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hash</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">k</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="n">hash</span><span class="p">[</span><span class="n">k</span><span class="p">],</span><span class="w"> </span><span class="n">i</span><span class="p">};</span>
+<span class="w">                </span><span class="k">break</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="n">hash</span><span class="p">[</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{};</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<blockquote>
+<ol>
+<li>注意hash.count()的使用</li>
+<li>注意hash[nums[i]] = i;的使用</li>
+</ol>
+</blockquote>
+<h3 id="2-add-two-numbers"><a href="https://leetcode.cn/problems/add-two-numbers/">2. Add Two Numbers</a><a class="headerlink" href="#2-add-two-numbers" title="Permanent link">&para;</a></h3>
 
 
 

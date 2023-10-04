@@ -24,8 +24,40 @@ leetcode相比于oj题就和奥赛题对于普通数学题一样，主要需要�
 
 
 
+### 英语
+
+还是需要锻炼一下自己英语看题和英语说思路的能力的
 
 
-## week 1 10.2 - 10.8
 
-leetcode第4题和10题
+## 10.1
+
+### [1. Two Sum](https://leetcode.cn/problems/two-sum/)
+
+```cpp
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> hash;
+        for (int i = 0; i < nums.size(); i++) {
+            int k = target - nums[i];
+            if (hash.count(k)) {
+                return {hash[k], i};
+                break;
+            }
+            hash[nums[i]] = i;
+        }
+        return {};
+    }
+};
+```
+
+> 1. 注意hash.count()的使用
+> 2. 注意hash[nums[i]] = i;的使用
+
+
+
+### [2. Add Two Numbers](https://leetcode.cn/problems/add-two-numbers/)
+
+
+
