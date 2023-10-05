@@ -111,7 +111,8 @@ nav:
     - Problem/index.md
     - 算法基础课:
       - Problem/acwing/算法基础课基础算法.md
-      - Problem/acwing/算法基础课数据结构.md  
+      - Problem/acwing/算法基础课数据结构.md 
+      - Problem/acwing/算法基础课搜索与图论.md 
     
     - LeetCode 从头刷:
       - Problem/lc/LeetCode.md
