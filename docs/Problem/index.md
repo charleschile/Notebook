@@ -12,8 +12,6 @@
 - [ ] acwing算法基础课+算法提高课
 - [ ] 代码随想录
 - [ ] LeetCode 101
-- [ ] 秀哥的带你快速刷完67道剑指offer
-- [ ] 秀哥精选力扣300+道算法题
 - [ ] hot 100
 
 
@@ -30,18 +28,6 @@
     - [第七讲 类、结构体、指针与引用](Problem/../acwing/语法基础课7.md)
     - [第八讲 STL、位运算与库函数](Problem/../acwing/语法基础课8.md)
 
-- 洛谷算法入门题单
-    - [入门1 顺序结构](Problem/../luogu/入门1顺序结构.md)
 
 - AcWing算法基础课
     - [第一讲 基础算法](acwing/算法基础课基础算法.md)
-
-- 字节跳动青训营笔试练习
-    - [Day1 后端练习题](bytedance/backendDay1.md)
-    - [Day2 后端练习题](bytedance/backendDay2.md)
-    - [Day3 后端练习题](bytedance/backendDay3.md)
-    - [Day4 后端练习题](bytedance/backendDay4.md)
-    - [Day5 后端练习题](bytedance/backendDay5.md)
-    - [Day6 后端练习题](bytedance/backendDay6.md)
-    - [Day7 后端练习题](bytedance/backendDay7.md)
-    - [Day8 后端练习题](bytedance/backendDay8.md)

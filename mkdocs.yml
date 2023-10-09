@@ -17,7 +17,7 @@ theme:
   # font:
   #   text: Source Sans Pro
   #   code: Source Code Pro
-  features:
+  features: 
     - navigation.instant
     - navigation.tracking
     - navigation.tabs # 使用Tab来进行分类
@@ -70,6 +70,8 @@ nav:
 
   - EECS Course:
     - Course/index.md
+    - ETH Zurich Digital Design and Computer Architecture:
+      - Course\ddca\ddca.md
     - Stanford CS144:
       - Course\cs144\information.md
     - C++ Fundamental:
