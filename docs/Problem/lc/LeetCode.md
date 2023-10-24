@@ -128,6 +128,72 @@ int main() {
 
 
 
+#### 知识：pair键值对的使用
+
+##### pair键值对定义
+
+```cpp
+pair<int, int> res(INT_MAX, INT_MAX);
+```
+
+这里两个初始的值都被设成了INT_MAX
+
+##### 键值对的比较
+
+键值对的比较是逐个元素的比较，就是先比较第一个，如果相同再比较第二个
+
+```cpp
+pair<int, int> res(INT_MAX, INT_MAX);
+res = min(res, make_pair(abs(s-target), s));
+```
+
+##### 键值对第二个元素的返回
+
+```cpp
+return res.second;
+```
+
+
+
+##### 键值对数组的定义
+
+注意这里`const auto&`
+
+- `const` 表示 `kvp` 是只读的，你不能在循环中修改容器中的元素。
+- `auto&` 声明了一个引用，因此 `kvp` 会指向容器中的实际元素，这意味着在循环中使用 `kvp` 时，你实际上是在操作容器中的元素，任何修改都会反映到容器本身。
+
+```cpp
+	vector<pair<string, int>> keyValuePairs;
+
+    keyValuePairs.push_back({"orange", 1});
+
+    keyValuePairs.push_back(make_pair("apple", 5));
+
+    // 访问键值对
+    for (const auto& kvp : keyValuePairs) {
+        cout << "The value of " << kvp.first << " is: " << kvp.second << endl;
+    }
+```
+
+
+
+##### 哈希表的定义(unordered_map)
+
+`std::unordered_map` 是一个哈希表数据结构，它用于存储键-值对，其中键是唯一的，而值可以重复。
+
+`hash.count(k)` 是用于检查哈希表中是否存在特定键 `k` 的成员函数，它返回一个整数值，表示指定键 `k` 在哈希表中的出现次数。
+
+```cpp
+unordered_map<int, int> hash;
+hash.count(k)
+```
+
+
+
+
+
+
+
 ## 10.1
 
 ### [1. Two Sum](https://leetcode.cn/problems/two-sum/)
@@ -719,6 +785,111 @@ public:
     }
 };
 ```
+
+
+
+## 10.24
+
+### [16. 最接近的三数之和](https://leetcode.cn/problems/3sum-closest/)
+
+- 键值对pair的应用,`make_pair`以及`return res.second`
+- 找到了>= target的最小值，那么这个数的前一位必定是<target的最大值
+
+```cpp
+class Solution {
+public:
+    int threeSumClosest(vector<int>& nums, int target) {
+        sort(nums.begin(), nums.end());
+        pair<int, int> res(INT_MAX, INT_MAX);
+        for (int i = 0; i < nums.size() - 2; i++) {
+            for (int j = i + 1, k = nums.size() - 1; j < k; j++) {
+                while (j < k - 1 && nums[i] + nums[j] + nums[k - 1] >= target) k--;
+                int sum = nums[i] + nums[j] + nums[k];
+                res = min(res, make_pair(abs(sum - target), sum));
+                if (k - 1 > j) {
+                    sum = nums[i] + nums[j] + nums[k - 1];
+                    res = min(res, make_pair(abs(target - sum), sum));
+                }
+            }
+        }
+        return res.second;
+    }
+};
+```
+
+
+
+### [17. 电话号码的字母组合](https://leetcode.cn/problems/letter-combinations-of-a-phone-number/)
+
+- 注意到dfs的形式
+
+```cpp
+class Solution {
+public:
+    vector<string> ans;
+    string strs[10] = {
+        "", "", "abc", "def",
+        "ghi", "jkl", "mno",
+        "pqrs", "tuv", "wxyz"
+    };
+    vector<string> letterCombinations(string digits) {
+        if (digits.empty()) return ans;
+        dfs(digits, 0, "");
+        return ans;
+    }
+    void dfs(string& digits, int u, string path) {
+        if (u == digits.size()) ans.push_back(path);
+        else {
+            for (auto c : strs[digits[u] - '0']) {
+                dfs(digits, u + 1, path + c);
+            }
+        }
+    }
+};
+```
+
+
+
+
+
+### [18. 四数之和](https://leetcode.cn/problems/4sum/)
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> fourSum(vector<int>& nums, int target) {
+        vector<vector<int>> ans;
+        if (nums.size() < 4) return ans;
+        sort(nums.begin(), nums.end());
+        for (int i = 0; i < nums.size() - 3; i++) {
+            if (i && nums[i] == nums[i - 1]) continue;
+            for (int j = i + 1; j < nums.size() -2; j++) {
+                if (j >= i + 2 && nums[j] == nums[j -1]) continue;
+                for (int m = j + 1, n = nums.size() - 1; m < n; m++) {
+                    if (m >= j + 2 && m < n && nums[m] == nums[m - 1]) continue;
+                    while((long long) nums[i] + nums[j] + nums[m] + nums[n - 1] >= target && m < n- 1) n--;
+                    if ((long long)nums[i] + nums[j] + nums[m] + nums[n] == target) ans.push_back({nums[i], nums[j], nums[m], nums[n]});
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
