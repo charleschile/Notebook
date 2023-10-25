@@ -190,7 +190,50 @@ hash.count(k)
 
 
 
+#### 知识：leetcode中链表结构体的定义
 
+```cpp
+ struct ListNode {
+      int val;
+      ListNode *next;
+      ListNode() : val(0), next(nullptr) {}
+      ListNode(int x) : val(x), next(nullptr) {}
+      ListNode(int x, ListNode *next) : val(x), next(next) {}
+  };
+```
+
+
+
+#### 知识：栈的使用
+
+```cpp
+//栈的定义
+stack<char> stk;
+
+stack, 栈
+    size()
+    empty()
+    push()  向栈顶插入一个元素
+    top()  返回栈顶元素
+    pop()  弹出栈顶元素
+
+```
+
+
+
+#### 题型：括号序列问题
+
+| 123  |  {   |
+| :--: | :--: |
+| 125  |  }   |
+|  91  |  [   |
+|  93  |  ]   |
+|  40  |  (   |
+|  41  |  )   |
+
+可以发现每组括号的ASCII码表之差<2，可以用来判断每组括号是否闭合
+
+即`abs(c -stk.top()) < 2`
 
 
 
@@ -881,9 +924,68 @@ public:
 
 
 
+## 10.25
+
+### [19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/)
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        // 在所有有可能会删除头节点的链表题目中，需要添加虚拟头节点
+        ListNode* dummy = new ListNode(-1);
+        dummy->next = head;
+        // 先遍历一遍整个链表，k记录的是包含虚拟头节点dummy的总链表的长度
+        int k = 0;
+        for (auto ptr = dummy; ptr; ptr = ptr->next) k++;
+        
+        auto ptr = dummy;
+        for (int i = 0; i < k - n - 1; i++) ptr = ptr->next;
+        
+        ptr->next = ptr->next->next;
+        return dummy->next;
+    }
+};
+```
 
 
 
+
+
+
+
+### [20. 有效的括号](https://leetcode.cn/problems/valid-parentheses/)
+
+
+
+```cpp
+class Solution {
+public:
+    bool isValid(string s) {
+        // 先进后出的数据结构是stack
+        stack<char> stk;
+        for (char c : s) {
+            if (c == '(' || c == '{' || c == '[') {
+                stk.push(c);
+            } else {
+                if (stk.size() && abs(c - stk.top()) <= 2) stk.pop();
+                else return false;
+            }
+        }
+        return stk.empty();
+    }
+};
+```
 
 
 
