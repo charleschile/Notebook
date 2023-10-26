@@ -235,6 +235,13 @@ stack, 栈
 
 即`abs(c -stk.top()) < 2`
 
+同时，只有一种括号的括号序列合法的话，需要满足：
+
+1. 任意前缀中左括号的数量大于等于右括号的数量
+2. 总字符串中左右括号的数量相等
+
+
+
 
 
 ## 10.1
@@ -989,9 +996,62 @@ public:
 
 
 
+### [21. 合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/)
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+        auto dummy = new ListNode(-1), tail = dummy;
+        while (list1 && list2) {
+            if (list1->val <= list2->val) {
+                tail = tail->next = list1;
+                list1 = list1->next;
+            } else {
+                tail = tail->next = list2;
+                list2 = list2->next;
+            }
+        }
+        if (list1 == NULL) tail->next = list2;
+        else tail->next = list1;
+        return dummy->next;
+    }
+};
+```
 
 
 
 
 
+## 10.26
+
+### [22. 括号生成](https://leetcode.cn/problems/generate-parentheses/)
+
+```cpp
+class Solution {
+public:
+    vector<string> res;
+    vector<string> generateParenthesis(int n) {
+        dfs(n, 0, 0, "");
+        return res;
+    }
+    void dfs (int n, int l, int r, string seq) {
+        if (l == n && r == n) res.push_back(seq);
+        else {
+            if (l < n) dfs(n, l + 1, r, seq + '(');
+            if (r < n && l > r) dfs(n, l, r + 1, seq + ')');
+        }
+    }
+};
+```
 
