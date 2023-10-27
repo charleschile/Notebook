@@ -872,6 +872,8 @@ public:
 ### [17. 电话号码的字母组合](https://leetcode.cn/problems/letter-combinations-of-a-phone-number/)
 
 - 注意到dfs的形式
+- 使用digits.empty()
+- auto c : strs[digits[u] - '0']
 
 ```cpp
 class Solution {
@@ -903,6 +905,11 @@ public:
 
 
 ### [18. 四数之和](https://leetcode.cn/problems/4sum/)
+
+10.27做题心得：
+
+1. 如果出现溢出的情况，先特判一下输入  if (nums.size() < 4) return ans;
+1. 注意看输入的大小，注意开long long 
 
 ```cpp
 class Solution {
@@ -1055,3 +1062,206 @@ public:
 };
 ```
 
+
+
+### [23. 合并 K 个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)
+
+使用堆来维护第k个指针
+
+用堆将时间复杂度从优化成nlogk
+
+优先队列就是堆
+
+优先队列自定义比较函数
+
+优先队列是大根堆，所以会把大的放在前面
+
+
+
+```cpp
+std::priority_queue<T, Container, Compare>
+```
+
+`Compare`：这是一个比较函数或者函数对象，用于定义元素之间的优先级比较规则。`std::greater<int>` 是一个标准库提供的函数对象，它用于创建一个最小堆。
+
+
+
+
+
+#### 关于比较规则的实现
+
+> 优先队列cmp和sort的效果是相反
+
+所有STL容器和库函数默认使用的是小于号，如果加上greater<>参数，那么会默认使用大于号。在上面的代码中优先队列会默认用一对小括号表示小于号，并且默认会构造一个大根堆，所以我们把小括号里的关系变一下，最后就可以得到小根堆了。
+
+一下是C++中，`std::greater<int>`的具体实现：
+
+```cpp
+template <class T>
+struct greater {
+    bool operator() (const T& x, const T& y) const {
+        return x > y;
+    }
+};
+
+```
+
+重载()的原因是`operator()` 的重载使对象可以像函数一样被调用，因为它是函数调用运算符。这使得函数对象可以灵活地封装操作，可以在其中包含状态，实现自定义的行为，并且可以用于泛型编程。
+
+比如：
+
+```cpp
+#include <iostream>
+
+struct MyComparator {
+    bool operator()(int a, int b) const {
+        return a > b;
+    }
+};
+
+int main() {
+    MyComparator cmp;
+    bool result = cmp(5, 3); // 使用函数对象调用，比较5和3
+    std::cout << result << std::endl; // 输出1，因为5 > 3
+    return 0;
+}
+
+```
+
+
+
+
+
+#### 优先队列合并代码：时间 O(kn * logk), 空间 O(k)
+
+注意：`auto dummy = new ListNode(-1), tail = dummy;(return dummy->next)`的实现还能是` ListNode dummy, *cur = &dummy;(return dummy.next)`
+
+可以不把 head 设为 ListNode * 指针类型, 而是把 head 设为 ListNode 类型，这样 就不用 考虑 内存的问题了。不把 head作为指针 new出来 确实会 节省内存，内存消耗 由 22.1MB 变为 12.7MB。
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    struct Cmp {
+        bool operator() (ListNode* a, ListNode* b) {
+            return a->val > b->val;
+        }
+    };
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        priority_queue<ListNode*, vector<ListNode*>, Cmp> heap;
+        auto dummy = new ListNode(-1), tail = dummy;
+        for (auto l : lists) if (l) heap.push(l);
+
+        while (heap.size()) {
+            auto t = heap.top();
+            heap.pop();
+            tail->next = t;
+            tail = tail->next;
+            if (t->next) heap.push(t->next);
+        }
+        return dummy->next;
+    }
+
+};
+```
+
+
+
+#### 分治合并代码： O(kn * logk), 递归栈空间 O(logk)
+
+`cur->next = a ? a : b;`
+
+- 如果 `a` 非空（即 `a` 还有剩余节点），那么将 `cur->next` 指向 `a`，并将 `a` 向后移动一个节点，同时 `cur` 也向后移动一个节点。
+- 如果 `a` 为空，那么将 `cur->next` 指向 `b`，并将 `b` 向后移动一个节点，同时 `cur` 也向后移动一个节点。
+
+##### 回忆归并排序算法模板题
+
+```cpp
+#include <iostream>
+using namespace std;
+const int N = 1e5+10;
+int q[N], tmp[N];
+
+void merge_sort (int q[], int l, int r) {
+    if (l >= r) return;
+    int mid = l + r >> 1;
+    merge_sort(q, l, mid);
+    merge_sort(q, mid + 1, r);
+    int i = 0, j = l, k = mid + 1;
+    while (j <= mid && k <= r) {
+        if (q[j] <= q[r]) tmp[i++] = q[j++];
+        else tmp[i++] = q[k++];
+    }
+    while (j <= mid) tmp[i++] = q[j++];
+    while (k <= r) tmp[i++] = q[k++];
+    for (int i = l, j = 0; i <= r; i++, j++) q[i] = tmp[j];
+} 
+
+int main () {
+    int n;
+    
+    cin >> n;
+    for (int i = 0; i < n; i++) cin >> q[i];
+    merge_sort(q, 0, n - 1);
+    for (int i = 0; i < n; i++) cout << q[i] << " " << endl;
+    return 0;
+}
+```
+
+
+
+
+
+注意由于返回的仍然是原来链表的头节点地址，所以不会造成悬空指针
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode * a, ListNode * b) {
+        ListNode dummy, *cur = &dummy;
+        while (a && b) {
+            if (a->val < b->val) cur = cur->next = a, a = a->next;
+            else cur = cur->next = b, b = b->next;
+        }
+        cur->next = a ? a : b;
+        return dummy.next;
+    }
+    ListNode* merge(vector<ListNode*>& lists, int l, int r) {
+        if (l == r) return lists[l];
+        if (l > r) return nullptr;
+        int mid = (l + r) >> 1;
+        return mergeTwoLists(merge(lists, l, mid), merge(lists, mid + 1, r));
+        
+    }
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        int n = lists.size();
+        if (!n) return nullptr;
+        return merge(lists, 0, n - 1);
+    }
+};
+```
+
+
+
+
+
+### 
