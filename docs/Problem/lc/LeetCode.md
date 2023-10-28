@@ -1264,4 +1264,223 @@ public:
 
 
 
-### 
+### [24. 两两交换链表中的节点](https://leetcode.cn/problems/swap-nodes-in-pairs/)
+
+不用害怕多建几个指针没有关系
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* swapPairs(ListNode* head) {
+        ListNode* dummy = new ListNode(-1);
+        dummy->next = head;
+        ListNode* cur = dummy;
+        while (cur->next && cur->next->next) {
+            ListNode* p1 = cur->next;
+            ListNode* p2 = cur->next->next;
+            p1->next = p2->next;
+            cur->next = p2;
+            p2->next =  p1;
+            cur = p1;
+        }
+        return dummy->next;
+    }
+};
+```
+
+
+
+### [25. K 个一组翻转链表](https://leetcode.cn/problems/reverse-nodes-in-k-group/)
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        ListNode * dummy = new ListNode(-1);
+        dummy->next = head;
+        for (auto p = dummy;;) {
+            auto q = p;
+            for (int i = 0; i < k && q; i++) q = q->next;
+            if (!q) break;
+            auto a = p->next, b = a->next;
+            for (int i = 0; i < k - 1; i++) {
+                auto c = b->next;
+                b->next = a;
+                a = b, b = c;
+            }
+            auto c = p->next;
+            p->next = a;
+            c->next = b;
+            p = c; // 注意是每k个节点一组进行翻转
+        }
+        return dummy->next;
+    }
+};
+```
+
+
+
+### [26. 删除有序数组中的重复项](https://leetcode.cn/problems/remove-duplicates-from-sorted-array/)
+
+注意题目中指出了数组中结尾的数并不重要！
+
+所以直接将后面符合要求的数字填在前面就可以了！！！
+
+```cpp
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        // 第一个指针遍历所有的数
+        // 第二个指针存下所有第一次出现的数
+        int j = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            if (i == 0 || (nums[i] != nums[i - 1])){
+                nums[j++] = nums[i];
+            }
+        }
+        return j;
+    }
+};
+```
+
+
+
+### [27. 移除元素](https://leetcode.cn/problems/remove-element/)
+
+```cpp
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        int j = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] != val) {
+                nums[j++] = nums[i];
+            }
+        }
+        return j;
+    }
+};
+```
+
+
+
+
+
+### [28. 找出字符串中第一个匹配项的下标](https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/)
+
+#### 纯暴力做法（用来理解思路的练手，正式做题请使用KMP）
+
+```cpp
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        // 纯暴力两重做法
+        for (int i = 0; i < haystack.size(); i++) {
+            bool flag = true;
+            for (int j = 0; j < needle.size(); j++) {
+                if (haystack[i + j] != needle[j]) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag == true) return i;
+        } 
+        return -1;
+    }
+};
+```
+
+
+
+建议画图！
+
+注意kmp算法一点要从1开始比较轻松！！
+
+ne[i]表示的是所有以1为首的前缀和以i结尾的后缀中相同的长度的 最大值
+
+#### KMP做法
+
+```cpp
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        int n = haystack.size(), m = needle.size();
+        haystack = ' ' + haystack, needle = ' ' + needle;
+        vector<int> ne(m + 1);
+        for (int i = 2, j = 0; i <= m; i++) {
+            while (j && needle[i] != needle[j + 1]) j = ne[j];
+            if (needle[i] == needle[j + 1]) j++;
+            ne[i] = j; 
+        }
+        for (int i = 1, j = 0; i <= n; i++) {
+            while (j && haystack[i] != needle[j + 1]) j = ne[j];
+            if (haystack[i] == needle[j + 1]) j++;
+            if (j == m) return i - m;
+        }
+        return -1;
+    }
+};
+```
+
+
+
+
+
+
+
+#### 二进制倍增、快速幂的思想！！！
+
+2的n次幂
+
+一定要加long long ，原因是如果是-2^31 取绝对值的话会超过正Int的最大值
+
+```cpp
+class Solution {
+public:
+    int divide(int dividend, int divisor) {
+        typedef long long LL;
+        LL res = 0;
+        vector<LL> exp;
+        bool is_minus = false;
+        if (dividend < 0 && divisor > 0 || dividend > 0 && divisor < 0) is_minus = true;
+        LL a = abs((LL)dividend), b = abs((LL)divisor);
+
+        for (LL i = b; i <= a; i = i + i){
+            exp.push_back(i);
+        }
+
+        for (int i = exp.size() - 1; i >= 0; i--) {
+            if (a >= exp[i]) {
+                a -= exp[i];
+                res += 1ll << i;
+                // cout << "a = " << a << "res = " << res << endl;
+            }
+        }
+        if (is_minus) res = -res;
+        if (res > INT_MAX) res = INT_MAX;
+
+        return res;
+    }
+};
+```
+
