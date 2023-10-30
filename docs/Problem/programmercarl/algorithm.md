@@ -59,3 +59,49 @@ public:
 
 ```
 
+### [977. 有序数组的平方](https://leetcode.cn/problems/squares-of-a-sorted-array/)
+
+```cpp
+class Solution {
+public:
+    vector<int> sortedSquares(vector<int>& nums) {
+        // 不要忘记定义vector<int>的时候进行定义数组大小
+        vector<int> res(nums.size(), 0);
+        int l = 0, r = nums.size() -1, i = nums.size() -1 ;
+        while (l <= r && i >= 0) {
+            if (nums[l] + nums[r] <= 0) {
+                res[i--] = nums[l] * nums[l];
+                l++;
+            } else {
+                res[i--] = nums[r] * nums[r];
+                r--;
+            }
+        }
+        return res;
+    }
+};
+```
+
+
+
+### [209. 长度最小的子数组](https://leetcode.cn/problems/minimum-size-subarray-sum/)
+
+```cpp
+class Solution {
+public:
+    int minSubArrayLen(int target, vector<int>& nums) {
+        int i = 0, j = 0, ans = INT_MAX, res = 0;
+        while (j < nums.size()) {
+            res += nums[j];
+            while (res >= target) {
+                ans = min(ans, j - i + 1);
+                res -= nums[i];
+                i++;
+            }
+            j++;
+        }
+        return (ans == INT_MAX) ? 0 : ans;
+    }
+};
+```
+
