@@ -1484,3 +1484,90 @@ public:
 };
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+what's the problem with my MIPS assembly? 
+
+The problem is : assume that (i) find is a leaf procedure and (ii) no $s registers, the return address register, etc. need to be saved to the stack. 
+
+Note that the array index is returned. Translate the array-based version into MIPS assembly. 
+
+Pointer-based version:
+
+```
+int find (int * a, int n, int x) {
+    int *p;
+    for (p = a + n; p!= a; p--) {
+        if (*p == x) return p-a;
+    }
+    return -1;
+}
+```
+
+
+
+my mips assembly is :
+
+\# a -> $a0, n -> $a1, x -> $a2
+
+addi $sp, $sp, -4
+
+sw $fp, 0($sp)
+
+add $fp, $0, $sp
+
+addi $t0, $0, 4
+
+mul $a1, $t0, $a1
+
+add $t1, $a0, $a1
+
+loop: 
+
+​    beq $t1, $a0, no_found
+
+lw $t2, 0($t1)
+
+beq $t0, $a2, found
+
+addi $t1, $t1, -4
+
+j loop
+
+no_found:
+
+​    li $v0, -1
+
+j exit
+
+found:
+
+​    sub $v0, $t1, $a0
+
+​    div $v0, $v0, $t0
+
+​    j exit
+
+exit:
+
+  lw $fp, 0($sp)
+
+addi $sp, $sp, 4
+
+jr $ra

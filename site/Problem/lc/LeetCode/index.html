@@ -18,7 +18,7 @@
         <link rel="prev" href="../../acwing/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
       
       
-        <link rel="next" href="../../skill/skills/">
+        <link rel="next" href="../../programmercarl/algorithm/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -1364,6 +1364,8 @@
       
         
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
@@ -2233,7 +2235,7 @@
             
   
   <span class="md-ellipsis">
-    一些技巧
+    代码随想录
   </span>
   
 
@@ -2243,7 +2245,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
-            一些技巧
+            代码随想录
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2253,11 +2255,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../skill/skills/" class="md-nav__link">
+      <a href="../../programmercarl/algorithm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    一些小技巧
+    代码随想录笔记
   </span>
   
 
@@ -2299,7 +2301,7 @@
             
   
   <span class="md-ellipsis">
-    代码随想录
+    周赛
   </span>
   
 
@@ -2309,7 +2311,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_5">
             <span class="md-nav__icon md-icon"></span>
-            代码随想录
+            周赛
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2319,11 +2321,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../programmercarl/algorithm/" class="md-nav__link">
+      <a href="../../contest/contest/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    代码随想录笔记
+    LeetCode 周赛
   </span>
   
 
@@ -2440,6 +2442,72 @@
           </ul>
         </nav>
       
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    一些技巧
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            一些技巧
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skill/skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一些小技巧
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -5083,6 +5151,43 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div>
+<p>what's the problem with my MIPS assembly? </p>
+<p>The problem is : assume that (i) find is a leaf procedure and (ii) no $s registers, the return address register, etc. need to be saved to the stack. </p>
+<p>Note that the array index is returned. Translate the array-based version into MIPS assembly. </p>
+<p>Pointer-based version:</p>
+<div class="highlight"><pre><span></span><code>int find (int * a, int n, int x) {
+    int *p;
+    for (p = a + n; p!= a; p--) {
+        if (*p == x) return p-a;
+    }
+    return -1;
+}
+</code></pre></div>
+<p>my mips assembly is :</p>
+<p># a -&gt; $a0, n -&gt; $a1, x -&gt; $a2</p>
+<p>addi $sp, $sp, -4</p>
+<p>sw <span class="arithmatex">\(fp, 0(\)</span>sp)</p>
+<p>add $fp, $0, $sp</p>
+<p>addi $t0, $0, 4</p>
+<p>mul $a1, $t0, $a1</p>
+<p>add $t1, $a0, $a1</p>
+<p>loop: </p>
+<p>​    beq $t1, $a0, no_found</p>
+<p>lw <span class="arithmatex">\(t2, 0(\)</span>t1)</p>
+<p>beq $t0, $a2, found</p>
+<p>addi $t1, $t1, -4</p>
+<p>j loop</p>
+<p>no_found:</p>
+<p>​    li $v0, -1</p>
+<p>j exit</p>
+<p>found:</p>
+<p>​    sub $v0, $t1, $a0</p>
+<p>​    div $v0, $v0, $t0</p>
+<p>​    j exit</p>
+<p>exit:</p>
+<p>lw <span class="arithmatex">\(fp, 0(\)</span>sp)</p>
+<p>addi $sp, $sp, 4</p>
+<p>jr $ra</p>
 
 
 

@@ -120,17 +120,19 @@ nav:
     
     - LeetCode 从头刷:
       - Problem/lc/LeetCode.md
-    - 一些技巧:
-      - Problem/skill/skills.md
+    
 
     - 代码随想录:
       - Problem/programmercarl/algorithm.md
 
+    - 周赛:
+      - Problem\contest\contest.md
     - 洛谷题单:
       - 入门1 顺序结构:
         -  Problem/luogu/入门1顺序结构.md
 
-
+    - 一些技巧:
+      - Problem/skill/skills.md
 
   - Software Development Project:
     - 支付宝前锋营:
