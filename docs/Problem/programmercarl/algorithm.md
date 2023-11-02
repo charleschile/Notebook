@@ -461,3 +461,116 @@ public:
 };
 ```
 
+### [153. 寻找旋转排序数组中的最小值](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/)
+
+有序数组旋转后做题的技巧是
+
+```cpp
+class Solution {
+public:
+    int findMin(vector<int>& nums) {
+        // 直接分类讨论画图，主要就是三种情况，左边长，右边长，以及没有旋转
+        int l = 0, r = nums.size() - 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] > nums[nums.size() - 1]) l = mid + 1;
+            else r = mid;
+        }
+        return nums[l];
+    }
+};
+```
+
+
+
+### [33. 搜索旋转排序数组](https://leetcode.cn/problems/search-in-rotated-sorted-array/)
+
+#### 第一种做法是对着三个坐标点强行分类
+
+```cpp
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        int l = 0, r = nums.size() - 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] <= nums[nums.size() - 1]) {
+                if (target > nums[nums.size() - 1]) r = mid - 1;
+                else if (target <= nums[nums.size() - 1] && target > nums[mid]) l = mid + 1;
+                else r =  mid;
+            } else {
+                if (target <= nums[nums.size() - 1]) l = mid + 1;
+                else if (target <= nums[mid]) r = mid;
+                else l = mid + 1; 
+            }
+        }
+        if (nums[l] == target) return l;
+        else return -1;
+    }
+};
+```
+
+
+
+##### 第二种做法是先二分出旋转数组的分界点，然后再在特定的段上不断二分找出需要的数
+
+```cpp
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        int l = 0, r = nums.size() - 1;
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (nums[mid] >= nums[0]) l = mid;
+            else r = mid - 1;
+        }
+        if (target >= nums[0]) l = 0;
+        else l = r + 1, r = nums.size() - 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] >= target) r = mid;
+            else l = mid + 1; // 这里l有出界的风险，所以return的时候需要return的是r，而不能是l
+        }
+        if (nums[r] == target) return r;
+        else return -1;
+    }
+};*
+```
+
+
+
+
+
+##  反转链表
+
+### [206. 反转链表](https://leetcode.cn/problems/reverse-linked-list/)
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        if (head == NULL) return head;
+        ListNode* a = head;
+        ListNode* b = head->next;
+        while (b != NULL) {
+            ListNode* c = b->next;
+            b->next = a;
+            a = b;
+            b = c;
+        }
+        head->next = NULL;
+        return a;
+    }
+};
+```
+
