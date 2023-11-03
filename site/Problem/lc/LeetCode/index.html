@@ -2189,6 +2189,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4047,6 +4054,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5173,43 +5187,9 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div>
-<p>what's the problem with my MIPS assembly? </p>
-<p>The problem is : assume that (i) find is a leaf procedure and (ii) no $s registers, the return address register, etc. need to be saved to the stack. </p>
-<p>Note that the array index is returned. Translate the array-based version into MIPS assembly. </p>
-<p>Pointer-based version:</p>
-<div class="highlight"><pre><span></span><code>int find (int * a, int n, int x) {
-    int *p;
-    for (p = a + n; p!= a; p--) {
-        if (*p == x) return p-a;
-    }
-    return -1;
-}
+<h3 id="_18"><a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>
 </code></pre></div>
-<p>my mips assembly is :</p>
-<p># a -&gt; $a0, n -&gt; $a1, x -&gt; $a2</p>
-<p>addi $sp, $sp, -4</p>
-<p>sw <span class="arithmatex">\(fp, 0(\)</span>sp)</p>
-<p>add $fp, $0, $sp</p>
-<p>addi $t0, $0, 4</p>
-<p>mul $a1, $t0, $a1</p>
-<p>add $t1, $a0, $a1</p>
-<p>loop: </p>
-<p>​    beq $t1, $a0, no_found</p>
-<p>lw <span class="arithmatex">\(t2, 0(\)</span>t1)</p>
-<p>beq $t0, $a2, found</p>
-<p>addi $t1, $t1, -4</p>
-<p>j loop</p>
-<p>no_found:</p>
-<p>​    li $v0, -1</p>
-<p>j exit</p>
-<p>found:</p>
-<p>​    sub $v0, $t1, $a0</p>
-<p>​    div $v0, $v0, $t0</p>
-<p>​    j exit</p>
-<p>exit:</p>
-<p>lw <span class="arithmatex">\(fp, 0(\)</span>sp)</p>
-<p>addi $sp, $sp, 4</p>
-<p>jr $ra</p>
 
 
 
