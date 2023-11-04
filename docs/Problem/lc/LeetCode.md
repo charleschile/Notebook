@@ -1316,9 +1316,9 @@ public:
 class Solution {
 public:
     ListNode* reverseKGroup(ListNode* head, int k) {
-        ListNode * dummy = new ListNode(-1);
+        ListNode *dummy = new ListNode(-1, head);
         dummy->next = head;
-        for (auto p = dummy;;) {
+        for (auto p = dummy; ;) {
             auto q = p;
             for (int i = 0; i < k && q; i++) q = q->next;
             if (!q) break;
@@ -1331,7 +1331,7 @@ public:
             auto c = p->next;
             p->next = a;
             c->next = b;
-            p = c; // 注意是每k个节点一组进行翻转
+            p = c; // 注意翻转了之后，前k个节点中的第一个变成了最后一个，也变成了下一个k节点的前一个节点！
         }
         return dummy->next;
     }
@@ -1494,7 +1494,6 @@ public:
 
 ```cpp
 ```
-
 
 
 
