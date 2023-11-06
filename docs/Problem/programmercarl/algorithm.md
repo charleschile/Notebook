@@ -613,3 +613,102 @@ public:
 };
 ```
 
+
+
+
+
+## 快慢指针
+
+### [876. 链表的中间结点](https://leetcode.cn/problems/middle-of-the-linked-list/)
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+// 这道题很明显需要通过奇数和偶数分别分析
+// 奇数情况简单：1,2,3 快指针+2，而慢指针+1，fast->next == NULL时停下
+// 偶数情况：1, 2 这种情况仍然需要快指针+2，慢指针加1因为有两个中间节点的话，返回的时第二个中间节点
+// 而偶数情况中快指针会指向NULL，这个时候就要停下 fast->next == NULL
+public:
+    ListNode* middleNode(ListNode* head) {
+        ListNode *fast = head;
+        ListNode *slow = head;
+        while (fast != NULL && fast->next != NULL) {
+            fast = fast->next->next;
+            slow = slow->next;
+        }
+        return slow;
+    }
+};
+```
+
+
+
+### [141. 环形链表](https://leetcode.cn/problems/linked-list-cycle/)
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        ListNode *fast = head;
+        ListNode *slow = head;
+        // 使用快慢指针的时候，如果fast+2,slow+1，那么实际上每次追及的距离就是1，不用担心fast会超过slow
+        while (fast != NULL && fast->next != NULL) {
+            fast = fast->next->next;
+            slow = slow->next;
+            if (fast == slow) return true; // 要在每次移动指针后比较是否追及成功
+        }
+        return false;
+    }
+};
+```
+
+
+
+
+
+
+
+
+
+
+
+```cpp
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        ListNode* fast = head;
+        ListNode* slow = head;
+        while (true) {
+            if (fast == nullptr || fast->next == nullptr) return nullptr;
+            fast = fast->next->next;
+            slow = slow->next;
+            if (fast == slow) break;
+        }
+        fast = head;
+        while (slow != fast) {
+            slow = slow->next;
+            fast = fast->next;
+        }
+        return fast;
+    }
+};
+
+```
+
