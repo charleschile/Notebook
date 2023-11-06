@@ -3529,6 +3529,79 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div>
+<h2 id="_13">快慢指针<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<h3 id="876"><a href="https://leetcode.cn/problems/middle-of-the-linked-list/">876. 链表的中间结点</a><a class="headerlink" href="#876" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Definition for singly-linked list.</span>
+<span class="cm"> * struct ListNode {</span>
+<span class="cm"> *     int val;</span>
+<span class="cm"> *     ListNode *next;</span>
+<span class="cm"> *     ListNode() : val(0), next(nullptr) {}</span>
+<span class="cm"> *     ListNode(int x) : val(x), next(nullptr) {}</span>
+<span class="cm"> *     ListNode(int x, ListNode *next) : val(x), next(next) {}</span>
+<span class="cm"> * };</span>
+<span class="cm"> */</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="c1">// 这道题很明显需要通过奇数和偶数分别分析</span>
+<span class="c1">// 奇数情况简单：1,2,3 快指针+2，而慢指针+1，fast-&gt;next == NULL时停下</span>
+<span class="c1">// 偶数情况：1, 2 这种情况仍然需要快指针+2，慢指针加1因为有两个中间节点的话，返回的时第二个中间节点</span>
+<span class="c1">// 而偶数情况中快指针会指向NULL，这个时候就要停下 fast-&gt;next == NULL</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">ListNode</span><span class="o">*</span><span class="w"> </span><span class="n">middleNode</span><span class="p">(</span><span class="n">ListNode</span><span class="o">*</span><span class="w"> </span><span class="n">head</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ListNode</span><span class="w"> </span><span class="o">*</span><span class="n">fast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
+<span class="w">        </span><span class="n">ListNode</span><span class="w"> </span><span class="o">*</span><span class="n">slow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">fast</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fast</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">fast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fast</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">            </span><span class="n">slow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slow</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">slow</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<h3 id="141"><a href="https://leetcode.cn/problems/linked-list-cycle/">141. 环形链表</a><a class="headerlink" href="#141" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Definition for singly-linked list.</span>
+<span class="cm"> * struct ListNode {</span>
+<span class="cm"> *     int val;</span>
+<span class="cm"> *     ListNode *next;</span>
+<span class="cm"> *     ListNode(int x) : val(x), next(NULL) {}</span>
+<span class="cm"> * };</span>
+<span class="cm"> */</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">hasCycle</span><span class="p">(</span><span class="n">ListNode</span><span class="w"> </span><span class="o">*</span><span class="n">head</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ListNode</span><span class="w"> </span><span class="o">*</span><span class="n">fast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
+<span class="w">        </span><span class="n">ListNode</span><span class="w"> </span><span class="o">*</span><span class="n">slow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
+<span class="w">        </span><span class="c1">// 使用快慢指针的时候，如果fast+2,slow+1，那么实际上每次追及的距离就是1，不用担心fast会超过slow</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">fast</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fast</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">fast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fast</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">            </span><span class="n">slow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slow</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fast</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">slow</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="c1">// 要在每次移动指针后比较是否追及成功</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">ListNode</span><span class="w"> </span><span class="o">*</span><span class="n">detectCycle</span><span class="p">(</span><span class="n">ListNode</span><span class="w"> </span><span class="o">*</span><span class="n">head</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ListNode</span><span class="o">*</span><span class="w"> </span><span class="n">fast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
+<span class="w">        </span><span class="n">ListNode</span><span class="o">*</span><span class="w"> </span><span class="n">slow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fast</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">fast</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">            </span><span class="n">fast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fast</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">            </span><span class="n">slow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slow</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fast</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">slow</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">fast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">slow</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">fast</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">slow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slow</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">            </span><span class="n">fast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fast</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">fast</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
 
 
 
