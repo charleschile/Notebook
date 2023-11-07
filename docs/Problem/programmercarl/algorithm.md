@@ -685,30 +685,447 @@ public:
 
 
 
-
+### [142. 环形链表 II](https://leetcode.cn/problems/linked-list-cycle-ii/)
 
 
 
 ```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
 class Solution {
 public:
     ListNode *detectCycle(ListNode *head) {
-        ListNode* fast = head;
-        ListNode* slow = head;
+        // 入环前的长度时a，相遇时环内已经走过b，环内还剩下c
+        // 快指针走过的路 a + k (b + c)
+        // 慢指针走过的路 a + b
+        // 2(a + b) = a + k(b + c)
+        // a - c = (k - 1)(b + c)
+        // 如果head和慢指针同时走a的路，那么head会到入环点，而慢指针会在转了(k - 1)圈之后到入环点
+        ListNode *fast = head, * slow = head;
         while (true) {
-            if (fast == nullptr || fast->next == nullptr) return nullptr;
+            if (fast == NULL || fast->next == NULL) return NULL;
             fast = fast->next->next;
             slow = slow->next;
             if (fast == slow) break;
         }
-        fast = head;
-        while (slow != fast) {
-            slow = slow->next;
+        ListNode *dummy = head;
+        while (fast != dummy) {
             fast = fast->next;
+            dummy = dummy->next;
         }
-        return fast;
+        return dummy;
     }
 };
+```
 
+
+
+### [143. 重排链表](https://leetcode.cn/problems/reorder-list/)
+
+```cpp
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    void reorderList(ListNode* head) {
+        ListNode *fast = head, *slow = head;
+        while (fast != NULL && fast->next != NULL) {
+            fast = fast->next->next;
+            slow = slow->next;
+        }
+        fast = slow;
+        slow = NULL;
+        while (fast != NULL) {
+            ListNode *temp = fast->next;
+            fast->next = slow;
+            slow = fast;
+            fast = temp;
+        }
+        
+        fast = head;
+        
+        while (fast->next != NULL && slow->next != NULL) {
+            ListNode *l = fast->next;
+            ListNode *r = slow->next;
+            fast->next = slow;
+            slow->next = l;
+            fast = l;
+            slow = r;
+        }
+
+    }
+};
+```
+
+
+
+
+
+
+
+## 前后指针
+
+### [237. 删除链表中的节点](https://leetcode.cn/problems/delete-node-in-a-linked-list/)
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    void deleteNode(ListNode* node) {
+        // 因为不是链表中的最后一个节点，而且只要保证所有值唯一即可
+        // 那么将下一个值复制到这个节点，然后删去下一个节点就行了
+        node->val = node->next->val;
+        node->next = node->next->next;
+    }
+};
+```
+
+
+
+### [19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/)
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        // 首先要考虑头节点会不会变
+        ListNode *dummy = new ListNode(-1, head);
+        ListNode *fast = dummy, *slow = dummy;
+        for (int i = 0; i < n; i++) {
+            fast = fast->next;
+        }
+        while (fast != NULL && fast->next != NULL) {
+            fast = fast->next;
+            slow = slow->next;
+        }
+        slow->next = slow->next->next;
+        return dummy->next;
+
+    }
+};
+```
+
+
+
+### [83. 删除排序链表中的重复元素](https://leetcode.cn/problems/remove-duplicates-from-sorted-list/)
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        ListNode *curr = head;
+        while (curr != NULL) {
+            while (curr->next != NULL && curr->val == curr->next->val) curr->next = curr->next->next;
+            curr = curr->next;
+        }
+        return head;
+    }
+};
+```
+
+
+
+
+
+### [82. 删除排序链表中的重复元素 II](https://leetcode.cn/problems/remove-duplicates-from-sorted-list-ii/)
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        ListNode *dummy = new ListNode(-1, head);
+        ListNode *curr = dummy;
+        while (curr) {
+            if (curr->next != NULL && curr->next->next != NULL &&curr->next->val == curr->next->next->val) {
+                int same = curr->next->val;
+                while (curr->next != NULL && curr->next->val == same) {
+                    curr->next = curr->next->next;
+                }
+            } 
+            else {
+                curr = curr->next;
+            }
+        }
+        return dummy->next;
+    }
+};
+```
+
+
+
+
+
+
+
+## 二叉树 递归
+
+栈这个数据结构就是最先进去的最后出来
+
+### [104. 二叉树的最大深度](https://leetcode.cn/problems/maximum-depth-of-binary-tree/)
+
+#### 递归做法
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int maxDepth(TreeNode* root) {
+        if (root == NULL) return 0;
+        return max(maxDepth(root->left), maxDepth(root->right)) + 1;
+    }
+};
+```
+
+#### dfs做法
+
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+    // ans这里是Solution这个类的成员变量，在整个Solution的生命周期中一直存在
+    // 所以ans这里相当于Solution中的全局变量
+    // 实现了多次调用 dfs 函数的过程中累积并维护一个全局的最大深度值
+    int ans = 0;
+    void dfs(TreeNode *node, int count) {
+        if (node == nullptr) return;
+        count++;
+        ans = max(ans, count);
+        dfs(node->left, count);
+        dfs(node->right, count);
+    }
+public:
+    int maxDepth(TreeNode* root) {
+        dfs(root, 0);
+        return ans;
+    }
+};
+```
+
+
+
+### [100. 相同的树](https://leetcode.cn/problems/same-tree/)
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        if (p == nullptr || q == nullptr) return p == q;
+        return p->val == q->val && isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
+        
+    }
+};
+```
+
+
+
+### [101. 对称二叉树](https://leetcode.cn/problems/symmetric-tree/)
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+    bool check(TreeNode *a, TreeNode *b) {
+        if (a == nullptr || b == nullptr) return a == b;
+        return (a->val == b->val) && check(a->left, b->right) && check(a->right, b->left);
+    }
+public:
+
+    bool isSymmetric(TreeNode* root) {
+        return check(root->left, root->right);
+    }
+};
+```
+
+
+
+### [110. 平衡二叉树](https://leetcode.cn/problems/balanced-binary-tree/)
+
+#### 第一种：在递归地过程中维护树的平衡
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+    // 用-1来定义“不平衡”的树
+    // 如果在某个点已经开始不平衡了，那么就要不断地往上返回-1
+    int getHeight(TreeNode *root) {
+        if (root == nullptr) return 0;
+        int left = getHeight(root->left);
+        if (left == -1) return -1;
+        int right = getHeight(root->right);
+        if (right == -1 || abs(left - right) > 1) return -1;
+        return max(left, right) + 1;
+    }
+public:
+    bool isBalanced(TreeNode* root) {
+        return getHeight(root) != -1;
+    }
+};
+```
+
+
+
+#### 第二种：（一般的做法）每一次都去递归找出每个点的高度
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+    int height(TreeNode* root) {
+        if (root == nullptr) return 0;
+        return max(height(root->left), height(root->right)) + 1;
+    }
+public:
+    bool isBalanced(TreeNode* root) {
+        if (root == nullptr) return true;
+        else {
+            return abs(height(root->left) - height(root->right)) <= 1 && isBalanced(root->left) && isBalanced(root->right);
+        }
+    }
+};
+```
+
+
+
+### [199. 二叉树的右视图](https://leetcode.cn/problems/binary-tree-right-side-view/)
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+    vector<int>ans;
+    void find(TreeNode* root, int d) {
+        if (root == nullptr) return;
+        if (d == ans.size()) ans.push_back(root->val);
+        find(root->right, d + 1);
+        find(root->left, d + 1);
+    }
+public:
+    vector<int> rightSideView(TreeNode* root) {
+        // 需要先递归右子树，然后再递归左子树
+        // 写一个递归函数，如果这个节点的深度和答案的长度相等，那么需要将这个节点加入到答案中去
+        find(root, 0);
+        return ans;
+    }
+};
 ```
 
