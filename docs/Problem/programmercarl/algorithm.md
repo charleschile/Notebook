@@ -1129,3 +1129,304 @@ public:
 };
 ```
 
+
+
+
+
+
+
+## 验证二叉搜索树
+
+### [98. 验证二叉搜索树](https://leetcode.cn/problems/validate-binary-search-tree/)
+
+#### 前序遍历
+
+在整个遍历的过程中，先访问节点的值（判断是否符合上面传下来的要求）再递归左右子树的做法叫做前序遍历
+
+最便捷写法
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool isValidBST(TreeNode* root, long left = LONG_MIN, long right = LONG_MAX) {
+        if (root == nullptr) return true;
+        long x= root->val;
+        return left < x && x < right && isValidBST(root->left, left, x) && isValidBST(root->right, x, right);
+    }
+};
+```
+
+
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+    // 这个函数维持的是每个节点需要大于的值（left）和需要小于的值（right）
+    bool dfs(TreeNode* root, long left, long right) {
+        if (!root) return true;
+        if (root->val <= left || root->val >= right) return false;
+        // 因为root的左儿子需要小于root的值，所以更新right
+        return dfs(root->left, left, root->val) && dfs(root->right, root->val, right);
+    }
+public:
+    bool isValidBST(TreeNode* root) {
+        return dfs(root, LONG_MIN, LONG_MAX);
+    }
+};
+```
+
+
+
+#### 前序遍历第三种写法
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+    vector<int> dfs(TreeNode* root) {
+        vector<int> res = {1, root->val, root->val};
+        if (root->left) {
+            vector<int> t = dfs(root->left);
+            if (root->val <= t[2] || t[0] == 0) res[0] = 0;
+            res[1] = min(t[1], res[1]);
+            res[2] = max(t[2], res[2]);
+        }
+        if (root->right) {
+            vector<int> t = dfs(root->right);
+            if (root->val >= t[1] || t[0] == 0) res[0] = 0;
+            res[1] = min(t[1], res[1]);
+            res[2] = max(t[2], res[2]);
+        }
+        return res;
+    }
+public:
+    bool isValidBST(TreeNode* root) {
+        if (!root) return false;
+        return dfs(root)[0];
+    }
+};
+```
+
+
+
+#### 中序遍历
+
+如果在每个节点，都先遍历左子树，然后再遍历右子树，那么就能得到一个严格递增的数组
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+    long pre = LONG_MIN;
+public:
+    // 中序遍历
+    // 由于这里的代码时先执行!isValidBST这一步的，所以这里是先沿着左子树一路向下，然后再是右子树
+    // 所以遍历到的值有单调递增的性质
+    // 而全局变量pre维护的就是一路上的最大值，而所有被遍历到的节点，无论是左子树还是右子树都需要比遍历到时的最大值pre大就行了
+    bool isValidBST(TreeNode* root) {
+        if (root == nullptr) {
+            return true;
+        }
+        if (!isValidBST(root->left) || root->val <= pre) return false;
+        pre = root->val;
+        return isValidBST(root->right);
+    }
+};
+```
+
+
+
+#### 后续遍历
+
+在后序遍历中，递归调用发生在处理当前节点之前
+
+
+
+
+
+注意结构化绑定本身是与auto关联紧密的语法特性，如果不使用auto，就不要使用结构化绑定
+
+结构化绑定的用法：`auto[l_min, l_max] = dfs(node->left);`
+
+如果不使用auto和结构化绑定的话，就要使用：
+
+````cpp
+pair<long, long> left_result = dfs(node->left);
+        long l_min = left_result.first;
+        long l_max = left_result.second;
+````
+
+
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+    pair<long, long> dfs(TreeNode* root) {
+        // 注意：碰到空节点返回的是{LONG_MAX, LONG_MIN}
+        if (root == nullptr) return {LONG_MAX, LONG_MIN};
+        auto[l_min, l_max] = dfs(root->left);
+        auto[r_min, r_max] = dfs(root->right);
+        long x = root->val;
+        // 而碰到错误的返回就是{LONG_MIN, LONG_MAX}，这样只要有错，上面的节点就都是错误的
+        if (x <= l_max || x >= r_min) return {LONG_MIN, LONG_MAX};
+        return {min(l_min, x), max(r_max, x)};
+
+    }
+public:
+    bool isValidBST(TreeNode* root) {
+        return dfs(root).second != LONG_MAX;
+    }
+};mo
+```
+
+
+
+前序遍历（Preorder Traversal），中序遍历（Inorder Traversal）和后序遍历（Postorder Traversal）都是二叉树的不同遍历方式，它们的区别在于节点的访问顺序。
+
+1. **前序遍历**：
+
+   - 访问当前节点。
+   - 递归遍历左子树。
+   - 递归遍历右子树。
+
+   用例子来说明，考虑以下二叉树：
+
+   ```
+       1
+      / \
+     2   3
+    / \
+   4   5
+   ```
+
+   前序遍历结果：1 -> 2 -> 4 -> 5 -> 3
+
+2. **中序遍历**：
+
+   - 递归遍历左子树。
+   - 访问当前节点。
+   - 递归遍历右子树。
+
+   用例子来说明，同样的二叉树：
+
+   中序遍历结果：4 -> 2 -> 5 -> 1 -> 3
+
+3. **后序遍历**：
+
+   - 递归遍历左子树。
+   - 递归遍历右子树。
+   - 访问当前节点。
+
+   再次以相同的二叉树为例：
+
+   后序遍历结果：4 -> 5 -> 2 -> 3 -> 1
+
+这三种遍历方式分别描述了在遍历二叉树时访问节点的不同顺序。前序遍历从根节点开始，然后依次遍历左子树和右子树。中序遍历首先遍历左子树，然后访问当前节点，最后遍历右子树。后序遍历首先遍历左子树，然后遍历右子树，最后访问当前节点。
+
+
+
+
+
+### [236. 二叉树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/)
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if (root == nullptr || root == p || root == q) return root;
+        TreeNode* left = lowestCommonAncestor(root->left, p, q);
+        TreeNode* right = lowestCommonAncestor(root->right, p, q);
+        if (left == nullptr) return right;
+        if (right == nullptr) return left; 
+        // 两边都有的情况只能有一种：那就是他们的最近公共祖先
+        return root;
+    }
+};
+```
+
+
+
+### [235. 二叉搜索树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/)
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        // 因为是二叉搜索树，那么没有两个节点会相同的值，并且具有单调性
+        int x = root->val;
+        if (p->val < x && q->val < x) return lowestCommonAncestor(root->left, p, q);
+        if (p->val > x && q->val > x) return lowestCommonAncestor(root->right, p, q);
+        // 如果p和q一个比root大，一个比root小，那么root必定是他们的最近公共祖先，没有例外！
+        return root;
+    }
+};
+```
+
