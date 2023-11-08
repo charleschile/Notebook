@@ -3946,6 +3946,250 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div>
+<h2 id="_19">验证二叉搜索树<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<h3 id="98"><a href="https://leetcode.cn/problems/validate-binary-search-tree/">98. 验证二叉搜索树</a><a class="headerlink" href="#98" title="Permanent link">&para;</a></h3>
+<h4 id="_20">前序遍历<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h4>
+<p>在整个遍历的过程中，先访问节点的值（判断是否符合上面传下来的要求）再递归左右子树的做法叫做前序遍历</p>
+<p>最便捷写法</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Definition for a binary tree node.</span>
+<span class="cm"> * struct TreeNode {</span>
+<span class="cm"> *     int val;</span>
+<span class="cm"> *     TreeNode *left;</span>
+<span class="cm"> *     TreeNode *right;</span>
+<span class="cm"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}</span>
+<span class="cm"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}</span>
+<span class="cm"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}</span>
+<span class="cm"> * };</span>
+<span class="cm"> */</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">isValidBST</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LONG_MIN</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LONG_MAX</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">isValidBST</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">isValidBST</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Definition for a binary tree node.</span>
+<span class="cm"> * struct TreeNode {</span>
+<span class="cm"> *     int val;</span>
+<span class="cm"> *     TreeNode *left;</span>
+<span class="cm"> *     TreeNode *right;</span>
+<span class="cm"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}</span>
+<span class="cm"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}</span>
+<span class="cm"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}</span>
+<span class="cm"> * };</span>
+<span class="cm"> */</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 这个函数维持的是每个节点需要大于的值（left）和需要小于的值（right）</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">        </span><span class="c1">// 因为root的左儿子需要小于root的值，所以更新right</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">isValidBST</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">LONG_MIN</span><span class="p">,</span><span class="w"> </span><span class="n">LONG_MAX</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<h4 id="_21">前序遍历第三种写法<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Definition for a binary tree node.</span>
+<span class="cm"> * struct TreeNode {</span>
+<span class="cm"> *     int val;</span>
+<span class="cm"> *     TreeNode *left;</span>
+<span class="cm"> *     TreeNode *right;</span>
+<span class="cm"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}</span>
+<span class="cm"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}</span>
+<span class="cm"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}</span>
+<span class="cm"> * };</span>
+<span class="cm"> */</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">};</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">            </span><span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="w">            </span><span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">            </span><span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="w">            </span><span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">isValidBST</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<h4 id="_22">中序遍历<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h4>
+<p>如果在每个节点，都先遍历左子树，然后再遍历右子树，那么就能得到一个严格递增的数组</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Definition for a binary tree node.</span>
+<span class="cm"> * struct TreeNode {</span>
+<span class="cm"> *     int val;</span>
+<span class="cm"> *     TreeNode *left;</span>
+<span class="cm"> *     TreeNode *right;</span>
+<span class="cm"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}</span>
+<span class="cm"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}</span>
+<span class="cm"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}</span>
+<span class="cm"> * };</span>
+<span class="cm"> */</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">pre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LONG_MIN</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="c1">// 中序遍历</span>
+<span class="w">    </span><span class="c1">// 由于这里的代码时先执行!isValidBST这一步的，所以这里是先沿着左子树一路向下，然后再是右子树</span>
+<span class="w">    </span><span class="c1">// 所以遍历到的值有单调递增的性质</span>
+<span class="w">    </span><span class="c1">// 而全局变量pre维护的就是一路上的最大值，而所有被遍历到的节点，无论是左子树还是右子树都需要比遍历到时的最大值pre大就行了</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">isValidBST</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">isValidBST</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">pre</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">        </span><span class="n">pre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">isValidBST</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<h4 id="_23">后续遍历<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h4>
+<p>在后序遍历中，递归调用发生在处理当前节点之前</p>
+<p>注意结构化绑定本身是与auto关联紧密的语法特性，如果不使用auto，就不要使用结构化绑定</p>
+<p>结构化绑定的用法：<code>auto[l_min, l_max] = dfs(node-&gt;left);</code></p>
+<p>如果不使用auto和结构化绑定的话，就要使用：</p>
+<div class="highlight"><pre><span></span><code><span class="n">pair</span><span class="o">&lt;</span><span class="kt">long</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">left_result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">l_min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">left_result</span><span class="p">.</span><span class="n">first</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">l_max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">left_result</span><span class="p">.</span><span class="n">second</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Definition for a binary tree node.</span>
+<span class="cm"> * struct TreeNode {</span>
+<span class="cm"> *     int val;</span>
+<span class="cm"> *     TreeNode *left;</span>
+<span class="cm"> *     TreeNode *right;</span>
+<span class="cm"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}</span>
+<span class="cm"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}</span>
+<span class="cm"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}</span>
+<span class="cm"> * };</span>
+<span class="cm"> */</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">long</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 注意：碰到空节点返回的是{LONG_MAX, LONG_MIN}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="n">LONG_MAX</span><span class="p">,</span><span class="w"> </span><span class="n">LONG_MIN</span><span class="p">};</span>
+<span class="w">        </span><span class="k">auto</span><span class="p">[</span><span class="n">l_min</span><span class="p">,</span><span class="w"> </span><span class="n">l_max</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+<span class="w">        </span><span class="k">auto</span><span class="p">[</span><span class="n">r_min</span><span class="p">,</span><span class="w"> </span><span class="n">r_max</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span>
+<span class="w">        </span><span class="c1">// 而碰到错误的返回就是{LONG_MIN, LONG_MAX}，这样只要有错，上面的节点就都是错误的</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">l_max</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">r_min</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="n">LONG_MIN</span><span class="p">,</span><span class="w"> </span><span class="n">LONG_MAX</span><span class="p">};</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="n">min</span><span class="p">(</span><span class="n">l_min</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">r_max</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)};</span>
+
+<span class="w">    </span><span class="p">}</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">isValidBST</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">).</span><span class="n">second</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">LONG_MAX</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span><span class="n">mo</span>
+</code></pre></div>
+<p>前序遍历（Preorder Traversal），中序遍历（Inorder Traversal）和后序遍历（Postorder Traversal）都是二叉树的不同遍历方式，它们的区别在于节点的访问顺序。</p>
+<ol>
+<li>
+<p><strong>前序遍历</strong>：</p>
+</li>
+<li>
+<p>访问当前节点。</p>
+</li>
+<li>递归遍历左子树。</li>
+<li>递归遍历右子树。</li>
+</ol>
+<p>用例子来说明，考虑以下二叉树：</p>
+<div class="highlight"><pre><span></span><code>    1
+   / \
+  2   3
+ / \
+4   5
+</code></pre></div>
+<p>前序遍历结果：1 -&gt; 2 -&gt; 4 -&gt; 5 -&gt; 3</p>
+<ol>
+<li>
+<p><strong>中序遍历</strong>：</p>
+</li>
+<li>
+<p>递归遍历左子树。</p>
+</li>
+<li>访问当前节点。</li>
+<li>递归遍历右子树。</li>
+</ol>
+<p>用例子来说明，同样的二叉树：</p>
+<p>中序遍历结果：4 -&gt; 2 -&gt; 5 -&gt; 1 -&gt; 3</p>
+<ol>
+<li>
+<p><strong>后序遍历</strong>：</p>
+</li>
+<li>
+<p>递归遍历左子树。</p>
+</li>
+<li>递归遍历右子树。</li>
+<li>访问当前节点。</li>
+</ol>
+<p>再次以相同的二叉树为例：</p>
+<p>后序遍历结果：4 -&gt; 5 -&gt; 2 -&gt; 3 -&gt; 1</p>
+<p>这三种遍历方式分别描述了在遍历二叉树时访问节点的不同顺序。前序遍历从根节点开始，然后依次遍历左子树和右子树。中序遍历首先遍历左子树，然后访问当前节点，最后遍历右子树。后序遍历首先遍历左子树，然后遍历右子树，最后访问当前节点。</p>
+<h3 id="236"><a href="https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/">236. 二叉树的最近公共祖先</a><a class="headerlink" href="#236" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Definition for a binary tree node.</span>
+<span class="cm"> * struct TreeNode {</span>
+<span class="cm"> *     int val;</span>
+<span class="cm"> *     TreeNode *left;</span>
+<span class="cm"> *     TreeNode *right;</span>
+<span class="cm"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}</span>
+<span class="cm"> * };</span>
+<span class="cm"> */</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">lowestCommonAncestor</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">q</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">q</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<span class="w">        </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lowestCommonAncestor</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">);</span>
+<span class="w">        </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lowestCommonAncestor</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">left</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">right</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">right</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">left</span><span class="p">;</span><span class="w"> </span>
+<span class="w">        </span><span class="c1">// 两边都有的情况只能有一种：那就是他们的最近公共祖先</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<h3 id="235"><a href="https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/">235. 二叉搜索树的最近公共祖先</a><a class="headerlink" href="#235" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Definition for a binary tree node.</span>
+<span class="cm"> * struct TreeNode {</span>
+<span class="cm"> *     int val;</span>
+<span class="cm"> *     TreeNode *left;</span>
+<span class="cm"> *     TreeNode *right;</span>
+<span class="cm"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}</span>
+<span class="cm"> * };</span>
+<span class="cm"> */</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">lowestCommonAncestor</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">q</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 因为是二叉搜索树，那么没有两个节点会相同的值，并且具有单调性</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">q</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">lowestCommonAncestor</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">q</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">lowestCommonAncestor</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// 如果p和q一个比root大，一个比root小，那么root必定是他们的最近公共祖先，没有例外！</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
 
 
 
