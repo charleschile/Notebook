@@ -572,6 +572,103 @@ public:
         return a;
     }
 };
+
+
+template <typename T>
+class SinglyLinkedList {
+private:
+    class Node {
+    public:
+        T data;
+        Node* next;
+    };
+
+    Node* head;
+    size_t size;
+
+public:
+    // Constructors
+    SinglyLinkedList();
+    SinglyLinkedList(const T& initialData);
+
+    // Other methods
+    void pushFront(const T& value);
+    void popFront();
+    bool isEmpty() const;
+    size_t getSize() const;
+    // Add more methods as needed
+};
+
+template <typename T>
+class SinglyLinkedList {
+private:
+    class Node {
+    public:
+        T data;
+        Node* next;
+        Node(const T& value) : data(value), next(nullptr) {}
+    };
+
+    Node* head;
+    size_t size;
+
+public:
+    // Constructors
+    SinglyLinkedList() : head(nullptr), size(0) {}
+
+    SinglyLinkedList(const T& initialValue) : head(nullptr), size(0) {
+        pushFront(initialValue);
+    }
+
+    // Destructor
+    ~SinglyLinkedList() {
+        while (head) {
+            Node* temp = head;
+            head = head->next;
+            delete temp;
+        }
+    }
+
+    // Public methods
+    void pushFront(const T& value) {
+        Node* newNode = new Node(value);
+        newNode->next = head;
+        head = newNode;
+        size++;
+    }
+
+    void popFront() {
+        if (head) {
+            Node* temp = head;
+            head = head->next;
+            delete temp;
+            size--;
+        }
+    }
+
+    void append(const T& value) {
+        Node* newNode = new Node(value);
+        if (!head) {
+            head = newNode;
+        } else {
+            Node* current = head;
+            while (current->next) {
+                current = current->next;
+            }
+            current->next = newNode;
+        }
+        size++;
+    }
+
+    // Other methods like insert, remove, search, size, print, etc.
+    // ...
+
+    // Getter for size
+    size_t getSize() const {
+        return size;
+    }
+};
+
 ```
 
 
@@ -1426,6 +1523,250 @@ public:
         if (p->val > x && q->val > x) return lowestCommonAncestor(root->right, p, q);
         // 如果p和q一个比root大，一个比root小，那么root必定是他们的最近公共祖先，没有例外！
         return root;
+    }
+};
+```
+
+
+
+## 二叉树的层序遍历
+
+### [102. 二叉树的层序遍历](https://leetcode.cn/problems/binary-tree-level-order-traversal/)
+
+#### 使用普通的vector
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<vector<int>> levelOrder(TreeNode* root) {
+        if (!root) return {};
+        vector<vector<int>> ans;
+        vector<TreeNode*> curr = {root};
+        while (curr.size()) {
+            vector<TreeNode*> nxt;
+            vector<int> vals;
+            for (TreeNode* node : curr) {
+                vals.push_back(node->val);
+                if (node->left) nxt.push_back(node->left);
+                if (node->right) nxt.push_back(node->right);
+            }
+            curr = move(nxt);
+            ans.emplace_back(vals);
+        }
+        return ans;
+
+    }
+};
+```
+
+
+
+#### 使用队列
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<vector<int>> levelOrder(TreeNode* root) {
+        if (root == nullptr) return {};
+        vector<vector<int>> ans;
+        queue<TreeNode*> curr;
+        curr.push(root);
+        while (!curr.empty()) {
+            vector<int> vals;
+            for (int n = curr.size(); n > 0; n--) {
+                auto node = curr.front();
+                curr.pop();
+                vals.push_back(node->val);
+                if (node->left) curr.push(node->left);
+                if (node->right) curr.push(node->right);  
+            }
+            ans.emplace_back(vals);
+        }
+        return ans;
+    }
+    
+};
+```
+
+
+
+
+
+
+
+### [103. 二叉树的锯齿形层序遍历](https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal/)
+
+### 使用vector
+
+注意使用emplace_back()，效率会比push_back()高很多
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+        if (root == nullptr) return {};
+        vector<vector<int>> ans;
+        vector<TreeNode*> curr = {root};
+        for (bool even = false; !curr.empty(); even = !even) {
+            vector<TreeNode*> next;
+            vector<int> vals;
+            for (TreeNode* node : curr) {
+                vals.push_back(node->val);
+                if (node->left) next.push_back(node->left);
+                if (node->right) next.push_back(node->right);
+            }
+            curr = move(next);
+            if (even) reverse(vals.begin(), vals.end());
+            ans.emplace_back(vals);
+        }
+        return ans;
+    }
+};
+```
+
+
+
+#### 使用队列
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+        if (root == nullptr) return {};
+        vector<vector<int>> ans;
+        queue<TreeNode*> curr;
+        curr.push(root);
+        for (bool even = false; !curr.empty(); even = !even) {
+            vector<int> vals;
+            for (int i = curr.size(); i > 0; i--) {
+                TreeNode* node = curr.front();
+                curr.pop();
+                vals.push_back(node->val);
+                if (node->left) curr.push(node->left);
+                if (node->right) curr.push(node->right);
+            }
+            if (even) reverse(vals.begin(), vals.end());
+            ans.emplace_back(vals);
+        }
+        return ans;
+    }
+};
+```
+
+
+
+### [513. 找树左下角的值](https://leetcode.cn/problems/find-bottom-left-tree-value/)
+
+#### 从左到右遍历，然后最后一层的第一个就是
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int findBottomLeftValue(TreeNode* root) {
+        int ans;
+        queue<TreeNode*> curr;
+        curr.push(root);
+        while (!curr.empty()) {
+            ans = curr.front()->val;
+            for (int i = curr.size(); i > 0; i--) {
+                TreeNode* node = curr.front();
+                curr.pop();
+                if (node->left) curr.push(node->left);
+                if (node->right) curr.push(node->right);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+
+
+#### 从右往左遍历
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int findBottomLeftValue(TreeNode* root) {
+        int ans;
+        queue<TreeNode*> curr;
+        curr.push(root);
+        while (!curr.empty()) {
+            ans = curr.front()->val;
+            for (int i = curr.size(); i > 0; i--) {
+                TreeNode* node = curr.front();
+                curr.pop();
+                if (node->left) curr.push(node->left);
+                if (node->right) curr.push(node->right);
+            }
+        }
+        return ans;
     }
 };
 ```
