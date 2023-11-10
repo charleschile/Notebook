@@ -1771,3 +1771,246 @@ public:
 };
 ```
 
+
+
+
+
+## 回溯算法套路1：子集型回归
+
+原问题：构造一个长度为n的字符串
+
+过程：枚举一个字母
+
+子问题：构造一个长度为n-1的字符串
+
+
+
+当子问题和原问题是相似的，这种从原问题到子问题的过程适合用递归解决
+
+回溯有一个增量构造答案的过程，这个过程通常用递归实现
+
+只要将边界条件和非边界条件逻辑写对，就能保证写的算法是对的
+
+
+
+回溯问题的做法：
+
+用一个path数组记录路径上的字母
+
+回溯三问：
+
+1. 当前操作，枚举path[i]要填入的字母
+2. 子问题？构造字符串>= i的部分
+3. 下一个子问题？构造字符串>= i + 1的部分
+
+dfs(i) -> dfs(i + 1)，这里的i的意思是考虑到了>= i 的部分
+
+
+
+### [17. 电话号码的字母组合](https://leetcode.cn/problems/letter-combinations-of-a-phone-number/)
+
+#### acwing写法
+
+```cpp
+class Solution {
+public:
+    vector<string> ans;
+    vector<string> map = {
+        "", "", "abc", "def",
+        "ghi", "jkl", "mno",
+        "pqrs", "tuv", "wxyz"
+    };
+    vector<string> letterCombinations(string digits) {
+        if (digits.empty()) return ans;
+        dfs(digits, 0, "");
+        return ans;
+    }
+    void dfs(string& digits, int n, string path) {
+        if (n == digits.size()) {
+            ans.push_back(path);
+        }
+        else {
+            for (char c : map[digits[n] - '0']) {
+                dfs(digits, n + 1, path + c);
+            }
+        }
+    }
+};
+```
+
+
+
+#### 灵茶山艾府写法
+
+```cpp
+class Solution {
+    string map[10] = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+public:
+    vector<string> letterCombinations(string digits) {
+        int n = digits.length();
+        if (n == 0) return {};
+        vector<string> ans;
+        // 初始化n个字符，然后初始化所有字母为0
+        string path(n, 0);
+        // function<void(int)>表示是一个函数模板
+        // 返回的是void 输入的是int
+        // [&]表示函数内能够调用所有外部变量的引用
+        // int i 表示输入的变量是i
+        function<void(int)> dfs = [&] (int i) {
+            if (i == n) {
+                ans.emplace_back(path);
+                return;
+            }
+            for (char c : map[digits[i] - '0']) {
+                path[i] = c;
+                dfs(i + 1);
+            }
+        };
+        dfs(0);
+        return ans;
+    }
+};
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### [78. 子集](https://leetcode.cn/problems/subsets/)
+
+
+
+#### 将function写在外面，比较麻烦，不推荐
+
+```cpp
+class Solution {
+public:
+    vector<int> path;
+    vector<vector<int>> ans;
+    vector<vector<int>> subsets(vector<int>& nums) {
+        int k = nums.size();
+        dfs(0, k,nums);
+        return ans;
+    }
+    void dfs(int n, int k, vector<int>& nums) {
+        if (n == k) {
+            ans.push_back(path);
+        }
+        else {
+            dfs(n + 1, k, nums);
+            path.push_back(nums[n]);
+            dfs(n + 1, k, nums);
+            path.pop_back();
+        }
+    }
+};
+```
+
+
+
+#### lambda函数，写在里面，推荐
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> subsets(vector<int>& nums) {
+        vector<int> path;
+        vector<vector<int>> ans;
+        int u = nums.size();
+        function<void(int)> dfs = [&] (int i) {
+            if (i == u) {
+                ans.push_back(path);
+                return;
+            }
+            else {
+                dfs(i + 1);
+                path.push_back(nums[i]);
+                dfs(i + 1);
+                path.pop_back();
+            }
+        };
+        dfs(0);
+        return ans;
+    }
+};
+```
+
+
+
+#### 枚举递归
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> subsets(vector<int>& nums) {
+        vector<int> path;
+        vector<vector<int>> ans;
+        int u = nums.size();
+        function<void(int)> dfs = [&] (int i) {
+            ans.push_back(path);
+            if (i == u) {
+                return;
+            }
+            for (int j = i; j < u; j ++) {
+                path.push_back(nums[j]);
+                dfs(j + 1);
+                path.pop_back();
+            }
+            
+        };
+        dfs(0);
+        return ans;
+    }
+};
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
