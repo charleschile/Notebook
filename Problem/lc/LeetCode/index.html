@@ -2265,8 +2265,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    
+  <a href="#58" class="md-nav__link">
+    58. 最后一个单词的长度
   </a>
   
 </li>
@@ -4137,8 +4137,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    
+  <a href="#58" class="md-nav__link">
+    58. 最后一个单词的长度
   </a>
   
 </li>
@@ -5303,8 +5303,22 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div>
-<h3 id="_18"><a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>
+<h3 id="58"><a href="https://leetcode.cn/problems/length-of-last-word/">58. 最后一个单词的长度</a><a class="headerlink" href="#58" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">lengthOfLastWord</span><span class="p">(</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">i</span><span class="o">--</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">word</span><span class="w"> </span><span class="o">++</span><span class="p">;</span>
+<span class="w">            </span><span class="n">i</span><span class="o">--</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">word</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
 </code></pre></div>
 
 
