@@ -1525,11 +1525,26 @@ public:
 
 
 
-### 
+### [58. 最后一个单词的长度](https://leetcode.cn/problems/length-of-last-word/)
 
 
 
 ```cpp
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+        int i = s.size() - 1;
+        while(s[i] == ' ') {
+            i--;
+        }
+        int word = 0;
+        while (i >= 0 && s[i] != ' ') {
+            word ++;
+            i--;
+        }
+        return word;
+    }
+};
 ```
 
 
