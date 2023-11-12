@@ -1988,6 +1988,33 @@ public:
 
 
 
+### [77. 组合](https://leetcode.cn/problems/combinations/)
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> combine(int n, int k) {
+        vector<vector<int>> ans;
+        vector<int> path;
+        function<void(int, int)> dfs = [&] (int start, int curr) {
+            if (curr == k) {
+                ans.emplace_back(path);
+                return;
+            }
+            for (int i = start; i <= n; i++) {
+                path.push_back(i);
+                dfs(i + 1, curr + 1);
+                path.pop_back();
+            }
+        };
+        dfs(1, 0);
+        return ans;
+    }
+};
+```
+
+
+
 
 
 
