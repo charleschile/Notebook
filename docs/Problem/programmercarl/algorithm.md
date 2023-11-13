@@ -1986,9 +1986,41 @@ public:
 
 
 
-
+## 组合型回溯 剪枝
 
 ### [77. 组合](https://leetcode.cn/problems/combinations/)
+
+### 灵茶山艾府做法+剪枝
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> combine(int n, int k) {
+        vector<vector<int>> ans;
+        vector<int> path;
+        function<void(int)> dfs = [&] (int i) {
+            int d = k - path.size(); // d是还需要多少个
+            if (d == 0) {
+                ans.emplace_back(path);
+                return;
+            }
+            for (int j = i; j >= d; j--) {
+                path.push_back(j);
+                dfs(j - 1);
+                path.pop_back();
+            }
+        };
+        dfs(n);
+        return ans;
+    }
+};
+```
+
+
+
+
+
+#### dfs过程中枚举下一个数选哪个
 
 ```cpp
 class Solution {
@@ -2017,6 +2049,66 @@ public:
 
 
 
+#### 选或者不选的做法
+
+
+
+```cpp
+class Solution {
+public:
+void dfs(int u, int curr) {
+
+}
+    vector<vector<int>> combine(int n, int k) {
+        vector<vector<int>> ans;
+        vector<int> path;
+        function<void(int, int)> dfs = [&] (int u, int curr) {
+            if (curr == k) {
+                ans.emplace_back(path);
+                return;
+            }
+            if (u <= n) dfs(u + 1, curr);
+            path.push_back(u);
+            if (u <= n) dfs(u + 1, curr + 1);
+            path.pop_back();
+        };
+        dfs(1, 0);
+        return ans;
+    }
+};
+```
+
+
+
+### [216. 组合总和 III](https://leetcode.cn/problems/combination-sum-iii/)
+
+#### 枚举下个数选哪个
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> combinationSum3(int k, int n) {
+        vector<vector<int>> ans;
+        vector<int> path;
+        function<void(int, int)> dfs = [&] (int i, int t) {
+            int d = k - path.size();
+            if (t < 0 || t > (i + i - d + 1) * d / 2) return;
+            if (d == 0) {
+                ans.emplace_back(path);
+                return;
+            }
+            for (int j = i; j >= d; --j) {
+                path.push_back(j);
+                dfs(j - 1, t - j);
+                path.pop_back();
+            }
+            
+        };
+        dfs(9, n);
+        return ans;
+    }
+};
+```
 
 
 
@@ -2024,16 +2116,81 @@ public:
 
 
 
+#### 选或不选的做法
+
+
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> combinationSum3(int k, int n) {
+        vector<vector<int>> ans;
+        vector<int> path;
+        function<void(int, int)> dfs = [&] (int t, int u) {
+            int d = k - path.size();
+            if (d == 0 && t == 0) {
+                ans.emplace_back(path);
+                return;
+            }
+            // 需要剪枝
+            // 如果target小于0了直接返回
+            // 如果接下来的连续最大的和都达不到target的话，也直接返回
+            if (t < 0 || t > (u + u - d + 1) * d / 2) return;
+            // 使用选择与否来做
+            // 剪枝：如果剩下的个数不足也直接return
+            // 不选择现在这个数
+            // 因为剩下的每个数都选择的话，u现在的最小值是d + 1，所以这里的条件是u>d
+            if (u > d) dfs(t, u - 1);
+            // 选择现在这个数
+            // 而剩下的每个数都选择的话，并且选择现在这个数，那么u最小是d
+            // 如果d>u的话，回漏掉一种情况
+            if (u >= d) {
+                path.push_back(u);
+                t -= u;
+                dfs(t, u - 1);
+                t += u;
+                path.pop_back();
+            }
+        };
+        dfs(n, 9);
+        return ans;
+    }
+};
+```
 
 
 
 
 
+### [22. 括号生成](https://leetcode.cn/problems/generate-parentheses/)
 
-
-
-
-
+```cpp
+class Solution {
+public:
+    vector<string> generateParenthesis(int n) {
+        vector<string> ans;
+        string path;
+        function<void(int, int)> dfs = [&] (int l, int r) {
+            if (l == 0 && r == 0) {
+                ans.emplace_back(path);
+                return;
+            }
+            if (r > l) {
+                path.push_back(')');
+                dfs(l, r - 1);
+                path.pop_back();
+            }
+            if (l > 0) {
+                path.push_back('(');
+                dfs(l - 1, r);
+                path.pop_back();
+            }
+        };
+        dfs(n, n);
+        return ans;
+    }
+};
+```
 
 
 
