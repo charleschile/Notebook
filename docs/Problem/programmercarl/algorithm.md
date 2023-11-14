@@ -137,7 +137,715 @@ public:
 };
 ```
 
-# 灵茶山艾府课程
+
+
+
+
+## 22. 二叉搜索树中的搜索（视频看过）
+
+### [700. 二叉搜索树中的搜索](https://leetcode.cn/problems/search-in-a-binary-search-tree/)
+
+使用递归的关键：递归是需要返回变量的
+
+#### 递归法
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* searchBST(TreeNode* root, int val) {
+        if (root == NULL || root->val == val) return root;
+        TreeNode* res;
+        if (root->val < val) res = searchBST(root->right, val);
+        if (root->val > val) res = searchBST(root->left, val);
+        return res;
+    }
+};
+```
+
+
+
+#### 迭代法
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* searchBST(TreeNode* root, int val) {
+        if (root == NULL) return NULL;
+        while (root) {
+            if (root->val == val) return root;
+            else if (root->val > val) root = root->left;
+            else root = root->right;
+        }
+        return NULL;
+    }
+};
+```
+
+
+
+## 23.验证二叉搜索树（视频看过）
+
+
+
+### [98. 验证二叉搜索树](https://leetcode.cn/problems/validate-binary-search-tree/)
+
+#### 前序遍历(preorder traversal)
+
+在每次递归的时候都是先访问根节点的值，确保根节点符合上面传过来的某种性质，然后再递归左子树和右子树
+
+
+
+注意二叉搜索树中右边的所有的节点都需要大于根节点
+
+比如5，4，6，null,null, 3, 7就是不合法的，因为3虽然比6小，但是需要比5大才行
+
+
+
+所以我的思路是：（需要手动模拟！！！）
+
+在向下的过程中，要维持住上方传递过来的最大值和最小值
+
+在root向左走，max需要不断更新
+
+在root向右走，min需要不断更新
+
+![bst1](bst1.jpg)
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool isValidBST(TreeNode* root) {
+        bool res = dfs(root, LONG_MIN, LONG_MAX);
+        return res;
+    }
+    bool dfs(TreeNode* root, long min, long max) {
+        if (root == NULL) return true;
+        long x = root->val;
+        return x > min && x < max && dfs(root->left, min, x) && dfs(root->right, x, max);
+    }
+};
+```
+
+
+
+#### 中序遍历(inorder traversal)
+
+先遍历左子树，然后访问根节点，然后再遍历右子树
+
+在整个遍历顺序中，根节点的访问总是在其左右子节点之后被访问，所以叫中序遍历 
+
+在二叉搜索树中，如果在每个节点，都先遍历左子树，然后再遍历右子树，那么就能得到一个严格递增的数组
+
+
+
+#### 中序遍历的第一种写法：维护一个数组
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> vec;
+    bool isValidBST(TreeNode* root) {
+        traseversal(root);
+        for (int i = 0; i < vec.size() - 1; i++) {
+            if (vec[i] >= vec[i + 1]) return false;
+        }
+        return true;
+    }
+    void traseversal(TreeNode* root) {
+        if (root == NULL) return;
+        traseversal(root->left);
+        vec.push_back(root->val);
+        traseversal(root->right);
+    }
+};
+```
+
+
+
+#### 中序遍历的第二种写法：维护上一个访问过的值
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+    long pre = LONG_MIN;
+public:
+    bool isValidBST(TreeNode* root) {
+        if (root == NULL) return true;
+        if (!isValidBST(root->left) || root->val <= pre) return false;
+        pre = root->val;
+        return isValidBST(root->right);
+    }
+};
+```
+
+
+
+#### 中序遍历的第三种写法：最直观的写法，并用双指针进行了优化，最推荐的写法！！！
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* pre = NULL;
+    bool isValidBST(TreeNode* root) {
+        if (root == NULL) return true;
+        bool left = isValidBST(root->left);
+        if (pre && pre->val >= root->val) return false;
+        pre = root;
+        bool right = isValidBST(root->right);
+        return left && right;
+    }
+};
+```
+
+
+
+
+
+#### 后序遍历
+
+后序遍历就是先遍历左子树，然后遍历右子树，然后得出一个条件，最后访问根节点，看根节点是否符合这个得出的条件
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    pair<long, long> dfs(TreeNode* root) {
+        if (root == NULL) return {LONG_MAX, LONG_MIN};
+        auto[l_min, l_max] = dfs(root->left);
+        auto[r_min, r_max] = dfs(root->right);
+        if (root->val <= l_max || root->val >= r_min) return {LONG_MIN, LONG_MAX};
+        long x = root->val;
+        return {min(x, l_min), max(x, r_max)};
+    }
+    bool isValidBST(TreeNode* root) {
+        return dfs(root).second != LONG_MAX;
+    }
+};
+```
+
+
+
+
+
+
+
+## 24. 二叉搜索树的最小绝对差（视频看过）
+
+### [530. 二叉搜索树的最小绝对差](https://leetcode.cn/problems/minimum-absolute-difference-in-bst/)
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+    int difference = INT_MAX;
+    TreeNode* pre = NULL;
+public:
+    int getMinimumDifference(TreeNode* root) {
+        traseversal(root);
+        return difference;
+    }
+    void traseversal(TreeNode* root) {
+        if (root == NULL) return;
+        traseversal(root->left);
+        if (pre) {
+            difference = min(difference, root->val - pre->val);
+        } 
+        pre = root;
+        traseversal(root->right);
+        
+    }
+};
+```
+
+
+
+## 25. 二叉搜索树中的众数
+
+### [501. 二叉搜索树中的众数](https://leetcode.cn/problems/find-mode-in-binary-search-tree/)
+
+> 即使是在有重复数字的二叉搜索树中，中序遍历仍然是递增的数组！！！
+
+mode是众数的意思
+
+#### 中序遍历，只遍历一遍二叉搜索树，就求出众数的集合
+
+
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* pre = NULL;
+    int count = 0;
+    int maxCount = 0;
+    vector<int> ans;
+    void searchBST(TreeNode* root) {
+        if (root == NULL) return;
+        searchBST(root->left);
+
+        if (pre == NULL) {
+            count = 1;
+        } else if (pre->val == root->val) {
+            count++;
+        } else {
+            count = 1;
+        }
+
+
+        pre = root;
+
+        
+        if (count == maxCount) {
+            ans.push_back(root->val);
+        }
+
+        if (count > maxCount) {
+            maxCount = count;
+            ans.clear();
+            ans.push_back(root->val);
+        }
+
+        searchBST(root->right);
+    }
+    vector<int> findMode(TreeNode* root) {
+        searchBST(root);
+        return ans;
+    }
+};
+```
+
+
+
+#### 纯暴力，开哈希表记录（注意一下哈希表的语法），不推荐因为是算法题
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+    unordered_map<int, int> hash;
+    int maxCount = 0;
+    vector<int> ans;
+public:
+    vector<int> findMode(TreeNode* root) {
+        dfs(root);
+        for (unordered_map<int, int>::iterator it = hash.begin(); it != hash.end(); it++) {
+            if (it->second == maxCount){
+                ans.push_back(it->first);
+            }
+        }
+        return ans;
+    }
+    void dfs(TreeNode* root) {
+        if (root == NULL) return;
+        maxCount = max(maxCount, ++hash[root->val]);
+        dfs(root->left);
+        dfs(root->right);
+    }
+};
+```
+
+
+
+
+
+
+
+## 26. 二叉树的最近公共祖先
+
+### [236. 二叉树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/)
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        // 假设节点是p，如果q在p的子树中，那么直接返回p
+        // 如果q不在p的子树中，还是需要返回q，使得上面的节点能够同时收到p和q
+        if (root == p || root == q || root == NULL) return root;
+        TreeNode* left = lowestCommonAncestor(root->left, p, q);
+        TreeNode* right = lowestCommonAncestor(root->right, p, q);
+        if (left && right) return root;
+        if (left) return left;
+        if (right) return right;
+        return NULL;
+    }
+};
+```
+
+
+
+
+
+## 28. 二叉搜索树的最近公共祖先
+
+
+
+### [235. 二叉搜索树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/)
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        // 二叉搜索树的公共祖先相较于二叉树的公共祖先多了一个顺序
+        // 可以直接提取p和q的value了
+
+        // 只要p和q在root两边，那么最近公共祖先就必定是root
+        if (p->val < root->val && q->val < root->val) return lowestCommonAncestor(root->left, p, q);
+        if (p->val > root->val && q->val > root->val) return lowestCommonAncestor(root->right, p, q);
+        return root;
+    }
+};
+```
+
+
+
+
+
+## 29. 二叉搜索树中的插入操作
+
+
+
+### [701. 二叉搜索树中的插入操作](https://leetcode.cn/problems/insert-into-a-binary-search-tree/)
+
+注意写法的错误之处：
+
+如果要插在temp->left那里，并且temp->left == NULL
+
+千万不能:
+
+```cpp
+temp = temp->left;
+temp = new TreeNode(val);
+```
+
+这样的话temp->left并没有指向新的节点
+
+而必须要：
+
+```cpp
+temp->left = new TreeNode(val);
+```
+
+
+
+#### 需要掌握的递归写法
+
+而需要一个函数就搞定递归的话，就需要在需要插入的地方返回新建的TreeNode，而在不需要插入的时候返回原来的根节点
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* insertIntoBST(TreeNode* root, int val) {
+        if (root == NULL) return new TreeNode(val);
+        if (root->val < val) root->right = insertIntoBST(root->right, val);
+        if (root->val > val) root->left = insertIntoBST(root->left, val);
+        return root;
+    }
+};
+```
+
+
+
+
+
+#### 最直白的迭代写法，不推荐
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* insertIntoBST(TreeNode* root, int val) {
+        if (root == NULL) return new TreeNode(val);
+        TreeNode* temp = root;
+        TreeNode* parent = root; // 这个很重要，需要记录上一个节点，否则无法赋值新节点
+        while (temp) {
+            parent = temp;
+            if (val > temp->val) temp = temp->right;
+            else temp = temp->left;
+        }
+        if (val > parent->val) parent->right = new TreeNode(val); // 此时是用parent节点的进行赋值
+        else parent->left = new TreeNode(val);
+        return root;
+    }
+};
+```
+
+
+
+
+
+## 30. 删除二叉搜索树中的节点
+
+
+
+### [450. 删除二叉搜索树中的节点](https://leetcode.cn/problems/delete-node-in-a-bst/)
+
+>  对于二叉树中各种操作，返回`TreeNode*`的理解是返回的是下面已经处理好的节点
+>
+> 返回的节点相当于在告诉上面一层：“从我下面开始的东西都已经处理好了！”
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* deleteNode(TreeNode* root, int key) {
+        if (root == NULL) return NULL;
+        if (root->val == key) {
+            if (root->left == NULL && root->right == NULL) {
+                delete root;
+                // 相当于删除了节点，那么这个地方会变成null
+                return NULL;
+            } 
+            else if (root->left == NULL) {
+                TreeNode* returnNode = root->right;
+                delete root;
+                return returnNode;
+            }
+            else if (root->right == NULL) {
+                TreeNode* returnNode = root->left;
+                delete root;
+                return returnNode;
+            }
+            else {
+                // 如果我们要删除一个左右都有儿子的节点（包括根节点）
+                // 我们的策略是返回root->right
+                // 而root->left应该比root->left里面的最小值还要小
+                TreeNode* returnNode = root->right;
+                TreeNode* curr = root->right;
+                while (curr->left != NULL) {
+                    curr = curr->left;
+                }
+                curr->left = root->left;
+                delete root;
+                return returnNode;
+            }
+        }
+        // 如果root并不等于key，那么肯定不能直接返回root
+        // 而是要对root的left和right进行处理一下，处理好了之后才能返回root给上面一层
+        if (root->val > key) root->left = deleteNode(root->left, key);
+        if (root->val < key) root->right = deleteNode(root->right, key);
+
+        return root;
+
+    }
+};
+```
+
+
+
+
+
+
+
+
+
+
+
+## 31. 修剪二叉搜索树
+
+### [669. 修剪二叉搜索树](https://leetcode.cn/problems/trim-a-binary-search-tree/)
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* trimBST(TreeNode* root, int low, int high) {
+        // 假设一个root小于low，那么他的左儿子可以放弃，而右儿子需要被继承
+        // 假设一个root大于high，那么他的右儿子可以放弃，只剩下左儿子
+        // 对于修剪二叉树来说，只要略过那些不需要的子树就行了，并没有对各个节点做什么操作，最后返回的也是根节点的值
+        if (root == NULL) return NULL;
+        if (root->val < low) return trimBST(root->right, low, high);
+        if (root->val > high) return trimBST(root->left, low, high);
+        root->left = trimBST(root->left, low, high);
+        root->right = trimBST(root->right, low, high);
+        return root;
+    }
+};
+```
+
+
+
+
+
+
+
+
+
+## 灵茶山艾府课程
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## 相向双指针
 
@@ -2194,7 +2902,136 @@ public:
 
 
 
+### [301. 删除无效的括号](https://leetcode.cn/problems/remove-invalid-parentheses/)
 
+合法括号序列需要满足的条件：
+
+1. 左右括号数量相同
+2. 括号序列任意一个前缀中左括号数量>=右括号数量
+
+
+
+l表示当前左括号数量比右括号数量多多少个
+
+r表示当前要删掉多少个右括号
+
+循环结束时，l表示要删掉的左括号的数量，r表示要删掉的额右括号的数量
+
+#### acwing写法
+
+```cpp
+class Solution {
+public:
+    vector<string> ans;
+    vector<string> removeInvalidParentheses(string s) {
+        int l = 0, r = 0;
+        for (auto x : s) {
+            if (x == '(') l++;
+            else if (x == ')') {
+                if (l == 0) r++;
+                else l--;
+            }
+        }
+        dfs(s, 0, "", 0, l, r);
+        return ans;
+    }
+    void dfs(string& s, int u, string path, int cnt, int l, int r) {
+        if (u == s.size()) {
+            if (!cnt) ans.push_back(path);
+            return;
+        }
+        if (s[u] != '(' && s[u] != ')') dfs(s, u + 1, path + s[u], cnt, l, r);
+        else if (s[u] == '(') {
+            int k = u;
+            while (k < s.size() && s[k] == '(') k++;
+            l -= k -u;
+            // for-loop里是枚举k-u+1种可能，从k-u个字符全删，到k-u个字符全留。人为规定这种顺序，目的在于剪枝。
+            // 每次dfs()完后，不论有没有有效path，都会回溯到上层dfs()，可理解为恢复现场。
+            for (int i = k - u; i >= 0; i--) {
+                if (l >= 0) dfs(s, k, path, cnt, l, r);
+                path += '(';
+                cnt++, l++;
+            }
+        } else if (s[u] == ')') {
+            int k = u;
+            while (k < s.size() && s[k] == ')') k++;
+            r -= k - u;
+            for (int i = k - u; i >= 0; i--) {
+                if (cnt >= 0 && r >= 0) dfs(s, k, path, cnt, l, r);
+                path += ')';
+                cnt--, r++;
+            }
+        }
+    }
+};
+```
+
+
+
+#### 力扣网友写法（抄的，还没自己实践）
+
+```cpp
+class Solution {
+public:
+    unordered_set<string> unique;
+    vector<string> removeInvalidParentheses(string s) {
+        vector<string> ans;
+        int l = 0; // 左括号需要删除的数量；
+        int r = 0; // 右括号需要删除的数量；
+        for (int i = 0; i < s.size(); i++) {
+            if (s[i] == '(') l++; // 遇到左括号计数；如果有匹配的右括号，可以抵消；
+            // 抵消不了的都是我们需要删除的左括号
+            else if (s[i] == ')') {
+                // 左括号为0；此时遇到右括号一定是匹配不了的，需要删除的
+                if (l == 0) r++;
+                
+                // 匹配掉一个左括号，相当于出栈
+                else l--;
+            }
+            
+        }
+        string t = "";
+        dfs(s, t, 0, l, r, 0, 0);
+        for (auto s : unique) {
+            ans.emplace_back(s);
+        }
+        return ans;
+    }
+    void dfs(string& s, string& t, int i, int l, int r, int lcnt, int rcnt) {
+        if (i == s.size()) {
+            // 递归终点； 用set去重
+            if (l == 0 && r == 0) unique.insert(t);
+            return;
+        }
+        // 跳过左右括号，但剩下需要删除的括号不能小于0
+        if (s[i] == '(' && l > 0) {
+            dfs(s, t, i + 1, l - 1, r, lcnt, rcnt);
+        }
+        if (s[i] == ')' && r > 0) {
+            dfs(s, t, i + 1, l, r - 1, lcnt, rcnt);
+        }
+         // 保留当前字符；可能是括号，也可能是字母
+        t.push_back(s[i]);
+        if (s[i] != '(' && s[i] != ')') {
+            // 如果是字母，不用处理
+            dfs(s, t, i + 1, l, r, lcnt, rcnt);
+        } else if (s[i] == '(') {
+            // 如果是左括号，我们更新左括号的数量
+            dfs(s, t, i + 1, l, r, lcnt + 1, rcnt);
+        } else if (s[i] == ')' && rcnt < lcnt) {
+            // 这一步实际上是把右括号多余的分支剪除； 只有 rcnt < lcnt 我们才有必要继续递归
+            // 避免出现 `)(` 这样的情况
+            dfs(s, t, i + 1, l, r, lcnt, rcnt + 1);
+        }
+        // 恢复现场
+        t.pop_back();
+    }
+};
+```
+
+
+
+ 
 
 
 
