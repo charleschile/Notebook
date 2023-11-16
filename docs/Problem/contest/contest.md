@@ -8,9 +8,28 @@
 
 
 
-## 第 368 场周赛
 
-https://leetcode.cn/contest/weekly-contest-368/
+
+### [2240. 买钢笔和铅笔的方案数](https://leetcode.cn/problems/number-of-ways-to-buy-pens-and-pencils/)
+
+```cpp
+class Solution {
+public:
+    long long waysToBuyPensPencils(int total, int cost1, int cost2) {
+        // 观察到如果cost1变大，那么循环次数就会变小，那么时间复杂度就会降低
+        if (cost1 < cost2) return waysToBuyPensPencils(total, cost2, cost1);
+        long long res = 0;
+        for (int i = 0; i <= total / cost1; i++) {
+            res += (total - cost1 * i) / cost2 + 1;
+        }
+        return res;
+    }
+};
+```
+
+
+
+## 1400-1600
 
 
 

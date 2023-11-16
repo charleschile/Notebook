@@ -1844,17 +1844,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#2240" class="md-nav__link">
+    2240. 买钢笔和铅笔的方案数
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#368" class="md-nav__link">
-    第 368 场周赛
+  <a href="#1400-1600" class="md-nav__link">
+    1400-1600
   </a>
   
-    <nav class="md-nav" aria-label="第 368 场周赛">
+    <nav class="md-nav" aria-label="1400-1600">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3045,17 +3052,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#2240" class="md-nav__link">
+    2240. 买钢笔和铅笔的方案数
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#368" class="md-nav__link">
-    第 368 场周赛
+  <a href="#1400-1600" class="md-nav__link">
+    1400-1600
   </a>
   
-    <nav class="md-nav" aria-label="第 368 场周赛">
+    <nav class="md-nav" aria-label="1400-1600">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3091,8 +3105,21 @@
 <ol>
 <li>在需要递减的循环里没有选择递减比如<code>for (int i = nums.size() - 2; i &gt;= 0; i--)</code>要注意这里的i需要<code>i--</code></li>
 </ol>
-<h2 id="368">第 368 场周赛<a class="headerlink" href="#368" title="Permanent link">&para;</a></h2>
-<p>https://leetcode.cn/contest/weekly-contest-368/</p>
+<h3 id="2240"><a href="https://leetcode.cn/problems/number-of-ways-to-buy-pens-and-pencils/">2240. 买钢笔和铅笔的方案数</a><a class="headerlink" href="#2240" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">waysToBuyPensPencils</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">total</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">cost1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">cost2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 观察到如果cost1变大，那么循环次数就会变小，那么时间复杂度就会降低</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cost1</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">cost2</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">waysToBuyPensPencils</span><span class="p">(</span><span class="n">total</span><span class="p">,</span><span class="w"> </span><span class="n">cost2</span><span class="p">,</span><span class="w"> </span><span class="n">cost1</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">cost1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">res</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="n">total</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">cost1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">cost2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<h2 id="1400-1600">1400-1600<a class="headerlink" href="#1400-1600" title="Permanent link">&para;</a></h2>
 <h3 id="2-2909-ii">2. <a href="https://leetcode.cn/problems/minimum-sum-of-mountain-triplets-ii/">2909. 元素和最小的山形三元组 II</a><a class="headerlink" href="#2-2909-ii" title="Permanent link">&para;</a></h3>
 <p>经典的前后缀分解问题</p>
 <p>观察这道题要求的是，中间的数要大于两边，那么就相当于最关键的是中间这个数，所以枚举这个数即可</p>

@@ -829,7 +829,78 @@ public:
 
 
 
+## 32. 将有序数组转换为二叉搜索树
 
+### [108. 将有序数组转换为二叉搜索树](https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree/)
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* sortedArrayToBST(vector<int>& nums) {
+        TreeNode* res = build(nums, 0, nums.size() - 1);
+        return res;
+    }
+    TreeNode* build(vector<int>& nums, int l, int r) {
+        if (l > r) return NULL;
+        int mid = (l + r) >> 1;
+        TreeNode* root = new TreeNode(nums[mid]);
+        root->left = build(nums, l, mid - 1);
+        root->right = build(nums, mid + 1, r);
+        return root;
+    }
+};
+```
+
+
+
+### [1382. 将二叉搜索树变平衡](https://leetcode.cn/problems/balance-a-binary-search-tree/)
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* balanceBST(TreeNode* root) {
+        vector<int> order;
+        function<void(TreeNode*)> inOrderTras = [&] (TreeNode* root) {
+            if (root == NULL) return;
+            inOrderTras(root->left);
+            order.emplace_back(root->val);
+            inOrderTras(root->right);
+        };
+        inOrderTras(root);
+        function<TreeNode* (int, int)> heightBalance = [&] (int l, int r) -> TreeNode* {
+            if (l > r) return NULL;  
+            int mid = (l + r) >> 1;
+            TreeNode* node = new TreeNode(order[mid]);
+            node->left = heightBalance(l, mid - 1);
+            node->right = heightBalance(mid + 1, r);
+            return node;
+        };
+        return heightBalance(0, order.size() - 1);
+    }
+};
+```
 
 
 
@@ -3031,7 +3102,56 @@ public:
 
 
 
+ ```cpp
+ class Solution {
+ public:
+     TreeNode* balanceBST(TreeNode* root) {
+         if (root == nullptr) return root;
+         root->left = balanceBST(root->left);
+         root->right = balanceBST(root->right);
  
+         // 后序处理逻辑
+         int balanceFactor = getHeight(root->left) - getHeight(root->right);
+         if (balanceFactor > 1){
+             int lblance = getHeight(root->left->left) - getHeight(root->left->right);
+             if (lblance < 0) root->left = leftRotate(root->left);
+             root = rightRotate(root);
+             return balanceBST(root);
+         }else if(balanceFactor < -1){
+             // 检查右子树
+             int rblance = getHeight(root->right->left) - getHeight(root->right->right);
+             if (rblance > 0) root->right = rightRotate(root->right);
+             root = leftRotate(root);
+             return balanceBST(root);
+         }
+         return root;
+     }
+ 
+     TreeNode* leftRotate(TreeNode* root){
+         if (root == nullptr || root->right == nullptr) return root;
+         TreeNode* right = root->right;
+         TreeNode* rightLeft = root->right->left;
+         root->right = rightLeft;
+         right->left = root;
+         return right; 
+     }
+ 
+     TreeNode* rightRotate(TreeNode* root){
+         if (root == nullptr || root->left == nullptr) return root;
+         TreeNode* left = root->left;
+         TreeNode* leftRight = root->left->right;
+         root->left = leftRight;
+         left->right = root;
+         return left;
+     }
+ 
+     int getHeight(TreeNode* root){
+         if (root == nullptr) return 0;
+         return max(getHeight(root->left),getHeight(root->right)) + 1;
+     }
+ };
+ 
+ ```
 
 
 
