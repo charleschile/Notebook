@@ -2106,6 +2106,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    32. 将有序数组转换为二叉搜索树
+  </a>
+  
+    <nav class="md-nav" aria-label="32. 将有序数组转换为二叉搜索树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#108" class="md-nav__link">
+    108. 将有序数组转换为二叉搜索树
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1382" class="md-nav__link">
+    1382. 将二叉搜索树变平衡
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_12" class="md-nav__link">
     灵茶山艾府课程
   </a>
@@ -4418,6 +4445,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    32. 将有序数组转换为二叉搜索树
+  </a>
+  
+    <nav class="md-nav" aria-label="32. 将有序数组转换为二叉搜索树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#108" class="md-nav__link">
+    108. 将有序数组转换为二叉搜索树
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1382" class="md-nav__link">
+    1382. 将二叉搜索树变平衡
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_12" class="md-nav__link">
     灵茶山艾府课程
   </a>
@@ -5818,6 +5872,70 @@
 <span class="w">        </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">trimBST</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">low</span><span class="p">,</span><span class="w"> </span><span class="n">high</span><span class="p">);</span>
 <span class="w">        </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">trimBST</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">low</span><span class="p">,</span><span class="w"> </span><span class="n">high</span><span class="p">);</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<h2 id="32">32. 将有序数组转换为二叉搜索树<a class="headerlink" href="#32" title="Permanent link">&para;</a></h2>
+<h3 id="108"><a href="https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree/">108. 将有序数组转换为二叉搜索树</a><a class="headerlink" href="#108" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Definition for a binary tree node.</span>
+<span class="cm"> * struct TreeNode {</span>
+<span class="cm"> *     int val;</span>
+<span class="cm"> *     TreeNode *left;</span>
+<span class="cm"> *     TreeNode *right;</span>
+<span class="cm"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}</span>
+<span class="cm"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}</span>
+<span class="cm"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}</span>
+<span class="cm"> * };</span>
+<span class="cm"> */</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">sortedArrayToBST</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">build</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">build</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">mid</span><span class="p">]);</span>
+<span class="w">        </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">build</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">build</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<h3 id="1382"><a href="https://leetcode.cn/problems/balance-a-binary-search-tree/">1382. 将二叉搜索树变平衡</a><a class="headerlink" href="#1382" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Definition for a binary tree node.</span>
+<span class="cm"> * struct TreeNode {</span>
+<span class="cm"> *     int val;</span>
+<span class="cm"> *     TreeNode *left;</span>
+<span class="cm"> *     TreeNode *right;</span>
+<span class="cm"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}</span>
+<span class="cm"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}</span>
+<span class="cm"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}</span>
+<span class="cm"> * };</span>
+<span class="cm"> */</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">balanceBST</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">order</span><span class="p">;</span>
+<span class="w">        </span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">inOrderTras</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">]</span><span class="w"> </span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<span class="w">            </span><span class="n">inOrderTras</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+<span class="w">            </span><span class="n">order</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">);</span>
+<span class="w">            </span><span class="n">inOrderTras</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">        </span><span class="n">inOrderTras</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+<span class="w">        </span><span class="n">function</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">heightBalance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">]</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w">  </span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">            </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="n">order</span><span class="p">[</span><span class="n">mid</span><span class="p">]);</span>
+<span class="w">            </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">heightBalance</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">            </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">heightBalance</span><span class="p">(</span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">heightBalance</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div>
@@ -7561,6 +7679,54 @@
 <span class="w">        </span><span class="p">}</span>
 <span class="w">        </span><span class="c1">// 恢复现场</span>
 <span class="w">        </span><span class="n">t</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">balanceBST</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<span class="w">        </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balanceBST</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+<span class="w">        </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balanceBST</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// 后序处理逻辑</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">balanceFactor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getHeight</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">getHeight</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">balanceFactor</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">){</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">lblance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getHeight</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">getHeight</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lblance</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">leftRotate</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+<span class="w">            </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rightRotate</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">balanceBST</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">balanceFactor</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">-1</span><span class="p">){</span>
+<span class="w">            </span><span class="c1">// 检查右子树</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">rblance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getHeight</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">getHeight</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rblance</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rightRotate</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+<span class="w">            </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">leftRotate</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">balanceBST</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">leftRotate</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">){</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<span class="w">        </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
+<span class="w">        </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">rightLeft</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
+<span class="w">        </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rightLeft</span><span class="p">;</span>
+<span class="w">        </span><span class="n">right</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">right</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">rightRotate</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">){</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<span class="w">        </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
+<span class="w">        </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">leftRight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
+<span class="w">        </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">leftRight</span><span class="p">;</span>
+<span class="w">        </span><span class="n">left</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">left</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">getHeight</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">){</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">getHeight</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">),</span><span class="n">getHeight</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div>
