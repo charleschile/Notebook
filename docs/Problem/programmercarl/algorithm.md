@@ -139,6 +139,10 @@ public:
 
 
 
+## 二叉树的递归遍历
+
+### [144. 二叉树的前序遍历](https://leetcode.cn/problems/binary-tree-preorder-traversal/)
+
 
 
 ## 22. 二叉搜索树中的搜索（视频看过）
@@ -2137,7 +2141,8 @@ public:
     // 中序遍历
     // 由于这里的代码时先执行!isValidBST这一步的，所以这里是先沿着左子树一路向下，然后再是右子树
     // 所以遍历到的值有单调递增的性质
-    // 而全局变量pre维护的就是一路上的最大值，而所有被遍历到的节点，无论是左子树还是右子树都需要比遍历到时的最大值pre大就行了
+    // 而全局变量pre维护的就是一路上的最大值，
+    所有被遍历到的节点，无论是左子树还是右子树都需要比遍历到时的最大值pre大就行了
     bool isValidBST(TreeNode* root) {
         if (root == nullptr) {
             return true;
@@ -3152,6 +3157,135 @@ public:
  };
  
  ```
+
+
+
+## 排列行回溯
+
+
+
+### [46. 全排列](https://leetcode.cn/problems/permutations/)
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<vector<int>> ans;
+        vector<int> path(nums.size());
+        vector<bool> mark(nums.size(), false);
+        function<void(int)> dfs = [&] (int i) {
+            if (i == nums.size()) {
+                ans.emplace_back(path);
+                return;
+            }
+            for (int j = 0; j < nums.size(); j++) {
+                if (mark[j] == false) {
+                    path[i] = nums[j];
+                    mark[j] = true;
+                    dfs(i + 1);
+                    mark[j] = false;
+                }
+            }
+        };
+        dfs(0);
+        return ans;
+    }
+};
+```
+
+
+
+### [51. N 皇后](https://leetcode.cn/problems/n-queens/)
+
+
+
+```cpp
+class Solution {
+public:
+    vector<vector<string>> solveNQueens(int n) {
+        // 思考：如何只查询一次就能表示对角线上出现过Q
+        // 左上右下如何对角线如何表示？
+
+        // 以第0行，第2格上放Q为例 (i, j)
+        // 左上右下： j - i + n (这里+n是因为j - i)
+        // 右上左下 j + i
+
+        vector<vector<string>> ans;
+        vector<int> tmp;
+        // 请一定不要忘记使用下面这种string数组的声明方法
+        // vector<string> path(n, string(n, '.'));
+
+        // vector<string> path;
+        // for (int i = 0; i < n; i++ ) {
+        //     for (int j =0;j < n ;j++) {
+        //         path[i][j] ='.';
+        //     }
+        // }
+        vector<string> path(n);
+        for (int i = 0; i < n; i++) {
+                path[i] = string(n, '.');
+        }
+        vector<bool> col(n, false), dg(2 * n, false), udg(2 * n, false);
+        
+        function<void(int)> dfs = [&] (int i) {
+            if (i == n) {
+                ans.emplace_back(path);
+                return;
+            }
+            for (int j = 0; j < n; j++) {
+                if (!col[j] && !dg[j + i] && !udg[j - i + n]) {
+                    path[i][j] = 'Q';
+                    col[j] = dg[j + i] = udg[j - i + n] = true;
+                    dfs(i + 1);
+                    col[j] = dg[j + i] = udg[j - i + n] = false;
+                    path[i][j] = '.';
+                }
+            }
+        };
+        dfs(0);
+        return ans;
+    }
+};
+```
+
+
+
+
+
+### [52. N 皇后 II](https://leetcode.cn/problems/n-queens-ii/)
+
+```cpp
+class Solution {
+public:
+    int totalNQueens(int n) {
+        int total = 0;
+        vector<string> path(n, string(n, '.'));
+        vector<bool> col(2 * n, false), dg(2 * n, false), udg(2 * n, false);
+        function<void(int)> dfs = [&] (int i) {
+            if (i == n) {
+                total++;
+                return;
+            }
+            for (int j = 0; j < n; j++) {
+                if (!col[j] && !dg[i + j] && !udg[i - j + n]) {
+                    path[i][j] = 'Q';
+                    col[j] = dg[i + j] = udg[i - j + n] = true;
+                    dfs(i + 1);
+                    path[i][j] = '.';
+                    col[j] = dg[i + j] = udg[i - j + n] = false; 
+                }
+            }
+
+        };
+        dfs(0);
+        return total;
+    }
+};
+```
+
+
+
+
 
 
 
