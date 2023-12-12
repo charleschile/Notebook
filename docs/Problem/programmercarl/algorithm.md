@@ -908,6 +908,97 @@ public:
 
 
 
+
+
+### [200. 岛屿数量](https://leetcode.cn/problems/number-of-islands/)
+
+#### dfs解法
+
+```cpp
+class Solution {
+private:
+    int dx[4] = {0, 1, 0, -1}, dy[4] = {-1, 0, 1, 0};
+    void dfs(vector<vector<char>>& g, vector<vector<bool>>& visited, int x, int y) {
+        for (int i = 0; i < 4; i++) {
+            int a = x + dx[i];
+            int b = y + dy[i];
+            if (a < 0 || a >= g.size() || b < 0 || b >= g[0].size()) continue;
+            if (!visited[a][b] && g[a][b] == '1') {
+                visited[a][b] = true;
+                dfs(g, visited, a, b);
+            }
+        }
+    }
+public:
+    int numIslands(vector<vector<char>>& grid) {
+        int n = grid.size(), m = grid[0].size();
+        vector<vector<bool>> visited = vector<vector<bool>>(n, vector<bool>(m, false));
+        int result = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (!visited[i][j] && grid[i][j] == '1') {
+                    visited[i][j] = true;
+                    result++;
+                    dfs(grid, visited, i, j);
+                }
+            }
+        }
+        return result;
+    }
+};
+```
+
+
+
+
+
+#### bfs解法
+
+```cpp
+class Solution {
+public:
+    int dx[4] = {0, 1, 0, -1}, dy[4] = {-1, 0, 1, 0};
+    void bfs(vector<vector<char>> & grid, vector<vector<bool>> & visited, int x, int y) {
+        queue<pair<int, int>> que;
+        que.push({x, y});
+        visited[x][y] = true;
+        while (!que.empty()) {
+            pair<int, int> cur = que.front();
+            que.pop();
+            int a = cur.first;
+            int b = cur.second;
+            for (int i = 0; i < 4; i++) {
+                int netx = a + dx[i];
+                int nety = b + dy[i];
+                if (netx < 0 || nety < 0 || netx >= grid.size() || nety >= grid[0].size()) continue;
+                if (!visited[netx][nety] && grid[netx][nety] == '1') {
+                    que.push({netx, nety});
+                    visited[netx][nety] = true;
+                }
+            }
+        }
+    }
+    int numIslands(vector<vector<char>>& grid) {
+        int n = grid.size(), m = grid[0].size();
+        vector<vector<bool>> visited = vector<vector<bool>>(n, vector<bool>(m, false));
+        int result = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (!visited[i][j] && grid[i][j] == '1') {
+                    result++;
+                    bfs(grid, visited, i, j);
+                }
+            }
+        }
+        return result;
+    }
+};
+```
+
+
+
+
+
 ## 灵茶山艾府课程
 
 
