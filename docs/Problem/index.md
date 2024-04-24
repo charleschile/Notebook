@@ -21,13 +21,3 @@
 
 
 ## Table of Contents
-
-- AcWing语法基础课
-    - [第五讲 字符串](Problem/../acwing/语法基础课5.md)
-    - [第六讲 函数](Problem/../acwing/语法基础课6.md)
-    - [第七讲 类、结构体、指针与引用](Problem/../acwing/语法基础课7.md)
-    - [第八讲 STL、位运算与库函数](Problem/../acwing/语法基础课8.md)
-
-
-- AcWing算法基础课
-    - [第一讲 基础算法](acwing/算法基础课基础算法.md)

@@ -70,12 +70,16 @@ nav:
 
   - EECS Course:
     - Course/index.md
+
     - CMU 15445:
-      - Course\15445\1.md
+      - Course/15445/1.md
+
     - ETH Zurich Digital Design and Computer Architecture:
-      - Course\ddca\ddca.md
+      - Course/ddca/ddca.md
+
     - Stanford CS144:
-      - Course\cs144\information.md
+      - Course/cs144/information.md
+
     - C++ Fundamental:
       - Course/cppFundamental/语法基础课1.md
       - Course/cppFundamental/语法基础课5.md
@@ -101,6 +105,7 @@ nav:
       - Course/cs61b/week1.md
       - Course/cs61b/project0.md
       - Course/cs61b/lab1.md
+      - Course/cs61b/week2.md
 
     - C++ Primer:
       - Course/cppPrimer/cppPrimer.md
@@ -118,6 +123,7 @@ nav:
       - Problem/acwing/算法基础课数据结构.md 
       - Problem/acwing/算法基础课搜索与图论.md 
       - Problem/acwing/算法基础课动态规划.md 
+      - Problem/acwing/算法基础课贪心.md
 
     
     - LeetCode:
@@ -149,6 +155,8 @@ nav:
   - Software Development Project:
     - 支付宝前锋营:
       - Project/ant.md
+    - 字节跳动青训营后端:
+      - Project/bytedance/第五届字节跳动青训营后端专场.md
 
 
 
@@ -159,34 +167,40 @@ nav:
   - Tool:
     
     - Tool/index.md
+
     - MkDocs-Material:
       - Tool/mkdocs/MkDocs Material.md
       - Tool/mkdocs/Online personal notebook plan.md
       - Tool/mkdocs/MkDocs美化.md
+
     - MacBook:
       - Tool/mac/remacbook.md
       - Tool/mac/troubleshooting.md
+
     - MIT Missing Semester:
       - Tool/MIT/missing_semester.md
+
     - Systematic review and Meta-analysis:
       - Tool/systematicReview/notes.md
       - Tool/systematicReview/jhu.md
       - Tool/systematicReview/bilibilil.md
+
     - git:
       - Tool/git/git.md
+
     - Vim:
       - Tool/vim/vim.md
+
     - sublime text:
       - Tool/sublime/sublime.md
+
     - Resume:
       - Tool/resume/resume.md
-      - About\mfolder\mklink使用方法.md
 
   - About & Others:
     - About/me.md
     - About/test.md
     - About/interesting.md
-    - About\mfolder\mklink使用方法.md
 
 
 
@@ -219,8 +233,8 @@ markdown_extensions:
       mode: view
   - pymdownx.details
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji 
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       # linenums: true
   - pymdownx.superfences:

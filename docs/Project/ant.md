@@ -149,7 +149,6 @@ CSS里面的盒模型：padding内边距、margin外边距、border边框
 
 console.log() 打印日志出来
 
-![截屏2022-12-17 14.17.58](/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 14.17.58.png)
 
 
 
@@ -410,7 +409,6 @@ viewport移动开发有趣的地方
 
 语义化标签：
 
-![截屏2022-12-17 16.32.31](/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 16.32.31.png)
 
 
 
@@ -435,21 +433,10 @@ input是最常见的表单元素
 
 
 
-![截屏2022-12-17 16.42.04](/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 16.42.04.png)
-
-
-
-![截屏2022-12-17 16.43.30](/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 16.43.30.png)
 
 
 
 
-
-![截屏2022-12-17 16.44.38](/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 16.44.38.png)
-
-
-
-![截屏2022-12-17 16.44.52](/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 16.44.52.png)
 
 
 

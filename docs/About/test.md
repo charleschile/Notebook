@@ -93,3 +93,97 @@ type=2是单曲
     	<p>hello! here is Chi Le</p>
     </div>
   </body>
+
+
+  需要处理的warnings:
+  The following pages exist in the docs directory, but are not included in the "nav" configuration:
+             - Course/15445/1.md
+             - Course/cs144/information.md
+             - Course/cs61b/week2.md
+             - Course/ddca/ddca.md
+             - Problem/acwing/算法基础课贪心.md
+             - Project/bytedance/第五届字节跳动青训营后端专场.md
+WARNING -  A relative path to 'Course\15445\1.md' is included in the 'nav' configuration, which is not found in the documentation files.
+WARNING -  A relative path to 'Course\ddca\ddca.md' is included in the 'nav' configuration, which is not found in the documentation files.
+WARNING -  A relative path to 'Course\cs144\information.md' is included in the 'nav' configuration, which is not found in the documentation files.
+WARNING -  A relative path to 'About\mfolder\mklink使用方法.md' is included in the 'nav' configuration, which is not found in the documentation files.
+WARNING -  A relative path to 'About\mfolder\mklink使用方法.md' is included in the 'nav' configuration, which is not found in the documentation files.
+INFO    -  Doc file 'Course/cs50/CS50 intoduction to computer science.md' contains an absolute link '/Users/lechi/Library/Application Support/typora-user-images/截屏2022-05-20 上午1.45.54.png', it was
+           left as is.
+INFO    -  Doc file 'Course/cs61a/week1.md' contains an absolute link '/Users/charleschile/Library/Application Support/typora-user-images/截屏2023-03-27 16.03.42.png', it was left as is.
+WARNING -  Doc file 'Problem/index.md' contains a relative link 'Problem/../acwing/语法基础课5.md', but the target 'Problem/acwing/语法基础课5.md' is not found among documentation files.
+WARNING -  Doc file 'Problem/index.md' contains a relative link 'Problem/../acwing/语法基础课6.md', but the target 'Problem/acwing/语法基础课6.md' is not found among documentation files.
+WARNING -  Doc file 'Problem/index.md' contains a relative link 'Problem/../acwing/语法基础课7.md', but the target 'Problem/acwing/语法基础课7.md' is not found among documentation files.
+WARNING -  Doc file 'Problem/index.md' contains a relative link 'Problem/../acwing/语法基础课8.md', but the target 'Problem/acwing/语法基础课8.md' is not found among documentation files.
+INFO    -  Doc file 'Project/ant.md' contains an absolute link '/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 14.17.58.png', it was left as is.
+INFO    -  Doc file 'Project/ant.md' contains an absolute link '/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 16.32.31.png', it was left as is.
+INFO    -  Doc file 'Project/ant.md' contains an absolute link '/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 16.42.04.png', it was left as is.
+INFO    -  Doc file 'Project/ant.md' contains an absolute link '/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 16.43.30.png', it was left as is.
+INFO    -  Doc file 'Project/ant.md' contains an absolute link '/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 16.44.38.png', it was left as is.
+INFO    -  Doc file 'Project/ant.md' contains an absolute link '/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 16.44.52.png', it was left as is.
+WARNING -  Path 'Course\15445\1.md' uses OS-specific separator '\'. That will be unsupported in a future release. Please change it to '/'.
+WARNING -  Path 'Course\ddca\ddca.md' uses OS-specific separator '\'. That will be unsupported in a future release. Please change it to '/'.
+WARNING -  Path 'Course\cs144\information.md' uses OS-specific separator '\'. That will be unsupported in a future release. Please change it to '/'.
+WARNING -  Path 'About\mfolder\mklink使用方法.md' uses OS-specific separator '\'. That will be unsupported in a future release. Please change it to '/'.
+INFO    -  Documentation built in 2.45 seconds
+INFO    -  [16:16:19] Watching paths for changes: 'docs', 'mkdocs.yml'
+INFO    -  [16:16:19] Serving on http://127.0.0.1:8000/Notebook/
+INFO    -  [16:16:42] Browser connected: http://127.0.0.1:8000/Notebook/About/me/
+INFO    -  [16:17:17] Detected file changes
+INFO    -  Building documentation...
+INFO    -  The following pages exist in the docs directory, but are not included in the "nav" configuration:
+             - Course/15445/1.md
+             - Course/cs144/information.md
+             - Course/cs61b/week2.md
+             - Course/ddca/ddca.md
+             - Problem/acwing/算法基础课贪心.md
+             - Project/bytedance/第五届字节跳动青训营后端专场.md
+WARNING -  A relative path to 'Course\15445\1.md' is included in the 'nav' configuration, which is not found in the documentation files.
+WARNING -  A relative path to 'Course\ddca\ddca.md' is included in the 'nav' configuration, which is not found in the documentation files.
+WARNING -  A relative path to 'Course\cs144\information.md' is included in the 'nav' configuration, which is not found in the documentation files.
+WARNING -  A relative path to 'About\mfolder\mklink使用方法.md' is included in the 'nav' configuration, which is not found in the documentation files.
+WARNING -  A relative path to 'About\mfolder\mklink使用方法.md' is included in the 'nav' configuration, which is not found in the documentation files.
+INFO    -  Doc file 'Course/cs50/CS50 intoduction to computer science.md' contains an absolute link '/Users/lechi/Library/Application Support/typora-user-images/截屏2022-05-20 上午1.45.54.png', it was
+           left as is.
+INFO    -  Doc file 'Course/cs61a/week1.md' contains an absolute link '/Users/charleschile/Library/Application Support/typora-user-images/截屏2023-03-27 16.03.42.png', it was left as is.
+WARNING -  Doc file 'Problem/index.md' contains a relative link 'Problem/../acwing/语法基础课5.md', but the target 'Problem/acwing/语法基础课5.md' is not found among documentation files.
+WARNING -  Doc file 'Problem/index.md' contains a relative link 'Problem/../acwing/语法基础课6.md', but the target 'Problem/acwing/语法基础课6.md' is not found among documentation files.
+WARNING -  Doc file 'Problem/index.md' contains a relative link 'Problem/../acwing/语法基础课7.md', but the target 'Problem/acwing/语法基础课7.md' is not found among documentation files.
+WARNING -  Doc file 'Problem/index.md' contains a relative link 'Problem/../acwing/语法基础课8.md', but the target 'Problem/acwing/语法基础课8.md' is not found among documentation files.
+INFO    -  Doc file 'Project/ant.md' contains an absolute link '/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 14.17.58.png', it was left as is.
+INFO    -  Doc file 'Project/ant.md' contains an absolute link '/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 16.32.31.png', it was left as is.
+INFO    -  Doc file 'Project/ant.md' contains an absolute link '/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 16.42.04.png', it was left as is.
+INFO    -  Doc file 'Project/ant.md' contains an absolute link '/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 16.43.30.png', it was left as is.
+INFO    -  Doc file 'Project/ant.md' contains an absolute link '/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 16.44.38.png', it was left as is.
+INFO    -  Doc file 'Project/ant.md' contains an absolute link '/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 16.44.52.png', it was left as is.
+INFO    -  Documentation built in 2.37 seconds
+INFO    -  [16:17:19] Reloading browsers
+INFO    -  [16:17:19] Browser connected: http://127.0.0.1:8000/Notebook/About/me/
+INFO    -  [16:17:21] Detected file changes
+INFO    -  Building documentation...
+INFO    -  The following pages exist in the docs directory, but are not included in the "nav" configuration:
+             - Course/15445/1.md
+             - Course/cs144/information.md
+             - Course/cs61b/week2.md
+             - Course/ddca/ddca.md
+             - Problem/acwing/算法基础课贪心.md
+             - Project/bytedance/第五届字节跳动青训营后端专场.md
+WARNING -  A relative path to 'Course\15445\1.md' is included in the 'nav' configuration, which is not found in the documentation files.
+WARNING -  A relative path to 'Course\ddca\ddca.md' is included in the 'nav' configuration, which is not found in the documentation files.
+WARNING -  A relative path to 'Course\cs144\information.md' is included in the 'nav' configuration, which is not found in the documentation files.
+WARNING -  A relative path to 'About\mfolder\mklink使用方法.md' is included in the 'nav' configuration, which is not found in the documentation files.
+WARNING -  A relative path to 'About\mfolder\mklink使用方法.md' is included in the 'nav' configuration, which is not found in the documentation files.
+INFO    -  Doc file 'Course/cs50/CS50 intoduction to computer science.md' contains an absolute link '/Users/lechi/Library/Application Support/typora-user-images/截屏2022-05-20 上午1.45.54.png', it was
+           left as is.
+INFO    -  Doc file 'Course/cs61a/week1.md' contains an absolute link '/Users/charleschile/Library/Application Support/typora-user-images/截屏2023-03-27 16.03.42.png', it was left as is.
+WARNING -  Doc file 'Problem/index.md' contains a relative link 'Problem/../acwing/语法基础课5.md', but the target 'Problem/acwing/语法基础课5.md' is not found among documentation files.
+WARNING -  Doc file 'Problem/index.md' contains a relative link 'Problem/../acwing/语法基础课6.md', but the target 'Problem/acwing/语法基础课6.md' is not found among documentation files.
+WARNING -  Doc file 'Problem/index.md' contains a relative link 'Problem/../acwing/语法基础课7.md', but the target 'Problem/acwing/语法基础课7.md' is not found among documentation files.
+WARNING -  Doc file 'Problem/index.md' contains a relative link 'Problem/../acwing/语法基础课8.md', but the target 'Problem/acwing/语法基础课8.md' is not found among documentation files.
+INFO    -  Doc file 'Project/ant.md' contains an absolute link '/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 14.17.58.png', it was left as is.
+INFO    -  Doc file 'Project/ant.md' contains an absolute link '/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 16.32.31.png', it was left as is.
+INFO    -  Doc file 'Project/ant.md' contains an absolute link '/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 16.42.04.png', it was left as is.
+INFO    -  Doc file 'Project/ant.md' contains an absolute link '/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 16.43.30.png', it was left as is.
+INFO    -  Doc file 'Project/ant.md' contains an absolute link '/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 16.44.38.png', it was left as is.
+INFO    -  Doc file 'Project/ant.md' contains an absolute link '/Users/lechi/Library/Application Support/typora-user-images/截屏2022-12-17 16.44.52.png', it was left as is.
+INFO    -  Documentation built in 2.41 seconds

@@ -2084,7 +2084,7 @@ int fibo(int n)
 
 再比如：Collatz conjecture
 
-![截屏2022-05-20 上午1.45.54](/Users/lechi/Library/Application Support/typora-user-images/截屏2022-05-20 上午1.45.54.png)
+
 
 ```c
 int collatz(int n);

@@ -431,7 +431,6 @@ we have seen three kinds of statements already: assignment, `def`, and `return` 
 
 A statement is executed by the interpreter to perform an action
 
-![截屏2023-03-27 16.03.42](/Users/charleschile/Library/Application Support/typora-user-images/截屏2023-03-27 16.03.42.png)
 
 
 
