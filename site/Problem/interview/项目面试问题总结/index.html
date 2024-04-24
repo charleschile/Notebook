@@ -12,7 +12,7 @@
         <meta name="author" content="乐驰">
       
       
-        <link rel="canonical" href="https://charleschile.github.io/Notebook/Problem/interview/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E9%A1%B9%E7%9B%AE%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">
+        <link rel="canonical" href="https://charleschile.github.io/Notebook/Problem/interview/%E9%A1%B9%E7%9B%AE%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">
       
       
         <link rel="prev" href="../%E9%9D%A2%E8%AF%95%E7%AE%97%E6%B3%95%E5%87%86%E5%A4%87/">
@@ -26,7 +26,7 @@
     
     
       
-        <title>苍穹外卖项目面试问题总结 - Charles Le's Notebook</title>
+        <title>项目面试问题总结 - Charles Le's Notebook</title>
       
     
     
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              苍穹外卖项目面试问题总结
+              项目面试问题总结
             
           </span>
         </div>
@@ -2293,7 +2293,7 @@
           
   
   <span class="md-ellipsis">
-    苍穹外卖项目面试问题总结
+    项目面试问题总结
   </span>
   
 
@@ -2304,7 +2304,7 @@
         
   
   <span class="md-ellipsis">
-    苍穹外卖项目面试问题总结
+    项目面试问题总结
   </span>
   
 
@@ -3702,7 +3702,7 @@
                   
 
 
-  <h1>苍穹外卖项目面试问题总结</h1>
+  <h1>项目面试问题总结</h1>
 
 <p>垃圾回收器</p>
 <h3 id="redis">redis<a class="headerlink" href="#redis" title="Permanent link">&para;</a></h3>
@@ -3822,7 +3822,7 @@
 <li>
 <p><font color="#FF8000"><b>在你的项目中 redis 作为缓存, MySQL 的数据如何与 redis 进行同步呢？</b></font></p>
 </li>
-<li>苍穹外卖这个项目中用户在查看客服状态和店铺状态时，需要让数据库与 redis 高度保持一致，因为如果店铺没有营业的话就不能点单了，所以它要求时效性比较高，所以采用的读写锁保证的强一致性。我们采用的是 redisson 实现的读写锁，在读的时候添加共享锁，可以保证读读不互斥，读写互斥。当我们更新数据的时候，添加排他锁，它是读写，读读都互斥，这样就能保证在写数据的同时是不会让其他线程读数据的，避免了脏数据。这里面需要注意的是读方法和写方法上需要使用同一把锁才行。</li>
+<li>这个项目中用户在查看客服状态和店铺状态时，需要让数据库与 redis 高度保持一致，因为如果店铺没有营业的话就不能点单了，所以它要求时效性比较高，所以采用的读写锁保证的强一致性。我们采用的是 redisson 实现的读写锁，在读的时候添加共享锁，可以保证读读不互斥，读写互斥。当我们更新数据的时候，添加排他锁，它是读写，读读都互斥，这样就能保证在写数据的同时是不会让其他线程读数据的，避免了脏数据。这里面需要注意的是读方法和写方法上需要使用同一把锁才行。</li>
 <li>商品的更新使用延迟双删，如果是写操作，我们先把缓存中的数据删除，然后更新数据库，最后再延时删除缓存中的数据</li>
 <li>
 <p>其中这个延时多久不太好确定，在延时的过程中可能会出现脏数据，并不能保证强一致性，所以没有采用它。</p>
@@ -4311,7 +4311,7 @@
 <li>-<font color="#FF8000"><b> Swagger 作用</b></font></li>
 <li>定义：Swagger 是一个用于设计、构建和文档化 RESTful Web 服务的工具集。</li>
 <li>作用：用来在后端生成接口文档，辅助前端测试。使用 Swagger 只需要按照它的规范定义接口以及接口的相关信息，就可以做到生成接口文档，以及在线接口调试页面。</li>
-<li>Knife 4 j 是 Swagger 的一个增强工具，是基于 Swagger 构建的一款功能强大的文档工具。它提供了一系列注解，用于增强对 API 文档的描述和可视化展示。如在苍穹外卖项目中常用的 Knife 4 j 注解介绍：<ul>
+<li>Knife 4 j 是 Swagger 的一个增强工具，是基于 Swagger 构建的一款功能强大的文档工具。它提供了一系列注解，用于增强对 API 文档的描述和可视化展示。如在项目中常用的 Knife 4 j 注解介绍：<ul>
 <li>@Api ：用于对 Controller 类进行说明和描述，可以指定 Controller 的名称、描述、标签等信息。</li>
 </ul>
 </li>
@@ -4372,7 +4372,7 @@
 <li>
 <p><font color="#FF8000"><b>spring task 处理定时任务</b></font>
    Spring Task（Spring 任务调度）是 Spring 框架提供的一种任务调度框架，用于执行定时任务、异步任务、任务监听、任务调度等。
-    在苍穹外卖项目中使用 Spring task 用来执行定时任务查看有没有已经派送结束的订单但状态没有更改为已完成，在第二天的固定时间统一调用该定时任务去更改需要调整的订单状态。</p>
+    在项目中使用 Spring task 用来执行定时任务查看有没有已经派送结束的订单但状态没有更改为已完成，在第二天的固定时间统一调用该定时任务去更改需要调整的订单状态。</p>
 </li>
 </ul>
 <h3 id="_4">备用<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
