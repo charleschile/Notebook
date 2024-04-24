@@ -120,8 +120,9 @@ nav:
       - Problem/acwing/算法基础课动态规划.md 
 
     
-    - LeetCode 从头刷:
+    - LeetCode:
       - Problem/lc/LeetCode.md
+      - Problem/lc/Leetcode hot 100.md
     
 
     - 代码随想录:
