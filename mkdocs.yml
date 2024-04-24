@@ -126,9 +126,11 @@ nav:
 
     - 代码随想录:
       - Problem/programmercarl/algorithm.md
+      - Problem/programmercarl/代码随想录.md
 
     - 周赛:
-      - Problem\contest\contest.md
+      - Problem/contest/contest.md
+
     - 洛谷题单:
       - 入门1 顺序结构:
         -  Problem/luogu/入门1顺序结构.md
@@ -139,6 +141,8 @@ nav:
     - 面试相关:
       - Problem/interview/快速面试准备.md
       - Problem/interview/javaguide常考内容.md
+      - Problem/interview/笔试练习.md
+      - Problem/interview/面试算法准备.md
 
   - Software Development Project:
     - 支付宝前锋营:
