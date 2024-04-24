@@ -136,6 +136,10 @@ nav:
     - 一些技巧:
       - Problem/skill/skills.md
 
+    - 面试相关:
+      - Problem/interview/快速面试准备.md
+      - Problem/interview/javaguide常考内容.md
+
   - Software Development Project:
     - 支付宝前锋营:
       - Project/ant.md
