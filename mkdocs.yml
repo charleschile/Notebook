@@ -54,7 +54,7 @@ theme:
 repo_url: https://charleschile.github.io/ # 右上角点击跳转的链接
 repo_name: charleschile/Notebook # 右上角的名字
 ## [bottom-left corner]
-copyright: Copyright &copy; 2023 乐驰 # 左下角的版权声明
+copyright: Copyright &copy; 2024 乐驰 # 左下角的版权声明
 ## [bottom-right corner]
 
 extra:
