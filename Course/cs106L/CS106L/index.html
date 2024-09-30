@@ -648,11 +648,62 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#types-and-structs" class="md-nav__link">
+  <a href="#lecture2-types-and-structs" class="md-nav__link">
     <span class="md-ellipsis">
-      types and structs
+      lecture2 types and structs
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="lecture2 types and structs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-overloading" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 overloading
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-structs" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 structs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-stdpair" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 std::pair
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-type-deduction-with-auto-auto" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 type deduction with auto 类型自动推倒auto
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3632,11 +3683,62 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#types-and-structs" class="md-nav__link">
+  <a href="#lecture2-types-and-structs" class="md-nav__link">
     <span class="md-ellipsis">
-      types and structs
+      lecture2 types and structs
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="lecture2 types and structs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-overloading" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 overloading
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-structs" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 structs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-stdpair" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 std::pair
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-type-deduction-with-auto-auto" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 type deduction with auto 类型自动推倒auto
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3675,10 +3777,11 @@
 <li>don't sacrifice performance except as a last resort</li>
 <li>enforce safety at compile time whenever possible</li>
 </ol>
-<h3 id="types-and-structs">types and structs<a class="headerlink" href="#types-and-structs" title="Permanent link">&para;</a></h3>
+<h3 id="lecture2-types-and-structs">lecture2 types and structs<a class="headerlink" href="#lecture2-types-and-structs" title="Permanent link">&para;</a></h3>
 <p><code>using namespace std;</code> is not good style</p>
 <p>STL - standard template library</p>
 <p>Namespace for the STL is std</p>
+<h4 id="21-types">2.1 types<a class="headerlink" href="#21-types" title="Permanent link">&para;</a></h4>
 <p>C++ fundamental types:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="c1">//32 bits</span>
@@ -3691,6 +3794,63 @@
 <p>C++ is a statically typed language, everything with a name(variables, functions, etc) is given a type before runtime</p>
 <p>dynamically typed: everything with a name is given a type at runtim based on the thing's current value</p>
 <p><img alt="compile vs interpreted" src="../../../pics/compile%20vs%20interpreted.png" /></p>
+<p>If the type is wrong, Python crash during runtime, but C++ compile error and the code will never run</p>
+<h4 id="22-overloading">2.2 overloading<a class="headerlink" href="#22-overloading" title="Permanent link">&para;</a></h4>
+<p>overloading: defien two functions with the same name but different types.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">half</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">divisor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">divisor</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">half</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">half</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="c1">// uses version (1), returns 2</span>
+<span class="n">half</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">// uses version (1), returns 1</span>
+<span class="n">half</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span><span class="w"> </span><span class="c1">// uses version (2), returns 1.5</span>
+</code></pre></div>
+<h4 id="23-structs">2.3 structs<a class="headerlink" href="#23-structs" title="Permanent link">&para;</a></h4>
+<p>Two methods of initializing a struct.</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Student</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">state</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">printStudentInfo</span><span class="p">(</span><span class="n">Student</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">state</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">age</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Student</span><span class="w"> </span><span class="n">s1</span><span class="p">;</span>
+<span class="w">    </span><span class="n">s1</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Charles&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">s1</span><span class="p">.</span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Zhejiang&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">s1</span><span class="p">.</span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">24</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printStudentInfo</span><span class="p">(</span><span class="n">s1</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">Student</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;Chi Le&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Suzhou&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">22</span><span class="p">};</span>
+<span class="w">    </span><span class="n">printStudentInfo</span><span class="p">(</span><span class="n">s2</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="24-stdpair">2.4 std::pair<a class="headerlink" href="#24-stdpair" title="Permanent link">&para;</a></h4>
+<p><code>std::pair</code> is an STL build-in struct with two fields of any type.</p>
+<p><code>std::pair</code> is a <strong>template</strong>, you specify the types of the fields inside &lt;&gt; for each pair object you make</p>
+<p>The fields in <code>std::pair</code> s are named <strong>first</strong> and <strong>second</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span><span class="w"> </span><span class="n">Student</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lookupStudent</span><span class="p">(</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Student</span><span class="w"> </span><span class="n">blank</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">notFound</span><span class="p">(</span><span class="n">name</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_pair</span><span class="p">(</span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="n">blank</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Student</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getStudentWithName</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_pair</span><span class="p">(</span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span><span class="w"> </span><span class="n">Student</span><span class="o">&gt;</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lookupStudent</span><span class="p">(</span><span class="err">“</span><span class="n">Julie</span><span class="err">”</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="25-type-deduction-with-auto-auto">2.5 type deduction with <code>auto</code> 类型自动推倒auto<a class="headerlink" href="#25-type-deduction-with-auto-auto" title="Permanent link">&para;</a></h4>
+<p>the type of a variant is deduced by the compiler</p>
+<p>Note:
+<div class="highlight"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// char* -&gt; it is a C string</span>
+</code></pre></div></p>
 
 
 
