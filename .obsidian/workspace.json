@@ -1,0 +1,199 @@
+{
+  "main": {
+    "id": "7d945ec81bbf26c3",
+    "type": "split",
+    "children": [
+      {
+        "id": "2bc933419d22b265",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "801c9951c4a161d2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/Course/cs106L/CS106L.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "006aee17f41a50d8",
+    "type": "split",
+    "children": [
+      {
+        "id": "4c7f4cc4ab276468",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "35b0b71fd6b8fdd2",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "eff3d2b24727ec1c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "895ef630a2e1e58c",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "33bc2eed7ae71dc2",
+    "type": "split",
+    "children": [
+      {
+        "id": "4601ef28e74d506b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "34395e142f6d24de",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "docs/Course/cs106L/CS106L.md",
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "2fe84bc7ae100d5b",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "docs/Course/cs106L/CS106L.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "5571014f5ce3ec02",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "5ec24af0114700db",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "docs/Course/cs106L/CS106L.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "801c9951c4a161d2",
+  "lastOpenFiles": [
+    "docs/Course/cs144/information.md",
+    "docs/Course/cs106L/CS106L.md",
+    "docs/Course/cs106L",
+    "docs/Course/未命名.md",
+    "docs/Course/cs106B",
+    "docs/Course/cs61b/project0.md",
+    "docs/Course/cs61b/lab1.md",
+    "docs/Course/cs61b/information.md",
+    "docs/Course/cs61a/week1.md",
+    "docs/Course/cs61a/information.md",
+    "docs/Course/cs50/CS50 intoduction to computer science.md",
+    "docs/Course/cppPrimer/cppPrimer.md",
+    "docs/Course/cppFundamental/语法基础课5.md",
+    "docs/Course/cppFundamental/语法基础课1.md",
+    "docs/Course/15445/15445面试问题.md",
+    "开发日记9.15.md",
+    "开源项目/matrixone 开发全记录.md",
+    "global variable和 embedding的测试.md",
+    "开源项目/embedding开发关键.md",
+    "数学/线性代数.md",
+    "TODO.md",
+    "问题.md",
+    "encode decode测试.md",
+    "创业/键盘.md",
+    "开源项目/rocketmq.md",
+    "开源项目/matrix.md",
+    "开源项目/go 项目建立运行.md",
+    "开源项目/开源项目收集.md",
+    "pics/Pasted image 20240824174239.png",
+    "pics/Pasted image 20240824174220.png",
+    "pics/Pasted image 20240824174155.png",
+    "pics/Pasted image 20240824173802.png",
+    "pics/Pasted image 20240824172937.png",
+    "数学",
+    "mit6.824/mapreduce.pdf",
+    "未命名 1",
+    "未命名/000_坚果云闪电下载介绍.url.nssyncsc",
+    "新加坡面试",
+    "ddia",
+    "pics/Pasted image 20240812161735.png",
+    "pics/Pasted image 20240812161721.png",
+    "pics/Pasted image 20240812150848.png",
+    "pics/Pasted image 20240812145729.png",
+    "pics/example.txt",
+    "pics/Pasted image 20240806021034.png",
+    "美团实习/医药串讲.pdf"
+  ]
+}
