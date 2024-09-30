@@ -1,6 +1,6 @@
 {
   "defaultViewMode": "source",
-  "attachmentFolderPath": "/pics",
+  "attachmentFolderPath": "docs/pics",
   "promptDelete": false,
   "livePreview": true,
   "autoConvertHtml": false

@@ -11,8 +11,12 @@
             "id": "8a7b7c174139aa42",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "docs/Course/cs106L/CS106L.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "docs/Course/cs106L/CS106L.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "docs/Course/cs106L/CS106L.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "docs/Course/cs106L/CS106L.md"
+              }
             }
           }
         ],
@@ -141,8 +149,9 @@
   },
   "active": "8a7b7c174139aa42",
   "lastOpenFiles": [
-    "Pasted image 20240930133219.png",
+    "docs/pics/Pasted image 20240930133424.png",
     "docs/Course/cs106L/CS106L.md",
+    "Pasted image 20240930133219.png",
     "docs/pics/徽章.png",
     "docs/Course/cs106L/CS106L~.md",
     "docs/Course/cs144/information.md",
@@ -183,7 +192,6 @@
     "ddia",
     "pics/Pasted image 20240812161735.png",
     "pics/Pasted image 20240812161721.png",
-    "pics/Pasted image 20240812150848.png",
     "pics/example.txt",
     "美团实习/医药串讲.pdf"
   ]
