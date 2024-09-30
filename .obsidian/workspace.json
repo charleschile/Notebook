@@ -147,8 +147,10 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "8a7b7c174139aa42",
+  "active": "35b0b71fd6b8fdd2",
   "lastOpenFiles": [
+    "docs/pics/compile vs interpreted.png",
+    "docs/pics/截屏2024-09-30 16.17.58.png",
     "docs/pics/Pasted image 20240930133424.png",
     "docs/Course/cs106L/CS106L.md",
     "Pasted image 20240930133219.png",
@@ -191,7 +193,6 @@
     "新加坡面试",
     "ddia",
     "pics/Pasted image 20240812161735.png",
-    "pics/Pasted image 20240812161721.png",
     "pics/example.txt",
     "美团实习/医药串讲.pdf"
   ]
