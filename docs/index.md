@@ -58,7 +58,7 @@
       <p>
         <b>Contact Me:</b>
         <ul>
-        <li><a href="230919cv.pdf">CV</a></li>
+        <li><a href="LeChi resume.pdf">CV</a></li>
         <li><a href="乐驰中文简历.pdf">中文简历</a></li>
         <li><a href="https://github.com/charleschile">Github</a></li>
         <li><a href="mailto:charles.chi.le@outlook.com">Email</a></li>
