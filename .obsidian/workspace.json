@@ -4,19 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "7b89187f83fc00bb",
+        "id": "361cf8f9662e4256",
         "type": "tabs",
         "children": [
           {
-            "id": "8a7b7c174139aa42",
+            "id": "b22d628a0ce532e0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/Course/cs106L/CS106L.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "README"
             }
           }
         ]
@@ -39,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
             }
           },
           {
@@ -54,7 +58,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
             }
           },
           {
@@ -62,7 +68,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
             }
           }
         ]
@@ -85,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "docs/Course/cs106L/CS106L.md",
+                "file": "README.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -93,7 +101,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "README 的反向链接列表"
             }
           },
           {
@@ -102,10 +112,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "docs/Course/cs106L/CS106L.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "README 的出链列表"
             }
           },
           {
@@ -116,7 +128,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
             }
           },
           {
@@ -125,8 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "docs/Course/cs106L/CS106L.md"
-              }
+                "file": "README.md"
+              },
+              "icon": "lucide-list",
+              "title": "README 的大纲"
             }
           }
         ],
@@ -149,6 +165,7 @@
   },
   "active": "35b0b71fd6b8fdd2",
   "lastOpenFiles": [
+    "docs/Course/cs106L/CS106L.md",
     "site/search/search_index.json",
     "site/search",
     "site/Tool/vim/vim/index.html",
@@ -159,7 +176,6 @@
     "site/Tool/sublime/sublime/index.html",
     "site/Tool/resume/resume/index.html",
     "site/Tool/mkdocs/Online personal notebook plan/index.html",
-    "site/Tool/mkdocs/MkDocs美化/index.html",
     "site/assets/images/favicon.png",
     "site/pics/徽章.png",
     "site/pics/compile vs interpreted.png",
@@ -170,7 +186,6 @@
     "site/Course/dukeC/scope.png",
     "site/Course/dukeC/function.png",
     "site/Course/dukeC/frame.png",
-    "docs/Course/cs106L/CS106L.md",
     "docs/Course/cs106L/CS106L~.md",
     "docs/Course/cs144/information.md",
     "docs/Course/未命名.md",
