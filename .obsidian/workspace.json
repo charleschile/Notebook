@@ -11,14 +11,12 @@
             "id": "b22d628a0ce532e0",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
+                "file": "site/Course/dukeC/frame.png"
               },
-              "icon": "lucide-file",
-              "title": "README"
+              "icon": "lucide-image",
+              "title": "frame"
             }
           }
         ]
@@ -77,7 +75,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 363.5
   },
   "right": {
     "id": "33bc2eed7ae71dc2",
@@ -93,7 +91,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "site/Course/dukeC/frame.png",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +101,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "README 的反向链接列表"
+              "title": "frame 的反向链接列表"
             }
           },
           {
@@ -112,12 +110,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "site/Course/dukeC/frame.png",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "README 的出链列表"
+              "title": "frame 的出链列表"
             }
           },
           {
@@ -139,10 +137,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "site/Course/dukeC/frame.png"
               },
               "icon": "lucide-list",
-              "title": "README 的大纲"
+              "title": "frame 的大纲"
             }
           }
         ],
@@ -163,8 +161,10 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "35b0b71fd6b8fdd2",
+  "active": "b22d628a0ce532e0",
   "lastOpenFiles": [
+    "docs/Problem/luogu/入门1顺序结构.md",
+    "README.md",
     "docs/Course/cs106L/CS106L.md",
     "site/search/search_index.json",
     "site/search",
@@ -208,7 +208,6 @@
     "问题.md",
     "encode decode测试.md",
     "创业/键盘.md",
-    "开源项目/rocketmq.md",
-    "开源项目/matrix.md"
+    "开源项目/rocketmq.md"
   ]
 }
