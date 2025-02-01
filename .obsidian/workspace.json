@@ -18,8 +18,21 @@
               "icon": "lucide-image",
               "title": "frame"
             }
+          },
+          {
+            "id": "1c30c2f59bdea6ff",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.8.4"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.8.4"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -50,7 +63,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "47.100",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -71,7 +84,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -161,7 +175,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "b22d628a0ce532e0",
+  "active": "1c30c2f59bdea6ff",
   "lastOpenFiles": [
     "docs/Problem/luogu/入门1顺序结构.md",
     "README.md",
