@@ -51,7 +51,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "文件列表"
@@ -63,7 +64,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "47.100",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -84,8 +85,7 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -175,7 +175,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "1c30c2f59bdea6ff",
+  "active": "35b0b71fd6b8fdd2",
   "lastOpenFiles": [
     "docs/Problem/luogu/入门1顺序结构.md",
     "README.md",
