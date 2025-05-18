@@ -51,28 +51,25 @@
       </p>
       <p>
         For future career interests, I am particularly interested in backend software engineering.
-
-        
-        
       </p>
       <p>
-        <b>Contact Me:</b>
+        <font size="4"><b>Professional Experiences</b></font>
         <ul>
+        <li><b>2025.05 - 2025.09:</b> SDE Intern @ <a href="https://lifeattiktok.com/culture?recruitment_id_list=&job_category_id_list=&subject_id_list=&location_code_list=&keyword=&limit=12&offset=0">TikTok</a> - Global E-Commerce Team</li>
+        <li><b>2024.05 - 2024.08:</b> SDE Intern @ <a href="https://www.meituan.com/">MeiTuan</a> - Advertising Engine Team</li>
+        <li><b>2024.03 - 2024.08:</b> SDE Intern & Open Source Contributor @ <a href="https://www.matrixorigin.io/">Matrix Origin</a> - Database Kernel Team</li>
+        </ul>
+      </p>
+      <p>
+        <font size="4"><b>Contact Me</b></font>
+        <ul>
+        <li><a href="https://www.linkedin.com/in/chi-charles-le/">LinkedIn</a></li>
         <li><a href="LeChi resume.pdf">CV</a></li>
         <li><a href="乐驰中文简历.pdf">中文简历</a></li>
         <li><a href="https://github.com/charleschile">Github</a></li>
         <li><a href="mailto:charles.chi.le@outlook.com">Email</a></li>
         </ul>
       </p>
-      <p>
-        <b>Professional Experiences:</b>
-        <ul>
-        <li>Incoming Backend Software Development Engineer Intern @ <a href="https://www.meituan.com/">MeiTuan</a> - Food Delivery Advertising Engine Team & Advertising Basic Retrieval Team</li>
-        </ul>
-      </p>
-      
-      
+
     </div>
   </body>
-
-  
